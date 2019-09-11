@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/signup', function () {
+    return view('signup');
+});
+
+Route::get('/mailverification', function () {
+    return view('mailverification');
+});
+
+Route::get('/step', function () {
+    return view('step');
+});
+
+Route::get('/done', function () {
+    return view('done');
+});
