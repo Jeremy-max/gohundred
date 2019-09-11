@@ -10930,3 +10930,8 @@ header.masthead h1 {
 .call-to-action{
   background-color: #38b6ff;
 }
+
+.entry-content li{
+  font-size: smaller;
+  font-weight: 600;
+}

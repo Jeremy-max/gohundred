@@ -65,7 +65,7 @@
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <h5 class="text-white font-weight-bold">We empower you to keep tabs on your compertitors</h5>
+          <h5 class="text-white font-weight-bold">We empower you to keep tabs on your brand and competitors</h5>
           <!-- <p class="text-white-75 font-weight-light mb-5">We empower you to keep tabs on your compertitors</p> -->
           <a class="btn btn-primary btn-xl js-scroll-trigger mt-2" href="#about">Get me Started</a>
         </div>
@@ -107,7 +107,7 @@
       <div class="row">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fa-4x fab fa-internet-explorer text-primary mb-4"></i>
+            <i class="fa-4x fab fa-chrome text-primary mb-4"></i>
             <p class="text-muted mb-0">Monitor the web for new competitors based  on a keywords</p>
           </div>
         </div>
@@ -134,7 +134,7 @@
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-4x fa-less-than-equal text-primary mb-4"></i>
-            <p class="text-muted mb-0">Compare keyword rankings between your brand and your comopetitors</p>
+            <p class="text-muted mb-0">Compare keyword rankings between your brand and your competitors</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 text-center">
@@ -166,15 +166,15 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Monitor<strong>&nbsp;2</strong> Competitors</li>
-              <li>Mentions on your Brand</li>
+              <li>Monitor<strong>&nbsp;2&nbsp;</strong> Competitors</li>
+              <li>Mentions on your Brand<br>(1k mentions/month)</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
               <li>Data analysis</li>
               <li>Social media reach</li>
-              <li>Excel file export</li>
-              <li>24-hour chat support</li>
+              <li class="border-0">&nbsp;</li>
+              <li>&nbsp;</li>
             </ul>
           </div>
           <div class="btn">
@@ -186,7 +186,7 @@
       <!--price tab-->
       <div class="plan basic">
         <div class="plan-inner">
-          <div class="hot">hot</div>
+          <div class="hot">popular</div>
           <div class="entry-title">
             <h3>Lite Plan</h3>
             <div class="price">€19<span></span>
@@ -195,7 +195,7 @@
           <div class="entry-content">
             <ul>
               <li>Add <strong>&nbsp;5&nbsp;</strong> Competitors to your free plan</li>
-              <li>Mentions on your Brand</li>
+              <li>Mentions on your Brand<br>(20k mentions/month)</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
@@ -221,8 +221,8 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Add<strong>&nbsp;20</strong>Competitors to your free plan</li>
-              <li>Mentions on your Brand</li>
+              <li>Add<strong>&nbsp;20&nbsp;</strong>Competitors to your free plan</li>
+              <li>Mentions on your Brand<br>(50k mentions/month)</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
@@ -248,8 +248,8 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Add<strong>&nbsp;100</strong>Competitors to your free plan</li>
-              <li>Mentions on your Brand</li>
+              <li>Add<strong>&nbsp;100&nbsp;</strong>Competitors to your free plan</li>
+              <li>Mentions on your Brand<br>(200k mentions/month)</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
@@ -284,7 +284,7 @@
           <div class="testimonial">
             <!--Avatar-->
             <div class="avatar mx-auto">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" class="rounded-circle z-depth-1 img-fluid">
+              <img src="../img/sam.jpg" class="rounded-circle z-depth-1 img-fluid">
             </div>
             <!--Content-->
             <h4 class="font-weight-bold dark-grey-text mt-4">Sam</h4>
