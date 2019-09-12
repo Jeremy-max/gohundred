@@ -91,7 +91,7 @@
             <div class="col-lg-5 text-left mt-3">
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today for free</p>
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">We don't spam your inbox</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get all information in your Slack &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;channel</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get all information in your Slack channel</p>
             </div>
           </div>
           <a class="btn btn-light btn-xl js-scroll-trigger mt-5" href="/step">Get Me Started!</a>
