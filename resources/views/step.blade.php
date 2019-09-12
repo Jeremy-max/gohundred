@@ -96,9 +96,9 @@
                                         <p class="h6 ">Choose your preferred channel to get notifications and information from GoHundred</p>
                                     </div>
                                     <div class="text-center">
-                                        <a class = "social" href="#">Slack intergration</a>
+                                        <a class = "social" href="/done">Slack intergration</a>
                                         <p>or</p>
-                                        <a class = "social" href="#">Email notifications</a>
+                                        <a class = "social" href="/done">Email notifications</a>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
 
 
     <!-- Main JS-->
-    <!-- <script src="/js/global.js"></script> -->
+    <script src="/js/global.js"></script>
 
 </body>
 

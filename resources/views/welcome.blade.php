@@ -67,7 +67,7 @@
         <div class="col-lg-8 align-self-baseline">
           <h5 class="text-white font-weight-bold">We empower you to keep tabs on your brand and competitors</h5>
           <!-- <p class="text-white-75 font-weight-light mb-5">We empower you to keep tabs on your compertitors</p> -->
-          <a class="btn btn-primary btn-xl js-scroll-trigger mt-2" href="#about">Get me Started</a>
+          <a class="btn btn-primary btn-xl js-scroll-trigger mt-2" href="/step">Get me Started</a>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@
               <h4 class="text-white-75">Get all information in your Slack channel</p>
             </div>
           </div>
-          <a class="btn btn-light btn-xl js-scroll-trigger mt-5" href="#services">Get Me Started!</a>
+          <a class="btn btn-light btn-xl js-scroll-trigger mt-5" href="/step">Get Me Started!</a>
         </div>
       </div>
     </div>
@@ -178,7 +178,7 @@
             </ul>
           </div>
           <div class="btn">
-            <a href="#">Get me started</a>
+            <a href="/step">Get me started</a>
           </div>
         </div>
       </div>
@@ -206,7 +206,7 @@
             </ul>
           </div>
           <div class="btn">
-            <a href="#">Get me started</a>
+            <a href="/step">Get me started</a>
           </div>
         </div>
       </div>
@@ -233,7 +233,7 @@
             </ul>
           </div>
           <div class="btn">
-            <a href="#">Get me started</a>
+            <a href="/step">Get me started</a>
           </div>
         </div>
       </div>
@@ -259,7 +259,7 @@
               <li>24-hour chat support</li>
           </div>
           <div class="btn">
-            <a href="#">Get me started</a>
+            <a href="/step">Get me started</a>
           </div>
         </div>
       </div>
@@ -366,7 +366,7 @@
  <!-- Call to Action Section -->
   <section class="page-section text-white call-to-action">
     <div class="container text-center">
-      <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Get me started</a>
+      <a class="btn btn-light btn-xl" href="/step">Get me started</a>
     </div>
   </section>
 
