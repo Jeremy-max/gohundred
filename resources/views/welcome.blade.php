@@ -49,7 +49,7 @@
             <a class="nav-link js-scroll-trigger" href="/signup">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Log in</a>
+            <a class="nav-link js-scroll-trigger" href="/signin">Log in</a>
           </li>
         </ul>
       </div>
