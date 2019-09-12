@@ -46,7 +46,7 @@
             <a class="nav-link js-scroll-trigger" href="#services">Plans</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Sign Up</a>
+            <a class="nav-link js-scroll-trigger" href="/signup">Sign Up</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Log in</a>
@@ -154,7 +154,7 @@
   </section>
 
   <!-- Portfolio Section -->
-  <section id="price">
+  <section id="services">
     <div id="price">
       <!--price tab-->
       <div class="plan">
