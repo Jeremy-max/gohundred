@@ -10600,8 +10600,8 @@ hr.light {
 
 #mainNav {
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  background-color: #fff;
+  box-shadow: none;
+  /*background-color: #fff;*/
   -webkit-transition: background-color 0.2s ease;
   transition: background-color 0.2s ease;
 }
@@ -10941,7 +10941,7 @@ header.masthead h1 {
   margin-right: 1.5rem;
 }
 
-#mainNav
+.navbar-scrolled
 {
-  background-color: #38b6ff!important;
+  background-color: #68d1ff!important;
 }
