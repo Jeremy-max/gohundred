@@ -10935,3 +10935,8 @@ header.masthead h1 {
   font-size: smaller;
   font-weight: 600;
 }
+
+.heart{
+  width: 1.5rem;
+  margin-right: 1.5rem;
+}

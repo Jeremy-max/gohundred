@@ -82,15 +82,16 @@
           <hr class="divider light my-4">
           <div class="row">
             <div class="col-lg-7 text-left mt-3">
-              <h4 class="text-white-75">Get a head start with your business</p>
-              <h4 class="text-white-75">Monitor your brand</p>
-              <h4 class="text-white-75">Monitor competitors</p>
-              <h4 class="text-white-75">Compare yourself to competitors</p>
+              
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get a head start with your business</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Monitor your brand</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Monitor competitors</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Compare yourself to competitors</p>
             </div>
             <div class="col-lg-5 text-left mt-3">
-              <h4 class="text-white-75">Start today for free</p>
-              <h4 class="text-white-75">We don't spam your inbox</p>
-              <h4 class="text-white-75">Get all information in your Slack channel</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today for free</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">We don't spam your inbox</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get all information in your Slack &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;channel</p>
             </div>
           </div>
           <a class="btn btn-light btn-xl js-scroll-trigger mt-5" href="/step">Get Me Started!</a>
@@ -342,7 +343,7 @@
             <h4 class="font-weight-bold dark-grey-text mt-4">Tommy</h4>
             <h6 class="font-weight-bold blue-text my-3">Marketer</h6>
             <p class="font-weight-normal dark-grey-text">
-              <i class="fas fa-quote-left pr-2"></i>As a marketer in a large enterprise I will definitely reconnend GoHundred to other companies.</p>
+              <i class="fas fa-quote-left pr-2"></i>As a marketer in a large enterprise I will definitely recommend GoHundred to other companies.</p>
             <!--Review-->
             <div class="orange-text">
               <i class="fas fa-star"> </i>
