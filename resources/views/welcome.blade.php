@@ -109,7 +109,7 @@
         <div class="col-lg-3 col-md-6 text-center">
           <div class="mt-5">
             <i class="fa-4x fab fa-chrome text-primary mb-4"></i>
-            <p class="text-muted mb-0">Monitor the web for new competitors based  on a keywords</p>
+            <p class="text-muted mb-0">Monitor the web for new competitors based  on keywords</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
