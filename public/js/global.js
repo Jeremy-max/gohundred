@@ -3,7 +3,18 @@
 
     /*[ Wizard Config ]
         ===========================================================*/
+    $("#brand").click(function () {
+        $("#link-tab2").click()
     
+    });
+    $("#Competition").click(function () {
+        $("#link-tab2").click()
+    
+    });
+    $("#Topic").click(function () {
+        $("#link-tab2").click()
+    
+    });
     try {
         var $validator = $("#js-wizard-form").validate({
             rules: {

@@ -65,7 +65,7 @@
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <h5 class="text-white font-weight-bold">We empower you to keep tabs on your brand and competitors</h5>
+          <h5 class="text-white font-weight-bold">We empower you to keep tabs on your brand,competitors and trending topics.</h5>
           <!-- <p class="text-white-75 font-weight-light mb-5">We empower you to keep tabs on your compertitors</p> -->
           <a class="btn btn-primary btn-xl js-scroll-trigger mt-2" href="/step">Get me Started</a>
         </div>
@@ -81,17 +81,17 @@
           <h1 class="text-white mt-0">Why GoHundred?</h2>
           <hr class="divider light my-4">
           <div class="row">
-            <div class="col-lg-7 text-left mt-3">
+            <div class="text-left mt-3">
               
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get a head start with your business</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Monitor your brand</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Monitor competitors</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Compare yourself to competitors</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Stay on top of your game</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Find out what people says about your brand,trending topics or your competitors</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today with the 14-day free trial.No credit card required</p>
+              <!-- <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Compare yourself to competitors</p>
             </div>
             <div class="col-lg-5 text-left mt-3">
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today for free</p>
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">We don't spam your inbox</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get all information in your Slack channel</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get all information in your Slack channel</p> -->
             </div>
           </div>
           <a class="btn btn-light btn-xl js-scroll-trigger mt-5" href="/step">Get Me Started</a>
@@ -105,49 +105,37 @@
     <div class="container">
       <h2 class="text-center mt-0">Features - What You Can Do</h2>
       <hr class="divider my-4">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fa-4x fab fa-chrome text-primary mb-4"></i>
-            <p class="text-muted mb-0">Monitor the web for new competitors based  on keywords</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fa-4x fab fa-facebook text-primary mb-4"></i>
-            <p class="text-muted mb-0">Monitor competitors' social media channels</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fa-4x fab fa-google text-primary mb-4"></i>
-            <p class="text-muted mb-0">Monitor competitors' SEO changes and Google Ads</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fa-4x fab fa-searchengin text-primary mb-4"></i>
-            <p class="text-muted mb-0">Monitor mentions about your brand anywhere and on your competitors websites and blogs</p>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-5">
+      <div class="row col-lg-10 offset-1 col-10">
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fas fa-4x fa-less-than-equal text-primary mb-4"></i>
-            <p class="text-muted mb-0">Compare keyword rankings between your brand and your competitors</p>
+            <i class="fa-4x fab fa-searchengin text-primary mb-4"></i>
+            <p class="text-muted mb-0">Keep tabs on campaigns</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fa-4x far fa-newspaper text-primary mb-4"></i>
+            <p class="text-muted mb-0">Get real data on what people say about your brand,trending topics or your competitors</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fab fa-4x fa-slack text-primary mb-4"></i>
-            <p class="text-muted mb-0">Get all updates via Slack</p>
+            <p class="text-muted mb-0">Slack integration</p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 text-center">
+      </div>
+      <div class="row col-lg-10 offset-1 col-10 ">
+        <div class="col-lg-6 col-md-6 text-center">
           <div class="mt-5">
             <i class="fa-4x far fa-file-excel text-primary mb-4"></i>
-            <p class="text-muted mb-0">Export all data to excel</p>
+            <p class="text-muted mb-0">Excel file export</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fa-4x far fa-comments text-primary mb-4"></i>
+            <p class="text-muted mb-0">24-hour chat support</p>
           </div>
         </div>
       </div>
@@ -161,21 +149,19 @@
       <div class="plan">
         <div class="plan-inner">
           <div class="entry-title">
-            <h3>Free Plan</h3>
-            <div class="price">€0<span></span>
+            <h3>Personal Plan</h3>
+            <div class="price">9€<span></span>
             </div>
           </div>
           <div class="entry-content">
             <ul>
-              <li>Monitor<strong>&nbsp;2&nbsp;</strong> Competitors</li>
-              <li>Mentions on your Brand<br>(1k mentions/month)</li>
+              <li>Keep tabs on <strong>&nbsp;3&nbsp;</strong> campaigns</li>
+              <li>Get<strong>&nbsp;1</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
-              <li>Data analysis</li>
-              <li>Social media reach</li>
-              <li class="border-0">&nbsp;</li>
-              <li>&nbsp;</li>
+              <li>Excel file export</li>
+              <li>24-hour chat support</li>
             </ul>
           </div>
           <div class="btn">
@@ -195,13 +181,11 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Add <strong>&nbsp;5&nbsp;</strong> Competitors to your free plan</li>
-              <li>Mentions on your Brand<br>(20k mentions/month)</li>
+              <li>Keep tabs on <strong>&nbsp;10&nbsp;</strong> campaigns</li>
+              <li>Get<strong>&nbsp;20</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
-              <li>Data analysis</li>
-              <li>Social media reach</li>
               <li>Excel file export</li>
               <li>24-hour chat support</li>
             </ul>
@@ -217,18 +201,16 @@
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Medium Plan</h3>
-            <div class="price">€39<span></span>
+            <div class="price">€49<span></span>
             </div>
           </div>
           <div class="entry-content">
             <ul>
-              <li>Add<strong>&nbsp;20&nbsp;</strong>Competitors to your free plan</li>
-              <li>Mentions on your Brand<br>(50k mentions/month)</li>
+              <li>Keep tabs on <strong>&nbsp;50&nbsp;</strong> campaigns</li>
+              <li>Get<strong>&nbsp;50</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
-              <li>Data analysis</li>
-              <li>Social media reach</li>
               <li>Excel file export</li>
               <li>24-hour chat support</li>
             </ul>
@@ -244,20 +226,19 @@
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Bold Plan</h3>
-            <div class="price">€89<span></span>
+            <div class="price">€149<span></span>
             </div>
           </div>
           <div class="entry-content">
             <ul>
-              <li>Add<strong>&nbsp;100&nbsp;</strong>Competitors to your free plan</li>
-              <li>Mentions on your Brand<br>(200k mentions/month)</li>
+              <li>Keep tabs on <strong>&nbsp;unlimited&nbsp;</strong> campaigns</li>
+              <li>Get<strong>&nbsp;1</strong>min data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
-              <li>Data analysis</li>
-              <li>Social media reach</li>
               <li>Excel file export</li>
               <li>24-hour chat support</li>
+            </ul>
           </div>
           <div class="btn">
             <a href="/step">Get me started</a>

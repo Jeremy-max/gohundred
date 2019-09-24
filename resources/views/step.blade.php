@@ -30,19 +30,19 @@
         <div class="wrapper ">
             <div class="card card-1">
                 <div class="card-heading">
-                    <h2 class="title">Let's set up everything for you</h2>
+                    <h2 class="title">Let's get you started with monitoring campaigns</h2>
                 </div>
                 <div class="card-body">
                     <form class="wizard-container" method="POST" action="#" id="js-wizard-form">
                         <ul class="tab-list">
                             <li class="tab-list__item active">
-                                <a class="tab-list__link" href="#tab1" data-toggle="tab">
+                                <a class="tab-list__link" href="#tab1" id="link-tab1" data-toggle="tab">
                                     <span class="step">1</span>
                                     <span class="desc">step</span>
                                 </a>
                             </li>
                             <li class="tab-list__item">
-                                <a class="tab-list__link" href="#tab2" data-toggle="tab">
+                                <a class="tab-list__link" href="#tab2" id="link-tab2" data-toggle="tab">
                                     <span class="step">2</span>
                                     <span class="desc">step</span>
                                 </a>
@@ -57,35 +57,33 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
                                 <div class="form">
-                                    <div class="input-group">
-                                        <p class="h6">To find mentions of your brand<br>Add your domain, your location and social media profiles</p>
+                                    <div class="text-center">
+                                        <p class="h3 text-center">Choose your type of campaign(You can always add more later)</p>
                                     </div>
-                                    <div class="input-group mt-3">
-                                        <input class="input--style-1" type="text" name="useDomain" placeholder="YOUR DOMAIN---(www.example.com)" required autofocus>
-                                        <input class="input--style-1 mt-2" type="text" name="userLocation" placeholder="LOCATION---(USA)" required="required">
-                                        <input class="input--style-1 mt-2" type="text" name="userFacebook" placeholder="FACEBOOK---(www.facebook.com/username)" required="required">
-                                        <input class="input--style-1 mt-2" type="text" name="userTwitter" placeholder="TWITTER---(www.twitter.com/username)" required="required">
-                                    </div>
-                                    <div class="input-group mt-2">
-                                        <input class="input--style-1" type="text" name="userinstagram" placeholder="INSTAGRAM---(www.instagram.com/username)" required="required">
-                                        <a class="btn--next" href="#">next step</a>
+                                    <div class="text-center mt-3">
+                                        <a class = "social " href="#" id="brand"><strong>Brand</strong></a>
+                                        <p>Find out who talks about your brand</p>
+                                        <a class = "social " href="#" id="Competition"><strong>Competition</strong></a>
+                                        <p>Figure out what your competitors are up to</p>
+                                        <a class = "social  " href="#" id="Topic"><strong>Topic</strong></a>
+                                        <p>Get instant news on topics related to your bisiness</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab2">
                                 <div class="form">
                                     <div class="input-group">
-                                        <p class="h6">To monitor your competitors add their domain and social media profiles and keywords to find new competitors.<br>You can add 2 competitors on the free plan</p>
+                                        <p class="h6">Type the name of the brand,company or topic that you wish to keep your eyes on</p>
                                     </div>
                                     <div class="input-group mt-3">
-                                        <input class="input--style-1" type="text" name="cpt-Domain" placeholder="DOMAIN---(www.example.com)" required="required">
+                                        <input class="input--style-1" type="text" name="cpt-Domain" placeholder="Keyword" required="required"><!-- 
                                         <input class="input--style-1 mt-2" type="text" name="cpt-Facebook" placeholder="FACEBOOK---(www.facebook.com/username)" required="required">
                                         <input class="input--style-1 mt-2" type="text" name="cpt-Twitter" placeholder="TWITTER---(www.twitter.com/username)" required="required"> 
-                                        <input class="input--style-1 mt-2" type="text" name="cpt-instagram" placeholder="INSTAGRAM---(www.instagram.com/username)" required="required">
+                                        <input class="input--style-1 mt-2" type="text" name="cpt-instagram" placeholder="INSTAGRAM---(www.instagram.com/username)" required="required"> -->
                                     </div>
                                     <div class="input-group mt-2">                                
 
-                                        <input class="input--style-1" type="text" name="keyword" placeholder="Keyword" required="required">
+                                        <input class="input--style-1" type="text" name="keyword" placeholder="Domain" required="required">
                                         <a class="btn--next" href="#">next step</a>
                                     </div>
                                 </div>
