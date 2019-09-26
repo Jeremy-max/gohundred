@@ -272,7 +272,7 @@
             <h4 class="font-weight-bold dark-grey-text mt-4">Sam</h4>
             <h6 class="font-weight-bold blue-text my-3">Brand Manager</h6>
             <p class="font-weight-normal dark-grey-text">
-              <i class="fas fa-quote-left pr-2"></i>GoHundred has made staying ahead of competitors easier.</p>
+              <i class="fas fa-quote-left pr-2"></i>GoHundred has made staying ahead in our industry.When you know what is going on,it is easier to make fact-based decisions.</p>
             <!--Review-->
             <div class="orange-text">
               <i class="fas fa-star"> </i>
@@ -298,7 +298,7 @@
             <h4 class="font-weight-bold dark-grey-text mt-4">Marie</h4>
             <h6 class="font-weight-bold blue-text my-3">COO</h6>
             <p class="font-weight-normal dark-grey-text">
-              <i class="fas fa-quote-left pr-2"></i>Before GoHundred we would just google and spend hours on finding new competitors.</p>
+              <i class="fas fa-quote-left pr-2"></i>Before GoHundred we would just browse and spend hours finding this data.Now we can save precious time and do what we really want:to grow our company</p>
             <!--Review-->
             <div class="orange-text">
               <i class="fas fa-star"> </i>
