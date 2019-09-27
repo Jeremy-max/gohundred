@@ -61,11 +61,11 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Welcome to GoHundred!</h1>
+          <h1 class="text-uppercase text-white font-weight-bold">Welcome to GoHundred</h1>
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <h5 class="text-white font-weight-bold">We empower you to keep tabs on your brand,competitors and trending topics.</h5>
+          <h5 class="text-white font-weight-bold">We empower you to keep tabs on your brand, competitors and trending topics.</h5>
           <!-- <p class="text-white-75 font-weight-light mb-5">We empower you to keep tabs on your compertitors</p> -->
           <a class="btn btn-primary btn-xl js-scroll-trigger mt-2" href="/step">Get me Started</a>
         </div>
@@ -85,7 +85,7 @@
               
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Stay on top of your game</p>
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Find out what people says about your brand,trending topics or your competitors</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today with the 14-day free trial.No credit card required</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today with the 14-day free trial. No credit card required</p>
               <!-- <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Compare yourself to competitors</p>
             </div>
             <div class="col-lg-5 text-left mt-3">
@@ -272,7 +272,7 @@
             <h4 class="font-weight-bold dark-grey-text mt-4">Sam</h4>
             <h6 class="font-weight-bold blue-text my-3">Brand Manager</h6>
             <p class="font-weight-normal dark-grey-text">
-              <i class="fas fa-quote-left pr-2"></i>GoHundred has made staying ahead in our industry.When you know what is going on,it is easier to make fact-based decisions.</p>
+              <i class="fas fa-quote-left pr-2"></i>GoHundred has made staying ahead in our industry easier. When you know what is going on,it is easier to make fact-based decisions.</p>
             <!--Review-->
             <div class="orange-text">
               <i class="fas fa-star"> </i>
@@ -298,7 +298,7 @@
             <h4 class="font-weight-bold dark-grey-text mt-4">Marie</h4>
             <h6 class="font-weight-bold blue-text my-3">COO</h6>
             <p class="font-weight-normal dark-grey-text">
-              <i class="fas fa-quote-left pr-2"></i>Before GoHundred we would just browse and spend hours finding this data.Now we can save precious time and do what we really want:to grow our company</p>
+              <i class="fas fa-quote-left pr-2"></i>Before GoHundred we would just browse and spend hours finding this data. Now we can save precious time and do what we really want: To grow our company</p>
             <!--Review-->
             <div class="orange-text">
               <i class="fas fa-star"> </i>
