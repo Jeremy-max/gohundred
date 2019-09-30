@@ -84,7 +84,7 @@
             <div class="text-left mt-3">
               
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Stay on top of your game</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Find out what people says about your brand,trending topics or your competitors</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Find out what people say about your brand,trending topics or your competitors</p>
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today with the 14-day free trial. No credit card required</p>
               <!-- <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Compare yourself to competitors</p>
             </div>
@@ -115,7 +115,7 @@
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fa-4x far fa-newspaper text-primary mb-4"></i>
-            <p class="text-muted mb-0">Get real data on what people say about your brand,trending topics or your competitors</p>
+            <p class="text-muted mb-0">Get real data on what people say about your brand, trending topics or your competitors</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 text-center">
@@ -272,7 +272,7 @@
             <h4 class="font-weight-bold dark-grey-text mt-4">Sam</h4>
             <h6 class="font-weight-bold blue-text my-3">Brand Manager</h6>
             <p class="font-weight-normal dark-grey-text">
-              <i class="fas fa-quote-left pr-2"></i>GoHundred has made staying ahead in our industry easier. When you know what is going on,it is easier to make fact-based decisions.</p>
+              <i class="fas fa-quote-left pr-2"></i>GoHundred has made staying ahead in our industry easier. When you know what is going on, it is easier to make fact-based decisions.</p>
             <!--Review-->
             <div class="orange-text">
               <i class="fas fa-star"> </i>
