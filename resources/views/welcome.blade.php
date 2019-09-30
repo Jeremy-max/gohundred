@@ -84,7 +84,7 @@
             <div class="text-left mt-3">
               
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Stay on top of your game</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Find out what people say about your brand,trending topics or your competitors</p>
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Find out what people say about your brand, trending topics or your competitors</p>
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today with the 14-day free trial. No credit card required</p>
               <!-- <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Compare yourself to competitors</p>
             </div>
