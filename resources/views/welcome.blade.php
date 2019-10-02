@@ -232,7 +232,7 @@
           <div class="entry-content">
             <ul>
               <li>Keep tabs on <strong>&nbsp;unlimited&nbsp;</strong> campaigns</li>
-              <li>Get<strong>&nbsp;1</strong>min data every month</li>
+              <li>Get<strong>&nbsp;1</strong> million data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
