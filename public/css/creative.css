@@ -10945,3 +10945,20 @@ header.masthead h1 {
 {
   background-color: #68d1ff!important;
 }
+
+/* begin footer css*/
+footer {
+  background-color: #1c2331 !important;
+  color: white;
+  font-family: Roboto,sans-serif;
+  font-weight: 300;
+  padding-top: 50px
+}
+
+footer.page-footer a {
+  color: white;
+}
+
+.deep-purple.accent-2 {
+    background-color: #7c4dff !important;
+}

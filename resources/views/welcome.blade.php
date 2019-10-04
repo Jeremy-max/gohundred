@@ -354,22 +354,120 @@
 
 
   <!-- Footer -->
-  <footer class="bg-light py-5">
-    <div class="container">
-      <div class="small text-center text-muted">Copyright &copy; 2019 - GoHundred</div>
+  <!-- Footer -->
+<footer class="page-footer font-small unique-color-dark">
+  
+
+  <!-- Footer Links -->
+ 
+
+    <!-- Grid row -->
+    <div class="row container mx-auto">
+
+
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fas fa-home mr-3"></i>
+          <br>GoHundred<br>
+          Melchiors Plads 2100 Copenhagen DK-Denmark
+        </p>
+        <p>
+          <i class="fas fa-question-circle mr-3"></i>
+          <a href = "mailto: help@gohundred.co">For help</a>
+        </p>
+        <p>
+          <i class="fas fa-database mr-3"></i> 
+          <a href = "mailto: dpo@gohundred.co">For data inquiries</a>
+        </p>
+        <p>
+          <i class="fas fa-hands-helping mr-3"></i>
+          <a href = "mailto: partner@gohundred.co">For partnerships</a>
+        </p>
+        <p>
+          <i class="fas fa-road mr-3"></i>
+          <a href = "mailto: job@gohundred.co ">For careers</a>
+        </p>        
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Product</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#about">Features</a>
+        </p>
+        <p>
+          <a href="#services">Plans</a>
+        </p>
+        <p>
+          <a href="">Careers</a>
+        </p>
+        <p>
+          <a href="">Terms of service</a>
+        </p>
+        <p>
+          <a href="">Privacy policy</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Resources</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="">Newsletter</a>
+        </p>
+        <p>
+          <a href="">Blog</a>
+        </p>
+        <p>
+          <a href="">24-hour chat support</a>
+        </p>
+        <p>
+          <a href="">FAQ</a>
+        </p>
+        <p>
+          <a href="">Stories</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+
+
     </div>
-  </footer>
+    <!-- Grid row -->
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="/jquery/jquery.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="/jquery-easing/jquery.easing.min.js"></script>
-  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <!-- Footer Links -->
 
-  <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
+  <!-- Copyright -->
+  <div class="footer-copyright text-center pb-3">GDPR Compliant Website and Application Copyright C 2019
+    <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a> -->
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="/jquery/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/jquery-easing/jquery.easing.min.js"></script>
+<script src="/js/jquery.magnific-popup.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/creative.min.js"></script>
 
 </body>
 
