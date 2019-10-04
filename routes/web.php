@@ -11,6 +11,10 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('case_study');
+// });
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,5 +36,5 @@ Route::get('/step', function () {
 });
 
 Route::get('/done', function () {
-    return view('done');
+    return view('case_study');
 });

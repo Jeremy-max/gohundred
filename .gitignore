@@ -1,10 +1,15 @@
 /node_modules
 /public/hot
 /public/storage
+/public/css
+/public/js
+/public/vendors
+/resources/dist
+/resources/tools/node_modules
+/resources/tools/yarn.lock
 /storage/*.key
 /vendor
 .env
-.env.backup
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
