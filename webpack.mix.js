@@ -63,7 +63,8 @@ const custom = {
     sourceJs: [
       'resources/custom/dashboard/index.js',
       'resources/custom/dashboard/stock-charts.js',
-      'resources/custom/dashboard/json-datatable.js'
+      'resources/custom/dashboard/json-datatable.js',
+      'resources/custom/dashboard/bootstrap-select-country.js'
     ]
   }
 }

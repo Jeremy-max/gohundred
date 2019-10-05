@@ -126,6 +126,11 @@ var KTDatatableJsonRemoteDemo = function () {
       datatable.search($(this).val().toLowerCase(), 'Type');
     });
 
+	$('#kt_form_country').on('change', function() {
+      	var search = $(this).val() == "AC" ? '' : $(this).val().toLowerCase()
+		datatable.search(search, 'ShipCountry');
+    });
+
     $('#kt_form_status,#kt_form_type').selectpicker();
 
 	};
