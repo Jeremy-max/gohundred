@@ -6,3 +6,9 @@
 .kt-form__label label{
     width: max-content;
 }
+
+@media (min-width: 1025px) {
+  .kt-aside__brand {
+    background-color: red !important;
+  }
+}
