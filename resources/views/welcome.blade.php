@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>GoHunderd-Grow Your Brand</title>
+  <title>GoHundred-Grow Your Brand</title>
 
   <!-- Font Awesome Icons -->
   <link href="/css/all.min.css" rel="stylesheet" type="text/css">
@@ -373,11 +373,6 @@
         <h6 class="text-uppercase font-weight-bold">Contact</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <i class="fas fa-home mr-3"></i>
-          <br>GoHundred<br>
-          Melchiors Plads 2100 Copenhagen DK-Denmark
-        </p>
-        <p>
           <i class="fas fa-question-circle mr-3"></i>
           <a href = "mailto: help@gohundred.co">For help</a>
         </p>
@@ -450,7 +445,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center pb-3">GDPR Compliant Website and Application Copyright C 2019
+  <div class="footer-copyright text-center pb-3">GDPR Compliant Website and Application Copyright © 2019
     <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a> -->
   </div>
   <!-- Copyright -->

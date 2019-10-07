@@ -16,83 +16,99 @@
 					<div class="kt-widget17__stats">
 						<div class="kt-widget17__items">
 							<div class="kt-widget17__item">
-                <div class="kt-demo-icon">
-                    <div class="kt-demo-icon__preview">
-                        <i class="fas fa-globe-europe kt-shape-font-color-4  kt-shape-bg-color-4"></i>
-                    </div>
-                    <div class="kt-demo-icon__class">
-                        Total                    
-                    </div>
-                </div>
+								<div class="kt-demo-icon">
+									<div class="kt-demo-icon__preview">
+										<i class="fas fa-globe-europe kt-shape-font-color-4  kt-shape-bg-color-4"></i>
+									</div>
+									<div class="kt-demo-icon__class">
+										Total
+									</div>
+								</div>
 								<span class="kt-widget17__subtitle">
 									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Paskages
+									70 New Mentions
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-                <div class="kt-demo-icon">
-                    <div class="kt-demo-icon__preview">
-                        <i class="fab fa-twitter kt-font-info"></i>
-                    </div>
-                    <div class="kt-demo-icon__class">
-                        Twitter                    
-                    </div>
-                </div>
+								<div class="kt-demo-icon">
+									<div class="kt-demo-icon__preview">
+										<i class="fab fa-facebook kt-font-info"></i>
+									</div>
+									<div class="kt-demo-icon__class">
+										Facebook
+									</div>
+								</div>
 								<span class="kt-widget17__subtitle">
 									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Paskages
+									10 New Mentions
 								</span>
 							</div>
 							<div class="kt-widget17__item">
 								<div class="kt-demo-icon">
-                    <div class="kt-demo-icon__preview">
-                        <i class="fab fa-reddit kt-font-warning"></i>
-                    </div>
-                    <div class="kt-demo-icon__class">
-                        Reddit                    
-                    </div>
-                </div>
+									<div class="kt-demo-icon__preview">
+										<i class="fab fa-twitter kt-font-info"></i>
+									</div>
+									<div class="kt-demo-icon__class">
+										Twitter
+									</div>
+								</div>
 								<span class="kt-widget17__subtitle">
-									Ordered
+									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									72 New Items
+									15 New Mentions
 								</span>
 							</div>
 							<div class="kt-widget17__item">
 								<div class="kt-demo-icon">
-                    <div class="kt-demo-icon__preview">
-                        <i class="fab fa-youtube kt-font-danger"></i>
-                    </div>
-                    <div class="kt-demo-icon__class">
-                        YouTube                    
-                    </div>
-                </div>
+									<div class="kt-demo-icon__preview">
+										<i class="fab fa-reddit kt-font-warning"></i>
+									</div>
+									<div class="kt-demo-icon__class">
+										Reddit
+									</div>
+								</div>
 								<span class="kt-widget17__subtitle">
-									Reported
+									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									72 Support Cases
+									15 New Mentions
 								</span>
 							</div>
 							<div class="kt-widget17__item">
 								<div class="kt-demo-icon">
-                    <div class="kt-demo-icon__preview">
-                        <i class="fab fa-chrome kt-font-success"></i>
-                    </div>
-                    <div class="kt-demo-icon__class">
-                        Web                    
-                    </div>
-                </div>
+									<div class="kt-demo-icon__preview">
+										<i class="fab fa-youtube kt-font-danger"></i>
+									</div>
+									<div class="kt-demo-icon__class">
+										YouTube
+									</div>
+								</div>
 								<span class="kt-widget17__subtitle">
-									Arrived
+									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									34 Upgraded Boxes
+									15 New Mentions
+								</span>
+							</div>
+							<div class="kt-widget17__item">
+								<div class="kt-demo-icon">
+									<div class="kt-demo-icon__preview">
+										<i class="fab fa-chrome kt-font-success"></i>
+									</div>
+									<div class="kt-demo-icon__class">
+										Web
+									</div>
+								</div>
+								<span class="kt-widget17__subtitle">
+									Delivered
+								</span>
+								<span class="kt-widget17__desc">
+									15 New Mentions
 								</span>
 							</div>
 						</div>
@@ -105,23 +121,23 @@
 <div class='row'>
 	<div class='col'>
 		<!--begin::Portlet-->
-    <div class="kt-portlet">
-        <div class="kt-portlet__head">
-            <div class="kt-portlet__head-label">
-                <span class="kt-portlet__head-icon kt-hidden">
-                    <i class="la la-gear"></i>
-                </span>
-                <h3 class="kt-portlet__head-title">
-                    Multiple Data Sets
-                </h3>
-            </div>
-        </div>
-        <div class="kt-portlet__body">
-            <div id="kt_amcharts_1" style="height: 500px;"></div>  
-        </div>
-    </div>
-    <!--end::Portlet-->
-  </div>
+		<div class="kt-portlet">
+			<div class="kt-portlet__head">
+				<div class="kt-portlet__head-label">
+					<span class="kt-portlet__head-icon kt-hidden">
+						<i class="la la-gear"></i>
+					</span>
+					<h3 class="kt-portlet__head-title">
+					Multiple Data Sets
+					</h3>
+				</div>
+			</div>
+			<div class="kt-portlet__body">
+				<div id="kt_amcharts_1" style="height: 500px;"></div>
+			</div>
+		</div>
+		<!--end::Portlet-->
+	</div>
 </div>
 <div class='row'>
 	<div class='col'>
@@ -174,25 +190,24 @@
 												<label>Filter by country:</label>
 											</div>
 											<div class="kt-form__control">
-												<select class="selectpicker countrypicker form-control bootstrap-select" id="kt_form_country" data-live-search="true" ></select>
-											</div>
+											<select class="selectpicker countrypicker form-control bootstrap-select" id="kt_form_country" data-live-search="true" ></select>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
-					</div>		
+					</div>
 				</div>
-				<div class="kt-portlet__body kt-portlet__body--fit">
-					<!--begin: Datatable -->
-					<div class="kt-datatable" id="json_data"></div>
-					<!--end: Datatable -->
-				</div>
-			</div>	
+			</div>
+			<div class="kt-portlet__body kt-portlet__body--fit">
+				<!--begin: Datatable -->
+				<div class="kt-datatable" id="json_data"></div>
+				<!--end: Datatable -->
+			</div>
 		</div>
-		<!-- end:: Content -->
-  </div>
+	</div>
+	<!-- end:: Content -->
+</div>
 </div>
 @endsection
 @section('page_vendor_scripts')

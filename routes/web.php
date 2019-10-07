@@ -36,5 +36,5 @@ Route::get('/step', function () {
 });
 
 Route::get('/done', function () {
-    return view('case_study');
+    return view('Dashboard');
 });
