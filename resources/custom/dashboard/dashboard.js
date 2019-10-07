@@ -2135,6 +2135,7 @@ var KTamChartsStockChartsDemo = function() {
         var chartData2 = [];
         var chartData3 = [];
         var chartData4 = [];
+        var chartData5 = [];
 
         generateChartData();
 
@@ -2159,6 +2160,9 @@ var KTamChartsStockChartsDemo = function() {
                 var a4 = Math.round(Math.random() * (100 + i)) + 200 + i;
                 var b4 = Math.round(Math.random() * (100 + i)) + 600 + i;
 
+                var a5 = Math.round(Math.random() * (100 + i)) + 200 + i;
+                var b5 = Math.round(Math.random() * (100 + i)) + 600 + i;                
+
                 chartData1.push({
                     "date": newDate,
                     "value": a1,
@@ -2179,6 +2183,11 @@ var KTamChartsStockChartsDemo = function() {
                     "value": a4,
                     "volume": b4
                 });
+                chartData5.push({
+                    "date": newDate,
+                    "value": a5,
+                    "volume": b5
+                });
             }
         }
 
@@ -2187,7 +2196,7 @@ var KTamChartsStockChartsDemo = function() {
             "type": "stock",
             "theme": "light",
             "dataSets": [{
-                "title": "Twitter",
+                "title": "All",
                 "fieldMappings": [{
                     "fromField": "value",
                     "toField": "value"
@@ -2198,7 +2207,7 @@ var KTamChartsStockChartsDemo = function() {
                 "dataProvider": chartData1,
                 "categoryField": "date"
             }, {
-                "title": "Reddit",
+                "title": "Facebook",
                 "fieldMappings": [{
                     "fromField": "value",
                     "toField": "value"
@@ -2209,7 +2218,18 @@ var KTamChartsStockChartsDemo = function() {
                 "dataProvider": chartData2,
                 "categoryField": "date"
             }, {
-                "title": "Web",
+                "title": "Twitter",
+                "fieldMappings": [{
+                    "fromField": "value",
+                    "toField": "value"
+                }, {
+                    "fromField": "volume",
+                    "toField": "volume"
+                }],
+                "dataProvider": chartData2,
+                "categoryField": "date"
+            },{
+                "title": "Reddit",
                 "fieldMappings": [{
                     "fromField": "value",
                     "toField": "value"
@@ -2231,7 +2251,7 @@ var KTamChartsStockChartsDemo = function() {
                 "dataProvider": chartData4,
                 "categoryField": "date"
             }, {
-                "title": "All",
+                "title": "Web",
                 "fieldMappings": [{
                     "fromField": "value",
                     "toField": "value"

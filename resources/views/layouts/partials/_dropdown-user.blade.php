@@ -52,5 +52,11 @@
             <div class="kt-notification__item-title"> Log out </div>
         </div>
     </a>
+    <a href="#" class="kt-notification__item">
+        <div class="kt-notification__item-icon"> <i class="fas fa-user-times kt-font-dark"></i> </div>
+        <div class="kt-notification__item-details">
+            <div class="kt-notification__item-title"> Delete my account </div>
+        </div>
+    </a>
 </div>
 <!--end: Navigation -->

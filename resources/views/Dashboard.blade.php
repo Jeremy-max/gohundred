@@ -28,7 +28,7 @@
 									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									70 New Mentions
+									70 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
@@ -44,7 +44,7 @@
 									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									10 New Mentions
+									10 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
@@ -60,7 +60,7 @@
 									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Mentions
+									15 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
@@ -76,7 +76,7 @@
 									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Mentions
+									15 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
@@ -92,7 +92,7 @@
 									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Mentions
+									15 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
@@ -108,7 +108,7 @@
 									Delivered
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Mentions
+									15 New Comments
 								</span>
 							</div>
 						</div>
