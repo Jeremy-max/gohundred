@@ -160,7 +160,6 @@
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
               <li>Excel file export</li>
-              <li>24-hour chat support</li>
             </ul>
           </div>
           <div class="btn">
@@ -186,7 +185,6 @@
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
               <li>Excel file export</li>
-              <li>24-hour chat support</li>
             </ul>
           </div>
           <div class="btn">
@@ -211,7 +209,6 @@
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
               <li>Excel file export</li>
-              <li>24-hour chat support</li>
             </ul>
           </div>
           <div class="btn">
@@ -236,7 +233,6 @@
               <li>Slack integration</li>
               <li>Update every 12 hours</li>
               <li>Excel file export</li>
-              <li>24-hour chat support</li>
             </ul>
           </div>
           <div class="btn">
@@ -423,9 +419,6 @@
         </p>
         <p>
           <a href="">Blog</a>
-        </p>
-        <p>
-          <a href="">24-hour chat support</a>
         </p>
         <p>
           <a href="">FAQ</a>
