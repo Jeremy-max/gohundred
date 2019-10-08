@@ -7,8 +7,10 @@
     width: max-content;
 }
 
-        .kt-aside__brand, .kt-aside-menu, .kt-menu__toggle,.kt-aside {
-           background-color: #1d2c5a !important;
-        }
+.kt-aside__brand, .kt-aside-menu, .kt-menu__toggle,.kt-aside {
+   background-color: #1d2c5a !important;
+}
 
-  
+.amcharts-chart-div a{
+	display: none!important;
+}  

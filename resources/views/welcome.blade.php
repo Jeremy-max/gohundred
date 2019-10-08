@@ -134,14 +134,13 @@
         </div>
         <div class="col-lg-6 col-md-6 text-center">
           <div class="mt-5">
-            <i class="fa-4x far fa-comments text-primary mb-4"></i>
-            <p class="text-muted mb-0">24-hour chat support</p>
+            <i class="fa-4x fas fa-sync text-primary mb-4"></i>
+            <p class="text-muted mb-0">12-hour update</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Portfolio Section -->
   <section id="services">
     <div id="price">
@@ -155,7 +154,7 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Keep tabs on <strong>&nbsp;3&nbsp;</strong> campaigns</li>
+              <li>Keep tabs on <strong>&nbsp;1&nbsp;</strong> campaigns (5 Keywords)</li>
               <li>Get<strong>&nbsp;1</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
@@ -181,7 +180,7 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Keep tabs on <strong>&nbsp;10&nbsp;</strong> campaigns</li>
+              <li>Keep tabs on <strong>&nbsp;5&nbsp;</strong> campaigns (10 Keywords per campaign)</li>
               <li>Get<strong>&nbsp;20</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
@@ -206,7 +205,7 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Keep tabs on <strong>&nbsp;50&nbsp;</strong> campaigns</li>
+              <li>Keep tabs on <strong>&nbsp;20&nbsp;</strong> campaigns (20 keywords per campaign)</li>
               <li>Get<strong>&nbsp;50</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
@@ -231,7 +230,7 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Keep tabs on <strong>&nbsp;unlimited&nbsp;</strong> campaigns</li>
+              <li>Keep tabs on <strong>&nbsp;unlimited&nbsp;</strong> campaigns (Unlimited keywords)</li>
               <li>Get<strong>&nbsp;1</strong> million data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>
