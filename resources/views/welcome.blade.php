@@ -712,10 +712,10 @@
           <a href="">Careers</a>
         </p>
         <p>
-          <a href="">Terms of service</a>
+          <a href="/terms-of-service">Terms of service</a>
         </p>
         <p>
-          <a href="">Privacy policy</a>
+          <a href="/privacy_policy">Privacy policy</a>
         </p>
       </div>
       <!-- Grid column -->

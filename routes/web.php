@@ -46,3 +46,7 @@ Route::get('/faq', function () {
 Route::get('/terms-of-service', function () {
     return view('term of service');
 });
+
+Route::get('/privacy_policy', function () {
+    return view('privacy_policy');
+});
