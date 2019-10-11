@@ -10843,7 +10843,7 @@ header.masthead h1 {
 
 .entry-content li {
   border-bottom: 1px solid #E5E5E5;
-  padding: 10px 0;
+  padding: 10px;
 }
 
 .entry-content li:last-child {
@@ -10962,3 +10962,16 @@ footer.page-footer a {
 .deep-purple.accent-2 {
     background-color: #7c4dff !important;
 }
+
+.background-blue{
+  /*color: #4484c1;*/
+}
+
+./*aaa {
+  display: none;
+}
+
+.bbb:hover ~.aaa {
+  display: block;
+}
+*/

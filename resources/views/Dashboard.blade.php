@@ -20,12 +20,12 @@
 									<div class="kt-demo-icon__preview">
 										<i class="fas fa-globe-europe kt-shape-font-color-4  kt-shape-bg-color-4"></i>
 									</div>
-									<div class="kt-demo-icon__class">
+									<!-- <div class="kt-demo-icon__class">
 										Total
-									</div>
+									</div> -->
 								</div>
 								<span class="kt-widget17__subtitle">
-									Delivered
+									Total
 								</span>
 								<span class="kt-widget17__desc">
 									70 New Comments
@@ -36,12 +36,12 @@
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-facebook kt-font-info"></i>
 									</div>
-									<div class="kt-demo-icon__class">
+									<!-- <div class="kt-demo-icon__class">
 										Facebook
-									</div>
+									</div> -->
 								</div>
 								<span class="kt-widget17__subtitle">
-									Delivered
+									Facebook
 								</span>
 								<span class="kt-widget17__desc">
 									10 New Comments
@@ -52,12 +52,12 @@
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-twitter kt-font-info"></i>
 									</div>
-									<div class="kt-demo-icon__class">
+									<!-- <div class="kt-demo-icon__class">
 										Twitter
-									</div>
+									</div> -->
 								</div>
 								<span class="kt-widget17__subtitle">
-									Delivered
+									Twitter
 								</span>
 								<span class="kt-widget17__desc">
 									15 New Comments
@@ -68,12 +68,12 @@
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-reddit kt-font-warning"></i>
 									</div>
-									<div class="kt-demo-icon__class">
+									<!-- <div class="kt-demo-icon__class">
 										Reddit
-									</div>
+									</div> -->
 								</div>
 								<span class="kt-widget17__subtitle">
-									Delivered
+									Reddit
 								</span>
 								<span class="kt-widget17__desc">
 									15 New Comments
@@ -84,12 +84,12 @@
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-youtube kt-font-danger"></i>
 									</div>
-									<div class="kt-demo-icon__class">
+									<!-- <div class="kt-demo-icon__class">
 										YouTube
-									</div>
+									</div> -->
 								</div>
 								<span class="kt-widget17__subtitle">
-									Delivered
+									YouTube
 								</span>
 								<span class="kt-widget17__desc">
 									15 New Comments
@@ -100,12 +100,12 @@
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-chrome kt-font-success"></i>
 									</div>
-									<div class="kt-demo-icon__class">
+									<!-- <div class="kt-demo-icon__class">
 										Web
-									</div>
+									</div> -->
 								</div>
 								<span class="kt-widget17__subtitle">
-									Delivered
+									Web
 								</span>
 								<span class="kt-widget17__desc">
 									15 New Comments

@@ -38,3 +38,11 @@ Route::get('/step', function () {
 Route::get('/done', function () {
     return view('Dashboard');
 });
+
+Route::get('/faq', function () {
+    return view('FAQ');
+});
+
+Route::get('/terms-of-service', function () {
+    return view('term of service');
+});
