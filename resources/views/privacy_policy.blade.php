@@ -44,13 +44,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Features</a>
+            <a class="nav-link js-scroll-trigger" href="/#about">Features</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#cases">Use cases</a>
+            <a class="nav-link js-scroll-trigger" href="/#cases">Use cases</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Plans</a>
+            <a class="nav-link js-scroll-trigger" href="/#services">Plans</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/signup">Sign Up</a>
