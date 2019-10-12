@@ -3,6 +3,20 @@
 // Class definition
 var KTamChartsStockChartsDemo = function() {
 
+    AmCharts.themes.light.AmStockChart.colors = [
+        "#646c9a",
+        "#5867dd",
+        "#5578eb",
+        "#ffb822",
+        "#fd397a",
+        "#0abb87",
+        "#448e4d",
+        "#b7b83f",
+        "#b9783f",
+        "#b93e3d",
+        "#913167"
+    ]
+
     // Private functions
     var demo1 = function() {
         var chartData1 = [];
@@ -69,6 +83,27 @@ var KTamChartsStockChartsDemo = function() {
             "rtl": KTUtil.isRTL(),
             "type": "stock",
             "theme": "light",
+            "graphs": [{
+                "type": "column",
+                "fillColors": 'red',
+                "lineColor": 'red'
+            }, {
+                "type": "column",
+                "fillColors": 'blue',
+                "lineColor": 'blue'
+            }, {
+                "type": "column",
+                "fillColors": 'red',
+                "lineColor": 'red'
+            }, {
+                "type": "column",
+                "fillColors": 'blue',
+                "lineColor": 'blue'
+            }, {
+                "type": "column",
+                "fillColors": 'red',
+                "lineColor": 'red'
+            }],
             "dataSets": [{
                 "title": "All",
                 "fieldMappings": [{

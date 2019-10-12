@@ -34,7 +34,7 @@
 							<div class="kt-widget17__item">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
-										<i class="fab fa-facebook kt-font-info"></i>
+										<i class="fab fa-facebook kt-font-primary"></i>
 									</div>
 									<!-- <div class="kt-demo-icon__class">
 										Facebook
@@ -176,10 +176,11 @@
 											<div class="kt-form__control">
 												<select class="form-control bootstrap-select" id="kt_form_status">
 													<option value="">All</option>
-													<option value="1">Twitter</option>
-													<option value="2">Reddit</option>
-													<option value="3">YouTube</option>
-													<option value="4">Web</option>
+													<option value="1">Facebook</option>
+													<option value="2">Twitter</option>
+													<option value="3">Reddit</option>
+													<option value="4">YouTube</option>
+													<option value="5">Web</option>
 												</select>
 											</div>
 										</div>

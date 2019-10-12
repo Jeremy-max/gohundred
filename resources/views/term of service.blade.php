@@ -239,7 +239,7 @@
             For careers
           </a>
           <br>
-            <i class="aaa">GoHundred is always looking for new talents, so if you are interested in hearing more about the opportunities working with us, you are welcome to send you CV or LinkedIn profile-link to us at:<a href = "mailto: job@gohundred.co ">Jobs@gohundred.co</i>
+            <small>GoHundred is always looking for new talents, so if you are interested in hearing more about the opportunities working with us, you are welcome to send you CV or LinkedIn profile-link to us at:<a href = "mailto: job@gohundred.co ">Jobs@gohundred.co</a></small>
         </p>        
       </div>
       <!-- Grid column -->
@@ -259,10 +259,10 @@
           <a href="">Careers</a>
         </p>
         <p>
-          <a href="">Terms of service</a>
+          <a href="/terms-of-service">Terms of service</a>
         </p>
         <p>
-          <a href="">Privacy policy</a>
+          <a href="/privacy_policy">Privacy policy</a>
         </p>
       </div>
       <!-- Grid column -->
@@ -272,18 +272,30 @@
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Resources</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <a href="" class="bbb">
-            Newsletter<br>  
-          </a>
-            <i class="aaa">Sign up to our news, tips and promotions by leaving your email address here:</i>
+        <p>Newsletter
+          <section class="newsletter">
+            <div class="container">
+              <div class="row">
+                <!-- <div class="col-sm-12"> -->
+                  <div class="content">
+                    <div class="input-group">
+                      <input type="email" class="form-control" placeholder="Enter your email">
+                      <span class="input-group-btn">
+                        <button class="btn" type="submit">Send</button>
+                      </span>
+                    </div>
+                  </div>
+                <!-- </div> -->
+              </div>
+            </div>
+          </section>
         </p>
         <p>
           <a href="" class="bbb">
             Blog
           </a>
           <br>
-          <i class="aaa">You can read our marketing blog here. (Link to blog page)</i>
+          <small>You can read our marketing blog here.</small>
         </p>
         <p>
           <a href="" data-toggle="modal" data-target="#faq">

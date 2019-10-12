@@ -46,10 +46,11 @@ var KTDatatableJsonRemoteDemo = function () {
 					// callback function support for column rendering
 					template: function(row) {
 						var status = {
-							1: {'title': 'Twitter', 'class': 'kt-badge--info'},
-							2: {'title': 'Reddit', 'class': ' kt-badge--warning'},
-							3: {'title': 'YouTube', 'class': ' kt-badge--danger'},
-							4: {'title': 'Web', 'class': ' kt-badge--success'},
+							1: {'title': 'Facebook', 'class': 'kt-badge--primary'},
+							2: {'title': 'Twitter', 'class': 'kt-badge--info'},
+							3: {'title': 'Reddit', 'class': ' kt-badge--warning'},
+							4: {'title': 'YouTube', 'class': ' kt-badge--danger'},
+							5: {'title': 'Web', 'class': ' kt-badge--success'},
 							// 5: {'title': 'Info', 'class': ' kt-badge--info'},
 							// 6: {'title': 'Danger', 'class': ' kt-badge--danger'},
 							// 7: {'title': 'Warning', 'class': ' kt-badge--warning'},

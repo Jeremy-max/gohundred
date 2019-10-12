@@ -2129,6 +2129,20 @@ jQuery(document).ready(function() {
 // Class definition
 var KTamChartsStockChartsDemo = function() {
 
+    AmCharts.themes.light.AmStockChart.colors = [
+        "#646c9a",
+        "#5867dd",
+        "#5578eb",
+        "#ffb822",
+        "#fd397a",
+        "#0abb87",
+        "#448e4d",
+        "#b7b83f",
+        "#b9783f",
+        "#b93e3d",
+        "#913167"
+    ]
+
     // Private functions
     var demo1 = function() {
         var chartData1 = [];
@@ -2195,6 +2209,27 @@ var KTamChartsStockChartsDemo = function() {
             "rtl": KTUtil.isRTL(),
             "type": "stock",
             "theme": "light",
+            "graphs": [{
+                "type": "column",
+                "fillColors": 'red',
+                "lineColor": 'red'
+            }, {
+                "type": "column",
+                "fillColors": 'blue',
+                "lineColor": 'blue'
+            }, {
+                "type": "column",
+                "fillColors": 'red',
+                "lineColor": 'red'
+            }, {
+                "type": "column",
+                "fillColors": 'blue',
+                "lineColor": 'blue'
+            }, {
+                "type": "column",
+                "fillColors": 'red',
+                "lineColor": 'red'
+            }],
             "dataSets": [{
                 "title": "All",
                 "fieldMappings": [{
@@ -2395,10 +2430,11 @@ var KTDatatableJsonRemoteDemo = function () {
 					// callback function support for column rendering
 					template: function(row) {
 						var status = {
-							1: {'title': 'Twitter', 'class': 'kt-badge--info'},
-							2: {'title': 'Reddit', 'class': ' kt-badge--warning'},
-							3: {'title': 'YouTube', 'class': ' kt-badge--danger'},
-							4: {'title': 'Web', 'class': ' kt-badge--success'},
+							1: {'title': 'Facebook', 'class': 'kt-badge--primary'},
+							2: {'title': 'Twitter', 'class': 'kt-badge--info'},
+							3: {'title': 'Reddit', 'class': ' kt-badge--warning'},
+							4: {'title': 'YouTube', 'class': ' kt-badge--danger'},
+							5: {'title': 'Web', 'class': ' kt-badge--success'},
 							// 5: {'title': 'Info', 'class': ' kt-badge--info'},
 							// 6: {'title': 'Danger', 'class': ' kt-badge--danger'},
 							// 7: {'title': 'Warning', 'class': ' kt-badge--warning'},
