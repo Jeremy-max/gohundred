@@ -159,9 +159,14 @@
             <div class="col">
               <div class="card w-100 mb-3">
                 <div class="card border-light mb-3" >
-                  <div class="card-header">You are a <strong>student</strong> or an <strong>academic</strong> <br>doing research</div>
+                  <div class="card-header">
+                    <i class="fas fa-user-graduate fa-4x text-primary"></i>
+                    <span class="pl-3">
+                      You are a <strong>student</strong> or an <strong>academic</strong><br> doing research
+                    </span>                    
+                  </div>
                   <div class="card-body">
-                    <h5 class="card-title   ">Use GoHundred to: </h5>
+                    
                     <p class="card-text text-left">-  Research popularity of topics and opinions<br>- Analyze human communication and Social <br>Media patterns
                     </p>
                   </div>
@@ -171,9 +176,13 @@
             <div class="col">
               <div class="card w-100 mb-3" >
                 <div class="card border-light mb-3" >
-                  <div class="card-header">You are a <strong>blogger</strong> or <strong>influencer</strong> <br>looking to grow your online presence</div>
-                  <div class="card-body">
-                    <h5 class="card-title ">Use GoHundred to:</h5>
+                  <div class="card-header">
+                    <i class="fas fa-bullhorn fa-4x text-primary"></i>
+                    <span class="pl-3">
+                      You are a <strong>blogger</strong> or <strong>influencer</strong> <br>looking to grow your online presence
+                    </span>                    
+                  </div>
+                  <div class="card-body">                    
                     <p class="card-text text-left">-  Find out who talks about you and your brand <br>
                     - Find new competitors in your field<br>
                     - Find new companies to influence for
@@ -187,9 +196,15 @@
             <div class="col">
               <div class="card w-100 mb-3">
                 <div class="card border-light mb-3" >
-                  <div class="card-header ">You are part of a <strong>startup team</strong> <br> looking to grow and learn about your market</div>
+                  <div class="card-header ">
+                    <i class="fas fa-users fa-4x text-primary"></i>
+                    <span class="pl-3">
+                      You are part of a <strong>startup team</strong> <br> looking to grow and learn about your market
+                    </span>
+
+                  </div>
                   <div class="card-body">
-                    <h5 class="card-title ">Use GoHundred to:</h5>
+                    
                     <p class="card-text text-left">-  Find out who talks about your brand and company <br>
                     - Find trending topics and opinions<br>
                     - Find new competitors in your industry
@@ -201,9 +216,15 @@
             <div class="col">
               <div class="card w-100 mb-3" >
                 <div class="card border-light mb-3" >
-                  <div class="card-header ">You are part of an <strong>enterprise</strong> <br> looking to stay ahead in your industry</div>
+                  <div class="card-header ">
+                    <i class="fas fa-city fa-4x text-primary"></i>
+                    <span class="pl-3">
+                      You are part of an <strong>enterprise</strong> <br> looking to stay ahead in your industry
+                    </span>        
+
+                  </div>
                   <div class="card-body">
-                    <h5 class="card-title ">Use GoHundred to:</h5>
+                    
                     <p class="card-text text-left">-  Find out who talks about your brand and company <br>
                     - Find trending topics and opinions<br>
                     - Find new competitors in your industry
@@ -229,7 +250,7 @@
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Personal Plan</h3>
-            <div class="price">€<span></span>
+            <div class="price">€9<span></span>
             </div>
           </div>
           <div class="entry-content">
@@ -582,6 +603,7 @@
         <div class="accordion" id="Example">
           <div class="card">
             <div class="card-header" id="headingOne1">
+              <i class="fas fa-user-graduate text-primary mb-4"></i>
               <h2 class="mb-0">
                 <button class="btn " type="button" data-toggle="collapse" data-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
                   You are a student or an academic doing research
@@ -692,7 +714,7 @@
             For careers
           </a>
           <br>
-            <i class="aaa">GoHundred is always looking for new talents, so if you are interested in hearing more about the opportunities working with us, you are welcome to send you CV or LinkedIn profile-link to us at:<a href = "mailto: job@gohundred.co ">Jobs@gohundred.co</i>
+            <small>GoHundred is always looking for new talents, so if you are interested in hearing more about the opportunities working with us, you are welcome to send you CV or LinkedIn profile-link to us at:<a href = "mailto: job@gohundred.co ">Jobs@gohundred.co</a></small>
         </p>        
       </div>
       <!-- Grid column -->
@@ -725,18 +747,30 @@
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Resources</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <a href="" class="bbb">
-            Newsletter<br>  
-          </a>
-            <i class="aaa">Sign up to our news, tips and promotions by leaving your email address here:</i>
+        <p>Newsletter
+          <section class="newsletter">
+            <div class="container">
+              <div class="row">
+                <!-- <div class="col-sm-12"> -->
+                  <div class="content">
+                    <div class="input-group">
+                      <input type="email" class="form-control" placeholder="Enter your email">
+                      <span class="input-group-btn">
+                        <button class="btn" type="submit">Send</button>
+                      </span>
+                    </div>
+                  </div>
+                <!-- </div> -->
+              </div>
+            </div>
+          </section>
         </p>
         <p>
           <a href="" class="bbb">
             Blog
           </a>
           <br>
-          <i class="aaa">You can read our marketing blog here. (Link to blog page)</i>
+          <small>You can read our marketing blog here.</small>
         </p>
         <p>
           <a href="" data-toggle="modal" data-target="#faq">

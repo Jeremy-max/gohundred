@@ -55,8 +55,10 @@
                 <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
                 <label for="inputConfirmPassword">Confirm password</label>
               </div>
-
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+              <form action="/action_page.php">
+                <input type="checkbox" name="vehicle1" value="Bike"> I have read and accept GoHundred's <a href="/privacy_policy">Privacy Policy</a>  and <a href="/terms-of-service">Terms of Service</a> <br>
+              </form>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase mt-2" type="submit">Register</button>
               <a class="d-block text-center mt-2 small" href="/signin">Sign In</a>
               <hr class="my-4">
               <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
