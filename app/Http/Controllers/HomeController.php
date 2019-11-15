@@ -30,20 +30,31 @@ class HomeController extends Controller
    */
   public function __construct()
   {
+    // $user = \Auth::user();
+    // dd($user);
+    // if($user)
+    // {
+    //   dd("sdf");
+    //   $keyword_list = Keyword::where('user_id', $user->id)->get();
+      
+     
+    //   View::share('keyword_list', $keyword_list);
+    // }
       // $this->middleware('auth');
-      $this->middleware(function ($request, $next) {
-        $user = \Auth::user();
-        //dd($user);
-        if ($user) {
-          $keyword_list = Keyword::where('user_id',$user->id)->get();  
-          $keyword = $keyword_list->first()->keyword;
-            
-        //  dd($keyword);
-          View::share('keyword', $keyword);
-          View::share('keyword_list', $keyword_list);
-        }
-        return $next($request);
-      });
+
+    $this->middleware(function ($request, $next) {
+    $user = \Auth::user();
+    if ($user) {
+      $keyword_list = Keyword::where('user_id',$user->id)->get();  
+      if ($keyword_list->count() > 0)
+      {
+        $keyword = $keyword_list->first()->keyword;
+        View::share('keyword', $keyword);
+      }
+      View::share('keyword_list', $keyword_list);
+    }
+    return $next($request);
+  });
   }
 
   /**
@@ -72,7 +83,7 @@ class HomeController extends Controller
     $keyword_list = Keyword::where('user_id', auth()->user()->id)->get();
     foreach ($keyword_list as $keyword)
     {
-      $limit_cnt = 100;
+      $limit_cnt = 10;
       $params = [
         'q' => $keyword->keyword,
         'count' => $limit_cnt,
@@ -81,21 +92,29 @@ class HomeController extends Controller
 //    $tweets = $connection->get('search/tweets', $params);
 //    dd($tweets);
       $tweets_db = [];
-//     while(1)
-//     {
+     while(1)
+     {
 
-        $tweets = $connection->get('search/tweets', $params);
+        try{
+          $tweets = $connection->get('search/tweets', $params);
 
+        } catch(\Exception $e) {
+          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+          break;
+          //return false;
+        }
         $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
       
-      if(count($tweets->statuses) < $limit_cnt)
-        break;
+       if(count($tweets->statuses) < $limit_cnt)
+         break;
       
         $params['max_id'] = $this->getMaxId($tweets);
- //   }
-    dump($tweets_db);
-    Search::insert($tweets_db);
+      }
+      dump($tweets_db);
+      Search::insert($tweets_db);
     }
+    dump("Tweets search result data is added to DB successfully!");
+//    return redirect()->route('dashboard');
   }
 
   public function getMaxId($tweets)
@@ -149,45 +168,45 @@ class HomeController extends Controller
 
   public function search_facebook()
   {
-    
-    $app_id = env('APP_ID_FB');
-    $app_secret = env('APP_SECRET_FB');
-    $access_token = env('ACCESS_TOKEN_FB');
-    $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
-    $app_access_token = env('APP_TOKEN_FB');
-    dump($app_id);
-    dump($app_secret);
-    dump($access_token);
-    dump($appsecret_proof);
-    dump($app_access_token);
-    $fb = new \Facebook\Facebook([
-      'app_id' => $app_id,
-      'app_secret' => $appsecret_proof,
-      'default_graph_version' => 'v5.7',
-     'default_access_token' => $access_token, // optional
-    ]);
+      dd("Hello, this is facebook background!");
+//     $app_id = env('APP_ID_FB');
+//     $app_secret = env('APP_SECRET_FB');
+//     $access_token = env('ACCESS_TOKEN_FB');
+//     $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
+//     $app_access_token = env('APP_TOKEN_FB');
+//     dump($app_id);
+//     dump($app_secret);
+//     dump($access_token);
+//     dump($appsecret_proof);
+//     dump($app_access_token);
+//     $fb = new \Facebook\Facebook([
+//       'app_id' => $app_id,
+//       'app_secret' => $appsecret_proof,
+//       'default_graph_version' => 'v5.7',
+//      'default_access_token' => $access_token, // optional
+//     ]);
 
-    try {
-      // Get the \Facebook\GraphNodes\GraphUser object for the current user.
-      // If you provided a 'default_access_token', the '{access-token}' is optional.
- //     $response = $fb->get('/me', $access_token);
-      $request = $fb->request('get', '/search?q=freelancer&type=user');
-      $response = $fb->getClient()->sendRequest($request);
-      $graphNode = $response->getGraphNode();
-      dd($graphNode);
-//  dd(213);
- dd($mySrch);
-    } catch(\Facebook\Exceptions\FacebookResponseException $e) {
-      // When Graph returns an error
+//     try {
+//       // Get the \Facebook\GraphNodes\GraphUser object for the current user.
+//       // If you provided a 'default_access_token', the '{access-token}' is optional.
+//  //     $response = $fb->get('/me', $access_token);
+//       $request = $fb->request('get', '/search?q=freelancer&type=user');
+//       $response = $fb->getClient()->sendRequest($request);
+//       $graphNode = $response->getGraphNode();
+//       dd($graphNode);
+// //  dd(213);
+//  dd($mySrch);
+//     } catch(\Facebook\Exceptions\FacebookResponseException $e) {
+//       // When Graph returns an error
 
-      echo 'Graph returned an error: ' . $e->getMessage();
-      exit;
-    } catch(\Facebook\Exceptions\FacebookSDKException $e) {
-      // When validation fails or other local issues
-      echo 'Facebook SDK returned an error: ' . $e->getMessage();
-      exit;
+//       echo 'Graph returned an error: ' . $e->getMessage();
+//       exit;
+//     } catch(\Facebook\Exceptions\FacebookSDKException $e) {
+//       // When validation fails or other local issues
+//       echo 'Facebook SDK returned an error: ' . $e->getMessage();
+//       exit;
 
-    }
+//     }
     
 //    $me = $response->getGraphUser();
   }
@@ -195,11 +214,8 @@ class HomeController extends Controller
 
   public function search_instagram()
   {
-//    dd('Hello, instagram!!');
-    $string = "How to be a successful freelancer I Why people fail সফল ফ্রিল্যালনাররা কিভাবে কাজ করেন";
-    dump($string);
-    dump(substr($string, 0, 99));
-    dump(mb_substr($string, 0, 99));
+    dd('Hello, instagram!!');
+    
 /*    $consumer_key = env('CONSUMER_KEY');
     $consumer_secret = env('CONSUMER_SECRET');
     $access_token_key = env('ACCESS_TOKEN_KEY');
@@ -251,7 +267,7 @@ class HomeController extends Controller
     $type = ['video', 'channel', 'playlist'];
     foreach ($keyword_list as $keyword)
     {
-      $limit_cnt = 50;
+      $limit_cnt = 10;
       $params = [
         'q' => $keyword->keyword,
         'maxResults' => $limit_cnt,
@@ -261,21 +277,29 @@ class HomeController extends Controller
       ];    
 
       $youtube_db = [];
-     while(1)
-     {
+//     while(1)
+//     {
 
-        $searchResponse = $youtube->search->listSearch('id,snippet', $params);
+        
+        try{
 
+          $searchResponse = $youtube->search->listSearch('id,snippet', $params);
+
+        } catch(\Exception $e) {
+          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+          break;
+        }
         $youtube_db = array_merge($youtube_db, $this->parseYoutube($searchResponse, $keyword->id));
-      
        if(count($searchResponse->items) < $limit_cnt)
          break;
       
         $params['pageToken'] = $searchResponse->nextPageToken;
-    }
+    // }
       dump($youtube_db);
       Search::insert($youtube_db);
     }
+    dump("Youtube data is added to DB successfully!");
+//    return redirect()->route('dashboard');
 
   }
 
@@ -323,7 +347,7 @@ class HomeController extends Controller
     $dateY = date('Y');
     $dateM = date('m');
     $dateD = date('d');
-    $limit_cnt = 50;
+    $limit_cnt = 500;
 
      foreach ($keyword_list as $keyword)
      {
@@ -339,15 +363,20 @@ class HomeController extends Controller
       while(1)
       {
 
-          $results = $fulltext->getResults($keyword->keyword, $params); 
+          try{
+            $results = $fulltext->getResults($keyword->keyword, $params); 
+          } catch(\Exception $e) {
+            dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+            break;
+          }
           $sumCnt += 10;
 
           $web_db = array_merge($web_db, $this->parseWeb($results, $keyword->id));
         
           // if(count($results) < $limit_cnt)
           //   break;
-          if($sumCnt > $limit_cnt)
-            break;
+           if($sumCnt > $limit_cnt)
+             break;
         
           $params['start'] = $params['start'] + 10;
       }
@@ -355,7 +384,9 @@ class HomeController extends Controller
       Search::insert($web_db);
     }
 
-//    dd($results);
+    dump("Google data is added to DB successfully!");
+
+//    return redirect()->route('dashboard');
   }
 
   public function parseWeb($response, $keywordId)
@@ -398,7 +429,7 @@ class HomeController extends Controller
 //    dump(\Auth::user());
 
     $campaign_type = $request->input('campaign-type','brand');
-//    dd($campaign_type);
+
     $campaign_keyword = $request->input('campaign-keyword','keyword');
     $campaign_domain = $request->input('campaign-domain','brand');
     $campaign_notification = $request->input('campaign-notification','slack');
@@ -411,6 +442,9 @@ class HomeController extends Controller
     $keyword = Keyword::updateOrCreate(['user_id' => $user_id, 'keyword' => $campaign_keyword, 'type' => $campaign_type], 
         ['notification_type' => $campaign_notification]);
     
+    $this->search_twitter();
+    $this->search_youtube();
+    $this->search_web();
     return redirect()->route('dashboard');
   }
 

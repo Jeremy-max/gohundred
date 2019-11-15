@@ -32,6 +32,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
+							<a href="/facebook">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-facebook kt-font-primary"></i>
@@ -40,14 +41,17 @@
 										Facebook
 									</div> -->
 								</div>
-								<span class="kt-widget17__subtitle">
-									Facebook
-								</span>
+							</a>
+									<span class="kt-widget17__subtitle" >
+										Facebook
+									</span>
+								
 								<span class="kt-widget17__desc">
 									10 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
+							<a href="/twitter">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-twitter kt-font-info"></i>
@@ -56,14 +60,16 @@
 										Twitter
 									</div> -->
 								</div>
+							</a>
 								<span class="kt-widget17__subtitle">
 									Twitter
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Comments
+									10 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
+							<a href="/instagram">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-instagram kt-font-warning"></i>
@@ -72,14 +78,16 @@
 										Reddit
 									</div> -->
 								</div>
+							</a>
 								<span class="kt-widget17__subtitle">
 									Instagram
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Comments
+									10 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
+							<a href="/youtube">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-youtube kt-font-danger"></i>
@@ -88,14 +96,16 @@
 										YouTube
 									</div> -->
 								</div>
+							</a>
 								<span class="kt-widget17__subtitle">
 									YouTube
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Comments
+									10 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
+							<a href="/web">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-chrome kt-font-success"></i>
@@ -104,11 +114,12 @@
 										Web
 									</div> -->
 								</div>
+							</a>
 								<span class="kt-widget17__subtitle">
 									Web
 								</span>
 								<span class="kt-widget17__desc">
-									15 New Comments
+									10 New Comments
 								</span>
 							</div>
 						</div>
@@ -208,7 +219,9 @@
 			</div>
 		</div>
 	</div>
-	<input id="table_keyword" type="hidden" value="{{ $keyword }}"/>
+	@if (count($keyword_list) > 0)
+		<input id="table_keyword" type="hidden" value="{{ $keyword }}"/>
+	@endif
 	<!-- end:: Content -->
 </div>
 </div>

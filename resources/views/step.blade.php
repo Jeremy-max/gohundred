@@ -54,7 +54,7 @@
                                 </a>
                             </li>
                             <li class="tab-list__item">
-                                <a class="tab-list__link" href="#tab3" data-toggle="tab">
+                                <a class="tab-list__link" href="#tab3" id="link-tab3" data-toggle="tab">
                                     <span class="step">3</span>
                                     <span class="desc">step</span>
                                 </a>
@@ -90,12 +90,12 @@
                                         <p class="h6">Type the name of the brand,competitor or topic that you wish to keep your eyes on</p>
                                     </div>
                                     <div class="input-group mt-3">
-                                        <input class="input--style-1" id="keyword" type="text" name="cpt-Domain" placeholder="Keyword" required>
-                                    </div>
-                                    <div class="input-group mt-2">                                
-                                        <input class="input--style-1" id="domain" type="text" name="keyword" placeholder="Domain" required>
+                                        <input class="input--style-1" id="keyword" type="text" name="keyword" placeholder="Keyword" required>
                                         <a class="btn--next" href="#">next step</a>
                                     </div>
+                                    <!-- <div class="input-group mt-2">                                
+                                        <input class="input--style-1" id="domain" type="text" name="keyword" placeholder="Domain" required>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab3">

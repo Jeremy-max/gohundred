@@ -35,7 +35,7 @@ Route::get('/privacy_policy', function () {
   return view('privacy_policy');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware('auth')->group(function () {
   Route::get('/step', function () {
     return view('step');
   });
@@ -46,11 +46,11 @@ Route::middleware(['auth'])->group(function () {
   
   Route::get('/home', 'HomeController@index')->name('home');
 
-  Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
+  Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
-  Route::post('dashboard', 'HomeController@addKeyword')->name('stepResult');
+  Route::post('/dashboard', 'HomeController@addKeyword')->name('stepResult');
 
-  Route::get('dashboard/{keyword}', 'HomeController@showCampaignPage')->name('campaignPage');
+  Route::get('/dashboard/{keyword}', 'HomeController@showCampaignPage')->name('campaignPage');
 
   Route::get('/tdata', 'HomeController@getTableData')->name('searchTableData');
 

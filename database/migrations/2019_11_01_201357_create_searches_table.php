@@ -19,7 +19,7 @@ class CreateSearchesTable extends Migration
             $table->enum('social_type', ['twitter','facebook','instagram','youtube','web']);
             $table->string('title',100);
             $table->date('date');
-            $table->string('url');
+            $table->string('url', 4096);
             $table->timestamps();
         });
     }
