@@ -23,5 +23,9 @@
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10",
         "webpack-livereload-plugin": "^2.2.0"
+    },
+    "dependencies": {
+        "fbgraph": "^1.4.4",
+        "npm-watch": "^0.6.0"
     }
 }

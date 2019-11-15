@@ -21,7 +21,7 @@
                         <li class="kt-menu__item kt-menu__item--parent" aria-haspopup="true" >
                             <span class="kt-menu__link"><span class="kt-menu__link-text">Forms</span></span>
                         </li>
-                        <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                        <!-- <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                             <a href="?page=crud/forms/controls/base" class="kt-menu__link ">
                                 <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
                                 <span class="kt-menu__link-text">Freelancer</span>
@@ -38,12 +38,23 @@
                                 <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
                                 <span class="kt-menu__link-text">Apple</span>
                             </a>
-                        </li>
+                        </li> -->
+
+                        @if (count($keyword_list) > 0)
+                            @foreach ($keyword_list as $keyword) 
+                                <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                    <a href="{{ route('campaignPage', ['keyword' => $keyword->keyword]) }}" class="kt-menu__link ">
+                                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                                        <span class="kt-menu__link-text">{{ $keyword->keyword }}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </li>
             <li class="kt-menu__item kt-menu__item--submenu mt-4" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                <a href="/step" class="kt-menu__link kt-menu__toggle">
                     <span class="kt-menu__link-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -53,9 +64,9 @@
                             </g>
                         </svg>
                     </span>
-                    <span class="kt-menu__link-text font-italic">Upgrade plan and unlock more campaigns</span>
+                    <span class="kt-menu__link-text font-italic">Add campaign</span>
                 </a>
-            </li>
+            </li> 
             <!-- <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                 <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                     <span class="kt-menu__link-icon">

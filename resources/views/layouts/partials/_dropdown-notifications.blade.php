@@ -1,5 +1,5 @@
 <!--begin: Head -->
-<div class="kt-head kt-head--skin-dark kt-head--fit-x kt-head--fit-b" style="background-image: url(./assets/media/misc/bg-1.jpg)">
+<div class="kt-head kt-head--skin-dark kt-head--fit-x kt-head--fit-b" style="background-image: url(/assets/media/misc/bg-1.jpg)">
     <h3 class="kt-head__title">
         User Notifications &nbsp; <span class="btn btn-success btn-sm btn-bold btn-font-md">23 new</span> 
     </h3>

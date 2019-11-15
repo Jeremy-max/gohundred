@@ -1,6 +1,6 @@
 <!-- begin:: Mycart -->
 <div class="kt-mycart">
-    <div class="kt-mycart__head kt-head" style="background-image: url(./assets/media/misc/bg-1.jpg);">
+    <div class="kt-mycart__head kt-head" style="background-image: url(/assets/media/misc/bg-1.jpg);">
         <div class="kt-mycart__info">
             <span class="kt-mycart__icon"><i class="flaticon2-shopping-cart-1 kt-font-success"></i></span>
             <h3 class="kt-mycart__title">
@@ -19,7 +19,7 @@
                     <div class="kt-mycart__action"> <span class="kt-mycart__price">$ 450</span> <span class="kt-mycart__text">for</span> <span class="kt-mycart__quantity">7</span> <a href="#" class="btn btn-label-success btn-icon">&minus;</a> <a href="#" class="btn btn-label-success btn-icon">&plus;</a> </div>
                 </div>
                 <a href="#" class="kt-mycart__pic">
-                    <img src="./assets/media/products/product9.jpg" title="">
+                    <img src="/assets/media/products/product9.jpg" title="">
                 </a>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     <div class="kt-mycart__action"> <span class="kt-mycart__price">$ 329</span> <span class="kt-mycart__text">for</span> <span class="kt-mycart__quantity">1</span> <a href="#" class="btn btn-label-success btn-icon">&minus;</a> <a href="#" class="btn btn-label-success btn-icon">&plus;</a> </div>
                 </div>
                 <a href="#" class="kt-mycart__pic">
-                    <img src="./assets/media/products/product13.jpg" title="">
+                    <img src="/assets/media/products/product13.jpg" title="">
                 </a>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <div class="kt-mycart__action"> <span class="kt-mycart__price">$ 520</span> <span class="kt-mycart__text">for</span> <span class="kt-mycart__quantity">6</span> <a href="#" class="btn btn-label-success btn-icon">&minus;</a> <a href="#" class="btn btn-label-success btn-icon">&plus;</a> </div>
                 </div>
                 <a href="#" class="kt-mycart__pic">
-                    <img src="./assets/media/products/product16.jpg" title="">
+                    <img src="/assets/media/products/product16.jpg" title="">
                 </a>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     <div class="kt-mycart__action"> <span class="kt-mycart__price">$ 784</span> <span class="kt-mycart__text">for</span> <span class="kt-mycart__quantity">4</span> <a href="#" class="btn btn-label-success btn-icon">&minus;</a> <a href="#" class="btn btn-label-success btn-icon">&plus;</a> </div>
                 </div>
                 <a href="#" class="kt-mycart__pic">
-                    <img src="./assets/media/products/product15.jpg" title="" alt="">
+                    <img src="/assets/media/products/product15.jpg" title="" alt="">
                 </a>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <!--begin: Head -->
-<div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(./assets/media/misc/bg-1.jpg)">
+<div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(/assets/media/misc/bg-1.jpg)">
     <div class="kt-user-card__avatar">
-        <img class="kt-hidden" alt="Pic" src="./assets/media/users/300_25.jpg" />
+        <img class="kt-hidden" alt="Pic" src="/assets/media/users/300_25.jpg" />
         <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
         <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">S</span> 
     </div>
@@ -46,12 +46,17 @@
             <div class="kt-notification__item-title kt-font-bold"> Upgrade plan </div>
         </div>
     </a>
-    <a href="#" class="kt-notification__item">
+    <div >
+    <a href="{{ route('logout') }}" class="kt-notification__item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
         <div class="kt-notification__item-icon"> <i class="fas fa-power-off kt-font-danger"></i> </div>
         <div class="kt-notification__item-details">
-            <div class="kt-notification__item-title"> Log out </div>
+            <div class="kt-notification__item-title">{{ __('Logout')}}</div>
         </div>
     </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+    </form>
+    </div>
     <a href="#" class="kt-notification__item">
         <div class="kt-notification__item-icon"> <i class="fas fa-user-times kt-font-dark"></i> </div>
         <div class="kt-notification__item-details">

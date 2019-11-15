@@ -11,98 +11,98 @@
         <div class="kt-demo-panel__item kt-demo-panel__item--active">
             <div class="kt-demo-panel__item-title"> Demo 1 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo1.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo1.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo1/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo1/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 2 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo2.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo2.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo2/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo2/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 3 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo3.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo3.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo3/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo3/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 4 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo4.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo4.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo4/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo4/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 5 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo5.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo5.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo5/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo5/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 6 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo6.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo6.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo6/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo6/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 7 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo7.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo7.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo7/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo7/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 8 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo8.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo8.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo8/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo8/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 9 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo9.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo9.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo9/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo9/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 10 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo10.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo10.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo10/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo10/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 11 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo11.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo11.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo11/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo11/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 12 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo12.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo12.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="/metronic/tools/builder/demo12/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a> <a href="/metronic/tools/builder/demo12/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 13 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo13.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo13.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="#" class="btn btn-brand btn-elevate disabled" >Coming soon</a> </div>
             </div>
         </div>
         <div class="kt-demo-panel__item ">
             <div class="kt-demo-panel__item-title"> Demo 14 </div>
             <div class="kt-demo-panel__item-preview">
-                <img src="./assets/media/demos/preview/demo14.jpg" alt=""/>
+                <img src="/assets/media/demos/preview/demo14.jpg" alt=""/>
                 <div class="kt-demo-panel__item-preview-overlay"> <a href="#" class="btn btn-brand btn-elevate disabled" >Coming soon</a> </div>
             </div>
         </div>

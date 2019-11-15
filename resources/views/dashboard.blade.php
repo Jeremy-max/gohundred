@@ -66,14 +66,14 @@
 							<div class="kt-widget17__item">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
-										<i class="fab fa-reddit kt-font-warning"></i>
+										<i class="fab fa-instagram kt-font-warning"></i>
 									</div>
 									<!-- <div class="kt-demo-icon__class">
 										Reddit
 									</div> -->
 								</div>
 								<span class="kt-widget17__subtitle">
-									Reddit
+									Instagram
 								</span>
 								<span class="kt-widget17__desc">
 									15 New Comments
@@ -133,7 +133,7 @@
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<div id="kt_amcharts_1" style="height: 500px;"></div>
+				<div id="campaign_graph" style="height: 500px;"></div>
 			</div>
 		</div>
 		<!--end::Portlet-->
@@ -175,12 +175,12 @@
 											</div>
 											<div class="kt-form__control">
 												<select class="form-control bootstrap-select" id="kt_form_status">
-													<option value="">All</option>
-													<option value="1">Facebook</option>
-													<option value="2">Twitter</option>
-													<option value="3">Reddit</option>
-													<option value="4">YouTube</option>
-													<option value="5">Web</option>
+													<!-- <option value="">All</option> -->
+													<option value="facebook">facebook</option>
+													<option value="twitter">twitter</option>
+													<option value="instagram">instagram</option>
+													<option value="youtube">youtube</option>
+													<option value="web">web</option>
 												</select>
 											</div>
 										</div>
@@ -188,7 +188,7 @@
 									<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
 										<div class="kt-form__group kt-form__group--inline">
 											<div class="kt-form__label">
-												<label>Filter by country:</label>
+												<label>Date:</label>
 											</div>
 											<div class="kt-form__control">
 											<select class="selectpicker countrypicker form-control bootstrap-select" id="kt_form_country" data-live-search="true" ></select>
@@ -204,9 +204,11 @@
 				<!--begin: Datatable -->
 				<div class="kt-datatable" id="json_data"></div>
 				<!--end: Datatable -->
+				
 			</div>
 		</div>
 	</div>
+	<input id="table_keyword" type="hidden" value="{{ $keyword }}"/>
 	<!-- end:: Content -->
 </div>
 </div>
@@ -220,5 +222,5 @@
 <script src="//www.amcharts.com/lib/3/plugins/animate/animate.min.js" type="text/javascript"></script>
 <script src="//www.amcharts.com/lib/3/plugins/export/export.min.js" type="text/javascript"></script>
 <script src="//www.amcharts.com/lib/3/themes/light.js" type="text/javascript"></script>
-<script type="text/javascript" src="{{ asset('js/dashboard/dashboard.js') }}"></script>
+<script src="/js/dashboard/dashboard.js"></script>
 @endsection

@@ -35,7 +35,7 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
 
-      <a href="#page-top">
+      <a href="/">
         <img class = 'logo' src='../img/GoHundred-logo.png'/>
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,10 +53,10 @@
             <a class="nav-link js-scroll-trigger" href="#services">Plans</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/signup">Sign Up</a>
+            <a class="nav-link js-scroll-trigger" href="/register">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/signin">Log in</a>
+            <a class="nav-link js-scroll-trigger" href="/login">Log in</a>
           </li>
         </ul>
       </div>
@@ -153,7 +153,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="text-center w-100">
-          <h1 class="text-white mt-0">GoHundred is for everyone who wants to know what the world is talking about </h2>
+          <h1 id="sss" class="text-white mt-0">GoHundred is for everyone who wants to know what the world is talking about </h2>
           <hr class="divider light my-4">
           <div class="row background-blue">
             <div class="col">

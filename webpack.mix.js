@@ -61,10 +61,12 @@ const custom = {
       'public/css/dashboard/custom.css'
     ],
     sourceJs: [
-      'resources/custom/dashboard/index.js',
-      'resources/custom/dashboard/stock-charts.js',
-      'resources/custom/dashboard/json-datatable.js',
-      'resources/custom/dashboard/bootstrap-select-country.js'
+      // 'resources/custom/dashboard/index.js',
+       'resources/custom/dashboard/stock-charts.js',
+//      'resources/custom/dashboard/json-datatable.js',
+//      'resources/custom/dashboard/bootstrap-select-country.js',
+      'resources/custom/dashboard/search_table.js',
+//      'resources/custom/dashboard/amcharts.js'
     ]
   }
 }

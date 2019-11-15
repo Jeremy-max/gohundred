@@ -54,7 +54,7 @@
                                 <div class="kt-chat__message kt-chat__message--success">
                                     <div class="kt-chat__user">
                                         <span class="kt-userpic kt-userpic--circle kt-userpic--sm">
-                                            <img src="./assets/media/users/100_12.jpg" alt="image">
+                                            <img src="/assets/media/users/100_12.jpg" alt="image">
                                         </span>
                                         <a href="#" class="kt-chat__username">
                                             Jason Muller
@@ -76,7 +76,7 @@
                                     </span>
                                 </a>
                                 <span class="kt-userpic kt-userpic--circle kt-userpic--sm">
-                                    <img src="./assets/media/users/300_21.jpg" alt="image">
+                                    <img src="/assets/media/users/300_21.jpg" alt="image">
                                 </span>
                             </div>
                             <div class="kt-chat__text">
@@ -88,7 +88,7 @@
                         <div class="kt-chat__message kt-chat__message--success">
                             <div class="kt-chat__user">
                                 <span class="kt-userpic kt-userpic--circle kt-userpic--sm">
-                                    <img src="./assets/media/users/100_12.jpg" alt="image">
+                                    <img src="/assets/media/users/100_12.jpg" alt="image">
                                 </span>
                                 <a href="#" class="kt-chat__username">
                                     Jason Muller
@@ -106,7 +106,7 @@
                             </span>
                         </a>
                         <span class="kt-userpic kt-userpic--circle kt-userpic--sm">
-                            <img src="./assets/media/users/300_21.jpg" alt="image">
+                            <img src="/assets/media/users/300_21.jpg" alt="image">
                         </span>
                     </div>
                     <div class="kt-chat__text"> You’ll receive notifications for all issues, pull requests! </div>
@@ -114,7 +114,7 @@
                 <div class="kt-chat__message kt-chat__message--success">
                     <div class="kt-chat__user">
                         <span class="kt-userpic kt-userpic--circle kt-userpic--sm">
-                            <img src="./assets/media/users/100_12.jpg" alt="image">
+                            <img src="/assets/media/users/100_12.jpg" alt="image">
                         </span>
                         <a href="#" class="kt-chat__username">
                             Jason Muller
@@ -136,7 +136,7 @@
                     </span>
                 </a>
                 <span class="kt-userpic kt-userpic--circle kt-userpic--sm">
-                    <img src="./assets/media/users/300_21.jpg" alt="image">
+                    <img src="/assets/media/users/300_21.jpg" alt="image">
                 </span>
             </div>
             <div class="kt-chat__text">
@@ -148,7 +148,7 @@
         <div class="kt-chat__message kt-chat__message--success">
             <div class="kt-chat__user">
                 <span class="kt-userpic kt-userpic--circle kt-userpic--sm">
-                    <img src="./assets/media/users/100_12.jpg" alt="image">
+                    <img src="/assets/media/users/100_12.jpg" alt="image">
                 </span>
                 <a href="#" class="kt-chat__username">
                     Jason Muller
@@ -170,7 +170,7 @@
             </span>
         </a>
         <span class="kt-userpic kt-userpic--circle kt-userpic--sm">
-            <img src="./assets/media/users/300_21.jpg" alt="image">
+            <img src="/assets/media/users/300_21.jpg" alt="image">
         </span>
     </div>
     <div class="kt-chat__text"> Most purchased Business courses during this sale! </div>

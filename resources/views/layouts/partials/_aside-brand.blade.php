@@ -1,8 +1,8 @@
 <!-- begin:: Aside -->
 <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
     <div class="kt-aside__brand-logo">
-        <a href="?page=index">
-            <img alt="Logo" src="./assets/media/logos/logo-light.png"/>
+        <a href="">
+            <img alt="Logo" src="/assets/media/logos/logo-light.png"/>
         </a>
     </div>
     <div class="kt-aside__brand-tools">

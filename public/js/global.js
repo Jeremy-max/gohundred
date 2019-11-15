@@ -1,22 +1,26 @@
 (function ($) {
-    'use strict';
 
-    /*[ Wizard Config ]
-        ===========================================================*/
-    $("#brand").click(function () {
+    $(".campaign-type").click(function () {
+        $("#campaign-type").val($(this).attr('type'))
+        console.log($(this).attr('type'))
         $("#link-tab2").click()
-    
     });
-    $("#Competition").click(function () {
-        $("#link-tab2").click()
-    
+
+    $(".btn--next").click(function () {
+        $("#campaign-keyword").val($("#keyword").val());
+        $("#campaign-domain").val($("#domain").val());
+        console.log($("#keyword").val());
+        console.log($("#domain").val());
     });
-    $("#Topic").click(function () {
-        $("#link-tab2").click()
-    
+
+    $(".notification-type").click(function (){
+        $("#campaign-notification").val($(this).attr('type'))
+        $("#step-form").submit();
+        console.log($(this).attr('type'));
     });
+
     try {
-        var $validator = $("#js-wizard-form").validate({
+        var $validator = $("#step-form").validate({
             rules: {
                 username: {
                     required: true,
@@ -58,22 +62,26 @@
             }
         });
     
-        $("#js-wizard-form").bootstrapWizard({
+        $("#step-form").bootstrapWizard({
             'tabClass': 'nav nav-pills',
             'nextSelector': '.btn--next',
             'onNext': function(tab, navigation, index) {
-                var $valid = $("#js-wizard-form").valid();
-                if(!$valid) {
-                    $validator.focusInvalid();
-                    return false;
-                }
+                // if (index == 1) {
+                //     var $valid = $("#step-form").valid();
+                //     if (!$valid) {
+                //         $validator.focusInvalid();
+                //         return false;
+                //     }
+                // }
             },
             'onTabClick': function (tab, navigation, index) {
-                var $valid = $("#js-wizard-form").valid();
-                if(!$valid) {
-                    $validator.focusInvalid();
-                    return false;
-                }
+                // if (index == 1) {
+                //     var $valid = $("#step-form").valid();
+                //     if (!$valid) {
+                //         $validator.focusInvalid();
+                //         return false;
+                //     }
+                // }
             }
     
         });

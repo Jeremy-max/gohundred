@@ -10,7 +10,7 @@
     <meta name="keywords" content="AuThemes Templates">
 
     <!-- Title Page-->
-    <title>Au Form Wizard</title>
+    <title>Gohundred</title>
 
     <!-- Icons font CSS-->
     <link href="/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -33,7 +33,13 @@
                     <h2 class="title">Let's get you started with monitoring campaigns</h2>
                 </div>
                 <div class="card-body">
-                    <form class="wizard-container" method="POST" action="#" id="js-wizard-form">
+                    <form class="wizard-container" method="POST" action="{{ route('stepResult') }}" id="step-form">
+                        @csrf
+                        <input type="hidden" id="campaign-type" name="campaign-type" value="brand"/>
+                        <input type="hidden" id="campaign-keyword" name="campaign-keyword" value="keyword"/>
+                        <input type="hidden" id="campaign-domain" name="campaign-domain" value="domain"/>
+                        <input type="hidden" id="campaign-notification" name="campaign-notification" value="notification"/>
+
                         <ul class="tab-list">
                             <li class="tab-list__item active">
                                 <a class="tab-list__link" href="#tab1" id="link-tab1" data-toggle="tab">
@@ -61,11 +67,19 @@
                                         <p class="h3 text-center">Choose your type of campaign(You can always add more later)</p>
                                     </div>
                                     <div class="text-center mt-3">
-                                        <a class = "social " href="#" id="brand"><strong>Brand</strong></a>
+                                        <button href="#" class="btn btn-light campaign-type" type="brand">
+                                            <strong>Brand</strong>
+                                        </button>
+                                        
                                         <p>Find out who talks about your brand</p>
-                                        <a class = "social " href="#" id="Competition"><strong>Competition</strong></a>
+                                        <button href="#" class="btn btn-light campaign-type" type="competition">
+                                            <strong>Competition</strong>
+                                        </button>
+
                                         <p>Figure out what your competitors are up to</p>
-                                        <a class = "social  " href="#" id="Topic"><strong>Topic</strong></a>
+                                        <button href="#" class="btn btn-light campaign-type" type="topic">
+                                            <strong>Topic</strong>
+                                        </button>
                                         <p>Get instant news on topics related to your bisiness</p>
                                     </div>
                                 </div>
@@ -73,17 +87,13 @@
                             <div class="tab-pane" id="tab2">
                                 <div class="form">
                                     <div class="input-group">
-                                        <p class="h6">Type the name of the brand,company or topic that you wish to keep your eyes on</p>
+                                        <p class="h6">Type the name of the brand,competitor or topic that you wish to keep your eyes on</p>
                                     </div>
                                     <div class="input-group mt-3">
-                                        <input class="input--style-1" type="text" name="cpt-Domain" placeholder="Keyword" required="required"><!-- 
-                                        <input class="input--style-1 mt-2" type="text" name="cpt-Facebook" placeholder="FACEBOOK---(www.facebook.com/username)" required="required">
-                                        <input class="input--style-1 mt-2" type="text" name="cpt-Twitter" placeholder="TWITTER---(www.twitter.com/username)" required="required"> 
-                                        <input class="input--style-1 mt-2" type="text" name="cpt-instagram" placeholder="INSTAGRAM---(www.instagram.com/username)" required="required"> -->
+                                        <input class="input--style-1" id="keyword" type="text" name="cpt-Domain" placeholder="Keyword" required>
                                     </div>
                                     <div class="input-group mt-2">                                
-
-                                        <input class="input--style-1" type="text" name="keyword" placeholder="Domain" required="required">
+                                        <input class="input--style-1" id="domain" type="text" name="keyword" placeholder="Domain" required>
                                         <a class="btn--next" href="#">next step</a>
                                     </div>
                                 </div>
@@ -94,9 +104,9 @@
                                         <p class="h6 ">Choose your preferred channel to get notifications and information from GoHundred</p>
                                     </div>
                                     <div class="text-center">
-                                        <a class = "social" href="/done">Slack intergration</a>
+                                        <button class="btn btn-success notification-type" type="slack">Slack intergration</button>
                                         <p>or</p>
-                                        <a class = "social" href="/done">Email notifications</a>
+                                        <button class="btn btn-danger notification-type" type="email">Email notifications</button>
                                     </div>
                                 </div>
                             </div>

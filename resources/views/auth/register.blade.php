@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,34 +34,43 @@
              <!-- Background image for card set in CSS! -->
           </div>
           <div class="card-body">
-            <h5 class="card-title text-center">Register</h5>
-            <form class="form-signin">
+            <h5 class="card-title text-center">Sign up</h5>
+            <form class="form-signin" method="POST" action="{{ route('register') }}">
+              @csrf
               <div class="form-label-group">
-                <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-                <label for="inputUserame">Username</label>
+                <input name="name" type="text" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Username" required autocomplete="name" autofocus>
+                <label for="name">Username</label>
               </div>
 
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-                <label for="inputEmail">Email address</label>
+                <input name="email" type="email" id="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required autocomplete="email" placeholder="Enter your email here">
+                <label for="email">Email address</label>
               </div>
               
               <hr>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
+                <input name="password" type="password" id="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password" placeholder="Password">
+                <label for="password">Password</label>
               </div>
               
               <div class="form-label-group">
-                <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-                <label for="inputConfirmPassword">Confirm password</label>
+                <input name="password_confirmation" type="password" id="password-confirm" class="form-control" required autocomplete="new-password" placeholder="Confirm Password">
+                <label for="password-confirm">Confirm Password</label>
               </div>
-              <form action="/action_page.php">
-                <input type="checkbox" name="vehicle1" value="Bike"> I have read and accept GoHundred's <a href="/privacy_policy">Privacy Policy</a>  and <a href="/terms-of-service">Terms of Service</a> <br>
-              </form>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase mt-2" type="submit">Register</button>
-              <a class="d-block text-center mt-2 small" href="/signin">Sign In</a>
+              
+              <div class="form-label-group">
+                <input type="checkbox" name="vehicle1" value="Bike" id='tos' required/>
+                <label for='tos' class="py-0">
+                  I have read and accept GoHundred's
+                  <a href="/privacy_policy">Privacy Policy</a> 
+                  and
+                  <a href="/terms-of-service">Terms of Service</a> <br>
+                </label>
+              </div>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase mt-4" type="submit">Sign Up</button>
+              <a class="d-block text-center mt-2 small" href="/login">Log In</a>
               <hr class="my-4">
               <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
               <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
