@@ -97,13 +97,13 @@ class HomeController extends Controller
 
         try{
           $tweets = $connection->get('search/tweets', $params);
-
+          $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
         } catch(\Exception $e) {
           dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
           break;
           //return false;
         }
-        $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
+        
       
        if(count($tweets->statuses) < $limit_cnt)
          break;
@@ -216,37 +216,37 @@ class HomeController extends Controller
   {
     dd('Hello, instagram!!');
     
-/*    $consumer_key = env('CONSUMER_KEY');
-    $consumer_secret = env('CONSUMER_SECRET');
-    $access_token_key = env('ACCESS_TOKEN_KEY');
-    $access_token_secret = env('ACCESS_TOKEN_SECRET');
-    $connection = new TwitterOAuth(
-      $consumer_key,
-      $consumer_secret,
-      $access_token_key,
-      $access_token_secret
-    ); 
-    $limit_cnt = 50;
-    $params = [
-      'q' => "freelancer",
-      'count' => $limit_cnt,
-      'max_id' => null
-    ];
-      $tweets_db = [];
-     while(1)
-     {
+//     $consumer_key = env('CONSUMER_KEY');
+//     $consumer_secret = env('CONSUMER_SECRET');
+//     $access_token_key = env('ACCESS_TOKEN_KEY');
+//     $access_token_secret = env('ACCESS_TOKEN_SECRET');
+//     $connection = new TwitterOAuth(
+//       $consumer_key,
+//       $consumer_secret,
+//       $access_token_key,
+//       $access_token_secret
+//     ); 
+//     $limit_cnt = 50;
+//     $params = [
+//       'q' => "campaign",
+//       'count' => $limit_cnt,
+//       'max_id' => null
+//     ];
+//       $tweets_db = [];
+// //     while(1)
+// //     {
 
-        $tweets = $connection->get('search/tweets', $params);
+//         $tweets = $connection->get('search/tweets', $params);
 
-        dump($this->parseTweets($tweets, 1));
+//         dd($tweets);
       
-       if(count($tweets->statuses) < $limit_cnt)
-         break;
+      //  if(count($tweets->statuses) < $limit_cnt)
+      //    break;
       
-        $params['max_id'] = $this->getMaxId($tweets);
-    }
+      //   $params['max_id'] = $this->getMaxId($tweets);
+//    }
 //    dump($tweets_db);
-*/
+//
   }
 
 
@@ -284,12 +284,13 @@ class HomeController extends Controller
         try{
 
           $searchResponse = $youtube->search->listSearch('id,snippet', $params);
+          $youtube_db = array_merge($youtube_db, $this->parseYoutube($searchResponse, $keyword->id));
 
         } catch(\Exception $e) {
           dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
           break;
         }
-        $youtube_db = array_merge($youtube_db, $this->parseYoutube($searchResponse, $keyword->id));
+        
        if(count($searchResponse->items) < $limit_cnt)
          break;
       
@@ -365,13 +366,14 @@ class HomeController extends Controller
 
           try{
             $results = $fulltext->getResults($keyword->keyword, $params); 
+            $web_db = array_merge($web_db, $this->parseWeb($results, $keyword->id));
           } catch(\Exception $e) {
             dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
             break;
           }
           $sumCnt += 10;
 
-          $web_db = array_merge($web_db, $this->parseWeb($results, $keyword->id));
+          
         
           // if(count($results) < $limit_cnt)
           //   break;
