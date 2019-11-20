@@ -98,24 +98,31 @@ class HomeController extends Controller
 //    $tweets = $connection->get('search/tweets', $params);
 //    dd($tweets);
       $tweets_db = [];
+      $sum = 0;
      while(1)
      {
 
         try{
           $tweets = $connection->get('search/tweets', $params);
-          if($this->parseTweets($tweets,$keyword->id))
-            $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
+          if(isset($tweets->errors))
+          {
+            dump('Error occurred for rate limit exceeded free trial version limitation');
+            break;
+          }
+          else{
+            if($this->parseTweets($tweets,$keyword->id))
+              $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
+          }
         } catch(\Exception $e) {
           dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
           break;
           //return false;
         }
-        
-      
-       if(count($tweets->statuses) < $limit_cnt)
-         break;
+        if(count($tweets->statuses) < $limit_cnt || $sum > 100)
+            break;
       
         $params['max_id'] = $this->getMaxId($tweets);
+        $sum += $limit_cnt;
       }
       dump($tweets_db);
       Search::insert($tweets_db);
