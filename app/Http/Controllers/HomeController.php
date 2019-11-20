@@ -118,7 +118,7 @@ class HomeController extends Controller
           break;
           //return false;
         }
-        if(count($tweets->statuses) < $limit_cnt || $sum > 100)
+        if(count($tweets->statuses) < $limit_cnt || $sum > 30)
             break;
       
         $params['max_id'] = $this->getMaxId($tweets);
@@ -294,9 +294,10 @@ class HomeController extends Controller
         'maxResults' => $limit_cnt,
         'order' => $order[1],
         'pageToken' => null,
-        'type' => $type[0],
-        'publishedAfter' => '2019-11-11'
-      ];    
+        'type' => $type[0]
+//        'publishedAfter' => '2019-11-11'
+      ];
+      $sum = 0;
 
       $youtube_db = [];
      while(1)
@@ -313,10 +314,11 @@ class HomeController extends Controller
           break;
         }
         
-       if(count($searchResponse->items) < $limit_cnt)
+       if(count($searchResponse->items) < $limit_cnt || $sum > 10)
          break;
       
         $params['pageToken'] = $searchResponse->nextPageToken;
+        $sum += $limit_cnt;
      }
       dump($youtube_db);
       Search::insert($youtube_db);
@@ -376,7 +378,7 @@ class HomeController extends Controller
     $dateY = date('Y');
     $dateM = date('m');
     $dateD = date('d');
-    $limit_cnt = 20;
+    $limit_cnt = 40;
 
      foreach ($keyword_list as $keyword)
      {
