@@ -282,7 +282,7 @@ class HomeController extends Controller
     // Define an object that will be used to make all API requests.
     $youtube = new Google_Service_YouTube($client);
 
-    $keyword_list = Keyword::all();
+    $keyword_list = Keyword::where('user_id', auth()->user()->id)->get();
 
     $order = ['viewCount', 'date', 'rating', 'relevance', 'title', 'videoCount'];
     $type = ['video', 'channel', 'playlist'];
