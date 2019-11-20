@@ -43,7 +43,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					sortable: false,
 					width: 20,
 					type: 'number',
-					selector: {class: 'kt-checkbox--solid'},
+					selector: {class: 'kt-checkbox--solid',id:'kt-id'},
 					textAlign: 'center',
 				},
 				// {
@@ -81,39 +81,37 @@ var KTDatatableJsonRemoteDemo = function () {
 //					type: 'date',
 					format: 'YYYY-MM-DD',
 					textAlign: 'center',
-					sortable: 'asc',
+                    sortable: 'asc',
+                    width: 100
 				}, 
 				{
 					field: 'url',
 					title: 'URL',
-					type: 'url',
+                    type: 'url',
 					textAlign: 'center',
 					autoHide: false,
 					template: function(row){
-						return '<a href='+row.url+'>'+row.url+'</a>';
+						return '<a href="'+row.url+'">'+row.url+'</a>';
 					}
 				},	{
 					field: 'Actions',
 					title: 'Actions',
 					sortable: false,
-					width: 110,
 					autoHide: false,
 					textAlign: 'center',
 					overflow: 'visible',
-					template: function() {
-						return '\
-						<a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Go to page">\
+					template: function(row) {
+                        var url = row.url;
+                        return '\
+                        <a href="'+url+'" class="btn btn-hover-warning btn-icon btn-pill" title="Go to page">\
 							<i class="fas fa-external-link-alt"></i>\
 						</a>\
-						<a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">\
-							<i class="fas fa-trash"></i>\
-						</a>\
-						<a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Share(E-mail)">\
-							<i class="fas fa-envelope"></i>\
-						</a>\
-					';
+                        <button class="btn btn-hover-danger btn-icon btn-pill btn-delete" title="Delete" name='+row.id+'>\
+                            <i class="la la-trash"></i>\
+                        </button>';
 					},
-				}],
+                }
+            ],
 
 		});
 
@@ -121,16 +119,29 @@ var KTDatatableJsonRemoteDemo = function () {
         	datatable.search($(this).val().toLowerCase(), 'social_type');
         });
 
-        $('#kt_form_type').on('change', function() {
-        	datatable.search($(this).val().toLowerCase(), 'Type');
-        });
-
         $('#kt_form_country').on('change', function() {
-            var search = $(this).val() == "AC" ? '' : $(this).val().toLowerCase()
-            datatable.search(search, 'ShipCountry');
+        	datatable.search($(this).val().toLowerCase(), 'date');
         });
 
-        $('#kt_form_status,#kt_form_type').selectpicker();
+        // $('#kt_form_country').on('change', function() {
+        //     var search = $(this).val() == "AC" ? '' : $(this).val().toLowerCase()
+        //     datatable.search(search, 'ShipCountry');
+        // });/deleteRow?rowId='+row.id+'
+
+        $('#kt_form_status').selectpicker();
+
+        $('body').on('click', '.btn-delete', function() {
+            var rowId = $(this).attr('name');
+//            console.log(rowId);
+            $.get('/deleteRow', {'rowId': rowId}).done(function(response){
+            //    console.log(response);
+                datatable.load();
+            });
+//            var row = datatable.row('kt-id',);
+ //           console.log(row);
+ //           datatable.remove();
+
+        });
 
 	};
 

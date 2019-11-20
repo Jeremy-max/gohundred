@@ -66,7 +66,6 @@ const custom = {
 //      'resources/custom/dashboard/json-datatable.js',
 //      'resources/custom/dashboard/bootstrap-select-country.js',
       'resources/custom/dashboard/search_table.js',
-      'resources/custom/dashboard/global.js',
 //      'resources/custom/dashboard/amcharts.js'
     ]
   }
@@ -87,4 +86,5 @@ mix.copy(theme.sourceCss[0], theme.destCss[0])
   .scripts(custom.dashboard.sourceJs, 'resources/custom/dashboard/dashboard.js')
   .copy('resources/custom/dashboard/dashboard.js', 'public/js/dashboard/dashboard.js')
   .copy('resources/custom/dashboard/global.js', 'public/js/dashboard/global.js')
+  .copy('resources/custom/dashboard/main.css', 'public/css/dashboard/global.js')
   .copy(custom.dashboard.sourceCss[0], custom.dashboard.destCss[0])

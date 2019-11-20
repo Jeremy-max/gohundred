@@ -22,7 +22,8 @@
 
 
     <!-- Main CSS-->
-    <link href="/css/main.css" rel="stylesheet" media="all">
+    <link href="/css/dashboard/main.css" rel="stylesheet" media="all">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" media="all">
 </head>
 
 <body>
@@ -36,9 +37,7 @@
                     <form class="wizard-container" method="POST" action="{{ route('stepResult') }}" id="step-form">
                         @csrf
                         <input type="hidden" id="campaign-type" name="campaign-type" value="brand"/>
-                        <input type="hidden" id="campaign-keyword" name="campaign-keyword" value="keyword"/>
-                        <input type="hidden" id="campaign-domain" name="campaign-domain" value="domain"/>
-                        <input type="hidden" id="campaign-notification" name="campaign-notification" value="notification"/>
+                        <!-- <input type="hidden" id="campaign-notification" name="campaign-notification" value="notification"/> -->
 
                         <ul class="tab-list">
                             <li class="tab-list__item active">
@@ -53,12 +52,12 @@
                                     <span class="desc">step</span>
                                 </a>
                             </li>
-                            <li class="tab-list__item">
+                            <!-- <li class="tab-list__item">
                                 <a class="tab-list__link" href="#tab3" id="link-tab3" data-toggle="tab">
                                     <span class="step">3</span>
                                     <span class="desc">step</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
@@ -80,7 +79,7 @@
                                         <button href="#" class="btn btn-light campaign-type" type="topic">
                                             <strong>Topic</strong>
                                         </button>
-                                        <p>Get instant news on topics related to your bisiness</p>
+                                        <p>Get instant news on topics related to your business</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,16 +88,42 @@
                                     <div class="input-group">
                                         <p class="h6">Type the name of the brand,competitor or topic that you wish to keep your eyes on</p>
                                     </div>
-                                    <div class="input-group mt-3">
-                                        <input class="input--style-1" id="keyword" type="text" name="keyword" placeholder="Keyword" required>
-                                        <a class="btn--next" href="#">next step</a>
+                                    <div class="input-group mt-2">
+                                        <button class="fas fa-plus plus-button" id="plus-button-id" type="button"></button>
+                                        <div class="campaign-div">
+                                            <input class="input--style-1" id="keyword" type="text" name="campaign-keyword[]" placeholder="Keyword" required>
+                                            <button class="btn--next">Add campaigns</button>
+                                        </div>
                                     </div>
-                                    <!-- <div class="input-group mt-2">                                
-                                        <input class="input--style-1" id="domain" type="text" name="keyword" placeholder="Domain" required>
-                                    </div> -->
+                                    <div class="input-group mt-2">
+                                        <button class="fas fa-minus plus-button" id="minus-button-id1" type="button" style="display:none;" ></button>
+                                        <div class="campaign-div">                                
+                                            <input class="input--style-1" id="keyword1" type="text" name="campaign-keyword[]" placeholder="Keyword" style="display: none;">
+                                        </div>
+                                    </div>
+                                    <div class="input-group mt-2"> 
+                                        <button class="fas fa-minus plus-button" id="minus-button-id2" type="button" style="display:none;"></button>
+                                        <div class="campaign-div">                              
+                                            <input class="input--style-1" id="keyword2" type="text" name="campaign-keyword[]" placeholder="Keyword" style="display: none;">
+                                        </div>
+                                    </div>
+                                    <div class="input-group mt-2">     
+                                        <button class="fas fa-minus plus-button" id="minus-button-id3" type="button" style="display:none;"></button>
+                                        <div class="campaign-div">                             
+                                            <input class="input--style-1" id="keyword3" type="text" name="campaign-keyword[]" placeholder="Keyword" style="display: none;">
+                                        </div>
+                                    </div>
+                                    <div class="input-group mt-2">     
+                                        <button class="fas fa-minus plus-button" id="minus-button-id4" type="button" style="display:none;"></button>
+                                        <div class="campaign-div">                              
+                                            <input class="input--style-1" id="keyword4" type="text" name="campaign-keyword[]" placeholder="Keyword" style="display: none;">
+                                        </div>
+                                    </div>
+                                    
+                                    
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab3">
+                            <!-- <div class="tab-pane" id="tab3">
                                 <div class="form">
                                     <div class="input-group text-center">
                                         <p class="h6 ">Choose your preferred channel to get notifications and information from GoHundred</p>
@@ -109,7 +134,7 @@
                                         <button class="btn btn-danger notification-type" type="email">Email notifications</button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>
@@ -126,7 +151,7 @@
 
 
     <!-- Main JS-->
-    <script src="/js/global.js"></script>
+    <script src="/js/dashboard/global.js"></script>
 
 </body>
 

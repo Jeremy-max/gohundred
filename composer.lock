@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "003559e5c18458d99930afea0223c1d2",
+    "content-hash": "ff279bbc5f4f6872a78782cdb63f1f50",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -59,6 +59,40 @@
                 "twitter"
             ],
             "time": "2019-01-20T17:52:37+00:00"
+        },
+        {
+            "name": "buttercms/buttercms-php",
+            "version": "2.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ButterCMS/buttercms-php.git",
+                "reference": "f7c47d6be0829d70039cf1cc9303235c4c4226ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ButterCMS/buttercms-php/zipball/f7c47d6be0829d70039cf1cc9303235c4c4226ff",
+                "reference": "f7c47d6be0829d70039cf1cc9303235c4c4226ff",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ButterCMS": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "ButterCMS",
+                    "email": "support@buttercms.com"
+                }
+            ],
+            "description": "ButterCMS PHP API Wrapper",
+            "time": "2019-04-10T01:43:22+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

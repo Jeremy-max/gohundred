@@ -20,7 +20,7 @@ var KTamChartsStockChartsDemo = function() {
         $.get('/graph', {'keyword': keyword}).done(function(response){
             chartData = response;
             var chart = AmCharts.makeChart("campaign_graph", {
-                "rtl": KTUtil.isRTL(),
+ //               "rtl": KTUtil.isRTL(),
                 "type": "stock",
                 "theme": "light",
                 "dataDateFormat": "YYYY-MM-DD",
@@ -52,7 +52,9 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[0],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
                 }, {
                     "title": "Twitter",
                     "fieldMappings": [{
@@ -60,7 +62,10 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[1],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
+                    "compared": "false"
                 },{
                     "title": "Instagram",
                     "fieldMappings": [{
@@ -68,7 +73,10 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[2],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
+                    "compared": "false"
                 }, {
                     "title": "Youtube",
                     "fieldMappings": [{
@@ -76,7 +84,10 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[3],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
+                    "compared": "false"
                 }, {
                     "title": "Web",
                     "fieldMappings": [{
@@ -84,13 +95,16 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[4],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
+                    "compared": "false"
                 }],
     
                 "panels": [{
                     "showCategoryAxis": false,
                     "title": "Value",
-                    "percentHeight": 70,
+                    "recalculateToPercents" : "never",
                     "stockGraphs": [{
                         "id": "g1",
                         "valueField": "value",
@@ -100,7 +114,7 @@ var KTamChartsStockChartsDemo = function() {
                         "compareGraphBalloonText": "[[title]]:<b>[[value]]</b>"
                     }],
                     "stockLegend": {
-                        "periodValueTextComparing": "[[percents.value.close]]%",
+                        "periodValueTextComparing": "[[value.close]]",
                         "periodValueTextRegular": "[[value.close]]"
                     }
                 }],
@@ -211,7 +225,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					sortable: false,
 					width: 20,
 					type: 'number',
-					selector: {class: 'kt-checkbox--solid'},
+					selector: {class: 'kt-checkbox--solid',id:'kt-id'},
 					textAlign: 'center',
 				},
 				// {
@@ -249,39 +263,37 @@ var KTDatatableJsonRemoteDemo = function () {
 //					type: 'date',
 					format: 'YYYY-MM-DD',
 					textAlign: 'center',
-					sortable: 'asc',
+                    sortable: 'asc',
+                    width: 100
 				}, 
 				{
 					field: 'url',
 					title: 'URL',
-					type: 'url',
+                    type: 'url',
 					textAlign: 'center',
 					autoHide: false,
 					template: function(row){
-						return '<a href='+row.url+'>'+row.url+'</a>';
+						return '<a href="'+row.url+'">'+row.url+'</a>';
 					}
 				},	{
 					field: 'Actions',
 					title: 'Actions',
 					sortable: false,
-					width: 110,
 					autoHide: false,
 					textAlign: 'center',
 					overflow: 'visible',
-					template: function() {
-						return '\
-						<a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Go to page">\
+					template: function(row) {
+                        var url = row.url;
+                        return '\
+                        <a href="'+url+'" class="btn btn-hover-warning btn-icon btn-pill" title="Go to page">\
 							<i class="fas fa-external-link-alt"></i>\
 						</a>\
-						<a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">\
-							<i class="fas fa-trash"></i>\
-						</a>\
-						<a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Share(E-mail)">\
-							<i class="fas fa-envelope"></i>\
-						</a>\
-					';
+                        <button class="btn btn-hover-danger btn-icon btn-pill btn-delete" title="Delete" name='+row.id+'>\
+                            <i class="la la-trash"></i>\
+                        </button>';
 					},
-				}],
+                }
+            ],
 
 		});
 
@@ -289,16 +301,29 @@ var KTDatatableJsonRemoteDemo = function () {
         	datatable.search($(this).val().toLowerCase(), 'social_type');
         });
 
-        $('#kt_form_type').on('change', function() {
-        	datatable.search($(this).val().toLowerCase(), 'Type');
-        });
-
         $('#kt_form_country').on('change', function() {
-            var search = $(this).val() == "AC" ? '' : $(this).val().toLowerCase()
-            datatable.search(search, 'ShipCountry');
+        	datatable.search($(this).val().toLowerCase(), 'date');
         });
 
-        $('#kt_form_status,#kt_form_type').selectpicker();
+        // $('#kt_form_country').on('change', function() {
+        //     var search = $(this).val() == "AC" ? '' : $(this).val().toLowerCase()
+        //     datatable.search(search, 'ShipCountry');
+        // });/deleteRow?rowId='+row.id+'
+
+        $('#kt_form_status').selectpicker();
+
+        $('body').on('click', '.btn-delete', function() {
+            var rowId = $(this).attr('name');
+//            console.log(rowId);
+            $.get('/deleteRow', {'rowId': rowId}).done(function(response){
+            //    console.log(response);
+                datatable.load();
+            });
+//            var row = datatable.row('kt-id',);
+ //           console.log(row);
+ //           datatable.remove();
+
+        });
 
 	};
 
@@ -313,89 +338,3 @@ var KTDatatableJsonRemoteDemo = function () {
 jQuery(document).ready(function () {
 	KTDatatableJsonRemoteDemo.init();
 });
-(function ($) {
-    'use strict';
-
-    /*[ Wizard Config ]
-        ===========================================================*/
-    $("#brand").click(function () {
-        $("#link-tab2").click()
-    
-    });
-    $("#Competition").click(function () {
-        $("#link-tab2").click()
-    
-    });
-    $("#Topic").click(function () {
-        $("#link-tab2").click()
-    
-    });
-    try {
-        var $validator = $("#js-wizard-form").validate({
-            rules: {
-                username: {
-                    required: true,
-                    minlength: 3
-                },
-                email: {
-                    required: true,
-                    email: true,
-                    minlength: 3
-                },
-                password: {
-                    required: true,
-                    minlength: 8
-                },
-                re_password: {
-                    required: true,
-                    minlength: 8,
-                    equalTo: '#password'
-                }
-            },
-            messages: {
-                username: {
-                    required: "Enter username"
-                },
-    
-                email: {
-                    required: "Enter your email",
-    
-                },
-                password: {
-                    required: "Enter password",
-                    minlength: "Password must be >= 8 character"
-                },
-                re_password: {
-                    required: "Please confirm your password",
-                    minlength: "Password must has >= 8 character",
-                    equalTo: "Password doesn't equal to the previous one"
-                }
-            }
-        });
-    
-        $("#js-wizard-form").bootstrapWizard({
-            'tabClass': 'nav nav-pills',
-            'nextSelector': '.btn--next',
-            'onNext': function(tab, navigation, index) {
-                var $valid = $("#js-wizard-form").valid();
-                if(!$valid) {
-                    $validator.focusInvalid();
-                    return false;
-                }
-            },
-            'onTabClick': function (tab, navigation, index) {
-                var $valid = $("#js-wizard-form").valid();
-                if(!$valid) {
-                    $validator.focusInvalid();
-                    return false;
-                }
-            }
-    
-        });
-    
-    }
-    catch (e) {
-        console.log(e)
-    }
-
-})(jQuery);

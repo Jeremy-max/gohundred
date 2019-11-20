@@ -20,7 +20,7 @@ var KTamChartsStockChartsDemo = function() {
         $.get('/graph', {'keyword': keyword}).done(function(response){
             chartData = response;
             var chart = AmCharts.makeChart("campaign_graph", {
-                "rtl": KTUtil.isRTL(),
+ //               "rtl": KTUtil.isRTL(),
                 "type": "stock",
                 "theme": "light",
                 "dataDateFormat": "YYYY-MM-DD",
@@ -52,7 +52,9 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[0],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
                 }, {
                     "title": "Twitter",
                     "fieldMappings": [{
@@ -60,7 +62,10 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[1],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
+                    "compared": "false"
                 },{
                     "title": "Instagram",
                     "fieldMappings": [{
@@ -68,7 +73,10 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[2],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
+                    "compared": "false"
                 }, {
                     "title": "Youtube",
                     "fieldMappings": [{
@@ -76,7 +84,10 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[3],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
+                    "compared": "false"
                 }, {
                     "title": "Web",
                     "fieldMappings": [{
@@ -84,13 +95,16 @@ var KTamChartsStockChartsDemo = function() {
                         "toField": "value"
                     }],
                     "dataProvider": response[4],
-                    "categoryField": "date"
+                    "categoryField": "date",
+                    "showInCompare": "false",
+                    "showInSelect": "false",
+                    "compared": "false"
                 }],
     
                 "panels": [{
                     "showCategoryAxis": false,
                     "title": "Value",
-                    "percentHeight": 70,
+                    "recalculateToPercents" : "never",
                     "stockGraphs": [{
                         "id": "g1",
                         "valueField": "value",
@@ -100,7 +114,7 @@ var KTamChartsStockChartsDemo = function() {
                         "compareGraphBalloonText": "[[title]]:<b>[[value]]</b>"
                     }],
                     "stockLegend": {
-                        "periodValueTextComparing": "[[percents.value.close]]%",
+                        "periodValueTextComparing": "[[value.close]]",
                         "periodValueTextRegular": "[[value.close]]"
                     }
                 }],

@@ -56,6 +56,8 @@ Route::middleware('auth')->group(function () {
 
   Route::get('/graph', 'HomeController@getGraphData')->name('graphData');
 
+  Route::get('/deleteRow', 'HomeController@deleteRowTabledata');
+
 
   Route::get('/twitter', 'HomeController@search_twitter');
 
@@ -66,4 +68,5 @@ Route::middleware('auth')->group(function () {
   Route::get('/youtube', 'HomeController@search_youtube');
 
   Route::get('/web', 'HomeController@search_web');
+  
 });

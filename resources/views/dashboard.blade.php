@@ -202,7 +202,8 @@
 												<label>Date:</label>
 											</div>
 											<div class="kt-form__control">
-											<select class="selectpicker countrypicker form-control bootstrap-select" id="kt_form_country" data-live-search="true" ></select>
+											<input class="form-control" id="kt_form_country" placeholder="Date..." data-live-search="true"/>
+											<!-- <select class="selectpicker countrypicker form-control bootstrap-select" id="kt_form_country" data-live-search="true" ></select> -->
 										</div>
 									</div>
 								</div>

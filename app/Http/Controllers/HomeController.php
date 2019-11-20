@@ -15,6 +15,7 @@ use Google_Service_YouTube;
 use GoogleSearchResults;
 use App\Http\Controllers\Controller;
 use JanDrda\LaravelGoogleCustomSearchEngine\LaravelGoogleCustomSearchEngine;
+use ButterCMS\ButterCMS;
 
 use DateTime;
 use DatePeriod;
@@ -69,6 +70,11 @@ class HomeController extends Controller
 
   public function search_twitter()
   {
+    $this->twitterApi();
+    return redirect()->route('dashboard');
+  }
+  public function twitterApi()
+  {
     $consumer_key = env('CONSUMER_KEY');
     $consumer_secret = env('CONSUMER_SECRET');
     $access_token_key = env('ACCESS_TOKEN_KEY');
@@ -97,7 +103,8 @@ class HomeController extends Controller
 
         try{
           $tweets = $connection->get('search/tweets', $params);
-          $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
+          if($this->parseTweets($tweets,$keyword->id))
+            $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
         } catch(\Exception $e) {
           dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
           break;
@@ -136,6 +143,8 @@ class HomeController extends Controller
   }
   
   public function parseTweets($tweets, $keyword_id) {
+    if(!isset($tweets->statuses))
+      return false;
     $cnt = count($tweets->statuses);
     $i = 0;
     $table_tweets = [];
@@ -214,43 +223,48 @@ class HomeController extends Controller
 
   public function search_instagram()
   {
-    dd('Hello, instagram!!');
+//    dd('Hello, instagram!!');
     
-//     $consumer_key = env('CONSUMER_KEY');
-//     $consumer_secret = env('CONSUMER_SECRET');
-//     $access_token_key = env('ACCESS_TOKEN_KEY');
-//     $access_token_secret = env('ACCESS_TOKEN_SECRET');
-//     $connection = new TwitterOAuth(
-//       $consumer_key,
-//       $consumer_secret,
-//       $access_token_key,
-//       $access_token_secret
-//     ); 
-//     $limit_cnt = 50;
-//     $params = [
-//       'q' => "campaign",
-//       'count' => $limit_cnt,
-//       'max_id' => null
-//     ];
-//       $tweets_db = [];
-// //     while(1)
-// //     {
+    $consumer_key = env('CONSUMER_KEY');
+    $consumer_secret = env('CONSUMER_SECRET');
+    $access_token_key = env('ACCESS_TOKEN_KEY');
+    $access_token_secret = env('ACCESS_TOKEN_SECRET');
+    $connection = new TwitterOAuth(
+      $consumer_key,
+      $consumer_secret,
+      $access_token_key,
+      $access_token_secret
+    ); 
+    $limit_cnt = 50;
+    $params = [
+      'q' => "fgkjngfdjfdslkj",
+      'count' => $limit_cnt,
+      'max_id' => null
+    ];
+      $tweets_db = [];
+//     while(1)
+//     {
 
-//         $tweets = $connection->get('search/tweets', $params);
-
-//         dd($tweets);
+        $tweets = $connection->get('search/tweets', $params);
+        $errors = $this->parseTweets($tweets, 1);
+        dd($errors);
       
       //  if(count($tweets->statuses) < $limit_cnt)
       //    break;
       
       //   $params['max_id'] = $this->getMaxId($tweets);
-//    }
-//    dump($tweets_db);
-//
+//   }
+//   dump($tweets_db);
+
   }
 
 
   public function search_youtube()
+  {
+    $this->youtubeApi();
+    return redirect()->route('dashboard');
+  }
+  public function youtubeApi()
   {
 //    dd('Hello, youtube!!');
 
@@ -273,12 +287,13 @@ class HomeController extends Controller
         'maxResults' => $limit_cnt,
         'order' => $order[1],
         'pageToken' => null,
-        'type' => $type[0]
+        'type' => $type[0],
+        'publishedAfter' => '2019-11-11'
       ];    
 
       $youtube_db = [];
-//     while(1)
-//     {
+     while(1)
+     {
 
         
         try{
@@ -295,7 +310,7 @@ class HomeController extends Controller
          break;
       
         $params['pageToken'] = $searchResponse->nextPageToken;
-    // }
+     }
       dump($youtube_db);
       Search::insert($youtube_db);
     }
@@ -309,11 +324,12 @@ class HomeController extends Controller
     $cnt = count($response->items);
     $i = 0;
     $tYoutube = [];
+    set_time_limit(3000);
     while ($i < $cnt)
     {
       $title = $response->items[$i]->snippet->title;
       $date = substr($response->items[$i]->snippet->publishedAt,0,10);
-      if(date('2019-11-11') > date($date))
+      if(date("2019-11-11") > date($date))
         continue;
       if(strlen($title) > 100)
         $title = mb_substr($title, 0, 99);
@@ -335,6 +351,11 @@ class HomeController extends Controller
 
   public function search_web()
   {
+    $this->webApi();
+    return redirect()->route('dashboard');
+  }
+  public function webApi()
+  {
     // dd('Hello, web!!');
     $engineId = env('SEARCH_ENGINE_ID');
     $apiKey = env('API_KEY_WEB');
@@ -348,7 +369,7 @@ class HomeController extends Controller
     $dateY = date('Y');
     $dateM = date('m');
     $dateD = date('d');
-    $limit_cnt = 500;
+    $limit_cnt = 20;
 
      foreach ($keyword_list as $keyword)
      {
@@ -357,24 +378,22 @@ class HomeController extends Controller
       $params = [
         'num' => 10,
         'start' => 1,
-        'dateRestrict' => 'y[2019],m[11],d[11]'
+        'dateRestrict' => 'y[$dateY],m[$dateM],d[$dateD]'
       ];    
 
       $web_db = [];
       while(1)
       {
-
+          $sumCnt += 10;
           try{
             $results = $fulltext->getResults($keyword->keyword, $params); 
             $web_db = array_merge($web_db, $this->parseWeb($results, $keyword->id));
           } catch(\Exception $e) {
-            dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+            dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
             break;
           }
-          $sumCnt += 10;
-
           
-        
+
           // if(count($results) < $limit_cnt)
           //   break;
            if($sumCnt > $limit_cnt)
@@ -414,7 +433,44 @@ class HomeController extends Controller
     }
     return $tWeb;
   }
+/*
+  public function search_blog()
+  {
+    $apiKey = env('API_KEY_BLOG');
 
+    $butterCms = new ButterCMS('6ebd359d66a91096c4d855283228a2c9278b1748');
+    $result = $butterCms->searchPosts('tesla', [
+      'page' => 1,
+      'page_size' => 10
+     ]);
+
+     dd($result);
+  }
+
+  public function parseblog($response, $keywordId)
+  {
+    $cnt = count($response);
+    $i = 0;
+    $tWeb = [];
+    while ($i < $cnt)
+    {
+      $title = $response[$i]->title;
+      if(strlen($title) > 100)
+        $title = mb_substr($title, 0, 99);
+      $value = [
+        'keyword_id' => $keywordId,
+        'social_type' => 'web',
+        'title' => $title,
+        'date' => date('Y-m-d'),
+        'url' => $response[$i]->link
+      ];
+      array_push($tWeb,$value);
+//      dump($value);
+      $i++;
+    }
+    return $tWeb;
+  }
+  */
   /*
     Return dashboard page
     
@@ -431,22 +487,32 @@ class HomeController extends Controller
 //    dump(\Auth::user());
 
     $campaign_type = $request->input('campaign-type','brand');
+    $index = 0;
+    $campaign_keyword = $request->input('campaign-keyword');
+    while(1)
+    {
+      if($index >= 5)
+        break;
 
-    $campaign_keyword = $request->input('campaign-keyword','keyword');
-    $campaign_domain = $request->input('campaign-domain','brand');
-    $campaign_notification = $request->input('campaign-notification','slack');
-    $keyword_params = [
-      'user_id' => $user_id,
-      'keyword' => $campaign_keyword,
-      'type' => $campaign_type,
-      'notification_type' => $campaign_notification
-    ];
-    $keyword = Keyword::updateOrCreate(['user_id' => $user_id, 'keyword' => $campaign_keyword, 'type' => $campaign_type], 
-        ['notification_type' => $campaign_notification]);
+      if($campaign_keyword[$index] == null)
+        break;
+      // $campaign_notification = $request->input('campaign-notification','slack');
+      $campaign_notification = 'slack';
+      // $keyword_params = [
+      //   'user_id' => $user_id,
+      //   'keyword' => $campaign_keyword[$index],
+      //   'type' => $campaign_type,
+      //   'notification_type' => $campaign_notification
+      // ];
+      $keyword = Keyword::updateOrCreate(['user_id' => $user_id, 'keyword' => $campaign_keyword[$index], 'type' => $campaign_type], 
+          ['notification_type' => $campaign_notification]);
+      $index++;
+    }
     
-    $this->search_twitter();
-    $this->search_youtube();
-    $this->search_web();
+    
+    $this->twitterApi();
+    $this->youtubeApi();
+    $this->webApi();
     return redirect()->route('dashboard');
   }
 
@@ -499,5 +565,12 @@ class HomeController extends Controller
    }
 //   dd($searchArray);
     return $searchArray;
+  }
+
+  public function deleteRowTabledata(Request $request)
+  {
+    $rowId = $request->input('rowId',0);
+    $row = Search::where('id', $rowId);
+    $row->delete();
   }
 }
