@@ -63,10 +63,7 @@ class HomeController extends Controller
    *
    * @return \Illuminate\Contracts\Support\Renderable
    */
-  public function index()
-  {
-    return view('home');
-  }
+
 
   public function search_twitter()
   {
@@ -106,7 +103,7 @@ class HomeController extends Controller
           $tweets = $connection->get('search/tweets', $params);
           if(isset($tweets->errors))
           {
-            dump('Error occurred for rate limit exceeded free trial version limitation');
+//            dump('Error occurred for rate limit exceeded free trial version limitation');
             break;
           }
           else{
@@ -114,7 +111,7 @@ class HomeController extends Controller
               $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
           }
         } catch(\Exception $e) {
-          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+//          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
           break;
           //return false;
         }
@@ -124,10 +121,10 @@ class HomeController extends Controller
         $params['max_id'] = $this->getMaxId($tweets);
         $sum += $limit_cnt;
       }
-      dump($tweets_db);
+//      dump($tweets_db);
       Search::insert($tweets_db);
     }
-    dump("Tweets search result data is added to DB successfully!");
+//    dump("Tweets search result data is added to DB successfully!");
 //    return redirect()->route('dashboard');
   }
 
@@ -232,7 +229,7 @@ class HomeController extends Controller
   {
 //    dd('Hello, instagram!!');
     
-    $consumer_key = env('CONSUMER_KEY');
+/*    $consumer_key = env('CONSUMER_KEY');
     $consumer_secret = env('CONSUMER_SECRET');
     $access_token_key = env('ACCESS_TOKEN_KEY');
     $access_token_secret = env('ACCESS_TOKEN_SECRET');
@@ -262,7 +259,7 @@ class HomeController extends Controller
       //   $params['max_id'] = $this->getMaxId($tweets);
 //   }
 //   dump($tweets_db);
-
+*/
   }
 
 
@@ -310,7 +307,7 @@ class HomeController extends Controller
           $youtube_db = array_merge($youtube_db, $this->parseYoutube($searchResponse, $keyword->id));
 
         } catch(\Exception $e) {
-          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+//          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
           break;
         }
         
@@ -320,10 +317,10 @@ class HomeController extends Controller
         $params['pageToken'] = $searchResponse->nextPageToken;
         $sum += $limit_cnt;
      }
-      dump($youtube_db);
+ //     dump($youtube_db);
       Search::insert($youtube_db);
     }
-    dump("Youtube data is added to DB successfully!");
+ //   dump("Youtube data is added to DB successfully!");
 //    return redirect()->route('dashboard');
 
   }
@@ -398,7 +395,7 @@ class HomeController extends Controller
             $results = $fulltext->getResults($keyword->keyword, $params); 
             $web_db = array_merge($web_db, $this->parseWeb($results, $keyword->id));
           } catch(\Exception $e) {
-            dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
+ //           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
             break;
           }
           
@@ -410,11 +407,11 @@ class HomeController extends Controller
         
           $params['start'] = $params['start'] + 10;
       }
-      dump($web_db);
+ //     dump($web_db);
       Search::insert($web_db);
     }
 
-    dump("Google data is added to DB successfully!");
+ //   dump("Google data is added to DB successfully!");
 
 //    return redirect()->route('dashboard');
   }
@@ -442,51 +439,27 @@ class HomeController extends Controller
     }
     return $tWeb;
   }
-/*
-  public function search_blog()
+
+  public function index()
   {
-    $apiKey = env('API_KEY_BLOG');
-
-    $butterCms = new ButterCMS('6ebd359d66a91096c4d855283228a2c9278b1748');
-    $result = $butterCms->searchPosts('tesla', [
-      'page' => 1,
-      'page_size' => 10
-     ]);
-
-     dd($result);
+    return view('home');
   }
-
-  public function parseblog($response, $keywordId)
-  {
-    $cnt = count($response);
-    $i = 0;
-    $tWeb = [];
-    while ($i < $cnt)
-    {
-      $title = $response[$i]->title;
-      if(strlen($title) > 100)
-        $title = mb_substr($title, 0, 99);
-      $value = [
-        'keyword_id' => $keywordId,
-        'social_type' => 'web',
-        'title' => $title,
-        'date' => date('Y-m-d'),
-        'url' => $response[$i]->link
-      ];
-      array_push($tWeb,$value);
-//      dump($value);
-      $i++;
-    }
-    return $tWeb;
-  }
-  */
   /*
     Return dashboard page
     
   */
   public function dashboard(Request $request) 
-  {    
+  {
+    // if($request->user()->id == 1)
+    //   return redirect()->route('adminboard');
     return view('dashboard');
+  }
+
+  public function adminBoard(Request $request)
+  {
+    // if($request->user()->id > 1)
+    //   return redirect()->route('dashboard');
+    return view('admindashboard');
   }
 
   public function addKeyword(Request $request)

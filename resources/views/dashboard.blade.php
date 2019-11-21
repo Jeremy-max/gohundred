@@ -202,7 +202,15 @@
 												<label>Date:</label>
 											</div>
 											<div class="kt-form__control">
-											<input class="form-control" id="kt_form_country" placeholder="Date..." data-live-search="true"/>
+											<div class="input-group date" >
+												<input type="text" class="form-control datepicker" readonly="" value="2019-11-11" id="kt_datepicker_3">
+												<div class="input-group-append">
+													<span class="input-group-text">
+														<i class="la la-calendar"></i>
+													</span>
+												</div>
+											</div>
+											<!-- <input class="form-control" id="kt_form_country" placeholder="Date...yyyy-mm-dd" data-live-search="true"/> -->
 											<!-- <select class="selectpicker countrypicker form-control bootstrap-select" id="kt_form_country" data-live-search="true" ></select> -->
 										</div>
 									</div>
@@ -236,5 +244,6 @@
 <script src="//www.amcharts.com/lib/3/plugins/animate/animate.min.js" type="text/javascript"></script>
 <script src="//www.amcharts.com/lib/3/plugins/export/export.min.js" type="text/javascript"></script>
 <script src="//www.amcharts.com/lib/3/themes/light.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js" integrity="sha256-JIBDRWRB0n67sjMusTy4xZ9L09V8BINF0nd/UUUOi48=" crossorigin="anonymous"></script>
 <script src="/js/dashboard/dashboard.js"></script>
 @endsection

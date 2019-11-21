@@ -45,6 +45,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					type: 'number',
 					selector: {class: 'kt-checkbox--solid',id:'kt-id'},
 					textAlign: 'center',
+					autoHide: false
 				},
 				// {
 				// 	field: 'id',
@@ -56,7 +57,8 @@ var KTDatatableJsonRemoteDemo = function () {
 				{
 					field: 'social_type',
 					title: 'Social Type',
-					textAlign: 'center',		
+					textAlign: 'center',
+					autoHide: false,	
 					// callback function support for column rendering
 					template: function(row) {
 						var type = {
@@ -68,12 +70,13 @@ var KTDatatableJsonRemoteDemo = function () {
 						};
 						return '<span class="kt-badge ' + type[row.social_type] + ' kt-badge--inline kt-badge--pill">' + row.social_type + '</span>';
 					},
-					width: 100,
+					// width: 100,
 				},
 				{
 					field: 'title',
 					title: 'Title',
 					textAlign: 'center',
+					autoHide: false,
 					width: 500
 				}, {
 					field: 'date',
@@ -89,7 +92,6 @@ var KTDatatableJsonRemoteDemo = function () {
 					title: 'URL',
                     type: 'url',
 					textAlign: 'center',
-					autoHide: false,
 					template: function(row){
 						return '<a href="'+row.url+'">'+row.url+'</a>';
 					}
@@ -97,7 +99,6 @@ var KTDatatableJsonRemoteDemo = function () {
 					field: 'Actions',
 					title: 'Actions',
 					sortable: false,
-					autoHide: false,
 					textAlign: 'center',
 					overflow: 'visible',
 					template: function(row) {
@@ -119,28 +120,25 @@ var KTDatatableJsonRemoteDemo = function () {
         	datatable.search($(this).val().toLowerCase(), 'social_type');
         });
 
-        $('#kt_form_country').on('change', function() {
-        	datatable.search($(this).val().toLowerCase(), 'date');
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            startDate: '2019-11-11',
+            todayBtn: 'linked',
+            todayHighlight: true,
+            clearBtn: true
         });
 
-        // $('#kt_form_country').on('change', function() {
-        //     var search = $(this).val() == "AC" ? '' : $(this).val().toLowerCase()
-        //     datatable.search(search, 'ShipCountry');
-        // });/deleteRow?rowId='+row.id+'
+        $('.datepicker').on('change', function() {
+        	datatable.search($(this).val().toLowerCase(), 'date');
+        });
 
         $('#kt_form_status').selectpicker();
 
         $('body').on('click', '.btn-delete', function() {
             var rowId = $(this).attr('name');
-//            console.log(rowId);
             $.get('/deleteRow', {'rowId': rowId}).done(function(response){
-            //    console.log(response);
                 datatable.load();
             });
-//            var row = datatable.row('kt-id',);
- //           console.log(row);
- //           datatable.remove();
-
         });
 
 	};

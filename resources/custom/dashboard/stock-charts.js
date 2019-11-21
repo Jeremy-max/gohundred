@@ -8,7 +8,8 @@ var KTamChartsStockChartsDemo = function() {
         "#00aced",
         "#ffb822",
         "#fd397a",
-        "#0abb87"
+        "#0abb87",
+        "#0abb87",
     ]
 
     // Private functions

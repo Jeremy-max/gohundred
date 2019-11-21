@@ -17,7 +17,6 @@
 
 .kt-datatable__body tr td:nth-child(3) span{
     white-space: nowrap; 
-    width: 100px; 
     overflow: hidden;
     text-overflow: ellipsis; 
 }

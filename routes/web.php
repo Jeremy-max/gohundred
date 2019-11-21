@@ -46,6 +46,8 @@ Route::middleware('auth')->group(function () {
   
   Route::get('/home', 'HomeController@index')->name('home');
 
+  Route::get('/adminDashboard', 'HomeController@adminboard')->name('adminboard');
+
   Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
   Route::post('/dashboard', 'HomeController@addKeyword')->name('stepResult');
