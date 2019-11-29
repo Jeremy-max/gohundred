@@ -11,6 +11,7 @@
     "/js/theme.js": "/js/theme.js",
     "/resources/custom/dashboard/dashboard.js": "/resources/custom/dashboard/dashboard.js",
     "/js/dashboard/dashboard.js": "/js/dashboard/dashboard.js",
+    "/js/dashboard/admindashboard.js": "/js/dashboard/admindashboard.js",
     "/js/dashboard/global.js": "/js/dashboard/global.js",
     "/css/dashboard/main.css": "/css/dashboard/main.css",
     "/css/dashboard/custom.css": "/css/dashboard/custom.css"

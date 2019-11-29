@@ -43,5 +43,18 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('CALLBACK_URL_GOOGLE'),
+    ],
+
+    'twitter' => [
+        'client_id' => env('CONSUMER_KEY'),
+        'client_secret' => env('CONSUMER_SECRET'),
+        'redirect' => env('CALLBACK_URL_TWITTER'),
+        'same_site' => null
+    ],
 
 ];

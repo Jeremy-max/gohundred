@@ -14,11 +14,11 @@ var KTamChartsStockChartsDemo = function() {
 
     // Private functions
     var demo1 = function() {
-        var keyword = $('#table_keyword').val();
+        var keyword_id = $('#table_keyword').val();
         var chartData = [];
         var firstDate = new Date();
 
-        $.get('/graph', {'keyword': keyword}).done(function(response){
+        $.get('/graph', {'keyword_id': keyword_id}).done(function(response){
             chartData = response;
             var chart = AmCharts.makeChart("campaign_graph", {
  //               "rtl": KTUtil.isRTL(),

@@ -23,6 +23,7 @@
 
     <!-- Main CSS-->
     <link href="/css/dashboard/main.css" rel="stylesheet" media="all">
+    <link href="/css/dashboard/custom.css" rel="stylesheet" media="all">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" media="all">
 </head>
 
@@ -37,7 +38,6 @@
                     <form class="wizard-container" method="POST" action="{{ route('stepResult') }}" id="step-form">
                         @csrf
                         <input type="hidden" id="campaign-type" name="campaign-type" value="brand"/>
-                        <!-- <input type="hidden" id="campaign-notification" name="campaign-notification" value="notification"/> -->
 
                         <ul class="tab-list">
                             <li class="tab-list__item active">
@@ -85,10 +85,20 @@
                             </div>
                             <div class="tab-pane" id="tab2">
                                 <div class="form">
+                                    <div class="text-center">
+                                        <p class="h6">Type the name of campaign</p>
+                                    </div>
+                                    <div class="input-group mt-3">
+                                        <div class="campaign-div">
+                                            <div class="campaign-name-div" style="margin:auto; width:300px;">
+                                                <input class="input_campaign" id="campaign_name" name="campaign-name" type="text" placeholder="Campaign" required>
+                                            </div>
+                                        </div>
+                                    </div><br>
                                     <div class="input-group">
                                         <p class="h6">Type the name of the brand,competitor or topic that you wish to keep your eyes on</p>
                                     </div>
-                                    <div class="input-group mt-2">
+                                    <div class="input-group mt-4">
                                         <button class="fas fa-plus plus-button" id="plus-button-id" type="button"></button>
                                         <div class="campaign-div">
                                             <input class="input--style-1" id="keyword" type="text" name="campaign-keyword[]" placeholder="Keyword" required>

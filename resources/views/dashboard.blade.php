@@ -32,7 +32,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="/facebook">
+							<a href="">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-facebook kt-font-primary"></i>
@@ -51,7 +51,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="/twitter">
+							<a href="">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-twitter kt-font-info"></i>
@@ -69,7 +69,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="/instagram">
+							<a href="">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-instagram kt-font-warning"></i>
@@ -87,7 +87,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="/youtube">
+							<a href="password">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-youtube kt-font-danger"></i>
@@ -105,7 +105,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="/web">
+							<a href="">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-chrome kt-font-success"></i>
@@ -169,49 +169,65 @@
 					<!--begin: Search Form -->
 					<div class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
 						<div class="row align-items-center">
-							<div class="col-xl-8 order-2 order-xl-1">
-								<div class="row align-items-center">
-									<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-										<div class="kt-input-icon kt-input-icon--left">
-											<input type="text" class="form-control" placeholder="Search..." id="generalSearch">
-											<span class="kt-input-icon__icon kt-input-icon__icon--left">
-												<span><i class="la la-search"></i></span>
-											</span>
-										</div>
+							<div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+								<div class="kt-input-icon kt-input-icon--left">
+									<input type="text" class="form-control" placeholder="Search..." id="generalSearch">
+									<span class="kt-input-icon__icon kt-input-icon__icon--left">
+										<span><i class="la la-search"></i></span>
+									</span>
+								</div>
+							</div>
+							<div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+								<div class="kt-form__group kt-form__group--inline">
+									<div class="kt-form__label">
+										<label>Type of data:</label>
 									</div>
-									<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-										<div class="kt-form__group kt-form__group--inline">
-											<div class="kt-form__label">
-												<label>Type of data:</label>
-											</div>
-											<div class="kt-form__control">
-												<select class="form-control bootstrap-select" id="kt_form_status">
-													<!-- <option value="">All</option> -->
-													<option value="facebook">facebook</option>
-													<option value="twitter">twitter</option>
-													<option value="instagram">instagram</option>
-													<option value="youtube">youtube</option>
-													<option value="web">web</option>
-												</select>
+									<div class="kt-form__control">
+										<select class="form-control bootstrap-select" id="kt_form_status">
+											<option value="">All</option>
+											<option value="facebook">facebook</option>
+											<option value="twitter">twitter</option>
+											<option value="instagram">instagram</option>
+											<option value="youtube">youtube</option>
+											<option value="web">web</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+								<div class="kt-form__group kt-form__group--inline">
+									<div class="kt-form__label">
+										<label>Date:</label>
+									</div>
+									<div class="kt-form__control">
+										<div class="input-group date" >
+											<input type="text" class="form-control datepicker" readonly="" id="kt_datepicker_3">
+											<div class="input-group-append">
+												<span class="input-group-text">
+													<i class="la la-calendar"></i>
+												</span>
 											</div>
 										</div>
+									<!-- <input class="form-control" id="kt_form_country" placeholder="Date...yyyy-mm-dd" data-live-search="true"/> -->
+									<!-- <select class="selectpicker countrypicker form-control bootstrap-select" id="kt_form_country" data-live-search="true" ></select> -->
 									</div>
-									<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-										<div class="kt-form__group kt-form__group--inline">
-											<div class="kt-form__label">
-												<label>Date:</label>
-											</div>
-											<div class="kt-form__control">
-											<div class="input-group date" >
-												<input type="text" class="form-control datepicker" readonly="" value="2019-11-11" id="kt_datepicker_3">
-												<div class="input-group-append">
-													<span class="input-group-text">
-														<i class="la la-calendar"></i>
-													</span>
-												</div>
-											</div>
-											<!-- <input class="form-control" id="kt_form_country" placeholder="Date...yyyy-mm-dd" data-live-search="true"/> -->
-											<!-- <select class="selectpicker countrypicker form-control bootstrap-select" id="kt_form_country" data-live-search="true" ></select> -->
+								</div>
+							</div>
+							<div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+								<div class="kt-form__group kt-form__group--inline">
+									<div class="kt-form__label">
+										<label>Language:</label>
+									</div>
+									<div class="kt-form__control">
+										<div class="input-group date" >
+											<select class="form-control bfh-languages" data-language="">
+												<option value="">Any language</option>
+												<option vaule="en">English</option>
+												<option disabled>___________________________</option>
+											@foreach ($langs as $ac => $label)
+												<option value="{{ $ac }}">{{ $label }}</option>
+											@endforeach
+											</select>
 										</div>
 									</div>
 								</div>
@@ -219,7 +235,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 			<div class="kt-portlet__body kt-portlet__body--fit">
 				<!--begin: Datatable -->
 				<div class="kt-datatable" id="json_data"></div>
@@ -228,14 +243,15 @@
 			</div>
 		</div>
 	</div>
-	@if (count($keyword_list) > 0)
-		<input id="table_keyword" type="hidden" value="{{ $keyword }}"/>
+	@if (count($campaign_list) > 0)
+		<input id="table_keyword" type="hidden" value="{{ $keyword_id }}"/>
 	@endif
 	<!-- end:: Content -->
 </div>
 </div>
 @endsection
 @section('page_vendor_scripts')
+
 @endsection
 @section('page_scripts')
 <script src="//www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>

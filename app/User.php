@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'country', 'login_via_google', 'login_via_facebook' 
     ];
 
     /**
@@ -37,8 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function keywords()
+    public function campaigns()
     {
-        return $this->hasMany('App\Keyword');
+        return $this->hasMany('App\Campaign');
     }
 }

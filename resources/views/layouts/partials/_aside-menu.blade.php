@@ -16,280 +16,42 @@
                     <span class="kt-menu__link-text font-italic">Add campaign</span>
                 </a>
             </li> 
-            
-            <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--open" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-                    <span class="kt-menu__link-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <rect id="bound" x="0" y="0" width="24" height="24"/>
-                                <path d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
-                                <path d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z" id="Rectangle-102-Copy" fill="#000000"/>
-                            </g>
-                        </svg>
-                    </span>
-                    <span class="kt-menu__link-text">Campaign</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
-                </a>
-                <div class="kt-menu__submenu ">
-                    <span class="kt-menu__arrow"></span>
-                    <ul class="kt-menu__subnav">
-                        <li class="kt-menu__item kt-menu__item--parent" aria-haspopup="true" >
-                            <span class="kt-menu__link"><span class="kt-menu__link-text">Forms</span></span>
-                        </li>
-                        <!-- <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="?page=crud/forms/controls/base" class="kt-menu__link ">
-                                <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                <span class="kt-menu__link-text">Freelancer</span>
-                            </a>
-                        </li>
-                        <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="?page=crud/forms/controls/base" class="kt-menu__link ">
-                                <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                <span class="kt-menu__link-text">Tesla</span>
-                            </a>
-                        </li>
-                        <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="?page=crud/forms/controls/base" class="kt-menu__link ">
-                                <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                <span class="kt-menu__link-text">Apple</span>
-                            </a>
-                        </li> -->
-
-                        @if (count($keyword_list) > 0)
-                            @foreach ($keyword_list as $keyword) 
-                                <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                                    <a href="{{ route('campaignPage', ['keyword' => $keyword->keyword]) }}" class="kt-menu__link ">
-                                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                        <span class="kt-menu__link-text">{{ $keyword->keyword }}</span>
-                                    </a>
-                                </li>
-                            @endforeach
-                        @endif
-                    </ul>
-                </div>
-            </li>
-            
-            <!-- <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-                    <span class="kt-menu__link-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <rect id="bound" x="0" y="0" width="24" height="24"/>
-                                <rect id="Rectangle-7" fill="#000000" opacity="0.3" x="4" y="5" width="16" height="6" rx="1.5"/>
-                                <rect id="Rectangle-7-Copy" fill="#000000" x="4" y="13" width="16" height="6" rx="1.5"/>
-                            </g>
-                        </svg>
-                    </span>
-                    <span class="kt-menu__link-text">Datatables.net</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
-                </a>
-                <div class="kt-menu__submenu ">
-                    <span class="kt-menu__arrow"></span>
-                    <ul class="kt-menu__subnav">
-                        <li class="kt-menu__item kt-menu__item--parent" aria-haspopup="true" >
-                            <span class="kt-menu__link"><span class="kt-menu__link-text">Datatables.net</span></span>
-                        </li>
-                        <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-                                <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                <span class="kt-menu__link-text">Basic</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
-                            </a>
-                            <div class="kt-menu__submenu ">
-                                <span class="kt-menu__arrow"></span>
-                                <ul class="kt-menu__subnav">
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/basic/basic" class="kt-menu__link ">
+            @if (count($campaign_list) > 0)
+                @foreach ($campaign_list as $campaign)
+                <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--open" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                    <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                        <span class="kt-menu__link-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect id="bound" x="0" y="0" width="24" height="24"/>
+                                    <path d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+                                    <path d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z" id="Rectangle-102-Copy" fill="#000000"/>
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="kt-menu__link-text">{{ $campaign['campaign'] }}</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
+                    </a>
+                    <div class="kt-menu__submenu ">
+                        <span class="kt-menu__arrow"></span>
+                        <ul class="kt-menu__subnav">
+                            <li class="kt-menu__item kt-menu__item--parent" aria-haspopup="true" >
+                                <span class="kt-menu__link"><span class="kt-menu__link-text">Forms</span></span>
+                            </li>
+                            @if (count($campaign['keyword_list']) > 0)
+                                @foreach ($campaign['keyword_list'] as $keyword) 
+                                    <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="{{ route('campaignPage', ['keyword_id' => $keyword->id]) }}" class="kt-menu__link ">
                                             <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Basic Tables</span>
+                                            <span class="kt-menu__link-text">{{ $keyword->keyword }}</span>
                                         </a>
                                     </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/basic/scrollable" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Scrollable Tables</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/basic/headers" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Complex Headers</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/basic/paginations" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Pagination Options</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-                                <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                <span class="kt-menu__link-text">Advanced</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
-                            </a>
-                            <div class="kt-menu__submenu ">
-                                <span class="kt-menu__arrow"></span>
-                                <ul class="kt-menu__subnav">
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/advanced/column-rendering" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Column Rendering</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/advanced/multiple-controls" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Multiple Controls</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/advanced/column-visibility" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Column Visibility</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/advanced/row-callback" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Row Callback</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/advanced/row-grouping" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Row Grouping</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/advanced/footer-callback" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Footer Callback</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-                                <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                <span class="kt-menu__link-text">Data sources</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
-                            </a>
-                            <div class="kt-menu__submenu ">
-                                <span class="kt-menu__arrow"></span>
-                                <ul class="kt-menu__subnav">
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/data-sources/html" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">HTML</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/data-sources/javascript" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Javascript</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/data-sources/ajax-client-side" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Ajax Client-side</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/data-sources/ajax-server-side" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Ajax Server-side</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-                                <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                <span class="kt-menu__link-text">Search Options</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
-                            </a>
-                            <div class="kt-menu__submenu ">
-                                <span class="kt-menu__arrow"></span>
-                                <ul class="kt-menu__subnav">
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/search-options/column-search" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Column Search</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/search-options/advanced-search" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Advanced Search</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-                            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-                                <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                <span class="kt-menu__link-text">Extensions</span><i class="kt-menu__ver-arrow la la-angle-right"></i>
-                            </a>
-                            <div class="kt-menu__submenu ">
-                                <span class="kt-menu__arrow"></span>
-                                <ul class="kt-menu__subnav">
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/extensions/buttons" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Buttons</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/extensions/colreorder" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">ColReorder</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/extensions/keytable" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">KeyTable</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/extensions/responsive" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Responsive</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/extensions/rowgroup" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">RowGroup</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/extensions/rowreorder" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">RowReorder</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/extensions/scroller" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Scroller</span>
-                                        </a>
-                                    </li>
-                                    <li class="kt-menu__item " aria-haspopup="true" >
-                                        <a href="?page=crud/datatables/extensions/select" class="kt-menu__link ">
-                                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                            <span class="kt-menu__link-text">Select</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li> -->
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </li>
+                @endforeach
+            @endif
         </ul>
     </div>
 </div>

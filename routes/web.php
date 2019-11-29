@@ -23,6 +23,12 @@ Route::get('/', function () {
   return view('welcome');
 });
 
+
+Route::get('/redirect/{service}', 'SocialAuthController@redirect');
+
+Route::get('/callback/{service}', 'SocialAuthController@callback');
+
+
 Route::get('/mailverification', function () {
   return view('mailverification');
 });
@@ -36,9 +42,10 @@ Route::get('/privacy_policy', function () {
 });
 
 Route::middleware('auth')->group(function () {
+
   Route::get('/step', function () {
     return view('step');
-  });
+  })->name('step');
 
   Route::get('/faq', function () {
     return view('FAQ');
@@ -46,19 +53,25 @@ Route::middleware('auth')->group(function () {
   
   Route::get('/home', 'HomeController@index')->name('home');
 
-  Route::get('/adminDashboard', 'HomeController@adminboard')->name('adminboard');
+  Route::get('/admindashboard', 'HomeController@adminboard')->name('adminboard');
 
   Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
   Route::post('/dashboard', 'HomeController@addKeyword')->name('stepResult');
 
-  Route::get('/dashboard/{keyword}', 'HomeController@showCampaignPage')->name('campaignPage');
+  Route::get('/dashboard/{keyword_id}', 'HomeController@showCampaignPage')->name('campaignPage');
 
   Route::get('/tdata', 'HomeController@getTableData')->name('searchTableData');
 
   Route::get('/graph', 'HomeController@getGraphData')->name('graphData');
 
   Route::get('/deleteRow', 'HomeController@deleteRowTabledata');
+
+  Route::get('/adminTable', 'HomeController@getAdminTableData')->name('adminTableData');
+
+  Route::get('/deleteAdminRow', 'HomeController@deleteAdminRowTabledata');
+
+  Route::post('/saveAdminComment', 'HomeController@saveAdminCommentChanges')->name('saveAdminComment');
 
 
   Route::get('/twitter', 'HomeController@search_twitter');

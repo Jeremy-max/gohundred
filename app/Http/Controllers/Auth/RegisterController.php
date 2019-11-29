@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Stevebauman\Location\Location;
 
 class RegisterController extends Controller
 {
@@ -48,10 +51,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'country' => ['required', 'string', 'max:255' ]
         ]);
     }
 
@@ -67,6 +72,27 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'country' =>$data['country']
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $location = new Location();
+        $position = $location->get($request->ip());
+
+        if ($position) {
+            $request->merge(['country' => $position]);
+        } else {
+            $request->merge(['country' => 'localhost']);
+        }
+
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user) ?: redirect($this->redirectPath());
     }
 }

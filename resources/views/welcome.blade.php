@@ -255,7 +255,7 @@
           </div>
           <div class="entry-content">
             <ul>
-              <li>Keep tabs on <strong>&nbsp;1&nbsp;</strong> campaigns <br>(5 keywords)</li>
+              <li>Keep tabs on <strong>&nbsp;1&nbsp;</strong> campaign <br>(5 keywords)</li>
               <li>Get<strong>&nbsp;1</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
               <li>Slack integration</li>

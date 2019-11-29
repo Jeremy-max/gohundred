@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKeywordsTable extends Migration
+class CreateCampaignsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateKeywordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('keywords', function (Blueprint $table) {
+        Schema::create('campaigns', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('campaign_id');
-            $table->string('keyword');
+            $table->integer('user_id');
+            $table->string('campaign');
+            $table->enum('type', ['brand', 'competition', 'topic']);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateKeywordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keywords');
+        Schema::dropIfExists('campaigns');
     }
 }

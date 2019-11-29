@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\User;
 use App\Search;
 use App\Keyword;
+use App\Campaign;
 
 use Illuminate\Http\Request;
 use Abraham\TwitterOAuth\TwitterOAuth;
@@ -20,6 +21,7 @@ use ButterCMS\ButterCMS;
 use DateTime;
 use DatePeriod;
 use DateInterval;
+use Stevebauman\Location\Location;
 
 
 class HomeController extends Controller
@@ -29,6 +31,35 @@ class HomeController extends Controller
    *
    * @return void
    */
+
+  protected $langs = [
+    'ar' => 'Arabic',
+    'eu' => 'Basque',
+    'zh' => 'Chinese',
+    'cs' => 'Czech',
+    'da' => 'Danish',
+    'fi' => 'Finnish',
+    'fr' => 'French',
+    'de' => 'German',
+    'hu' => 'Hungarian',
+    'id' => 'Indonesian',
+    'it' => 'Italian',
+    'ko' => 'Korean',
+    'no' => 'Norwegian',
+    'pl' => 'Polish',
+    'pt' => 'Portuguese',
+    'ro' => 'Romanian',
+    'ru' => 'Russian',
+    'sk' => 'Slovak',
+    'es' => 'Spanish',
+    'sv' => 'Swedish',
+    'th' => 'Thai',
+    'tr' => 'Turkish',
+    'vi' => 'Vietnamese'
+  ];
+
+  protected $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
+
   public function __construct()
   {
     // $user = \Auth::user();
@@ -43,19 +74,32 @@ class HomeController extends Controller
     // }
       // $this->middleware('auth');
 
+    
     $this->middleware(function ($request, $next) {
-    $user = \Auth::user();
-    if ($user) {
-      $keyword_list = Keyword::where('user_id',$user->id)->get();  
-      if ($keyword_list->count() > 0)
-      {
-        $keyword = $keyword_list->first()->keyword;
-        View::share('keyword', $keyword);
+      
+      $user = \Auth::user();
+      if ($user) {
+        $campaign_list = Campaign::where('user_id', $user->id)->get();
+        $array = [];
+        if($campaign_list->count() > 0){
+          $flag = false;
+          foreach ($campaign_list as $campaign)
+          {
+            $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+            if ($keyword_list->count() > 0 && $flag == false)
+            {
+              $flag = true;
+              $keyword_id = $keyword_list->first()->id;
+              View::share('keyword_id', $keyword_id);
+            }
+            array_push($array, ['campaign' => $campaign->campaign, 'keyword_list' => $keyword_list]);
+          }
+        }
+        View::share('campaign_list', $array);
       }
-      View::share('keyword_list', $keyword_list);
-    }
-    return $next($request);
-  });
+      
+      return $next($request);
+    });
   }
 
   /**
@@ -65,12 +109,19 @@ class HomeController extends Controller
    */
 
 
-  public function search_twitter()
+  public function search_twitter($campaign)
   {
-    $this->twitterApi();
-    return redirect()->route('dashboard');
+  //  $campaign_list = Campaign::where('user_id', auth()->user()->id)->get();
+    $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+
+    foreach ($keyword_list as $keyword)
+    {
+      $this->twitterApi($keyword);
+    }
+    
+//    return redirect()->route('dashboard');
   }
-  public function twitterApi()
+  public function twitterApi($keyword)
   {
     $consumer_key = env('CONSUMER_KEY');
     $consumer_secret = env('CONSUMER_SECRET');
@@ -83,9 +134,6 @@ class HomeController extends Controller
       $access_token_secret
     ); 
 
-    $keyword_list = Keyword::where('user_id', auth()->user()->id)->get();
-    foreach ($keyword_list as $keyword)
-    {
       $limit_cnt = 10;
       $params = [
         'q' => $keyword->keyword,
@@ -115,15 +163,14 @@ class HomeController extends Controller
           break;
           //return false;
         }
-        if(count($tweets->statuses) < $limit_cnt || $sum > 30)
-            break;
-      
+        if(count($tweets->statuses) < $limit_cnt || $sum > 30){
+          break;
+        }
         $params['max_id'] = $this->getMaxId($tweets);
         $sum += $limit_cnt;
       }
 //      dump($tweets_db);
       Search::insert($tweets_db);
-    }
 //    dump("Tweets search result data is added to DB successfully!");
 //    return redirect()->route('dashboard');
   }
@@ -263,12 +310,18 @@ class HomeController extends Controller
   }
 
 
-  public function search_youtube()
+  public function search_youtube($campaign)
   {
-    $this->youtubeApi();
-    return redirect()->route('dashboard');
+//    $campaign_list = Campaign::where('user_id', auth()->user()->id)->get();
+    $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+    foreach ($keyword_list as $keyword)
+    {
+      $this->youtubeApi($keyword);
+    }
+//    dump("Youtube data is added to DB successfully!");
+//    return redirect()->route('dashboard');
   }
-  public function youtubeApi()
+  public function youtubeApi($keyword)
   {
 //    dd('Hello, youtube!!');
 
@@ -279,24 +332,23 @@ class HomeController extends Controller
     // Define an object that will be used to make all API requests.
     $youtube = new Google_Service_YouTube($client);
 
-    $keyword_list = Keyword::where('user_id', auth()->user()->id)->get();
+    $date=date_create("2019-11-11");
+    $publishAfter = date_format($date,DATE_ATOM);
 
     $order = ['viewCount', 'date', 'rating', 'relevance', 'title', 'videoCount'];
     $type = ['video', 'channel', 'playlist'];
-    foreach ($keyword_list as $keyword)
-    {
-      $limit_cnt = 10;
-      $params = [
-        'q' => $keyword->keyword,
-        'maxResults' => $limit_cnt,
-        'order' => $order[1],
-        'pageToken' => null,
-        'type' => $type[0]
-//        'publishedAfter' => '2019-11-11'
-      ];
-      $sum = 0;
+    $limit_cnt = 10;
+    $params = [
+      'q' => $keyword->keyword,
+      'maxResults' => $limit_cnt,
+      'order' => $order[1],
+      'pageToken' => null,
+      'type' => $type[0],
+      'publishedAfter' => $publishAfter
+    ];
+    $sum = 0;
 
-      $youtube_db = [];
+    $youtube_db = [];
      while(1)
      {
 
@@ -319,8 +371,7 @@ class HomeController extends Controller
      }
  //     dump($youtube_db);
       Search::insert($youtube_db);
-    }
- //   dump("Youtube data is added to DB successfully!");
+
 //    return redirect()->route('dashboard');
 
   }
@@ -335,8 +386,6 @@ class HomeController extends Controller
     {
       $title = $response->items[$i]->snippet->title;
       $date = substr($response->items[$i]->snippet->publishedAt,0,10);
-      if(date("2019-11-11") > date($date))
-        continue;
       if(strlen($title) > 100)
         $title = mb_substr($title, 0, 99);
       $value = [
@@ -349,18 +398,24 @@ class HomeController extends Controller
       array_push($tYoutube,$value);
 //      dump($value);
       $i++;
+      break;
     }
 
     return $tYoutube;
   }
 
 
-  public function search_web()
+  public function search_web($campaign)
   {
-    $this->webApi();
-    return redirect()->route('dashboard');
+//    $campaign_list = Campaign::where('user_id', auth()->user()->id)->get();
+    $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+    foreach ($keyword_list as $keyword)
+    {
+      $this->webApi($keyword);
+    }
+//    return redirect()->route('dashboard');
   }
-  public function webApi()
+  public function webApi($keyword)
   {
     // dd('Hello, web!!');
     $engineId = env('SEARCH_ENGINE_ID');
@@ -371,21 +426,18 @@ class HomeController extends Controller
     $fulltext->setEngineId($engineId); // sets the engine ID
     $fulltext->setApiKey($apiKey);
 
-    $keyword_list = Keyword::where('user_id', auth()->user()->id)->get();
     $dateY = date('Y');
     $dateM = date('m');
     $dateD = date('d');
     $limit_cnt = 40;
 
-     foreach ($keyword_list as $keyword)
-     {
       
-      $sumCnt = 0;
-      $params = [
-        'num' => 10,
-        'start' => 1,
-        'dateRestrict' => 'y[$dateY],m[$dateM],d[$dateD]'
-      ];    
+    $sumCnt = 0;
+    $params = [
+      'num' => 10,
+      'start' => 1,
+      'dateRestrict' => 'y[$dateY],m[$dateM],d[$dateD]'
+    ];    
 
       $web_db = [];
       while(1)
@@ -408,9 +460,7 @@ class HomeController extends Controller
           $params['start'] = $params['start'] + 10;
       }
  //     dump($web_db);
-      Search::insert($web_db);
-    }
-
+    Search::insert($web_db);
  //   dump("Google data is added to DB successfully!");
 
 //    return redirect()->route('dashboard');
@@ -448,27 +498,41 @@ class HomeController extends Controller
     Return dashboard page
     
   */
-  public function dashboard(Request $request) 
+  public function dashboard(Request $request)
   {
-    // if($request->user()->id == 1)
-    //   return redirect()->route('adminboard');
-    return view('dashboard');
+    if($request->user()->id == 1)
+      return redirect()->route('adminboard');
+
+    return view('dashboard')->with('langs', $this->langs);
   }
 
   public function adminBoard(Request $request)
   {
-    // if($request->user()->id > 1)
-    //   return redirect()->route('dashboard');
-    return view('admindashboard');
+    if($request->user()->id > 1)
+      return redirect()->route('dashboard');
+    return view('admindashboard')->with('countries', $this->countries);
   }
 
   public function addKeyword(Request $request)
   {
     $user_id = $request->user()->id;
+    $socialite_user = User::where('id',$user_id)->where('country','callback')->get();
+    if($socialite_user->count() > 0)
+    {
+      $location = new Location();
+      $position = $location->get($request->ip());
+      if(!$position)
+        $position = 'localhost';
+      $user = User::updateOrCreate(['id' => $user_id],['country' => $position]);
+    }
+    
+    
 //    dump(auth()->user());
 //    dump(\Auth::user());
 
-    $campaign_type = $request->input('campaign-type','brand');
+    $campaign_type = $request->input('campaign-type', 'brand');
+    $campaign_name = $request->input('campaign-name', 'campaign');
+    $campaign = Campaign::updateOrCreate(['user_id' => $user_id, 'campaign' => $campaign_name, 'type' => $campaign_type]);
     $index = 0;
     $campaign_keyword = $request->input('campaign-keyword');
     while(1)
@@ -479,44 +543,42 @@ class HomeController extends Controller
       if($campaign_keyword[$index] == null)
         break;
       // $campaign_notification = $request->input('campaign-notification','slack');
-      $campaign_notification = 'slack';
       // $keyword_params = [
       //   'user_id' => $user_id,
       //   'keyword' => $campaign_keyword[$index],
       //   'type' => $campaign_type,
       //   'notification_type' => $campaign_notification
       // ];
-      $keyword = Keyword::updateOrCreate(['user_id' => $user_id, 'keyword' => $campaign_keyword[$index], 'type' => $campaign_type], 
-          ['notification_type' => $campaign_notification]);
+      $keyword = Keyword::updateOrCreate(['campaign_id' => $campaign->id, 'keyword' => $campaign_keyword[$index]]);
       $index++;
     }
     
     
-    $this->twitterApi();
-    $this->youtubeApi();
-    $this->webApi();
+    $this->search_twitter($campaign);
+    $this->search_youtube($campaign);
+    $this->search_web($campaign);
     return redirect()->route('dashboard');
   }
 
-  public function showCampaignPage(Request $request, $keyword)
+  public function showCampaignPage(Request $request, $keyword_id)
   {
 //    dd($keyword);
-    return view('dashboard')->with('keyword', $keyword);
+    return view('dashboard')->with('keyword_id', $keyword_id)->with('langs', $this->langs);
   }
 
   public function getTableData(Request $request)
   {
-    $keyword = $request->input('keyword', 'campaign');
-    $user_id = $request->user()->id;
-    $search_list = Keyword::where('user_id', $user_id)->where('keyword', $keyword)->first()->searches;
+    $keyword_id = $request->input('keyword_id');
+  //  $user_id = $request->user()->id;
+    $search_list = Keyword::where('id', $keyword_id)->first()->searches;
     return $search_list->toJson();
   }
 
   public function getGraphData(Request $request)
   {
     $socialTypeArray = ['facebook', 'twitter', 'instagram', 'youtube', 'web'];
-    $keyword = $request->input('keyword', 'campaign');
-    $keyword_id = Keyword::where('user_id', $request->user()->id)->where('keyword', $keyword)->first()->id;
+    $keyword_id = $request->input('keyword_id');
+//    $keyword_id = Keyword::where('user_id', $request->user()->id)->where('keyword', $keyword)->first()->id;
     $search_list = Search::where('keyword_id', $keyword_id)->selectRaw('date, count(id)')->groupBy('date')->get();
     $searchArray=[];
 
@@ -554,5 +616,61 @@ class HomeController extends Controller
     $rowId = $request->input('rowId',0);
     $row = Search::where('id', $rowId);
     $row->delete();
+  }
+
+  public function getAdminTableData(Request $request)
+  {
+    $array = User::where('id', '>', '1')->get();
+    $adminTable = [];
+    foreach ($array as $index)
+    {
+      $campaign_cnt = Campaign::where('user_id',$index->id)->selectRaw('count(id) AS cnt')->first()->cnt;
+    //  dd();
+      if($index->payment_status)
+        $payment_status = $index->payment_status->format('m/d/Y');
+      else
+        $payment_status = null;
+
+      $item = [
+        'id' => $index->id,
+        'username' => $index->name,
+        'email' => $index->email,
+        'country' => $index->country,
+        'login_fb' => $index->login_via_facebook,
+        'login_gg' => $index->login_via_google,
+        'payment_status' => $payment_status,
+        'number_campaigns' => $campaign_cnt,
+        'comment' => $index->comment,
+//        'date' => $index->created_at->format('m/d/Y'),
+
+      ];
+      array_push($adminTable, $item);
+    }
+//    dd($adminTable);
+    return $adminTable;
+  }
+
+  public function deleteAdminRowTabledata(Request $request)
+  {
+    $rowId = $request->input('rowId',0);
+    $user = User::where('id', $rowId)->first();
+    foreach ($user->campaigns as $campaign){
+      foreach ($campaign->keywords as $keyword){
+        foreach ($keyword->searches as $search){
+          $search->delete();
+        }
+        $keyword->delete();
+      }
+      $campaign->delete();
+    }
+    $user->delete();
+  }
+
+  public function saveAdminCommentChanges(Request $request)
+  {
+    $rowId = $request->input('rowId', 0);
+    $comment = $request->input('comment', '');
+    $user = User::where('id', $rowId)->update(['comment' => $comment]);
+
   }
 }

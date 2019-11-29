@@ -16,8 +16,10 @@
         "google/apiclient": "~2.0",
         "jan-drda/laravel-google-custom-search-engine": "^1.0",
         "laravel/framework": "5.8.*",
+        "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
-        "serpapi/google-search-results-php": "^1.2"
+        "serpapi/google-search-results-php": "^1.2",
+        "stevebauman/location": "^5.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

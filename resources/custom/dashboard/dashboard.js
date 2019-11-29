@@ -8,16 +8,17 @@ var KTamChartsStockChartsDemo = function() {
         "#00aced",
         "#ffb822",
         "#fd397a",
-        "#0abb87"
+        "#0abb87",
+        "#0abb87",
     ]
 
     // Private functions
     var demo1 = function() {
-        var keyword = $('#table_keyword').val();
+        var keyword_id = $('#table_keyword').val();
         var chartData = [];
         var firstDate = new Date();
 
-        $.get('/graph', {'keyword': keyword}).done(function(response){
+        $.get('/graph', {'keyword_id': keyword_id}).done(function(response){
             chartData = response;
             var chart = AmCharts.makeChart("campaign_graph", {
  //               "rtl": KTUtil.isRTL(),
@@ -187,7 +188,7 @@ var KTDatatableJsonRemoteDemo = function () {
 
 	// basic demo
 	var demo = function () {
-		var keyword = $('#table_keyword').val();
+		var keyword_id = $('#table_keyword').val();
 
 		var datatable = $('.kt-datatable').KTDatatable({
 			// datasource definition
@@ -195,7 +196,7 @@ var KTDatatableJsonRemoteDemo = function () {
 				type: 'remote',
 				source: {
 					read: {
-						url: '/tdata?keyword=' + keyword,
+						url: '/tdata?keyword_id=' + keyword_id,
 						method: 'get'
 					}
 				},
@@ -302,28 +303,25 @@ var KTDatatableJsonRemoteDemo = function () {
         	datatable.search($(this).val().toLowerCase(), 'social_type');
         });
 
-        $('#kt_form_country').on('change', function() {
-        	datatable.search($(this).val().toLowerCase(), 'date');
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            startDate: '2019-11-11',
+            todayBtn: 'linked',
+            todayHighlight: true,
+            clearBtn: true
         });
 
-        // $('#kt_form_country').on('change', function() {
-        //     var search = $(this).val() == "AC" ? '' : $(this).val().toLowerCase()
-        //     datatable.search(search, 'ShipCountry');
-        // });/deleteRow?rowId='+row.id+'
+        $('.datepicker').on('change', function() {
+        	datatable.search($(this).val().toLowerCase(), 'date');
+        });
 
         $('#kt_form_status').selectpicker();
 
         $('body').on('click', '.btn-delete', function() {
             var rowId = $(this).attr('name');
-//            console.log(rowId);
             $.get('/deleteRow', {'rowId': rowId}).done(function(response){
-            //    console.log(response);
                 datatable.load();
             });
-//            var row = datatable.row('kt-id',);
- //           console.log(row);
- //           datatable.remove();
-
         });
 
 	};

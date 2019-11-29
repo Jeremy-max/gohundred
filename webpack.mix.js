@@ -26,7 +26,8 @@ const theme = {
     'resources/dist/css/demo1/skins/header/base/light.css',
     'resources/dist/css/demo1/skins/header/menu/light.css',
     'resources/dist/css/demo1/skins/brand/dark.css',
-    'resources/dist/css/demo1/skins/aside/dark.css'
+    'resources/dist/css/demo1/skins/aside/dark.css',
+    'resources/custom/dashboard/signup.css'
   ],
   destCss: [
     'public/vendors/global/vendors.bundle.css',
@@ -34,7 +35,8 @@ const theme = {
     'public/css/skins/header/base/light.css',
     'public/css/skins/header/menu/light.css',
     'public/css/skins/brand/dark.css',
-    'public/css/skins/aside/light.css'
+    'public/css/skins/aside/light.css',
+    'public/css/signup.css'
   ],
   sourceFont: [
     'resources/dist/vendors/global/fonts',
@@ -85,6 +87,7 @@ mix.copy(theme.sourceCss[0], theme.destCss[0])
   // custom
   .scripts(custom.dashboard.sourceJs, 'resources/custom/dashboard/dashboard.js')
   .copy('resources/custom/dashboard/dashboard.js', 'public/js/dashboard/dashboard.js')
+  .copy('resources/custom/dashboard/admindashboard.js', 'public/js/dashboard/admindashboard.js')
   .copy('resources/custom/dashboard/global.js', 'public/js/dashboard/global.js')
   .copy('resources/custom/dashboard/main.css', 'public/css/dashboard/main.css')
   .copy(custom.dashboard.sourceCss[0], custom.dashboard.destCss[0])

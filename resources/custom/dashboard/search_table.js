@@ -5,7 +5,7 @@ var KTDatatableJsonRemoteDemo = function () {
 
 	// basic demo
 	var demo = function () {
-		var keyword = $('#table_keyword').val();
+		var keyword_id = $('#table_keyword').val();
 
 		var datatable = $('.kt-datatable').KTDatatable({
 			// datasource definition
@@ -13,7 +13,7 @@ var KTDatatableJsonRemoteDemo = function () {
 				type: 'remote',
 				source: {
 					read: {
-						url: '/tdata?keyword=' + keyword,
+						url: '/tdata?keyword_id=' + keyword_id,
 						method: 'get'
 					}
 				},

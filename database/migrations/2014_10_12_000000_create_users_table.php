@@ -18,8 +18,14 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('country');
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('active')->default(true);
+            $table->boolean('login_via_facebook')->default(false);
+            $table->boolean('login_via_google')->default(false);
+            $table->timestamp('payment_status')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

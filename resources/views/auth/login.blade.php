@@ -44,13 +44,29 @@
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
                 <label for="password">Password</label>
               </div>
-              <hr>
+              <div class="row kt-login__extra">
+                <div class="col">
+                  <label class="kt-checkbox">
+                    <input type="checkbox" name="remember"> Remember me
+                  </label>
+                </div>
+                <div class="col kt-align-right">
+                  <a href="{{route('password.request')}}" id="kt_login_forgot" class="kt-link kt-login__link">Forget Password ?</a>
+                </div>
+						  </div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('Log in')}}</button>
-              <p class="text-center mt-2">Don't have an account?</p>
-              <a class="d-block text-center small" href="/register">Sign up</a>
-              <hr class="my-4">
-              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Log in with Google</button>
-              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Log in with Facebook</button>
+              <div class="kt-login__account">
+                <div class="col">
+                  <span class="kt-login__account-msg text-center mt-2">
+                    Don't have an account yet ?
+                  </span>&nbsp;&nbsp;
+                </div>
+                <div class="kt-align-right">
+                  <a href="/register" id="kt_login_signup" class="kt-link kt-link--light kt-login__account-link">Sign Up</a>
+                </div>
+              </div>
+              <a href="redirect/google" class="btn btn-lg btn-google btn-block text-uppercase"><i class="fab fa-google mr-2"></i> Log in with Google</a>
+              <a href="redirect/twitter" class="btn btn-lg btn-twitter btn-block text-uppercase"><i class="fab fa-twitter mr-2"></i> Log in with Twitter</a>
             </form>
           </div>
         </div>
