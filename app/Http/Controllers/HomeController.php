@@ -516,6 +516,8 @@ class HomeController extends Controller
   public function addKeyword(Request $request)
   {
     $user_id = $request->user()->id;
+    if($user_id == 1)
+      return redirect()->route('adminboard');
     $socialite_user = User::where('id',$user_id)->where('country','callback')->get();
     if($socialite_user->count() > 0)
     {
