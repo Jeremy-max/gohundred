@@ -43,9 +43,7 @@ Route::get('/privacy_policy', function () {
 
 Route::middleware('auth')->group(function () {
 
-  Route::get('/step', function () {
-    return view('step');
-  })->name('step');
+  Route::get('/step', 'HomeController@step')->name('step');
 
   Route::get('/faq', function () {
     return view('FAQ');
@@ -74,14 +72,14 @@ Route::middleware('auth')->group(function () {
   Route::post('/saveAdminComment', 'HomeController@saveAdminCommentChanges')->name('saveAdminComment');
 
 
-  Route::get('/twitter', 'HomeController@search_twitter');
+  // Route::get('/twitter', 'HomeController@search_twitter');
 
-  Route::get('/facebook', 'HomeController@search_facebook');
+  // Route::get('/facebook', 'HomeController@search_facebook');
 
-  Route::get('/instagram', 'HomeController@search_instagram');
+  // Route::get('/instagram', 'HomeController@search_instagram');
 
-  Route::get('/youtube', 'HomeController@search_youtube');
+  // Route::get('/youtube', 'HomeController@search_youtube');
 
-  Route::get('/web', 'HomeController@search_web');
+  // Route::get('/web', 'HomeController@search_web');
   
 });

@@ -127,6 +127,7 @@ class HomeController extends Controller
     $consumer_secret = env('CONSUMER_SECRET');
     $access_token_key = env('ACCESS_TOKEN_KEY');
     $access_token_secret = env('ACCESS_TOKEN_SECRET');
+
     $connection = new TwitterOAuth(
       $consumer_key,
       $consumer_secret,
@@ -147,11 +148,11 @@ class HomeController extends Controller
      while(1)
      {
 
-        try{
+       try{
           $tweets = $connection->get('search/tweets', $params);
           if(isset($tweets->errors))
           {
-//            dump('Error occurred for rate limit exceeded free trial version limitation');
+            dump('Error occurred for rate limit exceeded free trial version limitation');
             break;
           }
           else{
@@ -159,7 +160,7 @@ class HomeController extends Controller
               $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
           }
         } catch(\Exception $e) {
-//          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
           break;
           //return false;
         }
@@ -494,38 +495,51 @@ class HomeController extends Controller
   {
     return view('home');
   }
+
+  public function step(Request $request) 
+  {
+
+    if($request->user()->id < 2){
+      return redirect()->route('adminboard');
+    }
+
+    return view('step');
+  }
   /*
     Return dashboard page
     
   */
   public function dashboard(Request $request)
   {
-    if($request->user()->id == 1)
+    if($request->user()->id < 2){
       return redirect()->route('adminboard');
+    }
 
     return view('dashboard')->with('langs', $this->langs);
   }
 
   public function adminBoard(Request $request)
   {
-    if($request->user()->id > 1)
+    if($request->user()->id > 1){
       return redirect()->route('dashboard');
+    }
     return view('admindashboard')->with('countries', $this->countries);
   }
 
   public function addKeyword(Request $request)
   {
     $user_id = $request->user()->id;
-    if($user_id == 1)
+    if($user_id < 2){
       return redirect()->route('adminboard');
+    }
     $socialite_user = User::where('id',$user_id)->where('country','callback')->get();
     if($socialite_user->count() > 0)
     {
       $location = new Location();
       $position = $location->get($request->ip());
-      if(!$position)
-        $position = 'localhost';
-      $user = User::updateOrCreate(['id' => $user_id],['country' => $position]);
+      if($position){
+        $user = User::updateOrCreate(['id' => $user_id],['country' => $position->countryName]);
+      }
     }
     
     

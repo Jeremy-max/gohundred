@@ -80,11 +80,10 @@ class RegisterController extends Controller
     {
         $location = new Location();
         $position = $location->get($request->ip());
-
         if ($position) {
-            $request->merge(['country' => $position]);
+            $request->merge(['country' => $position->countryName]);
         } else {
-            $request->merge(['country' => 'localhost']);
+            $request->merge(['country' => 'Undefined Country']);
         }
 
         $this->validator($request->all())->validate();
