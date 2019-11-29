@@ -33,7 +33,8 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Password Reset</h5>
-            <form role="form" method="POST" action="{{ route('password.reset') }}">
+            <form role="form" method="POST" action="{{ route('password.request', ['token' => $token]) }}">
+            
               @csrf
 
               <div class="form-label-group">
