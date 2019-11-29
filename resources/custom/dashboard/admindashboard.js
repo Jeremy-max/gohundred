@@ -23,7 +23,7 @@ var KTDatatableJsonRemoteDemo = function () {
 			layout: {
 				scroll: !0,
                 height: 550,
-                footer: !1
+//                footer: !1
 			},
 
 			// column sorting
@@ -72,19 +72,19 @@ var KTDatatableJsonRemoteDemo = function () {
                     field: "country",
                     title: "Country"
                 },{
-                    field: "login_fb",
-                    title: "Login via Facebook",
+                    field: "login_gg",
+                    title: "Login via Google",
                     template: function(row) {
-                        if(row.login_fb)
+                        if(row.login_gg)
                             return 'YES';
                         else
                             return 'NO';
                     }
                 },{
-                    field: "login_gg",
-                    title: "Login via Google",
+                    field: "login_fb",
+                    title: "Login via Twitter",
                     template: function(row) {
-                        if(row.login_gg)
+                        if(row.login_fb)
                             return 'YES';
                         else
                             return 'NO';
