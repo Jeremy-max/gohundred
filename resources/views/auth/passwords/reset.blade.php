@@ -1,88 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Meta, title, CSS, favicons, etc. -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Larashop Admin | Password Reset</title>
+<head>
 
-        <!-- Bootstrap -->
-        <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link href="{{asset('admin/css/font-awesome.min.css')}}" rel="stylesheet">
-        <!-- NProgress -->
-        <link href="{{asset('admin/css/nprogress.css')}}" rel="stylesheet">
-        <!-- Animate.css -->
-        <link href="{{asset('admin/css/animate.min.css')}}" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link href="/css/all.css" rel="stylesheet" type="text/css">
+  <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/signup.css" rel="stylesheet" type="text/css">
 
-        <!-- Custom Theme Style -->
-        <link href="{{asset('admin/css/custom.min.css')}}" rel="stylesheet">
-    </head>
+  <!-- Google Fonts -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet"> -->
+  <!-- <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
 
-    <body class="login">
-        <div>
-            <a class="hiddenanchor" id="signup"></a>
-            <a class="hiddenanchor" id="lostpassword"></a>
+  <!-- Plugin CSS -->
+  <!-- <link href="/css/magnific-popup.css" rel="stylesheet"> -->
 
-            <div class="login_wrapper">
-                <div class="animate form login_form">
-                    <section class="login_content">
-                        @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                        @endif
-                        <form role="form" method="POST" action="{{ route('password.reset') }}">
-                            <h3>Reset Password</h3>
+  <!-- Theme CSS - Includes Bootstrap -->
+  <!-- <link href="/css/creative.css" rel="stylesheet"> -->
 
-                            {{ csrf_field() }}
+</head>
 
-                            <input type="hidden" name="token" value="{{ $token }}">
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                @if ($errors->has('email'))
-                                <span class="help-block"><strong>{{ $errors->first('email') }}</strong></span>
-                                @endif
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email"/>
-                            </div>
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                @if ($errors->has('password'))
-                                <span class="help-block"><strong>{{ $errors->first('password') }}</strong></span>
-                                @endif
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
-                            </div>
+<body>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex">
+             <!-- Background image for card set in CSS! -->
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Password Reset</h5>
+            <form role="form" method="POST" action="{{ route('password.reset') }}">
+              @csrf
 
-                            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                @if ($errors->has('password_confirmation'))
-                                <span class="help-block"><strong>{{ $errors->first('password_confirmation') }}</strong></span>
-                                @endif
-                                <input type="password_confirmation" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password"/>
-                            </div>
+              <div class="form-label-group">
+                <input name="email" type="email" id="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required autocomplete="email" placeholder="Enter your email here">
+                <label for="email">Email address</label>
+              </div>
+              
+              <hr>
 
-                            <div>
-                                <button type="submit" class="btn btn-default submit">Reset Password</button>
-                            </div>
+              <div class="form-label-group">
+                <input name="password" type="password" id="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password" placeholder="Password">
+                <label for="password">Password</label>
+              </div>
+              
+              <div class="form-label-group">
+                <input name="password_confirmation" type="password" id="password-confirm" class="form-control" required autocomplete="new-password" placeholder="Confirm Password">
+                <label for="password-confirm">Confirm Password</label>
+              </div>
 
-                            <div class="clearfix"></div>
-
-                            <div class="separator">
-
-                                <div class="clearfix"></div>
-                                <br />
-
-                                <div>
-                                    <h1><i class="fa fa-paw"></i> Larashop Admin Panel</h1>
-                                    <p>©2017 All Rights Reserved.</p>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
+              <div class="form-signin">
+              <button class="btn btn-md btn-info btn-block" type="submit">Reset Password</button>
                 </div>
-            </div>
+
+              <div class="clearfix"></div>
+
+                <div class="separator">
+
+                    <div class="clearfix"></div>
+                    <br />
+
+                    <div>
+                        <p>©2019 All Rights Reserved.</p>
+                    </div>
+                </div>
+            </form>
+          </div>
         </div>
-    </body>
-</html>
+      </div>
+    </div>
+  </div>
+</body>
+
