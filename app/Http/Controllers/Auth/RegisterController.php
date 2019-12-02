@@ -80,6 +80,7 @@ class RegisterController extends Controller
     {
         $location = new Location();
         $position = $location->get($request->ip());
+        
         if ($position) {
             $request->merge(['country' => $position->countryName]);
         } else {

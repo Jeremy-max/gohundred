@@ -671,7 +671,7 @@ class HomeController extends Controller
         'payment_status' => $payment_status,
         'number_campaigns' => $campaign_cnt,
         'comment' => $index->comment,
-//        'date' => $index->created_at->format('m/d/Y'),
+        'date' => $index->created_at,
 
       ];
       array_push($adminTable, $item);
