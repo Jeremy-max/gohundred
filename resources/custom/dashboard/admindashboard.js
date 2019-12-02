@@ -21,7 +21,7 @@ var KTDatatableJsonRemoteDemo = function () {
 
 			// layout definition
 			layout: {
-				scroll: !0,
+				scroll: 1,
                 height: 550,
 //                footer: !1
 			},
@@ -30,10 +30,6 @@ var KTDatatableJsonRemoteDemo = function () {
 			sortable: true,
 
             pagination: true,
-            
-            rows: {
-                autoHide: !1
-            },
 
 			search: {
 				input: $('#generalSearch')
@@ -67,13 +63,21 @@ var KTDatatableJsonRemoteDemo = function () {
                     }
                 },{
                     field: "email",
-                    title: "Email"
+                    title: "Email",
+                    overflow: 'visible',
+                    width: 300,
+                    autoHide: false,
                 },{
                     field: "country",
-                    title: "Country"
+                    title: "Country",
+                    width: 150,
+                    autoHide: false
                 },{
                     field: "login_gg",
                     title: "Login via Google",
+                    width: 50,
+                    autoHide: true,
+                    textAlign: 'center',
                     template: function(row) {
                         if(row.login_gg)
                             return 'YES';
@@ -83,6 +87,9 @@ var KTDatatableJsonRemoteDemo = function () {
                 },{
                     field: "login_fb",
                     title: "Login via Twitter",
+                    width: 50,
+                    autoHide: true,
+                    textAlign: 'center',
                     template: function(row) {
                         if(row.login_fb)
                             return 'YES';
@@ -90,8 +97,23 @@ var KTDatatableJsonRemoteDemo = function () {
                             return 'NO';
                     }
                 },{
+                    field: "date",
+                    title: "Memeber since",
+                    authHide: false,
+                    width: 100,
+                    template: function(row) {
+                        var date = new Date(row.date);
+                        var year = date.getFullYear();
+                        var month = date.getMonth()+1;
+                        var day = date.getDate();
+                        var formattedDate = day + '-' + month + '-' + year;
+                        return formattedDate;
+                    }
+                },{
                     field: "payment_status",
                     title: "Payment Status",
+                    width: 150,
+                    autoHide: false,
                     template: function(row) {
                         if(!row.payment_status)
                             return 'Not paid';
@@ -102,6 +124,9 @@ var KTDatatableJsonRemoteDemo = function () {
                     field: "number_campaigns",
                     title: "Number of Campaigns",
                     type: 'number',
+                    width: 100,
+                    textAlign: 'center',
+                    autoHide: false,
                 },{
                     field: "comment",
                     title: "Comment",
@@ -118,7 +143,9 @@ var KTDatatableJsonRemoteDemo = function () {
 					field: 'Actions',
 					title: 'Actions',
 					sortable: false,
-					textAlign: 'center',
+                    textAlign: 'center',
+                    autoHide: false,
+                    width: 150,
 					overflow: 'visible',
 					template: function(row) {
                         return '\
