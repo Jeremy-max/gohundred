@@ -324,6 +324,8 @@ var KTDatatableJsonRemoteDemo = function () {
             });
         });
 
+        
+
 	};
 
 	return {

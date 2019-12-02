@@ -515,7 +515,14 @@ class HomeController extends Controller
       return redirect()->route('adminboard');
     }
 
-    return view('dashboard')->with('langs', $this->langs);
+    $username = User::where('id', $request->user()->id)->first();
+    $firstcharname = strtoupper(substr($username->name, 0, 1));
+
+    return view('dashboard', [
+      'langs' => $this->langs,
+      'username' => $username->name,
+      'namefirstchar' => $firstcharname
+    ]);
   }
 
   public function adminBoard(Request $request)
@@ -579,7 +586,14 @@ class HomeController extends Controller
   public function showCampaignPage(Request $request, $keyword_id)
   {
 //    dd($keyword);
-    return view('dashboard')->with('keyword_id', $keyword_id)->with('langs', $this->langs);
+    $username = User::where('id', $request->user()->id)->first();
+    $firstcharname = strtoupper(substr($username->name, 0, 1));
+    return view('dashboard', [
+      'keyword_id' => $keyword_id,
+      'langs' => $this->langs,
+      'username' => $username->name,
+      'namefirstchar' => $firstcharname
+    ]);
   }
 
   public function getTableData(Request $request)

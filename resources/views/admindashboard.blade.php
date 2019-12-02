@@ -38,9 +38,7 @@
     </head>
 
     <body class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading" >
-	 {{-- @include('layouts.partials._layout-page-loader') --}} 
     <!-- begin:: Page -->
-    @include('layouts.partials._header-base-mobile')
     
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
@@ -83,7 +81,47 @@
                     <div class="text-center m-auto">
                         <h2>Welcome to your Admin dashboard</h2>
                     </div>
-                    @include('layouts.partials._topbar-base')
+                    <div class="kt-header__topbar">
+                        <div class="kt-header__topbar-item kt-header__topbar-item--user">
+                            <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
+                                <div class="kt-header__topbar-user">
+                                    <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
+                                    <div class="kt-user-card-v2">
+                                        <div class="kt-user-card-v2__pic">
+                                            <div class="kt-badge kt-badge--xl kt-badge--danger">
+                                                AD
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
+                                <!--begin: Head -->
+                                <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(/assets/media/misc/bg-1.jpg)">
+                                    <div class="kt-user-card-v2">
+                                        <div class="kt-user-card-v2__pic">
+                                            <div class="kt-badge kt-badge--xl kt-badge--danger">
+                                                AD
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="kt-user-card__name"> Administrator </div>
+                                    <!-- <div class="kt-user-card__badge"> <span class="btn btn-success btn-sm btn-bold btn-font-md">23 messages</span> </div> -->
+                                </div>
+                                <div class="kt-notification">
+                                    <a href="{{ route('logout') }}" class="kt-notification__item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        <div class="kt-notification__item-icon"> <i class="fas fa-power-off kt-font-danger"></i> </div>
+                                        <div class="kt-notification__item-details">
+                                            <div class="kt-notification__item-title">{{ __('Logout')}}</div>
+                                        </div>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="kt-content kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
                 <div class='row'>
@@ -213,18 +251,20 @@
                     <!-- begin:: Content -->
                     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
                         <div class="kt-portlet kt-portlet--mobile">
-                            <div class="kt-portlet__head kt-portlet__head--lg">
-                                <div class="kt-portlet__head-label">
-                                    <span class="kt-portlet__head-icon">
-                                        <i class="kt-font-brand flaticon2-line-chart"></i>
-                                    </span>
-                                    <h3 class="kt-portlet__head-title">User Datatable
-                                    <!-- <small>initialized from remote json file</small> -->
-                                    </h3>
+                            <div class="kt-portlet kt-portlet--mobile">
+                                <div class="kt-portlet__head kt-portlet__head--lg">
+                                    <div class="kt-portlet__head-label">
+                                        <span class="kt-portlet__head-icon">
+                                            <i class="kt-font-brand flaticon2-line-chart"></i>
+                                        </span>
+                                        <h3 class="kt-portlet__head-title">User Datatable
+                                        <!-- <small>initialized from remote json file</small> -->
+                                        </h3>
+                                    </div>
                                 </div>
-                            </div>
+                            </div> 
                             <div class="kt-portlet__body">
-                                <!--begin: Search Form -->
+                                    <!--begin: Search Form -->
                                 <div class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
                                     <div class="row">
                                         <div class="col-xl-8 order-2 order-xl-1">
@@ -256,7 +296,7 @@
                                                 </div>-->
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
-														<div class="kt-form__label">
+                                                        <div class="kt-form__label">
                                                             <label>Country:</label>
                                                         </div>
                                                         <div class="kt-form__control">
@@ -267,18 +307,18 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-													</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="kt-portlet__body kt-portlet__body--fit">
-                            <!--begin: Datatable -->
-                            <div class="kt-datatable" id="json_data"></div>
-                            <!--end: Datatable -->
+                            <div class="kt-portlet__body kt-portlet__body--fit">
+                                <!--begin: Datatable -->
+                                <div class="kt-datatable" id="json_data"></div>
+                                <!--end: Datatable -->
+                            </div>
                         </div>
                         <div class="modal fade" id="kt_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">

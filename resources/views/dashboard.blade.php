@@ -235,19 +235,18 @@
 						</div>
 					</div>
 				</div>
-			<div class="kt-portlet__body kt-portlet__body--fit">
-				<!--begin: Datatable -->
-				<div class="kt-datatable" id="json_data"></div>
-				<!--end: Datatable -->
-				
+				<div class="kt-portlet__body kt-portlet__body--fit">
+					<!--begin: Datatable -->
+					<div class="kt-datatable" id="json_data"></div>
+					<!--end: Datatable -->
+				</div>
 			</div>
 		</div>
-	</div>
 	@if (count($campaign_list) > 0)
 		<input id="table_keyword" type="hidden" value="{{ $keyword_id }}"/>
 	@endif
 	<!-- end:: Content -->
-</div>
+	</div>
 </div>
 @endsection
 @section('page_vendor_scripts')

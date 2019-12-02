@@ -40,11 +40,21 @@
               <div class="form-label-group">
                 <input name="name" type="text" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Username" required autocomplete="name" autofocus>
                 <label for="name">Username</label>
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
               </div>
 
               <div class="form-label-group">
                 <input name="email" type="email" id="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required autocomplete="email" placeholder="Enter your email here">
                 <label for="email">Email address</label>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
               </div>
               
               <hr>
@@ -52,6 +62,11 @@
               <div class="form-label-group">
                 <input name="password" type="password" id="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password" placeholder="Password">
                 <label for="password">Password</label>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
               </div>
               
               <div class="form-label-group">
@@ -71,7 +86,7 @@
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase mt-4" type="submit">Sign Up</button>
               <a class="d-block text-center mt-2 small" href="/login">Log In</a>
-              <hr class="my-4">
+              <hr>
               <a href="redirect/google" class="btn btn-lg btn-google btn-block text-uppercase"><i class="fab fa-google mr-2"></i> Sign up with Google</a>
               <a href="redirect/twitter" class="btn btn-lg btn-twitter btn-block text-uppercase"><i class="fab fa-twitter mr-2"></i> Sign up with Twitter</a>
             </form>

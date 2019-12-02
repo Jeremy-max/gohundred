@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Str;
 use Validator;
 /**
  * Class ResetPasswordController
@@ -19,6 +20,7 @@ class ResetPasswordController extends Controller
      * ResetPasswordController constructor.
      */
 
+    use ResetsPasswords;
 //    protected $redirectTo = '/login';
 
     public function __construct()
@@ -64,8 +66,8 @@ class ResetPasswordController extends Controller
             $response == Password::PASSWORD_RESET
             ? $this->sendSuccessResponse()
             : $this->sendFailedResponse(
-                ['token' => 'Your reset link has expired. Please try to resend it again.'],
-                self::HTTP_CODE_BAD_REQUEST
+   //             ['token' => 'Your reset link has expired. Please try to resend it again.'],
+   //             self::HTTP_CODE_BAD_REQUEST
             );
     }
     /**
@@ -91,5 +93,68 @@ class ResetPasswordController extends Controller
     {
         $this->data['title'] = trans('backpack::base.reset_password'); // set the page title
         return view('auth.passwords.reset', $this->data)->with(['token' => $token, 'email' => $request->email]);
+    }
+
+    /**
+     * Get the broker to be used during password reset.
+     *
+     * @return \Illuminate\Contracts\Auth\PasswordBroker
+     */
+    public function broker()
+    {
+        $passwords = config('backpack.base.passwords', config('auth.defaults.passwords'));
+        return Password::broker($passwords);
+    }
+    /**
+     * Get the guard to be used during password reset.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+
+    protected function credentials(Request $request)
+    {
+        return $request->only(
+            'email', 'password', 'password_confirmation', 'token'
+        );
+    }
+
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $user->forceFill([
+            'password' => bcrypt($password),
+            'remember_token' => Str::random(60),
+        ])->save();
+
+        $this->guard()->login($user);
+    }
+
+    /**
+     * Get the response for a successful password reset.
+     *
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function sendSuccessResponse()
+    {
+        // return trans($response);
+    }
+
+    /**
+     * Get the response for a failed password reset.
+     *
+     * @param  \Illuminate\Http\Request
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function sendFailedResponse()
+    {
+        // return ['email' => trans($response)];
     }
 }
