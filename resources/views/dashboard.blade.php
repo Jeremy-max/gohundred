@@ -234,6 +234,39 @@
 							</div>
 						</div>
 					</div>
+					<!--end: Search Form-->
+					<!--begin: Group action Form-->
+					<div class="kt-form kt-form--label-align-right kt-margin-t-20 collapse" id="kt_datatable_group_action_form">
+						<div class="row align-items-center">
+							<div class="col-xl-12">
+								<div class="kt-form__group kt-form__group--inline">
+									<div class="kt-form__label kt-form__label-no-wrap">
+										<label class="kt-font-bold kt-font-danger-">Selected
+											<span id="kt_datatable_selected_number">0</span> records:</label>
+									</div>
+									<div class="kt-form__control">
+										<div class="btn-toolbar">
+											<!-- <div class="dropdown">
+												<button type="button" class="btn btn-brand btn-sm dropdown-toggle" data-toggle="dropdown">
+													Update status
+												</button>
+												<div class="dropdown-menu">
+													<a class="dropdown-item" href="#">Pending</a>
+													<a class="dropdown-item" href="#">Delivered</a>
+													<a class="dropdown-item" href="#">Canceled</a>
+												</div>
+											</div> -->
+											&nbsp;&nbsp;&nbsp;
+											<button class="btn btn-sm btn-danger" type="button" id="kt_datatable_delete_all">Delete All</button>
+											&nbsp;&nbsp;&nbsp;
+											<!-- <button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#kt_modal_fetch_id">Fetch Selected Records</button> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--end: Group action Form-->
 				</div>
 				<div class="kt-portlet__body kt-portlet__body--fit">
 					<!--begin: Datatable -->

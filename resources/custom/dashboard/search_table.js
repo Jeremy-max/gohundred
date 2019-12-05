@@ -33,7 +33,11 @@ var KTDatatableJsonRemoteDemo = function () {
 
 			search: {
 				input: $('#generalSearch')
-			},
+            },
+
+            extensions: {
+                checkbox: {}
+            },
 
 			// columns definition
 			columns: [
@@ -70,7 +74,7 @@ var KTDatatableJsonRemoteDemo = function () {
 						};
 						return '<span class="kt-badge ' + type[row.social_type] + ' kt-badge--inline kt-badge--pill">' + row.social_type + '</span>';
 					},
-					// width: 100,
+					width: 100,
 				},
 				{
 					field: 'title',
@@ -85,6 +89,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					format: 'YYYY-MM-DD',
 					textAlign: 'center',
                     sortable: 'asc',
+                    autoHide: false,
                     width: 100
 				}, 
 				{
@@ -94,11 +99,14 @@ var KTDatatableJsonRemoteDemo = function () {
 					textAlign: 'center',
 					template: function(row){
 						return '<a href="'+row.url+'">'+row.url+'</a>';
-					}
+                    },
+                    autoHide: false,
+                    width: 'auto'
 				},	{
 					field: 'Actions',
 					title: 'Actions',
-					sortable: false,
+                    sortable: false,
+                    autoHide: false,
 					textAlign: 'center',
 					overflow: 'visible',
 					template: function(row) {
@@ -110,11 +118,13 @@ var KTDatatableJsonRemoteDemo = function () {
                         <button class="btn btn-hover-danger btn-icon btn-pill btn-delete" title="Delete" name='+row.id+'>\
                             <i class="la la-trash"></i>\
                         </button>';
-					},
+                    },
+                    width: 150,
                 }
             ],
 
-		});
+        });
+
 
         $('#kt_form_status').on('change', function() {
         	datatable.search($(this).val().toLowerCase(), 'social_type');
@@ -134,13 +144,82 @@ var KTDatatableJsonRemoteDemo = function () {
 
         $('#kt_form_status').selectpicker();
 
+
+        datatable.on('kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated', function (e) {
+            // datatable.checkbox() access to extension methods
+            var ids = datatable.checkbox().getSelectedId();
+            var count = ids.length;
+            $('#kt_datatable_selected_number').html(count);
+      
+            if (count > 0) {
+              $('#kt_datatable_group_action_form').collapse('show');
+            } else {
+              $('#kt_datatable_group_action_form').collapse('hide');
+            }
+          });
+
         $('body').on('click', '.btn-delete', function() {
             var rowId = $(this).attr('name');
-            $.get('/deleteRow', {'rowId': rowId}).done(function(response){
-                datatable.load();
+            
+            var tr = $(this).parentsUntil('tr').parent()[0];
+            swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Yes, delete it!'
+            }).then(function(result) {
+              if (result.value) {
+                $.get('/deleteRow', {'rowId': rowId}).done(function(response){
+                    toastr.success('Row deleted!');
+                    $(tr).addClass('kt-datatable__row--active');
+                    datatable.rows('.kt-datatable__row--active').remove();
+                    datatable.reload();
+                });
+                // $.ajax({
+                //     url: '/deleteRow' + rowId,
+                //     type: 'delete',
+                //     dataType: 'json',
+                //     success: function success(response) {
+                //         toastr.success('Row deleted!');
+                //         $(tr).addClass('kt-datatable__row--active');
+                //         datatable.rows('.kt-datatable__row--active').remove();
+                //         datatable.reload();
+                //     },
+                //     error: function error(jqXHR, status, _error2) {}
+                // });
+              }
             });
         });
 
+        // $('#kt_datatable_delete_all').on('click', function () {
+        //     var ids = datatable.checkbox().getSelectedId();
+
+        //     var tr = $(this).parentsUntil('tr').parent()[0];
+        //     swal.fire({
+        //       title: 'Are you sure?',
+        //       text: "You won't be able to revert this!",
+        //       type: 'warning',
+        //       showCancelButton: true,
+        //       confirmButtonText: 'Yes, delete it!'
+        //     }).then(function(result) {
+        //       if (result.value) {
+        //         $.ajax({
+        //             url: '/deleteRow',
+        //             type: 'delete',
+        //             dataType: 'json',
+        //             data: {ids},
+        //             success: function success(response) {
+        //                 toastr.success('All checked items deleted!');
+        //                 datatable.reload();
+        //                 datatable.rows('.kt-datatable__row--active').remove();
+        //             },
+        //             error: function error(jqXHR, status, _error2) {}
+        //         });
+        //       }
+        //     });
+            
+        // });
 	};
 
 	return {
@@ -152,5 +231,10 @@ var KTDatatableJsonRemoteDemo = function () {
 }();
 
 jQuery(document).ready(function () {
+    $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
 	KTDatatableJsonRemoteDemo.init();
 });

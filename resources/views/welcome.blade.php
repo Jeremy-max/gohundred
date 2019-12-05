@@ -50,13 +50,13 @@
             <a class="nav-link js-scroll-trigger" href="#cases">Use cases</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Plans</a>
+            <a class="nav-link js-scroll-trigger" href="#plans">Price</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/register">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/login">Log in</a>
+            <a class="nav-link js-scroll-trigger" href="/login">Login</a>
           </li>
         </ul>
       </div>
@@ -72,7 +72,7 @@
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <h5 class="text-white font-weight-bold">We empower you to keep tabs on your brand, competitors and trending topics.</h5>
+          <h5 class="text-white font-weight-bold">We empower you to keep track on your online presence.</h5>
           <!-- <p class="text-white-75 font-weight-light mb-5">We empower you to keep tabs on your compertitors</p> -->
           <a class="btn btn-primary btn-xl js-scroll-trigger mt-2" href="/step">Get me Started</a>
         </div>
@@ -87,32 +87,34 @@
         <div class="text-center w-100">
           <h1 class="text-white mt-0">Why GoHundred?</h2>
           <hr class="divider light my-4">
-          <div class="row">
-            <div class="text-left mt-3">
-              
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Stay on top of your game</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Find out what people say about your brand, trending topics or your competitors</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today with the 14-day free trial. No credit card required</p>
+                <h2 class="text-white-75">With powerful analytics you will learn what people say about your brand, trends and your competitors on social media and the web.</p>
+
+                <h4 class="text-white-75 mt-5">Start today with the 14-day free trial. No credit card required</p>
               <!-- <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Compare yourself to competitors</p>
             </div>
             <div class="col-lg-5 text-left mt-3">
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today for free</p>
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">We don't spam your inbox</p>
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get all information in your Slack channel</p> -->
-            </div>
-          </div>
-          <a class="btn btn-light btn-xl js-scroll-trigger mt-5" href="/step">Get Me Started</a>
+          <!-- <a class="btn btn-light btn-xl js-scroll-trigger mt-5" href="/step">Get Me Started</a> -->
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section class="page-section" id="about">
+  <section class="page-section text-primary" id="about">
     <div class="container">
-      <h2 class="text-center mt-0">Features - What You Can Do</h2>
-      <hr class="divider my-4">
-      <div class="row col-lg-10 offset-1 col-10">
+      <h1 class="text-center mt-0">How it works</h2>
+      <hr class="divider my-4 mt-3">
+        <div class="text-left mt-5">
+            <h3><img class="heart" src="../img/GoHundred(1).png">1. Sign up</p>
+            <h3><img class="heart" src="../img/GoHundred(1).png">2. Choose 5 keywords to monitor your campaign </p>
+            <h3><img class="heart" src="../img/GoHundred(1).png">3. Use your Dashboard to monitor campaigns on social media and the web</p>
+            <h3><img class="heart" src="../img/GoHundred(1).png">4. Integrate Slack or email to receive updates</p>
+            <h3><img class="heart" src="../img/GoHundred(1).png">5. Export your data to Excel to work with it </p>
+        </div>
+      <!-- <div class="row col-lg-10 offset-1 col-10">
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fa-4x fab fa-searchengin text-primary mb-4"></i>
@@ -145,7 +147,7 @@
             <p class="text-muted mb-0">12-hour update</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -153,7 +155,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="text-center w-100">
-          <h1 id="sss" class="text-white mt-0">GoHundred is for everyone who wants to know what the world is talking about </h2>
+          <h1 id="sss" class="text-white mt-0">Use Cases </h2>
           <hr class="divider light my-4">
           <div class="row background-blue">
             <div class="col">
@@ -241,12 +243,29 @@
     </div>
   </section>
 
+  <section class="page-section text-primary" id="plans">
+    <div class="container">
+      <h1 class="text-center mt-0">Pricing</h1>
+      <hr class="divider my-4 mt-3">
+      
+        <div class="text-center">
+        <h2 class="mb-4">Pay as you go</h2>
+        <h3 class="mt-2 mb-5">EUR 8 per campaign (billed monthly)</h3>
+          <h4><i class="fab fa-searchengin mr-3"></i>5 keywords per campaign</h4>
+          <h4><i class="far fa-newspaper mr-3"></i>Get minimum 1K data per month</h4>
+          <h4><i class="fab fa-slack mr-3"></i>Slack integration</h4>
+          <h4><i class="far fa-file-excel mr-3"></i>Excel file export</h4>
+          <h4><i class="fas fa-sync mr-3"></i>12-hour update</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Portfolio Section
+   <section id="services">
+    <div id="price">-->
 
-  <!-- Portfolio Section -->
-  <section id="services">
-    <div id="price">
       <!--price tab-->
-      <div class="plan">
+      <!-- <div class="plan">
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Personal Plan</h3>
@@ -267,10 +286,10 @@
             <a href="/step">Get me started</a>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- end of price tab-->
       <!--price tab-->
-      <div class="plan basic">
+      <!-- <div class="plan basic">
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Lite Plan</h3>
@@ -291,10 +310,10 @@
             <a href="/step">Get me started</a>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- end of price tab-->
       <!--price tab-->
-      <div class="plan standard">
+      <!-- <div class="plan standard">
         <div class="plan-inner">
           <div class="hot">popular</div>
           <div class="entry-title">
@@ -316,10 +335,10 @@
             <a href="/step">Get me started</a>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- end of price tab-->
       <!--price tab-->
-      <div class="plan ultimite">
+      <!-- <div class="plan ultimite">
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Bold Plan</h3>
@@ -340,21 +359,21 @@
             <a href="/step">Get me started</a>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- end of price tab-->
-    </div>
-  </section>
+<!--    </div>
+  </section>  -->
 
    
   <!-- Section: Testimonials v.3 -->
-<section class="team-section text-center my-5">
+<section class="page-section bg-primary text-center">
   <div class="container">
 
     <!-- Section heading -->
-    <h2 class="h1-responsive font-weight-bold my-5">What People Say about GoHundred</h2>
+    <h1 class="h1-responsive font-weight-bold text-white mb-5">What People Say about GoHundred</h1>
     <!-- Section description -->
     <!--Grid row-->
-      <div class="row text-center">
+      <div class="row text-center text-white mb-4">
 
         <!--Grid column-->
         <div class="col-md-4 mb-md-0 mb-5">
@@ -434,19 +453,17 @@
         </div>
         <!--Grid column-->
 
+        
       </div>
     <!--Grid row-->
-
+    <div class="container text-center mt-5">
+          <a class="btn btn-light btn-xl" href="/step">Get me started</a>
+        </div>
   </div>
 </section>
 <!-- Section: Testimonials v.3 -->
 
  <!-- Call to Action Section -->
-  <section class="page-section text-white call-to-action">
-    <div class="container text-center">
-      <a class="btn btn-light btn-xl" href="/step">Get me started</a>
-    </div>
-  </section>
 
 
   <!-- Footer -->
@@ -691,30 +708,24 @@
     <!-- Grid row -->
     <div class="row  container mx-auto">
       <!-- Grid column -->
-      <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mb-md-0 mb-4">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Contact</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <i class="fas fa-question-circle mr-3"></i>
-          <a href = "mailto: help@gohundred.co">For help</a>
+          <!-- <i class="fas fa-question-circle mr-3"></i> -->
+          For general queries
         </p>
         <p>
-          <i class="fas fa-database mr-3"></i> 
-          <a href = "mailto: dpo@gohundred.co">For data inquiries</a>
+          <a href = "mailto: help@gohundred.co" style="text-decoration:underline!important;color:cornflowerblue!important;">help@gohundred.co</a>
         </p>
         <p>
-          <i class="fas fa-hands-helping mr-3"></i>
-          <a href = "mailto: partner@gohundred.co">For partnerships</a>
+          <!-- <i class="fas fa-database mr-3"></i>  -->
+          For data inquiries
         </p>
         <p>
-          <i class="fas fa-road mr-3"></i>
-          <a href = "mailto: job@gohundred.co " class="bbb">
-            For careers
-          </a>
-          <br>
-            <small>GoHundred is always looking for new talents, so if you are interested in hearing more about the opportunities working with us, you are welcome to send you CV or LinkedIn profile-link to us at:<a href = "mailto: job@gohundred.co ">Jobs@gohundred.co</a></small>
+          <a href = "mailto: dpo@gohundred.co" style="text-decoration:underline!important;color:cornflowerblue!important;" class="bbb">dpo@gohundred.co</a>
         </p>        
       </div>
       <!-- Grid column -->
@@ -722,16 +733,13 @@
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Product</h6>
+        <h6 class="text-uppercase font-weight-bold">About</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
           <a href="#about">Features</a>
         </p>
         <p>
-          <a href="#services">Plans</a>
-        </p>
-        <p>
-          <a href="">Careers</a>
+          <a href="#services">Pricing</a>
         </p>
         <p>
           <a href="/terms-of-service">Terms of service</a>
@@ -747,6 +755,16 @@
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Resources</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="#cases" class="js-scroll-trigger" >
+            Use cases
+          </a>
+        </p>
+        <p>
+          <a href="" data-toggle="modal" data-target="#faq">
+            FAQ
+          </a>
+        </p>
         <p>Newsletter
           <section class="newsletter">
             <div class="container">
@@ -765,23 +783,8 @@
             </div>
           </section>
         </p>
-        <p>
-          <a href="" class="bbb">
-            Blog
-          </a>
-          <br>
-          <small>You can read our marketing blog here.</small>
-        </p>
-        <p>
-          <a href="" data-toggle="modal" data-target="#faq">
-            FAQ
-          </a>
-        </p>
-        <p>
-          <a href="#cases" class="js-scroll-trigger" >
-            Use cases
-          </a>
-        </p>
+        
+        
       </div>
       <!-- Grid column -->
     </div>

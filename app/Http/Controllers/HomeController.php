@@ -58,7 +58,7 @@ class HomeController extends Controller
     'vi' => 'Vietnamese'
   ];
 
-  protected $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
+  protected $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
 
   public function __construct()
   {
@@ -227,87 +227,89 @@ class HomeController extends Controller
 
   }
 
-  public function search_facebook()
+  public function search_twitch()
   {
-      dd("Hello, this is facebook background!");
-//     $app_id = env('APP_ID_FB');
-//     $app_secret = env('APP_SECRET_FB');
-//     $access_token = env('ACCESS_TOKEN_FB');
-//     $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
-//     $app_access_token = env('APP_TOKEN_FB');
-//     dump($app_id);
-//     dump($app_secret);
-//     dump($access_token);
-//     dump($appsecret_proof);
-//     dump($app_access_token);
-//     $fb = new \Facebook\Facebook([
-//       'app_id' => $app_id,
-//       'app_secret' => $appsecret_proof,
-//       'default_graph_version' => 'v5.7',
-//      'default_access_token' => $access_token, // optional
-//     ]);
+      dd("Hello, this is twitch background!");
 
-//     try {
-//       // Get the \Facebook\GraphNodes\GraphUser object for the current user.
-//       // If you provided a 'default_access_token', the '{access-token}' is optional.
-//  //     $response = $fb->get('/me', $access_token);
-//       $request = $fb->request('get', '/search?q=freelancer&type=user');
-//       $response = $fb->getClient()->sendRequest($request);
-//       $graphNode = $response->getGraphNode();
-//       dd($graphNode);
-// //  dd(213);
-//  dd($mySrch);
-//     } catch(\Facebook\Exceptions\FacebookResponseException $e) {
-//       // When Graph returns an error
 
-//       echo 'Graph returned an error: ' . $e->getMessage();
-//       exit;
-//     } catch(\Facebook\Exceptions\FacebookSDKException $e) {
-//       // When validation fails or other local issues
-//       echo 'Facebook SDK returned an error: ' . $e->getMessage();
-//       exit;
-
-//     }
-    
-//    $me = $response->getGraphUser();
   }
 
 
-  public function search_instagram()
+  public function search_tiktok()
   {
-//    dd('Hello, instagram!!');
-    
-/*    $consumer_key = env('CONSUMER_KEY');
-    $consumer_secret = env('CONSUMER_SECRET');
-    $access_token_key = env('ACCESS_TOKEN_KEY');
-    $access_token_secret = env('ACCESS_TOKEN_SECRET');
-    $connection = new TwitterOAuth(
-      $consumer_key,
-      $consumer_secret,
-      $access_token_key,
-      $access_token_secret
-    ); 
-    $limit_cnt = 50;
-    $params = [
-      'q' => "fgkjngfdjfdslkj",
-      'count' => $limit_cnt,
-      'max_id' => null
-    ];
-      $tweets_db = [];
-//     while(1)
-//     {
+//    dd('Hello, tiktok!!');
+    $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+    foreach ($keyword_list as $keyword)
+    {
+      $this->tiktokApi($keyword);
+    }
+  }
 
-        $tweets = $connection->get('search/tweets', $params);
-        $errors = $this->parseTweets($tweets, 1);
-        dd($errors);
+  public function tiktokApi()
+  {
+    // dd('Hello, web!!');
+
+
+    $client = new \App\sabri\tiktok\TiktokApi([
+        'device_id' => env('DEVICE_ID'),
+        'iid' => env('IID'),
+        'openudid' => env('OPENUDID')
+    ]);
       
-      //  if(count($tweets->statuses) < $limit_cnt)
-      //    break;
-      
-      //   $params['max_id'] = $this->getMaxId($tweets);
-//   }
-//   dump($tweets_db);
-*/
+    $sumCnt = 0;
+    $params = [
+      'keyword' => "keyword",
+      'count' => 10,
+      'start' => 0,
+    ];    
+
+      $tiktok_db = [];
+      // while(1)
+      // {
+      //     $sumCnt += 10;
+      //     try{
+            $results = $client.searchHashtags($params);
+            dd($results);
+//             $tiktok_db = array_merge($tiktok_db, $this->parseTiktok($results, $keyword->id));
+//           } catch(\Exception $e) {
+//  //           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
+//             break;
+//           }
+          
+
+//           // if(count($results) < $limit_cnt)
+//           //   break;
+//            if($sumCnt > $limit_cnt)
+//              break;
+        
+//           $params['cursor'] = $params['cursor'] + 10;
+//       }
+//       dump($tiktok_db);
+ //   Search::insert($tiktok_db);
+  }
+
+  public function parseTiktok($response, $keywordId)
+  {
+    $cnt = count($response);
+    $i = 0;
+    $tWeb = [];
+    while ($i < $cnt)
+    {
+      $title = $response[$i]->title;
+      if(strlen($title) > 100)
+        $title = mb_substr($title, 0, 99);
+      $value = [
+        'keyword_id' => $keywordId,
+        'social_type' => 'tiktok',
+        'title' => $title,
+        'date' => date('Y-m-d'),
+        'url' => $response[$i]->link
+      ];
+      array_push($tWeb,$value);
+//      dump($value);
+      $i++;
+    }
+    return $tWeb;
   }
 
 

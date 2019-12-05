@@ -98,7 +98,7 @@ var KTDatatableJsonRemoteDemo = function () {
                     }
                 },{
                     field: "date",
-                    title: "Memeber since",
+                    title: "Member since",
                     authHide: false,
                     width: 100,
                     template: function(row) {
@@ -179,11 +179,23 @@ var KTDatatableJsonRemoteDemo = function () {
 
         $('body').on('click', '.btn-delete', function() {
             var rowId = $(this).attr('name');
-//            console.log(rowId);
-            $.get('/deleteAdminRow', {'rowId': rowId}).done(function(response){
-                datatable.load();
+            var tr = $(this).parentsUntil('tr').parent()[0];
+            swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Yes, delete it!'
+            }).then(function(result) {
+              if (result.value) {
+                $.get('/deleteAdminRow', {'rowId': rowId}).done(function(response){
+                    toastr.success('User deleted!');
+                    $(tr).addClass('kt-datatable__row--active');
+                    datatable.rows('.kt-datatable__row--active').remove();
+                    datatable.reload();
+                });
+              }
             });
-
         });
         datatable.on("click", ".btn-edit", function() {
             $('#modal-userid').val($(this).attr('id'));
