@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/faq', function () {
     return view('FAQ');
   });
-  
+
   Route::get('/home', 'HomeController@index')->name('home');
 
   Route::get('/admindashboard', 'HomeController@adminboard')->name('adminboard');
@@ -81,5 +81,6 @@ Route::middleware('auth')->group(function () {
   // Route::get('/youtube', 'HomeController@search_youtube');
 
   // Route::get('/web', 'HomeController@search_web');
-  
+
 });
+

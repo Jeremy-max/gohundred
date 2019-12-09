@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\NewUserRegistered;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,13 +11,22 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected static function boot(){
+
+        parent::boot();
+
+        self::created(function($model){
+            $model->notify(new NewUserRegistered());
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'country', 'login_via_google', 'login_via_facebook' 
+        'name', 'email', 'password', 'country', 'login_via_google', 'login_via_facebook'
     ];
 
     /**
@@ -40,5 +50,10 @@ class User extends Authenticatable
     public function campaigns()
     {
         return $this->hasMany('App\Campaign');
+    }
+
+    public function routeNotificationFor($driver)
+    {
+        return env('WEBHOOK_URL');
     }
 }

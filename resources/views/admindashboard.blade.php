@@ -39,17 +39,17 @@
 
     <body class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading" >
     <!-- begin:: Page -->
-    
+
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
             <button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
             <div class="kt-aside kt-aside--fixed kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside">
                 @include('layouts.partials._aside-brand')
-                <!-- begin:: Aside Menu --> 
+                <!-- begin:: Aside Menu -->
                 <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
                     <div id="kt_aside_menu"class="kt-aside-menu "data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500" >
                         <ul class="kt-menu__nav ">
-                            
+
                             <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--open" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                                 <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                                     <span class="kt-menu__link-icon">
@@ -163,7 +163,7 @@
                                                     <span class="kt-widget17__subtitle" >
                                                         Facebook
                                                     </span>
-                                                
+
                                                 <span class="kt-widget17__desc">
                                                     10 New Comments
                                                 </span>
@@ -262,7 +262,7 @@
                                         </h3>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="kt-portlet__body">
                                     <!--begin: Search Form -->
                                 <div class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
@@ -351,16 +351,16 @@
                 <!-- end:: Content -->
                 </div>
                 </div>
- 
+
             </div>
         </div>
     </div>
     <!-- end:: Page -->
     @include('layouts.partials._layout-quick-panel')
     @include('layouts.partials._layout-scrolltop')
- 
- 
-		
+
+
+
 		<!-- begin::Global Config(global config for global JS sciprts) -->
 		<script>
 			var KTAppOptions = {

@@ -68,15 +68,15 @@ class HomeController extends Controller
     // {
     //   dd("sdf");
     //   $keyword_list = Keyword::where('user_id', $user->id)->get();
-      
-     
+
+
     //   View::share('keyword_list', $keyword_list);
     // }
       // $this->middleware('auth');
 
-    
+
     $this->middleware(function ($request, $next) {
-      
+
       $user = \Auth::user();
       if ($user) {
         $campaign_list = Campaign::where('user_id', $user->id)->get();
@@ -97,7 +97,7 @@ class HomeController extends Controller
         }
         View::share('campaign_list', $array);
       }
-      
+
       return $next($request);
     });
   }
@@ -118,7 +118,7 @@ class HomeController extends Controller
     {
       $this->twitterApi($keyword);
     }
-    
+
 //    return redirect()->route('dashboard');
   }
   public function twitterApi($keyword)
@@ -133,14 +133,14 @@ class HomeController extends Controller
       $consumer_secret,
       $access_token_key,
       $access_token_secret
-    ); 
+    );
 
       $limit_cnt = 10;
       $params = [
         'q' => $keyword->keyword,
         'count' => $limit_cnt,
         'max_id' => null
-      ];    
+      ];
 //    $tweets = $connection->get('search/tweets', $params);
 //    dd($tweets);
       $tweets_db = [];
@@ -183,7 +183,7 @@ class HomeController extends Controller
     $endIdx = stripos($maxidstr, '&');
     if ($endIdx != -1)
       $maxidstr = substr($maxidstr,0, $endIdx);
-    
+
     return (int)$maxidstr;
   }
 
@@ -193,7 +193,7 @@ class HomeController extends Controller
     $new_date = date_format($date,"Y-m-d");
     return $new_date;
   }
-  
+
   public function parseTweets($tweets, $keyword_id) {
     if(!isset($tweets->statuses))
       return false;
@@ -255,13 +255,13 @@ class HomeController extends Controller
         'iid' => env('IID'),
         'openudid' => env('OPENUDID')
     ]);
-      
+
     $sumCnt = 0;
     $params = [
       'keyword' => "keyword",
       'count' => 10,
       'start' => 0,
-    ];    
+    ];
 
       $tiktok_db = [];
       // while(1)
@@ -275,13 +275,13 @@ class HomeController extends Controller
 //  //           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
 //             break;
 //           }
-          
+
 
 //           // if(count($results) < $limit_cnt)
 //           //   break;
 //            if($sumCnt > $limit_cnt)
 //              break;
-        
+
 //           $params['cursor'] = $params['cursor'] + 10;
 //       }
 //       dump($tiktok_db);
@@ -355,7 +355,7 @@ class HomeController extends Controller
      while(1)
      {
 
-        
+
         try{
 
           $searchResponse = $youtube->search->listSearch('id,snippet', $params);
@@ -365,10 +365,10 @@ class HomeController extends Controller
 //          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
           break;
         }
-        
+
        if(count($searchResponse->items) < $limit_cnt || $sum > 10)
          break;
-      
+
         $params['pageToken'] = $searchResponse->nextPageToken;
         $sum += $limit_cnt;
      }
@@ -425,7 +425,7 @@ class HomeController extends Controller
     $apiKey = env('API_KEY_WEB');
 
     $fulltext = new LaravelGoogleCustomSearchEngine(); // initialize
-    
+
     $fulltext->setEngineId($engineId); // sets the engine ID
     $fulltext->setApiKey($apiKey);
 
@@ -434,32 +434,32 @@ class HomeController extends Controller
     $dateD = date('d');
     $limit_cnt = 40;
 
-      
+
     $sumCnt = 0;
     $params = [
       'num' => 10,
       'start' => 1,
       'dateRestrict' => 'y[$dateY],m[$dateM],d[$dateD]'
-    ];    
+    ];
 
       $web_db = [];
       while(1)
       {
           $sumCnt += 10;
           try{
-            $results = $fulltext->getResults($keyword->keyword, $params); 
+            $results = $fulltext->getResults($keyword->keyword, $params);
             $web_db = array_merge($web_db, $this->parseWeb($results, $keyword->id));
           } catch(\Exception $e) {
  //           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
             break;
           }
-          
+
 
           // if(count($results) < $limit_cnt)
           //   break;
            if($sumCnt > $limit_cnt)
              break;
-        
+
           $params['start'] = $params['start'] + 10;
       }
  //     dump($web_db);
@@ -498,7 +498,7 @@ class HomeController extends Controller
     return view('home');
   }
 
-  public function step(Request $request) 
+  public function step(Request $request)
   {
 
     if($request->user()->id < 2){
@@ -509,7 +509,7 @@ class HomeController extends Controller
   }
   /*
     Return dashboard page
-    
+
   */
   public function dashboard(Request $request)
   {
@@ -550,8 +550,8 @@ class HomeController extends Controller
         $user = User::updateOrCreate(['id' => $user_id],['country' => $position->countryName]);
       }
     }
-    
-    
+
+
 //    dump(auth()->user());
 //    dump(\Auth::user());
 
@@ -577,8 +577,8 @@ class HomeController extends Controller
       $keyword = Keyword::updateOrCreate(['campaign_id' => $campaign->id, 'keyword' => $campaign_keyword[$index]]);
       $index++;
     }
-    
-    
+
+
     $this->search_twitter($campaign);
     $this->search_youtube($campaign);
     $this->search_web($campaign);
@@ -627,16 +627,16 @@ class HomeController extends Controller
 
       foreach($daterange as $dateIndex)
       {
-        $item = Search::where('social_type', $type)->where('keyword_id', $keyword_id)->where('date', $dateIndex)->selectRaw('date, count(id) AS cnt')->groupBy('date')->first();  
+        $item = Search::where('social_type', $type)->where('keyword_id', $keyword_id)->where('date', $dateIndex)->selectRaw('date, count(id) AS cnt')->groupBy('date')->first();
         if($item == null)
           $itemData = ['date'=> $dateIndex->format('Y-m-d'), 'value'=> 0];
         else
           $itemData = ['date'=> $dateIndex->format('Y-m-d'), 'value'=> $item->cnt];
 //        dump($item);
-        
+
         array_push($typeArray, $itemData);
       }
-      
+
      array_push($searchArray, $typeArray);
    }
 //   dd($searchArray);
