@@ -12,7 +12,7 @@
 
   <!-- Font Awesome Icons -->
   <link href="/css/all.min.css" rel="stylesheet" type="text/css">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -165,10 +165,10 @@
                     <i class="fas fa-user-graduate fa-4x text-primary"></i>
                     <span class="pl-3">
                       You are a <strong>student</strong> or an <strong>academic</strong><br> doing research
-                    </span>                    
+                    </span>
                   </div>
                   <div class="card-body">
-                    
+
                     <p class="card-text text-left">-  Research popularity of topics and opinions<br>- Analyze human communication and Social <br>Media patterns
                     </p>
                   </div>
@@ -182,9 +182,9 @@
                     <i class="fas fa-bullhorn fa-4x text-primary"></i>
                     <span class="pl-3">
                       You are a <strong>blogger</strong> or <strong>influencer</strong> <br>looking to grow your online presence
-                    </span>                    
+                    </span>
                   </div>
-                  <div class="card-body">                    
+                  <div class="card-body">
                     <p class="card-text text-left">-  Find out who talks about you and your brand <br>
                     - Find new competitors in your field<br>
                     - Find new companies to influence for
@@ -192,7 +192,7 @@
                   </div>
                 </div>
               </div>
-            </div>            
+            </div>
           </div>
           <div class="row background-blue">
             <div class="col">
@@ -206,7 +206,7 @@
 
                   </div>
                   <div class="card-body">
-                    
+
                     <p class="card-text text-left">-  Find out who talks about your brand and company <br>
                     - Find trending topics and opinions<br>
                     - Find new competitors in your industry
@@ -222,11 +222,11 @@
                     <i class="fas fa-city fa-4x text-primary"></i>
                     <span class="pl-3">
                       You are part of an <strong>enterprise</strong> <br> looking to stay ahead in your industry
-                    </span>        
+                    </span>
 
                   </div>
                   <div class="card-body">
-                    
+
                     <p class="card-text text-left">-  Find out who talks about your brand and company <br>
                     - Find trending topics and opinions<br>
                     - Find new competitors in your industry
@@ -235,9 +235,9 @@
                   </div>
                 </div>
               </div>
-            </div>            
+            </div>
           </div>
-         
+
         </div>
       </div>
     </div>
@@ -247,7 +247,7 @@
     <div class="container">
       <h1 class="text-center mt-0">Pricing</h1>
       <hr class="divider my-4 mt-3">
-      
+
         <div class="text-center">
         <h2 class="mb-4">Pay as you go</h2>
         <h3 class="mt-2 mb-5">EUR 8 per campaign (billed monthly)</h3>
@@ -260,12 +260,12 @@
       </div>
     </div>
   </section>
-  <!-- Portfolio Section
-   <section id="services">
-    <div id="price">-->
 
-      <!--price tab-->
-      <!-- <div class="plan">
+   {{-- <section id="services">
+    <div id="price">
+
+
+      <div class="plan">
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Personal Plan</h3>
@@ -286,10 +286,10 @@
             <a href="/step">Get me started</a>
           </div>
         </div>
-      </div> -->
+      </div>
       <!-- end of price tab-->
       <!--price tab-->
-      <!-- <div class="plan basic">
+      <div class="plan basic">
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Lite Plan</h3>
@@ -310,10 +310,10 @@
             <a href="/step">Get me started</a>
           </div>
         </div>
-      </div> -->
+      </div>
       <!-- end of price tab-->
       <!--price tab-->
-      <!-- <div class="plan standard">
+      <div class="plan standard">
         <div class="plan-inner">
           <div class="hot">popular</div>
           <div class="entry-title">
@@ -335,10 +335,10 @@
             <a href="/step">Get me started</a>
           </div>
         </div>
-      </div> -->
+      </div>
       <!-- end of price tab-->
       <!--price tab-->
-      <!-- <div class="plan ultimite">
+       <div class="plan ultimite">
         <div class="plan-inner">
           <div class="entry-title">
             <h3>Bold Plan</h3>
@@ -359,12 +359,12 @@
             <a href="/step">Get me started</a>
           </div>
         </div>
-      </div> -->
+      </div> --}}
       <!-- end of price tab-->
 <!--    </div>
   </section>  -->
 
-   
+
   <!-- Section: Testimonials v.3 -->
 <section class="page-section bg-primary text-center">
   <div class="container">
@@ -453,7 +453,7 @@
         </div>
         <!--Grid column-->
 
-        
+
       </div>
     <!--Grid row-->
     <div class="container text-center mt-5">
@@ -472,13 +472,13 @@
 <div class="modal fade" id="faq">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
-    
+
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">FAQ</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      
+
       <!-- Modal body -->
       <div class="modal-body">
         <div class="accordion" id="accordionExample">
@@ -493,7 +493,7 @@
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
-                A campaign is a search on a topic, company or a competitor. By entering one or several keywords, the dashboard will find and display information from Social Media. Example: You are an ice-cream store and you want to know more about what is happening in the ice-cream business. You enter the keywords: Ice cream, new store, vegan ice cream. These keywords form a campaign and you will get information every time these keywords are used on Social Media. 
+                A campaign is a search on a topic, company or a competitor. By entering one or several keywords, the dashboard will find and display information from Social Media. Example: You are an ice-cream store and you want to know more about what is happening in the ice-cream business. You enter the keywords: Ice cream, new store, vegan ice cream. These keywords form a campaign and you will get information every time these keywords are used on Social Media.
               </div>
             </div>
           </div>
@@ -507,7 +507,7 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div class="card-body">
-                Yes, you can sign up at any time for a 14-day free trial. When the trial ends, you can upgrade your account to keep using GoHundred.  
+                Yes, you can sign up at any time for a 14-day free trial. When the trial ends, you can upgrade your account to keep using GoHundred.
               </div>
             </div>
           </div>
@@ -521,7 +521,7 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div class="card-body">
-                You can sign up clicking on the “Get me started”-button. Next you will be redirected to the sign up form, where you can enter your information. 
+                You can sign up clicking on the “Get me started”-button. Next you will be redirected to the sign up form, where you can enter your information.
               </div>
             </div>
           </div>
@@ -549,7 +549,7 @@
             </div>
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
               <div class="card-body">
-                The dashboard consists of a range of functionalities. The table displays the data collected on each of your campaigns. Use the filters to display only the data you wish to see. You will be able to export the data to an excel file. 
+                The dashboard consists of a range of functionalities. The table displays the data collected on each of your campaigns. Use the filters to display only the data you wish to see. You will be able to export the data to an excel file.
               </div>
             </div>
           </div>
@@ -563,7 +563,7 @@
             </div>
             <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
               <div class="card-body">
-                Yes, wherever you are located in the world, you can sign up to GoHundred and use the dashboard search service. 
+                Yes, wherever you are located in the world, you can sign up to GoHundred and use the dashboard search service.
               </div>
             </div>
           </div>
@@ -577,7 +577,7 @@
             </div>
             <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
               <div class="card-body">
-                EUR is short for Euro, which is the European common currency. 
+                EUR is short for Euro, which is the European common currency.
               </div>
             </div>
           </div>
@@ -591,21 +591,21 @@
             </div>
             <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
               <div class="card-body">
-                Yes, as GoHundred is GDPR compliant, you have the right to at any time withdraw your consent to being registered as a user on GoHundred. In order to delete your account, simply go to your profile settings and click “Delete my account”. When you have deleted your account, GoHundred will no longer be in possession of any data that you have entered into your profile when you registered. 
+                Yes, as GoHundred is GDPR compliant, you have the right to at any time withdraw your consent to being registered as a user on GoHundred. In order to delete your account, simply go to your profile settings and click “Delete my account”. When you have deleted your account, GoHundred will no longer be in possession of any data that you have entered into your profile when you registered.
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
-      
+
     </div>
   </div>
-</div> 
+</div>
 <div class="modal fade" id="Story">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
@@ -614,7 +614,7 @@
         <h4 class="modal-title">GoHundred is for everyone who wants to know what the world is talking about</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      
+
       <!-- Modal body -->
       <div class="modal-body">
         <div class="accordion" id="Example">
@@ -694,15 +694,15 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
-      
+
     </div>
   </div>
-</div> 
+</div>
 <footer class="page-footer font-small unique-color-dark">
   <!-- Footer Links -->
     <!-- Grid row -->
@@ -726,7 +726,7 @@
         </p>
         <p>
           <a href = "mailto: dpo@gohundred.co" style="text-decoration:underline!important;color:cornflowerblue!important;" class="bbb">dpo@gohundred.co</a>
-        </p>        
+        </p>
       </div>
       <!-- Grid column -->
       <!-- Grid column -->
@@ -783,8 +783,8 @@
             </div>
           </section>
         </p>
-        
-        
+
+
       </div>
       <!-- Grid column -->
     </div>

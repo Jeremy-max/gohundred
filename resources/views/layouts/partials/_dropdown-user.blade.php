@@ -7,7 +7,7 @@
             </div>
         </div>
     </div>
-    <div class="kt-user-card__name">{{ $username }} </div>
+    <div class="kt-user-card__name">{{ Auth::user()->name }} </div>
     <!-- <div class="kt-user-card__badge"> <span class="btn btn-success btn-sm btn-bold btn-font-md">23 messages</span> </div> -->
 </div>
 <!--end: Head -->
@@ -20,13 +20,13 @@
             <div class="kt-notification__item-time"> Personal </div>
         </div>
     </a>
-    <a href="#" class="kt-notification__item">
+    <button class="kt-notification__item" id="slack-modal-button" style="width: 100%;border: 0;text-align: left;margin: 0;border-bottom: 1px solid #f7f8fa;padding: 1.1rem 1.5rem;background-color: transparent;">
         <div class="kt-notification__item-icon"> <i class="fab fa-slack kt-font-warning"></i> </div>
         <div class="kt-notification__item-details">
             <div class="kt-notification__item-title kt-font-bold"> Slack </div>
             <div class="kt-notification__item-time"> Add or disable </div>
         </div>
-    </a>
+    </button>
     <a href="#" class="kt-notification__item">
         <div class="kt-notification__item-icon"> <i class="fas fa-file-excel kt-font-primary"></i> </div>
         <div class="kt-notification__item-details">
@@ -34,8 +34,8 @@
             <!-- <div class="kt-notification__item-time"> Logs and notifications </div> -->
         </div>
     </a>
-    <a href="#" class="kt-notification__item">
-        <div class="kt-notification__item-icon"> 
+    <a href="{{ route('plans.show') }}" class="kt-notification__item">
+        <div class="kt-notification__item-icon">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <rect x="0" y="0" width="24" height="24"></rect>

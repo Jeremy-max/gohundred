@@ -72,6 +72,13 @@ Route::middleware('auth')->group(function () {
   Route::post('/saveAdminComment', 'HomeController@saveAdminCommentChanges')->name('saveAdminComment');
 
 
+  Route::get('/plan', 'PlanController@show')->name('plans.show');
+  Route::get('/plan/{plan}', 'PlanController@creditCardPay')->name('plans.creditCard');
+  Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
+
+
+
+
   // Route::get('/twitter', 'HomeController@search_twitter');
 
    Route::get('/twitch', 'HomeController@search_twitch');

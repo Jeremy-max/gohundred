@@ -1,6 +1,7 @@
-<!-- begin:: Aside Menu --> 
+<!-- begin:: Aside Menu -->
 <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
     <div id="kt_aside_menu"class="kt-aside-menu "data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500" >
+        @isset($campaign_list)
         <ul class="kt-menu__nav ">
             <li class="kt-menu__item kt-menu__item--submenu mt-4" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                 <a href="/step" class="kt-menu__link kt-menu__toggle">
@@ -15,7 +16,7 @@
                     </span>
                     <span class="kt-menu__link-text font-italic">Add campaign</span>
                 </a>
-            </li> 
+            </li>
             @if (count($campaign_list) > 0)
                 @foreach ($campaign_list as $campaign)
                 <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--open" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
@@ -38,7 +39,7 @@
                                 <span class="kt-menu__link"><span class="kt-menu__link-text">Forms</span></span>
                             </li>
                             @if (count($campaign['keyword_list']) > 0)
-                                @foreach ($campaign['keyword_list'] as $keyword) 
+                                @foreach ($campaign['keyword_list'] as $keyword)
                                     <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                                         <a href="{{ route('campaignPage', ['keyword_id' => $keyword->id]) }}" class="kt-menu__link ">
                                             <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
@@ -53,6 +54,7 @@
                 @endforeach
             @endif
         </ul>
+        @endisset
     </div>
 </div>
 <!-- end:: Aside Menu -->

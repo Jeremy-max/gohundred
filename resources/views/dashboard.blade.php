@@ -5,6 +5,11 @@
 <!--end::Page Vendors Styles -->
 <link href="{{ asset('css/dashboard/custom.css') }}" rel="stylesheet" type="text/css" />
 @endsection
+@section('header')
+<div class="text-center m-auto">
+    <h2>Welcome to your dashboard</h2>
+</div>
+@endsection
 @section('content')
 <div class='row'>
 	<div class='col'>
@@ -32,7 +37,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="">
+							{{-- <a href=""> --}}
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-facebook kt-font-primary"></i>
@@ -41,17 +46,17 @@
 										Facebook
 									</div> -->
 								</div>
-							</a>
+							{{-- </a> --}}
 									<span class="kt-widget17__subtitle" >
 										Facebook
 									</span>
-								
+
 								<span class="kt-widget17__desc">
 									10 New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="">
+							{{-- <a href=""> --}}
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-twitter kt-font-info"></i>
@@ -60,7 +65,7 @@
 										Twitter
 									</div> -->
 								</div>
-							</a>
+							{{-- </a> --}}
 								<span class="kt-widget17__subtitle">
 									Twitter
 								</span>
@@ -69,7 +74,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="">
+							{{-- <a href=""> --}}
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-instagram kt-font-warning"></i>
@@ -78,7 +83,7 @@
 										Reddit
 									</div> -->
 								</div>
-							</a>
+							{{-- </a> --}}
 								<span class="kt-widget17__subtitle">
 									Instagram
 								</span>
@@ -87,7 +92,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="password">
+							{{-- <a href=""> --}}
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-youtube kt-font-danger"></i>
@@ -96,7 +101,7 @@
 										YouTube
 									</div> -->
 								</div>
-							</a>
+							{{-- </a> --}}
 								<span class="kt-widget17__subtitle">
 									YouTube
 								</span>
@@ -105,7 +110,7 @@
 								</span>
 							</div>
 							<div class="kt-widget17__item">
-							<a href="">
+							{{-- <a href=""> --}}
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-chrome kt-font-success"></i>
@@ -114,7 +119,7 @@
 										Web
 									</div> -->
 								</div>
-							</a>
+							{{-- </a> --}}
 								<span class="kt-widget17__subtitle">
 									Web
 								</span>
@@ -131,7 +136,7 @@
 </div>
 <div class='row'>
 	<div class='col'>
-		<!--begin::Portlet-->
+        <!--begin::Portlet-->
 		<div class="kt-portlet">
 			<div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
@@ -223,10 +228,33 @@
 											<select class="form-control bfh-languages" data-language="">
 												<option value="">Any language</option>
 												<option vaule="en">English</option>
-												<option disabled>___________________________</option>
-											@foreach ($langs as $ac => $label)
+                                                <option disabled>___________________________</option>
+                                                <option valud="ar"> Arabic </option>
+                                                <option valud="eu"> Basque </option>
+                                                <option valud="zh"> Chinese </option>
+                                                <option valud="cs"> Czech </option>
+                                                <option valud="da"> Danish </option>
+                                                <option valud="fi"> Finnish </option>
+                                                <option valud="fr"> French </option>
+                                                <option valud="de"> German </option>
+                                                <option valud="hu"> Hungarian </option>
+                                                <option valud="id"> Indonesian </option>
+                                                <option valud="it"> Italian </option>
+                                                <option valud="ko"> Korean </option>
+                                                <option valud="no"> Norwegian </option>
+                                                <option valud="pl"> Polish </option>
+                                                <option valud="pt"> Portuguese </option>
+                                                <option valud="ro"> Romanian </option>
+                                                <option valud="ru"> Russian </option>
+                                                <option valud="sk"> Slovak </option>
+                                                <option valud="es"> Spanish </option>
+                                                <option valud="sv"> Swedish </option>
+                                                <option valud="th"> Thai </option>
+                                                <option valud="tr"> Turkish </option>
+                                                <option valud="vi"> Vietnames </option>
+											{{-- @foreach ($langs as $ac => $label)
 												<option value="{{ $ac }}">{{ $label }}</option>
-											@endforeach
+											@endforeach --}}
 											</select>
 										</div>
 									</div>
@@ -272,7 +300,42 @@
 					<!--begin: Datatable -->
 					<div class="kt-datatable" id="json_data"></div>
 					<!--end: Datatable -->
-				</div>
+                </div>
+                <div class="modal fade" id="kt_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title" id="exampleModalLabel">Slack Integration</h1>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body" style="height: 300px;">
+                                <h4 class="text-center">Select a campaign you would like to connect to slack workspace.</h4>
+                                <div class="mt-5">
+                                    <div class="row">
+                                        <div class="col-sm-6 offset-md-3">
+                                            <div class="dropdown">
+                                                <select class="form-control">
+                                                    <option vaule="">Select Campaign</option>
+                                                    @if (count($campaign_list) > 0)
+                                                        @foreach ($campaign_list as $campaign)
+                                                            <option vaule="{{ $campaign['campaign'] }}">{{ $campaign['campaign'] }}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="justify-content: center!important;">
+                                <a href="https://slack.com/oauth/authorize?scope=incoming-webhook&client_id=848021306386.866161129780">
+                                    <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 	@if (count($campaign_list) > 0)
