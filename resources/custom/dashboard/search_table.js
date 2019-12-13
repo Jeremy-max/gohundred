@@ -62,7 +62,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					field: 'social_type',
 					title: 'Social Type',
 					textAlign: 'center',
-					autoHide: false,	
+					autoHide: false,
 					// callback function support for column rendering
 					template: function(row) {
 						var type = {
@@ -80,8 +80,8 @@ var KTDatatableJsonRemoteDemo = function () {
 					field: 'title',
 					title: 'Title',
 					textAlign: 'center',
-					autoHide: false,
-					width: 500
+					autoHide: true,
+					width: 450
 				}, {
 					field: 'date',
 					title: 'Date',
@@ -89,9 +89,9 @@ var KTDatatableJsonRemoteDemo = function () {
 					format: 'YYYY-MM-DD',
 					textAlign: 'center',
                     sortable: 'asc',
-                    autoHide: false,
+                    autoHide: true,
                     width: 100
-				}, 
+				},
 				{
 					field: 'url',
 					title: 'URL',
@@ -100,7 +100,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					template: function(row){
 						return '<a href="'+row.url+'">'+row.url+'</a>';
                     },
-                    autoHide: false,
+                    autoHide: true,
                     width: 'auto'
 				},	{
 					field: 'Actions',
@@ -150,7 +150,7 @@ var KTDatatableJsonRemoteDemo = function () {
             var ids = datatable.checkbox().getSelectedId();
             var count = ids.length;
             $('#kt_datatable_selected_number').html(count);
-      
+
             if (count > 0) {
               $('#kt_datatable_group_action_form').collapse('show');
             } else {
@@ -160,7 +160,7 @@ var KTDatatableJsonRemoteDemo = function () {
 
         $('body').on('click', '.btn-delete', function() {
             var rowId = $(this).attr('name');
-            
+
             var tr = $(this).parentsUntil('tr').parent()[0];
             swal.fire({
               title: 'Are you sure?',
@@ -218,7 +218,7 @@ var KTDatatableJsonRemoteDemo = function () {
         //         });
         //       }
         //     });
-            
+
         // });
 	};
 
