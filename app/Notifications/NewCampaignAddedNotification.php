@@ -34,8 +34,7 @@ class NewCampaignAddedNotification extends Notification
 
     public function toslack($notifiable)
     {
-        dd($notifiable);
- //       return (new SlackMessage)->content("Congratulations, your campaign $notifiable->campaign has been successfully connected to Slack");
+        return (new SlackMessage)->content("Congratulations! , your campaign $notifiable->campaign has been successfully added to Slack");
     }
 
 

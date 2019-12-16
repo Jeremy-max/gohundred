@@ -317,10 +317,11 @@
                                         <div class="col-sm-6 offset-md-3">
                                             <div class="dropdown">
                                                 <select class="form-control" id="slack_campaign_select">
-                                                    <option vaule="">Select Campaign</option>
+                                                    <option disabled>Select Campaign</option>
+                                                    <option disabled>___________________________</option>
                                                     @if (count($campaign_list) > 0)
                                                         @foreach ($campaign_list as $campaign)
-                                                            <option vaule="{{ $campaign['campaign_id'] }}">{{ $campaign['campaign'] }}</option>
+                                                            <option value="{{ $campaign['campaign_id'] }}">{{ $campaign['campaign'] }}</option>
                                                         @endforeach
                                                     @endif
                                                 </select>
@@ -331,9 +332,12 @@
                             </div>
 
                             <div class="modal-footer" style="justify-content: center!important;">
-                                <a href="https://slack.com/oauth/v2/authorize?client_id=848021306386.862664484167&scope=incoming-webhook,channels:read,chat:write">
+                                <form method="POST" action="{{ route('addSlack') }}">
+                                @csrf
+                                <input id="slack_campaign_id" name="slack_campaign_id" style="display:none;">
+                                <button id="slack_button">
                                     <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>

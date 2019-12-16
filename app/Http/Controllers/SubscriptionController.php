@@ -22,10 +22,10 @@ class SubscriptionController extends Controller
             ->create($paymentMethod, [
                 'email' => $user->email,
             ]);
-        session()->put(['code' => 'success', 'message' => "Your plan subscribed successfully!"]);
+        // session()->put(['code' => 'success', 'message' => "Your plan subscribed successfully!"]);
         $user->active = 1;
         $user->save();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->withSuccessMessage('Your plan subscribed successfully!');
     }
 }

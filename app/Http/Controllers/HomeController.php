@@ -11,12 +11,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Jobs\SearchAPI;
+use App\Slack;
 use GuzzleHttp\Client;
 
 
 use DateTime;
 use DatePeriod;
 use DateInterval;
+use Illuminate\Contracts\Session\Session;
 use Stevebauman\Location\Location;
 
 
@@ -295,17 +297,45 @@ class HomeController extends Controller
 
   public function getSlackWebHookURL(Request $request)
   {
+
     $client_id = env('SLACK_CLIENT_ID');
     $client_secret = env('SLACK_CLIENT_SECRET');
     $code = $request->get('code');
-    $client = new Client();
-    $res = $client->request('POST', 'https://slack.com/api/oauth.access', [
-        'form_params' => [
-            'client_id' => $client_id,
-            'client_secret' => $client_secret,
-            'code' => $code,
-        ]
+
+    $client = new \GuzzleHttp\Client();
+    $response = $client->post(
+        'https://slack.com/api/oauth.access',
+        array(
+            'form_params' => array(
+                'client_id' => $client_id,
+                'client_secret' => $client_secret,
+                'code' => $code
+            )
+        )
+    );
+    $webhook = $response->getBody()->getContents();
+
+    $campaign_id = Session::get('campaign_id');
+
+    $slack = Slack::updateOrCreate([
+        'campaign_id' => $campaign_id,
+        'team_name' => $webhook->team_name,
+        'channel' => $webhook->incoming_webhook->channel
+        ],[
+        'webhook_url' => $webhook->incoming_webhook->url,
+        'configuration_url' => $webhook->incoming_webhook->configuration_url
     ]);
-    dd($res);
+
+    return redirect()->route('dashboard')->withSuccessMessage('Your campaign added to slack successfully!');
+
+    }
+
+  public function addToSlack(Request $request)
+  {
+    $campaign_id = $request->get('slack_campaign_id');
+    Session::put('campaign_id', $campaign_id);
+
+    return redirect('https://slack.com/oauth/authorize?client_id=848021306386.862664484167&scope=incoming-webhook');
   }
+
 }

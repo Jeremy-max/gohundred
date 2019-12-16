@@ -28,7 +28,7 @@ class SearchAPI implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($campaign)
+    public function __construct($campaign = NULL)
     {
         $this->podcast = $campaign;
 

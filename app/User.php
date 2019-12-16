@@ -13,14 +13,14 @@ class User extends Authenticatable
     use Notifiable;
     use Billable;
 
-    protected static function boot(){
+    // protected static function boot(){
 
-        parent::boot();
+    //     parent::boot();
 
-        self::created(function($model){
-            $model->notify(new NewUserRegistered());
-        });
-    }
+    //     self::created(function($model){
+    //         $model->notify(new NewUserRegistered());
+    //     });
+    // }
 
     /**
      * The attributes that are mass assignable.
