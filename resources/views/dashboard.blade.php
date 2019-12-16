@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('css')
 <!--begin::Page Vendors Styles(used by this page) -->
+<meta name="slack-app-id" content="ARCKJE84X">
 <link href="//www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
 <!--end::Page Vendors Styles -->
 <link href="{{ asset('css/dashboard/custom.css') }}" rel="stylesheet" type="text/css" />
@@ -265,7 +266,7 @@
 					<!--end: Search Form-->
 					<!--begin: Group action Form-->
 					<div class="kt-form kt-form--label-align-right kt-margin-t-20 collapse" id="kt_datatable_group_action_form">
-						<div class="row align-items-center">
+						<div class="row">
 							<div class="col-xl-12">
 								<div class="kt-form__group kt-form__group--inline">
 									<div class="kt-form__label kt-form__label-no-wrap">
@@ -315,11 +316,11 @@
                                     <div class="row">
                                         <div class="col-sm-6 offset-md-3">
                                             <div class="dropdown">
-                                                <select class="form-control">
+                                                <select class="form-control" id="slack_campaign_select">
                                                     <option vaule="">Select Campaign</option>
                                                     @if (count($campaign_list) > 0)
                                                         @foreach ($campaign_list as $campaign)
-                                                            <option vaule="{{ $campaign['campaign'] }}">{{ $campaign['campaign'] }}</option>
+                                                            <option vaule="{{ $campaign['campaign_id'] }}">{{ $campaign['campaign'] }}</option>
                                                         @endforeach
                                                     @endif
                                                 </select>
@@ -328,9 +329,10 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="modal-footer" style="justify-content: center!important;">
-                                <a href="https://slack.com/oauth/authorize?scope=incoming-webhook&client_id=848021306386.866161129780">
-                                    <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+                                <a href="https://slack.com/oauth/v2/authorize?client_id=848021306386.862664484167&scope=incoming-webhook,channels:read,chat:write">
+                                    <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
                                 </a>
                             </div>
                         </div>
@@ -344,6 +346,8 @@
 	<!-- end:: Content -->
 	</div>
 </div>
+
+
 @endsection
 @section('page_vendor_scripts')
 

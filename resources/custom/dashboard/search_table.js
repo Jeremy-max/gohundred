@@ -158,6 +158,7 @@ var KTDatatableJsonRemoteDemo = function () {
             }
           });
 
+
         $('body').on('click', '.btn-delete', function() {
             var rowId = $(this).attr('name');
 

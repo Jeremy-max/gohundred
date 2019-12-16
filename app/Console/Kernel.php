@@ -27,6 +27,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+         $schedule->job(new \App\Jobs\SearchAPI, 'regular-searchAPI')->twiceDaily(0,12);
+
     }
 
     /**

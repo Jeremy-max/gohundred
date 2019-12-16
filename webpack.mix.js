@@ -68,7 +68,9 @@ const custom = {
 //      'resources/custom/dashboard/json-datatable.js',
 //      'resources/custom/dashboard/bootstrap-select-country.js',
       'resources/custom/dashboard/search_table.js',
-//      'resources/custom/dashboard/amcharts.js'
+      'resources/custom/dashboard/customdashboard.js',
+
+      //      'resources/custom/dashboard/amcharts.js'
     ]
   }
 }

@@ -69,7 +69,7 @@
                                         <button href="#" class="btn btn-light campaign-type" type="brand">
                                             <strong>Brand</strong>
                                         </button>
-                                        
+
                                         <p>Find out who talks about your brand</p>
                                         <button href="#" class="btn btn-light campaign-type" type="competition">
                                             <strong>Competition</strong>
@@ -107,30 +107,30 @@
                                     </div>
                                     <div class="input-group mt-2">
                                         <button class="fas fa-minus plus-button" id="minus-button-id1" type="button" style="display:none;" ></button>
-                                        <div class="campaign-div">                                
+                                        <div class="campaign-div">
                                             <input class="input--style-1" id="keyword1" type="text" name="campaign-keyword[]" placeholder="Keyword" style="display: none;">
                                         </div>
                                     </div>
-                                    <div class="input-group mt-2"> 
+                                    <div class="input-group mt-2">
                                         <button class="fas fa-minus plus-button" id="minus-button-id2" type="button" style="display:none;"></button>
-                                        <div class="campaign-div">                              
+                                        <div class="campaign-div">
                                             <input class="input--style-1" id="keyword2" type="text" name="campaign-keyword[]" placeholder="Keyword" style="display: none;">
                                         </div>
                                     </div>
-                                    <div class="input-group mt-2">     
+                                    <div class="input-group mt-2">
                                         <button class="fas fa-minus plus-button" id="minus-button-id3" type="button" style="display:none;"></button>
-                                        <div class="campaign-div">                             
+                                        <div class="campaign-div">
                                             <input class="input--style-1" id="keyword3" type="text" name="campaign-keyword[]" placeholder="Keyword" style="display: none;">
                                         </div>
                                     </div>
-                                    <div class="input-group mt-2">     
+                                    <div class="input-group mt-2">
                                         <button class="fas fa-minus plus-button" id="minus-button-id4" type="button" style="display:none;"></button>
-                                        <div class="campaign-div">                              
+                                        <div class="campaign-div">
                                             <input class="input--style-1" id="keyword4" type="text" name="campaign-keyword[]" placeholder="Keyword" style="display: none;">
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
                             </div>
                             <!-- <div class="tab-pane" id="tab3">

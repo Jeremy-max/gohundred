@@ -3,7 +3,6 @@
 jQuery(document).ready(function () {
 	$(".campaign-type").click(function () {
         $("#campaign-type").val($(this).attr('type'))
-        console.log($(this).attr('type'))
         $("#link-tab2").click()
     });
 
@@ -71,7 +70,7 @@ jQuery(document).ready(function () {
     //     $("#campaign-keyword4").val($("#keyword4").val());
     // });
 
-    
+
 
     // $(".notification-type").click(function (){
     //     $("#campaign-notification").val($(this).attr('type'))
@@ -80,7 +79,7 @@ jQuery(document).ready(function () {
     //         $("#link-tab2").click()
     //         return false;
     //     }
-        
+
     //     console.log($(this).attr('type'));
     // });
 });
