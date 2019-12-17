@@ -17,7 +17,8 @@ class CreateSlacksTable extends Migration
             $table->bigIncrements('id');
             $table->integer('campaign_id');
             $table->string('team_name');
-            $table->string('channel');
+            $table->string('channel_name');
+            $table->string('channel_id');
             $table->string('webhook_url');
             $table->string('configuration_url');
             $table->timestamps();

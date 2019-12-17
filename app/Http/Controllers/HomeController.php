@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Jobs\SearchAPI;
+use App\Notifications\NewCampaignAddedNotification;
 use App\Slack;
 use GuzzleHttp\Client;
 
@@ -313,18 +314,33 @@ class HomeController extends Controller
             )
         )
     );
-    $webhook = $response->getBody()->getContents();
+    $webhook_json = $response->getBody()->getContents();
 
-    $campaign_id = Session::get('campaign_id');
+    $campaign_id = session('campaign_id');
+
+    $webhook = json_decode($webhook_json);
 
     $slack = Slack::updateOrCreate([
         'campaign_id' => $campaign_id,
         'team_name' => $webhook->team_name,
-        'channel' => $webhook->incoming_webhook->channel
+        'channel_id' => $webhook->incoming_webhook->channel_id
         ],[
-        'webhook_url' => $webhook->incoming_webhook->url,
-        'configuration_url' => $webhook->incoming_webhook->configuration_url
+            'channel_name' => $webhook->incoming_webhook->channel,
+            'webhook_url' => $webhook->incoming_webhook->url,
+            'configuration_url' => $webhook->incoming_webhook->configuration_url
     ]);
+    $campaign = Campaign::where('id', $campaign_id)->first();
+
+    $response = $client->post(
+        $webhook->incoming_webhook->url,
+        array(
+            'content-type' => 'application/json',
+            'body' => array(
+                'text' => "Congratulations! , your campaign $campaign->campaign has been successfully added to Slack",
+            )
+        )
+    );
+
 
     return redirect()->route('dashboard')->withSuccessMessage('Your campaign added to slack successfully!');
 
@@ -333,7 +349,7 @@ class HomeController extends Controller
   public function addToSlack(Request $request)
   {
     $campaign_id = $request->get('slack_campaign_id');
-    Session::put('campaign_id', $campaign_id);
+    session(['campaign_id'=> $campaign_id]);
 
     return redirect('https://slack.com/oauth/authorize?client_id=848021306386.862664484167&scope=incoming-webhook');
   }

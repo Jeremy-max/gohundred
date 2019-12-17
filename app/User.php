@@ -54,8 +54,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Campaign');
     }
 
-    public function routeNotificationFor($driver)
-    {
-        return env('WEBHOOK_URL');
-    }
+    // public function routeNotificationFor($driver)
+    // {
+    //     return env('WEBHOOK_URL');
+    // }
 }
