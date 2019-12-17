@@ -17,11 +17,12 @@ use Google_Client;
 use Google_Service_YouTube;
 use JanDrda\LaravelGoogleCustomSearchEngine\LaravelGoogleCustomSearchEngine;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Slack;
 
 class SearchAPI implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    protected $podcast;
+    protected $campaign;
 
     /**
      * Create a new job instance.
@@ -41,23 +42,102 @@ class SearchAPI implements ShouldQueue
      */
     public function handle()
     {
-        $this->search_twitter($this->podcast);
+        $twitter_array = $this->search_twitter($this->campaign);
+
         // $this->search_youtube($this->podcast);
         // $this->search_web($this->podcast);
+
+        $slack_list = Slack::where('campaign_id', $this->campaign->id)->get();
+
+        $slack_message_twitter = $this->slack_wrapper($twitter_array, $this->campaign->campaign);
+        $client = new \GuzzleHttp\Client();
+        foreach ($slack_list as $slack)
+        {
+            $response = $client->post(
+                $slack->webhook_url,
+                array(
+                    'headers' => array('content-type' => 'application/json'),
+                    'json' => array(
+                        'blocks' => $slack_message_twitter
+                    )
+                )
+            );
+        }
+
+
+    }
+
+    public function slack_wrapper($array, $campaign)
+    {
+        $slack_array = [];
+        $cnt = 0;
+        foreach ($array as $item)
+        {
+            foreach($item->tweets_array as $tweets)
+            {
+                $cnt += count($tweets);
+                $slack_array = array_merge($slack_array, $this->slack_formatting($item->keyword, $tweets));
+            }
+        }
+        $slack_header = [
+                [
+                    "type" => "section",
+                    "text" => [
+                        "type"=> "mrkdwn",
+                        "text"=> "We found *$cnt*mentions in campaign *$campaign*"
+                    ],
+            ],
+            [
+                "type" => "divider"
+            ]
+        ];
+        return array_merge($slack_header, $slack_array);
+    }
+
+    public function slack_formatting($keyword, $array)
+    {
+        $slack_message = [
+            [
+                "type"=> "section",
+                "text"=> [
+                    "type"=> "mrkdwn",
+                    "text"=> "Keyword: *$keyword*\nTitle: _ $array->title _\nSocial Type: $array->social_type\nDate: $array->date\n"
+                ]
+            ],
+            [
+                "type"=> "context",
+                "elements"=> [
+                    [
+                        "type"=> "image",
+                        "image_url"=> "https://api.slack.com/img/blocks/bkb_template_images/tripAgentLocationMarker.png",
+                        "alt_text"=> "Twitter"
+                    ],
+                    [
+                        "type"=> "plain_text",
+                        "emoji"=> true,
+                        "text"=> "URL: $array->url"
+                    ]
+                ]
+            ],
+            [
+                "type" => "divider"
+            ]
+        ];
+        return $slack_message;
     }
 
 
-    public function search_twitter($campaign)
+  public function search_twitter($campaign)
   {
-  //  $campaign_list = Campaign::where('user_id', auth()->user()->id)->get();
     $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
 
+    $slack_array = [];
     foreach ($keyword_list as $keyword)
     {
-      $this->twitterApi($keyword);
+        $tweets_array = $this->twitterApi($keyword);
+        array_push($slack_array, ['keyword' => $keyword->keyword, 'tweets_array' => $tweets_array]);
     }
-
-//    return redirect()->route('dashboard');
+    return $slack_array;
   }
   public function twitterApi($keyword)
   {
@@ -108,28 +188,9 @@ class SearchAPI implements ShouldQueue
         $params['max_id'] = $this->getMaxId($tweets);
         $sum += $limit_cnt;
       }
-//      dump($tweets_db);
       Search::insert($tweets_db);
 //    dump("Tweets search result data is added to DB successfully!");
-//    return redirect()->route('dashboard');
-  }
-
-  public function getMaxId($tweets)
-  {
-    $startIdx = stripos($tweets->search_metadata->next_results, 'max_id=');
-    $maxidstr = substr($tweets->search_metadata->next_results, $startIdx + 7);
-    $endIdx = stripos($maxidstr, '&');
-    if ($endIdx != -1)
-      $maxidstr = substr($maxidstr,0, $endIdx);
-
-    return (int)$maxidstr;
-  }
-
-  public function tweetsDateParse($str)
-  {
-    $date = date_create_from_format("D M d H:i:s O Y", $str);
-    $new_date = date_format($date,"Y-m-d");
-    return $new_date;
+      return $tweets_db;
   }
 
   public function parseTweets($tweets, $keyword_id) {
@@ -152,17 +213,29 @@ class SearchAPI implements ShouldQueue
         'url' => 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str
       ];
       array_push($table_tweets,$value);
-      // Search::firstOrCreate([
-      //   'keyword_id' => 1,
-      //   'social_type' => 'twitter',
-      //   'title' => $title],[
-      //   'date' => $tweets->statuses[$i]->user->created_at,
-      //   'url' => 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str
-      // ]);
+
       $i++;
     }
     return $table_tweets;
 
+  }
+
+  public function getMaxId($tweets)
+  {
+    $startIdx = stripos($tweets->search_metadata->next_results, 'max_id=');
+    $maxidstr = substr($tweets->search_metadata->next_results, $startIdx + 7);
+    $endIdx = stripos($maxidstr, '&');
+    if ($endIdx != -1)
+      $maxidstr = substr($maxidstr,0, $endIdx);
+
+    return (int)$maxidstr;
+  }
+
+  public function tweetsDateParse($str)
+  {
+    $date = date_create_from_format("D M d H:i:s O Y", $str);
+    $new_date = date_format($date,"Y-m-d");
+    return $new_date;
   }
 
   public function search_twitch()
