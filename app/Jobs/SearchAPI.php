@@ -112,7 +112,7 @@ class SearchAPI implements ShouldQueue
                     "text" => [
                         "type"=> "mrkdwn",
                         "text"=> "We found *$cnt* mentions with campaign *$campaign* in *$social_type*"
-                    ],
+                ],
             ],
             [
                 "type" => "divider"
@@ -135,18 +135,10 @@ class SearchAPI implements ShouldQueue
                 ]
             ],
             [
-                "type"=> "context",
-                "elements"=> [
-                    [
-                        "type"=> "image",
-                        "image_url"=> "https://api.slack.com/img/blocks/bkb_template_images/tripAgentLocationMarker.png",
-                        "alt_text"=> "Twitter"
-                    ],
-                    [
-                        "type"=> "mrkdwn",
-                        "emoji"=> true,
-                        "text"=> "URL: <$array[url]>"
-                    ]
+                "type"=> "section",
+                "text"=> [
+                    "type"=> "mrkdwn",
+                    "text"=> "URL: <$array[url]>"
                 ]
             ],
             [

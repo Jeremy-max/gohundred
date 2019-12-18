@@ -118,7 +118,7 @@ var KTDatatableJsonRemoteDemo = function () {
                         if(!row.payment_status)
                             return 'Not paid';
                         else
-                            return 'Paid' + row.payment_status;
+                            return 'Paid: ' + row.payment_status;
                     }
                 },{
                     field: "number_campaigns",
@@ -212,7 +212,7 @@ var KTDatatableJsonRemoteDemo = function () {
                 data: {'rowId': rowId, 'comment': comment},
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 dataType: 'text',
-                success: function(response) { 
+                success: function(response) {
                     datatable.load();
                     $("#kt_modal_4").modal("hide");
                 }
