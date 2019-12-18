@@ -48,9 +48,9 @@ class SearchAPI implements ShouldQueue
 
         $slack_list = Slack::where('campaign_id', $this->campaign->id)->get();
 
-        $slack_twitter_array = $this->slack_wrapper($twitter_array, $this->campaign->campaign);
-        $slack_youtube_array = $this->slack_wrapper($youtube_array, $this->campaign->campaign);
-        $slack_web_array = $this->slack_wrapper($web_array, $this->campaign->campaign);
+        $slack_twitter_array = $this->slack_wrapper($twitter_array, $this->campaign->campaign, "Twitter");
+        $slack_youtube_array = $this->slack_wrapper($youtube_array, $this->campaign->campaign, "Youtube");
+        $slack_web_array = $this->slack_wrapper($web_array, $this->campaign->campaign, "Google");
 
         foreach ($slack_list as $slack)
         {
@@ -79,7 +79,7 @@ class SearchAPI implements ShouldQueue
       }
     }
 
-    public function slack_wrapper($array, $campaign)
+    public function slack_wrapper($array, $campaign, $social_type)
     {
         $slack_array = [];
         $cnt = 0;
@@ -101,13 +101,17 @@ class SearchAPI implements ShouldQueue
               }
               $index++;
             }
+            if($cnt <= $block_limit)
+            {
+                array_push($slack_array, $slack_block);
+            }
         }
         $slack_header = [
                 [
                     "type" => "section",
                     "text" => [
                         "type"=> "mrkdwn",
-                        "text"=> "We found *$cnt* mentions in campaign *$campaign*"
+                        "text"=> "We found *$cnt* mentions with campaign *$campaign* in *$social_type*"
                     ],
             ],
             [
@@ -139,7 +143,7 @@ class SearchAPI implements ShouldQueue
                         "alt_text"=> "Twitter"
                     ],
                     [
-                        "type"=> "plain_text",
+                        "type"=> "mrkdwn",
                         "emoji"=> true,
                         "text"=> "URL: <$array[url]>"
                     ]

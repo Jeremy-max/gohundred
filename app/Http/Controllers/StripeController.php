@@ -35,6 +35,8 @@ class StripeController extends CashierController
 
             $user = User::find($transaction->user_id);
             $user->status = 1;
+
+            $user->payment_status = date("Y/m/d H:i:s");
             $user->save();
         };
 
