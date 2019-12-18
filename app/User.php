@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Campaign');
     }
 
+    public function transactions()
+    {
+        return $this->hasMany('App\Transaction');
+    }
+
     // public function routeNotificationFor($driver)
     // {
     //     return env('WEBHOOK_URL');

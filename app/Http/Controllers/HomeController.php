@@ -118,35 +118,6 @@ class HomeController extends Controller
         return redirect()->route('plans.show')->withErrorMessage('Please upgrade your account!');
     }
 
-    $slack_message = [
-        [
-            "type"=> "section",
-            "text"=> [
-                "type"=> "mrkdwn",
-                "text"=> str_replace("\"","'", "Keyword: *$*\nTitle: __\nSocial Type: [social_type]\nDate: $[date]\n")
-            ]
-        ],
-        [
-            "type"=> "context",
-            "elements"=> [
-                [
-                    "type"=> "image",
-                    "image_url"=> "https://api.slack.com/img/blocks/bkb_template_images/tripAgentLocationMarker.png",
-                    "alt_text"=> "Twitter"
-                ],
-                [
-                    "type"=> "plain_text",
-                    "emoji"=> true,
-                    "text"=> "URL: $[url]"
-                ]
-            ]
-        ],
-        [
-            "type" => "divider"
-        ]
-    ];
-    dd($slack_message);
-
     return view('dashboard');
   }
 
@@ -401,6 +372,7 @@ class HomeController extends Controller
             )
         )
     );
+    SearchAPI::dispatch($campaign);
 
 
     return redirect()->route('dashboard')->withSuccessMessage('Your campaign added to slack successfully!');

@@ -76,6 +76,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/plan/{plan}', 'PlanController@creditCardPay')->name('plans.creditCard');
   Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
 
+  Route::get('transactions', 'TransactionController@index')->name('transactions');
+
 
   Route::get('/slack', 'HomeController@getSlackWebHookURL')->name('slackWebHook');
   Route::post('/addSlack','HomeController@addToSlack')->name('addSlack');

@@ -43,18 +43,20 @@ class SearchAPI implements ShouldQueue
     public function handle()
     {
         $twitter_array = $this->search_twitter($this->campaign);
-
-        // $this->search_youtube($this->podcast);
-        // $this->search_web($this->podcast);
+        $youtube_array = $this->search_youtube($this->campaign);
+        $web_array = $this->search_web($this->campaign);
 
         $slack_list = Slack::where('campaign_id', $this->campaign->id)->get();
 
-        $slack_message_array = $this->slack_wrapper($twitter_array, $this->campaign->campaign);
-
+        $slack_twitter_array = $this->slack_wrapper($twitter_array, $this->campaign->campaign);
+        $slack_youtube_array = $this->slack_wrapper($youtube_array, $this->campaign->campaign);
+        $slack_web_array = $this->slack_wrapper($web_array, $this->campaign->campaign);
 
         foreach ($slack_list as $slack)
         {
-          $this->send_slack_message($slack_message_array, $slack);
+          $this->send_slack_message($slack_twitter_array, $slack);
+          $this->send_slack_message($slack_youtube_array, $slack);
+          $this->send_slack_message($slack_web_array, $slack);
         }
 
 
@@ -87,15 +89,15 @@ class SearchAPI implements ShouldQueue
         foreach ($array as $item)
         {
 
-            $cnt += count($item['tweets_array']);
-            foreach($item['tweets_array'] as $tweets)
+            $cnt += count($item['array']);
+            foreach($item['array'] as $tweets)
             {
               if($index < $block_limit){
-                $slack_block = array_push($slack_block, $this->slack_formatting($item['keyword'], $tweets));
+                $slack_block = array_merge($slack_block, $this->slack_formatting($item['keyword'], $tweets));
               }else{
                 $index = 0;
+                array_push($slack_array, $slack_block);
                 $slack_block = [];
-                $slack_array = array_push($slack_array, $slack_block);
               }
               $index++;
             }
@@ -139,7 +141,7 @@ class SearchAPI implements ShouldQueue
                     [
                         "type"=> "plain_text",
                         "emoji"=> true,
-                        "text"=> "URL: $array[url]"
+                        "text"=> "URL: <$array[url]>"
                     ]
                 ]
             ],
@@ -159,7 +161,7 @@ class SearchAPI implements ShouldQueue
     foreach ($keyword_list as $keyword)
     {
         $tweets_array = $this->twitterApi($keyword);
-        array_push($slack_array, ['keyword' => $keyword->keyword, 'tweets_array' => $tweets_array]);
+        array_push($slack_array, ['keyword' => $keyword->keyword, 'array' => $tweets_array]);
     }
     return $slack_array;
   }
@@ -352,12 +354,14 @@ class SearchAPI implements ShouldQueue
   {
 //    $campaign_list = Campaign::where('user_id', auth()->user()->id)->get();
     $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+
+    $slack_array = [];
     foreach ($keyword_list as $keyword)
     {
-      $this->youtubeApi($keyword);
+      $youtube_array = $this->youtubeApi($keyword);
+      array_push($slack_array, ['keyword' => $keyword->keyword, 'array' => $youtube_array]);
     }
-//    dump("Youtube data is added to DB successfully!");
-//    return redirect()->route('dashboard');
+    return $slack_array;
   }
   public function youtubeApi($keyword)
   {
@@ -410,8 +414,7 @@ class SearchAPI implements ShouldQueue
  //     dump($youtube_db);
       Search::insert($youtube_db);
 
-//    return redirect()->route('dashboard');
-
+     return $youtube_db;
   }
 
   public function parseYoutube($response, $keywordId)
@@ -445,13 +448,17 @@ class SearchAPI implements ShouldQueue
 
   public function search_web($campaign)
   {
-//    $campaign_list = Campaign::where('user_id', auth()->user()->id)->get();
+
     $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+
+    $slack_array = [];
     foreach ($keyword_list as $keyword)
     {
-      $this->webApi($keyword);
+      $web_array = $this->webApi($keyword);
+      array_push($slack_array, ['keyword' => $keyword->keyword, 'array' => $web_array]);
+
     }
-//    return redirect()->route('dashboard');
+    return $slack_array;
   }
   public function webApi($keyword)
   {
@@ -501,7 +508,7 @@ class SearchAPI implements ShouldQueue
     Search::insert($web_db);
  //   dump("Google data is added to DB successfully!");
 
-//    return redirect()->route('dashboard');
+      return $web_db;
   }
 
   public function parseWeb($response, $keywordId)
