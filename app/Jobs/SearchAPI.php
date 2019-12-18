@@ -31,7 +31,7 @@ class SearchAPI implements ShouldQueue
      */
     public function __construct($campaign = NULL)
     {
-        $this->podcast = $campaign;
+        $this->campaign = $campaign;
 
     }
 
@@ -49,34 +49,55 @@ class SearchAPI implements ShouldQueue
 
         $slack_list = Slack::where('campaign_id', $this->campaign->id)->get();
 
-        $slack_message_twitter = $this->slack_wrapper($twitter_array, $this->campaign->campaign);
-        $client = new \GuzzleHttp\Client();
+        $slack_message_array = $this->slack_wrapper($twitter_array, $this->campaign->campaign);
+
+
         foreach ($slack_list as $slack)
         {
-            $response = $client->post(
-                $slack->webhook_url,
-                array(
-                    'headers' => array('content-type' => 'application/json'),
-                    'json' => array(
-                        'blocks' => $slack_message_twitter
-                    )
-                )
-            );
+          $this->send_slack_message($slack_message_array, $slack);
         }
 
 
+    }
+
+    public function send_slack_message($slack_message_array, $slack)
+    {
+      $client = new \GuzzleHttp\Client();
+      foreach ($slack_message_array as $item)
+      {
+        $response = $client->post(
+            $slack->webhook_url,
+            array(
+                'headers' => array('content-type' => 'application/json'),
+                'json' => array(
+                    'blocks' => $item
+                )
+            )
+        );
+      }
     }
 
     public function slack_wrapper($array, $campaign)
     {
         $slack_array = [];
         $cnt = 0;
+        $block_limit = 10;
+        $index = 0;
+        $slack_block = [];
         foreach ($array as $item)
         {
-            foreach($item->tweets_array as $tweets)
+
+            $cnt += count($item['tweets_array']);
+            foreach($item['tweets_array'] as $tweets)
             {
-                $cnt += count($tweets);
-                $slack_array = array_merge($slack_array, $this->slack_formatting($item->keyword, $tweets));
+              if($index < $block_limit){
+                $slack_block = array_push($slack_block, $this->slack_formatting($item['keyword'], $tweets));
+              }else{
+                $index = 0;
+                $slack_block = [];
+                $slack_array = array_push($slack_array, $slack_block);
+              }
+              $index++;
             }
         }
         $slack_header = [
@@ -84,14 +105,17 @@ class SearchAPI implements ShouldQueue
                     "type" => "section",
                     "text" => [
                         "type"=> "mrkdwn",
-                        "text"=> "We found *$cnt*mentions in campaign *$campaign*"
+                        "text"=> "We found *$cnt* mentions in campaign *$campaign*"
                     ],
             ],
             [
                 "type" => "divider"
             ]
         ];
-        return array_merge($slack_header, $slack_array);
+        $result = [];
+        array_push($result, $slack_header);
+        $result = array_merge($result, $slack_array);
+        return $result;
     }
 
     public function slack_formatting($keyword, $array)
@@ -101,7 +125,7 @@ class SearchAPI implements ShouldQueue
                 "type"=> "section",
                 "text"=> [
                     "type"=> "mrkdwn",
-                    "text"=> "Keyword: *$keyword*\nTitle: _ $array->title _\nSocial Type: $array->social_type\nDate: $array->date\n"
+                    "text"=> "Keyword: *$keyword*\nTitle: _$array[title]_\nSocial Type: $array[social_type]\nDate: $array[date]\n"
                 ]
             ],
             [
@@ -115,7 +139,7 @@ class SearchAPI implements ShouldQueue
                     [
                         "type"=> "plain_text",
                         "emoji"=> true,
-                        "text"=> "URL: $array->url"
+                        "text"=> "URL: $array[url]"
                     ]
                 ]
             ],
