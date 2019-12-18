@@ -24,7 +24,7 @@ class SubscriptionController extends Controller
             ]);
         // session()->put(['code' => 'success', 'message' => "Your plan subscribed successfully!"]);
         $user->active = 1;
-        $user->payment_status = time();
+        $user->payment_status = date("Y/m/d H:i:s");
         $user->save();
 
 

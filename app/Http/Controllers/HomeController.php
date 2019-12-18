@@ -247,7 +247,7 @@ class HomeController extends Controller
       $campaign_cnt = Campaign::where('user_id',$index->id)->selectRaw('count(id) AS cnt')->first()->cnt;
     //  dd();
       if($index->payment_status)
-        $payment_status = $index->payment_status->format('m/d/Y');
+        $payment_status = $index->payment_status;
       else
         $payment_status = null;
 
