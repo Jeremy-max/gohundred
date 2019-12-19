@@ -108,14 +108,15 @@
                                     <div class="kt-user-card__name"> Administrator </div>
                                     <!-- <div class="kt-user-card__badge"> <span class="btn btn-success btn-sm btn-bold btn-font-md">23 messages</span> </div> -->
                                 </div>
-                                <a href="{{  route('adminExcelExport') }}" class="kt-notification__item">
-                                    <div class="kt-notification__item-icon"> <i class="fas fa-file-excel kt-font-primary"></i> </div>
-                                    <div class="kt-notification__item-details">
-                                        <div class="kt-notification__item-title kt-font-bold"> Export excel file </div>
-                                        <!-- <div class="kt-notification__item-time"> Logs and notifications </div> -->
-                                    </div>
-                                </a>
+
                                 <div class="kt-notification">
+                                    <a href="{{  route('adminExcelExport') }}" class="kt-notification__item">
+                                            <div class="kt-notification__item-icon"> <i class="fas fa-file-excel kt-font-primary"></i> </div>
+                                            <div class="kt-notification__item-details">
+                                                <div class="kt-notification__item-title kt-font-bold"> Export excel file </div>
+                                                <!-- <div class="kt-notification__item-time"> Logs and notifications </div> -->
+                                            </div>
+                                    </a>
                                     <a href="{{ route('logout') }}" class="kt-notification__item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         <div class="kt-notification__item-icon"> <i class="fas fa-power-off kt-font-danger"></i> </div>
                                         <div class="kt-notification__item-details">
