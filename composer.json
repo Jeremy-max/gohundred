@@ -10,6 +10,8 @@
     "require": {
         "php": "^7.1.3",
         "abraham/twitteroauth": "^1.0",
+        "botman/botman": "^2.5",
+        "botman/driver-web": "^1.5",
         "buttercms/buttercms-php": "^2.3",
         "doctrine/dbal": "^2.10",
         "facebook/graph-sdk": "^5.7",
@@ -22,6 +24,8 @@
         "laravel/slack-notification-channel": "^2.0",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
+        "maatwebsite/excel": "^3.1",
+        "phpoffice/phpspreadsheet": "^1.10",
         "realrashid/sweet-alert": "^3.0",
         "serpapi/google-search-results-php": "^1.2",
         "stevebauman/location": "^5.0",

@@ -317,7 +317,7 @@
                                         <div class="col-sm-6 offset-md-3">
                                             <div class="dropdown">
                                                 <select class="form-control" id="slack_campaign_select">
-                                                    <option disabled>Select Campaign</option>
+                                                    <option disabled selected value="0">Select Campaign</option>
                                                     <option disabled>___________________________</option>
                                                     @if (count($campaign_list) > 0)
                                                         @foreach ($campaign_list as $campaign)
@@ -352,11 +352,19 @@
 </div>
 
 
+
+
 @endsection
 @section('page_vendor_scripts')
 
 @endsection
 @section('page_scripts')
+<script>
+    var botmanWidget = {
+        aboutText: 'ssdsd',
+        introMessage: "Welcome to GoHundred!"
+    };
+</script>
 <script src="//www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
 <script src="//www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
 <script src="//www.amcharts.com/lib/3/amstock.js" type="text/javascript"></script>

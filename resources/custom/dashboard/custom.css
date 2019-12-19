@@ -13,18 +13,18 @@
 
 .amcharts-chart-div a{
 	display: none!important;
-}  
+}
 
 .kt-datatable__body tr td:nth-child(3) span{
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .kt-datatable__body tr td:nth-child(5) span{
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .amcharts-scrollbar-label{
@@ -34,4 +34,8 @@
 body {
     background: #f2f3f8!important; }
 
-    
+.kt-scrolltop{
+    border-radius: 50%!important;
+    bottom: 50%!important;
+}
+

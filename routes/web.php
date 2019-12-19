@@ -83,6 +83,11 @@ Route::middleware('auth')->group(function () {
   Route::post('/addSlack','HomeController@addToSlack')->name('addSlack');
 
 
+  Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+
+  Route::get('export', 'HomeController@export')->name('excelExport');
+
+
   // Route::get('/twitter', 'HomeController@search_twitter');
 
    Route::get('/twitch', 'HomeController@search_twitch');

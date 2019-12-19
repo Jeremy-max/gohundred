@@ -69,7 +69,7 @@ const custom = {
 //      'resources/custom/dashboard/bootstrap-select-country.js',
       'resources/custom/dashboard/search_table.js',
       'resources/custom/dashboard/customdashboard.js',
-
+      'resources/custom/dashboard/chatbot.js',
       //      'resources/custom/dashboard/amcharts.js'
     ]
   }

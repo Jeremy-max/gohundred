@@ -1,5 +1,5 @@
 <!--Begin:: Chat-->
-<div class="modal fade- modal-sticky-bottom-right" id="kt_chat_modal" role="dialog" data-backdrop="false">
+{{-- <div class="modal fade- modal-sticky-bottom-right" id="kt_chat_modal" role="dialog" data-backdrop="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="kt-chat">
@@ -8,7 +8,7 @@
                         <div class="kt-chat__head ">
                             <div class="kt-chat__left">
                                 <div class="kt-chat__label">
-                                    <a href="#" class="kt-chat__title">Jason Muller</a> 
+                                    <a href="#" class="kt-chat__title">Jason Muller</a>
                                     <span class="kt-chat__status"> <span class="kt-badge kt-badge--dot kt-badge--success"></span> Active </span>
                                 </div>
                             </div>
@@ -25,7 +25,7 @@
                                             </li>
                                             <li class="kt-nav__item">
                                                 <a href="#" class="kt-nav__link">
-                                                    <i class="kt-nav__link-icon flaticon2-open-text-book"></i> <span class="kt-nav__link-text">Contacts</span> 
+                                                    <i class="kt-nav__link-icon flaticon2-open-text-book"></i> <span class="kt-nav__link-text">Contacts</span>
                                                     <span class="kt-nav__link-badge"> <span class="kt-badge kt-badge--brand kt-badge--rounded-">5</span> </span>
                                                 </a>
                                             </li>
@@ -60,17 +60,17 @@
                                             Jason Muller
                                         </span>
                                     </a>
-                                    <span class="kt-chat__datetime">2 Hours</span> 
+                                    <span class="kt-chat__datetime">2 Hours</span>
                                 </div>
                                 <div class="kt-chat__text">
                                     How likely are you to recommend our company
                                     <br>
-                                    to your friends and family? 
+                                    to your friends and family?
                                 </div>
                             </div>
                             <div class="kt-chat__message kt-chat__message--right kt-chat__message--brand">
                                 <div class="kt-chat__user">
-                                    <span class="kt-chat__datetime">30 Seconds</span> 
+                                    <span class="kt-chat__datetime">30 Seconds</span>
                                     <a href="#" class="kt-chat__username">
                                         You
                                     </span>
@@ -82,7 +82,7 @@
                             <div class="kt-chat__text">
                                 Hey there, we’re just writing to let you know that you’ve
                                 <br>
-                                been subscribed to a repository on GitHub. 
+                                been subscribed to a repository on GitHub.
                             </div>
                         </div>
                         <div class="kt-chat__message kt-chat__message--success">
@@ -94,13 +94,13 @@
                                     Jason Muller
                                 </span>
                             </a>
-                            <span class="kt-chat__datetime">30 Seconds</span> 
+                            <span class="kt-chat__datetime">30 Seconds</span>
                         </div>
                         <div class="kt-chat__text"> Ok, Understood! </div>
                     </div>
                     <div class="kt-chat__message kt-chat__message--right kt-chat__message--brand">
                         <div class="kt-chat__user">
-                            <span class="kt-chat__datetime">Just Now</span> 
+                            <span class="kt-chat__datetime">Just Now</span>
                             <a href="#" class="kt-chat__username">
                                 You
                             </span>
@@ -120,17 +120,17 @@
                             Jason Muller
                         </span>
                     </a>
-                    <span class="kt-chat__datetime">2 Hours</span> 
+                    <span class="kt-chat__datetime">2 Hours</span>
                 </div>
                 <div class="kt-chat__text">
-                    You were automatically <b class="kt-font-brand">subscribed</b> 
+                    You were automatically <b class="kt-font-brand">subscribed</b>
                     <br>
-                    because you’ve been given access to the repository 
+                    because you’ve been given access to the repository
                 </div>
             </div>
             <div class="kt-chat__message kt-chat__message--right kt-chat__message--brand">
                 <div class="kt-chat__user">
-                    <span class="kt-chat__datetime">30 Seconds</span> 
+                    <span class="kt-chat__datetime">30 Seconds</span>
                     <a href="#" class="kt-chat__username">
                         You
                     </span>
@@ -140,9 +140,9 @@
                 </span>
             </div>
             <div class="kt-chat__text">
-                You can unwatch this repository immediately 
+                You can unwatch this repository immediately
                 <br>
-                by clicking here: <a href="#" class="kt-font-bold kt-link"></a> 
+                by clicking here: <a href="#" class="kt-font-bold kt-link"></a>
             </div>
         </div>
         <div class="kt-chat__message kt-chat__message--success">
@@ -154,17 +154,17 @@
                     Jason Muller
                 </span>
             </a>
-            <span class="kt-chat__datetime">30 Seconds</span> 
+            <span class="kt-chat__datetime">30 Seconds</span>
         </div>
         <div class="kt-chat__text">
-            Discover what students who viewed Learn 
+            Discover what students who viewed Learn
             <br>
-            Figma - UI/UX Design Essential Training also viewed 
+            Figma - UI/UX Design Essential Training also viewed
         </div>
     </div>
     <div class="kt-chat__message kt-chat__message--right kt-chat__message--brand">
         <div class="kt-chat__user">
-            <span class="kt-chat__datetime">Just Now</span> 
+            <span class="kt-chat__datetime">Just Now</span>
             <a href="#" class="kt-chat__username">
                 You
             </span>
@@ -199,5 +199,6 @@
 </div>
 </div>
 </div>
-</div>
+</div> --}}
+
 <!--ENd:: Chat-->

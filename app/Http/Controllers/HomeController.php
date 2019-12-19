@@ -21,7 +21,8 @@ use DatePeriod;
 use DateInterval;
 use Illuminate\Contracts\Session\Session;
 use Stevebauman\Location\Location;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SearchExcelExport;
 
 
 class HomeController extends Controller
@@ -182,7 +183,7 @@ class HomeController extends Controller
   public function showCampaignPage(Request $request, $keyword_id)
   {
 //    dd($keyword);
-
+    session(['keyword_id'=> $keyword_id]);
     return view('dashboard', ['keyword_id' => $keyword_id]);
   }
 
@@ -335,40 +336,6 @@ class HomeController extends Controller
             'headers' => array('content-type' => 'application/json'),
             'json' => array(
                 'text' => "Congratulations! , your campaign *$campaign->campaign* has been successfully added to Slack",
-
-
-                // 'blocks' => [
-                //     [
-                //         "type"=> "section",
-                //         "text"=> [
-                //             "type"=> "mrkdwn",
-                //             "text"=> "Danny Torrence left the following review for your property=>"
-                //         ]
-                //     ],
-                //     [
-                //         "type"=> "section",
-                //         "block_id"=> "section567",
-                //         "text"=> [
-                //             "type"=> "mrkdwn",
-                //             "text"=> "<https://example.com|Overlook Hotel> \n :star: \n Doors had too many axe holes, guest in room 237 was far too rowdy, whole place felt stuck in the 1920s."
-                //         ],
-                //         "accessory"=> [
-                //             "type"=> "image",
-                //             "image_url"=> "https://is5-ssl.mzstatic.com/image/thumb/Purple3/v4/d3/72/5c/d3725c8f-c642-5d69-1904-aa36e4297885/source/256x256bb.jpg",
-                //             "alt_text"=> "Haunted hotel image"
-                //         ]
-                //     ],
-                //     [
-                //         "type"=> "section",
-                //         "block_id"=> "section789",
-                //         "fields"=> [
-                //             [
-                //                 "type"=> "mrkdwn",
-                //                 "text"=> "*Average Rating*\n1.0"
-                //             ]
-                //         ]
-                //     ]
-                // ]
             )
         )
     );
@@ -382,9 +349,27 @@ class HomeController extends Controller
   public function addToSlack(Request $request)
   {
     $campaign_id = $request->get('slack_campaign_id');
+    if($campaign_id == '0')
+    {
+        return redirect()->route('dashboard')->withErrorMessage('Please select campaign to add to slack');
+    }
     session(['campaign_id'=> $campaign_id]);
 
-    return redirect('https://slack.com/oauth/authorize?client_id=848021306386.862664484167&scope=incoming-webhook');
+    $webhook_url = env('SLACK_WEBHOOK_URL');
+    return redirect($webhook_url);
+  }
+
+  public function export(Request $request)
+  {
+    $keyword_id = session('keyword_id');
+    if($keyword_id == null)
+    {
+        $keyword_id = $request->get('keyword_id');
+    }
+    $keyword = Keyword::where('id', $keyword_id)->first()->keyword;
+    $excelFileName = $keyword . '.xlsx';
+
+    return Excel::download(new SearchExcelExport, $excelFileName);
   }
 
 }
