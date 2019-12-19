@@ -12,6 +12,6 @@ class SearchExcelExport implements FromCollection
     */
     public function collection()
     {
-        return Search::all();
+        return Search::all('social_type', 'title', 'date', 'url');
     }
 }

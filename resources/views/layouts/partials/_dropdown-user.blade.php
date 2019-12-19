@@ -27,7 +27,7 @@
             <div class="kt-notification__item-time"> Add or disable </div>
         </div>
     </button>
-<a href="{{  route('excelExport', ['keyword_id' => $keyword_id]) }}" class="kt-notification__item">
+    <a href="{{  route('excelExport', ['keyword_id' => $keyword_id]) }}" class="kt-notification__item">
         <div class="kt-notification__item-icon"> <i class="fas fa-file-excel kt-font-primary"></i> </div>
         <div class="kt-notification__item-details">
             <div class="kt-notification__item-title kt-font-bold"> Export excel file </div>

@@ -14,6 +14,7 @@ use App\Jobs\SearchAPI;
 use App\Notifications\NewCampaignAddedNotification;
 use App\Slack;
 use GuzzleHttp\Client;
+use App\Http\Repository\AdminUserTable;
 
 
 use DateTime;
@@ -21,8 +22,7 @@ use DatePeriod;
 use DateInterval;
 use Illuminate\Contracts\Session\Session;
 use Stevebauman\Location\Location;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\SearchExcelExport;
+
 
 
 class HomeController extends Controller
@@ -241,34 +241,9 @@ class HomeController extends Controller
 
   public function getAdminTableData(Request $request)
   {
-    $array = User::where('id', '>', '1')->get();
-    $adminTable = [];
-    foreach ($array as $index)
-    {
-      $campaign_cnt = Campaign::where('user_id',$index->id)->selectRaw('count(id) AS cnt')->first()->cnt;
-    //  dd();
-      if($index->payment_status)
-        $payment_status = $index->payment_status;
-      else
-        $payment_status = null;
 
-      $item = [
-        'id' => $index->id,
-        'username' => $index->name,
-        'email' => $index->email,
-        'country' => $index->country,
-        'login_fb' => $index->login_via_facebook,
-        'login_gg' => $index->login_via_google,
-        'payment_status' => $payment_status,
-        'number_campaigns' => $campaign_cnt,
-        'comment' => $index->comment,
-        'date' => $index->created_at,
-
-      ];
-      array_push($adminTable, $item);
-    }
-//    dd($adminTable);
-    return $adminTable;
+    $tableInstance = new AdminUserTable;
+    return $tableInstance->getTableData();
   }
 
   public function deleteAdminRowTabledata(Request $request)
@@ -357,19 +332,6 @@ class HomeController extends Controller
 
     $webhook_url = env('SLACK_WEBHOOK_URL');
     return redirect($webhook_url);
-  }
-
-  public function export(Request $request)
-  {
-    $keyword_id = session('keyword_id');
-    if($keyword_id == null)
-    {
-        $keyword_id = $request->get('keyword_id');
-    }
-    $keyword = Keyword::where('id', $keyword_id)->first()->keyword;
-    $excelFileName = $keyword . '.xlsx';
-
-    return Excel::download(new SearchExcelExport, $excelFileName);
   }
 
 }

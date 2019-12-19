@@ -85,7 +85,8 @@ Route::middleware('auth')->group(function () {
 
   Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 
-  Route::get('export', 'HomeController@export')->name('excelExport');
+  Route::get('export', 'ExcelExportController@export')->name('excelExport');
+  Route::get('admin/export', 'ExcelExportController@adminExport')->name('adminExcelExport');
 
 
   // Route::get('/twitter', 'HomeController@search_twitter');
