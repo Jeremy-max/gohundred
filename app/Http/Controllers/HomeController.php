@@ -65,6 +65,7 @@ class HomeController extends Controller
             {
               $flag = true;
               $keyword_id = $keyword_list->first()->id;
+              session(['keyword_id'=> $keyword_id]);
               View::share('keyword_id', $keyword_id);
             }
             array_push($array, [
@@ -291,6 +292,10 @@ class HomeController extends Controller
     $webhook_json = $response->getBody()->getContents();
 
     $campaign_id = session('campaign_id');
+    if(isset($campaign_id))
+    {
+        return redirect()->route('dashboard')->withErrorMessage('Can not get campaign to add slack! Please choose correct campaign again.');
+    }
 
     $webhook = json_decode($webhook_json);
 
