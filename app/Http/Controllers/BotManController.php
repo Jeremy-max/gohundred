@@ -5,39 +5,38 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use BotMan\BotMan\Messages\Incoming\Answer;
+use BotMan\BotMan\Messages\Incoming\IncomingMessage;
+use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
+use App\Http\Conversations\PrivacyPolicyConversation;
 
 class BotManController extends Controller
 {
-    /**
-     * Place your BotMan logic here.
-     */
+
     public function handle()
     {
         $botman = app('botman');
 
+
         $botman->hears('{message}', function($botman, $message) {
 
-            if ($message == 'hi') {
-                $this->askName($botman);
+            if ($message == 'Hi'|| $message == 'Hello' || $message == 'hi'|| $message == 'hello') {
+
+                $botman->startConversation(new PrivacyPolicyConversation());
             }else{
-                $botman->reply("write 'hi' for testing...");
+                $botman->reply("Write 'Hi' or 'Hello' for starting chat");
             }
 
         });
 
+
         $botman->listen();
     }
 
-    /**
-     * Place your BotMan logic here.
-     */
-    public function askName($botman)
-    {
-        $botman->ask('Hello! What is your Name?', function(Answer $answer) {
 
-            $name = $answer->getText();
+    // public function tinker()
+    // {
+    //     return view('tinker');._(Hi|Hello)._
+    // }
 
-            $this->say('Nice to meet you '.$name);
-        });
-    }
 }
+
