@@ -362,7 +362,7 @@
 <script>
     var botmanWidget = {
         aboutText: 'ssdsd',
-        introMessage: "<strong>Timezone:</strong> <br>Online hours for human chat – 9am to 3pm Copenhagen Denmark/Berlin time CEST<br>Everything else is closed and chatbot will reply with FAQ or if user wants to connect to a human, user has to type email address and this will be sent to my email<br> (support@gohundred.co)<br><br>Hello! We’re helping professionals like you monitor web and social media data.<br>Is there anything I can help you with? "
+        introMessage: "Hello! We’re helping professionals like you monitor web and social media data.<br>Is there anything I can help you with? "
     };
 </script>
 <script src="//www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>

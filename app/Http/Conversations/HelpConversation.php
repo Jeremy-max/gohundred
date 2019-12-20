@@ -54,7 +54,7 @@ class HelpConversation extends Conversation
                         $message = '<strong>Answer</strong>:<br> Yes, as GoHundred is GDPR compliant, you have the right to at any time withdraw your consent to being registered as a user on GoHundred. In order to delete your account, simply go to your profile settings and click “Delete my account”. When you have deleted your account, GoHundred will no longer be in possession of any data that you have entered into your profile when you registered.';
                         break;
                     case 9:
-                        $message = '<strong>Answer</strong>:<br><br>If timezone is open above: we’re here. <br>If timezone is closed: Sorry, my teammates are asleep, but you can leave your email address here and they will get back to you shortly!';
+                        $message = '<strong>Answer</strong>:<br>Sorry, my teammates are asleep, but you can leave your email address here and they will get back to you shortly!';
                         break;
 
                 }
