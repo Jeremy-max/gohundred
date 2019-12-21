@@ -475,7 +475,7 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">FAQ</h4>
+        <h4 class="modal-title">Help Center</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -762,7 +762,7 @@
         </p>
         <p>
           <a href="" data-toggle="modal" data-target="#faq">
-            FAQ
+            Help Center
           </a>
         </p>
         <p>Newsletter
@@ -812,7 +812,14 @@
 
 <!-- Custom scripts for this template -->
 <script src="js/creative.min.js"></script>
-
+<script>
+    $(function () {
+        const help_center = '#helpcenter'
+        if (location.href.slice(-help_center.length) === help_center) {
+            $("#faq").modal('show')
+        }
+    })
+</script>
 </body>
 
 </html>
