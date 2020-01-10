@@ -260,13 +260,6 @@ class SearchAPI implements ShouldQueue
     return $new_date;
   }
 
-  public function search_twitch()
-  {
-      dd("Hello, this is twitch background!");
-
-
-  }
-
 
   public function search_tiktok()
   {

@@ -68,7 +68,7 @@ var KTDatatableJsonRemoteDemo = function () {
 						var type = {
 							'facebook': 'kt-badge--primary',
 							'twitter': 'kt-badge--info',
-							'instagram': 'kt-badge--warning',
+							'tiktok': 'kt-badge--warning',
 							'youtube': 'kt-badge--danger',
 							'web': 'kt-badge--success',
 						};

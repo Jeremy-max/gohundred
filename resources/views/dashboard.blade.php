@@ -78,7 +78,7 @@
 							{{-- <a href=""> --}}
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
-										<i class="fab fa-instagram kt-font-warning"></i>
+										<i class="fab fa-twitch kt-font-warning"></i>
 									</div>
 									<!-- <div class="kt-demo-icon__class">
 										Reddit
@@ -86,7 +86,7 @@
 								</div>
 							{{-- </a> --}}
 								<span class="kt-widget17__subtitle">
-									Instagram
+									Twitch
 								</span>
 								<span class="kt-widget17__desc">
 									10 New Comments
@@ -193,7 +193,7 @@
 											<option value="">All</option>
 											<option value="facebook">facebook</option>
 											<option value="twitter">twitter</option>
-											<option value="instagram">instagram</option>
+											<option value="tiktok">tiktok</option>
 											<option value="youtube">youtube</option>
 											<option value="web">web</option>
 										</select>

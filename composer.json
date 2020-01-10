@@ -29,7 +29,8 @@
         "realrashid/sweet-alert": "^3.0",
         "serpapi/google-search-results-php": "^1.2",
         "stevebauman/location": "^5.0",
-        "stripe/stripe-php": "^7.14"
+        "stripe/stripe-php": "^7.14",
+        "xmhafiz/fb-page-feed": "^1.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

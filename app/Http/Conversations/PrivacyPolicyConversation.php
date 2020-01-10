@@ -22,7 +22,7 @@ class PrivacyPolicyConversation extends Conversation
         $message .= '2. We may send you further information about GoHundred and our services. <br>';
         $message .= 'Is this OK for you?<br>';
         $email = '<a href="mailto:email@email.com">email@email.com</a>';
-        $message .= '<a target="_blank" href="http://gohundred.co/privacy_policy">View Privacy policy</a> <br><br>';
+        $message .= '<a target="_blank" href="https://gohundred.co/privacy_policy">View Privacy policy</a> <br><br>';
         $this->say($message);
 
         $question = Question::create('What kind of Service you are looking for?')

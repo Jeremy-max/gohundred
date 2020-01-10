@@ -47,7 +47,7 @@ class HomeController extends Controller
 
     //   View::share('keyword_list', $keyword_list);
     // }
-      // $this->middleware('auth');
+    $this->middleware(['auth', 'verified']);
 
 
     $this->middleware(function ($request, $next) {
@@ -339,4 +339,124 @@ class HomeController extends Controller
     return redirect($webhook_url);
   }
 
+
+  public function twitterApi()
+  {
+    $consumer_key = env('CONSUMER_KEY');
+    $consumer_secret = env('CONSUMER_SECRET');
+    $access_token_key = env('ACCESS_TOKEN_KEY');
+    $access_token_secret = env('ACCESS_TOKEN_SECRET');
+
+    $connection = new TwitterOAuth(
+      $consumer_key,
+      $consumer_secret,
+      $access_token_key,
+      $access_token_secret
+    );
+
+      $limit_cnt = 10;
+      $params = [
+        'q' => $keyword->keyword,
+        'count' => $limit_cnt,
+        'max_id' => null
+      ];
+//    $tweets = $connection->get('search/tweets', $params);
+//    dd($tweets);
+      $tweets_db = [];
+      $sum = 0;
+     while(1)
+     {
+
+       try{
+          $tweets = $connection->get('search/tweets', $params);
+          if(isset($tweets->errors))
+          {
+            dump('Error occurred for rate limit exceeded free trial version limitation');
+            break;
+          }
+          else{
+            if($this->parseTweets($tweets,$keyword->id))
+              $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
+          }
+        } catch(\Exception $e) {
+          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+          break;
+          //return false;
+        }
+        if(count($tweets->statuses) < $limit_cnt || $sum > 30){
+          break;
+        }
+        $params['max_id'] = $this->getMaxId($tweets);
+        $sum += $limit_cnt;
+      }
+      Search::insert($tweets_db);
+//    dump("Tweets search result data is added to DB successfully!");
+      return $tweets_db;
+  }
+
+  public function facebook()
+  {
+    $query = "test";
+    $fbPageName = $this->getFacebookPage($query);
+
+    $data = fb_feed()
+        ->setAccessToken($userAccessToken)
+        ->setPage($fbPageName)
+        ->fetch();
+    dd($data);
+  }
+
+  public function getFacebookPage($query)
+  {
+    $access_token = env('ACCESS_TOKEN_FB');
+    dd($access_token);
+
+    $client = new \GuzzleHttp\Client();
+    $response = $client->get(
+        'https://graph.facebook.com/v3.0/pages/search',
+        array(
+            'form_params' => array(
+                'q' => '$query',
+                'fields' => 'id,name',
+                'access_token' => $access_token
+            )
+        )
+    );
+    $pagename = $response->data;
+    return $pagename;
+  }
+
+  public function parseFacebook($tweets, $keyword_id) {
+    if(!isset($tweets->statuses))
+      return false;
+    $cnt = count($tweets->statuses);
+    $i = 0;
+    $table_tweets = [];
+    while ($i < $cnt)
+    {
+      $title = $tweets->statuses[$i]->text;
+      $date = $this->tweetsDateParse($tweets->statuses[$i]->created_at);
+      if(strlen($title) > 100)
+        $title = mb_substr($title, 0, 99);
+      $value = [
+        'keyword_id' => $keyword_id,
+        'social_type' => 'twitter',
+        'title' => $title,
+        'date' => date($date),
+        'url' => 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str
+      ];
+      array_push($table_tweets,$value);
+
+      $i++;
+    }
+    return $table_tweets;
+
+  }
+
+  public function facebookDateParse($str)
+  {
+    $date = date_create_from_format('DATE_ISO8601', $str);
+    $new_date = date_format($date,"Y-m-d");
+    return $new_date;
+  }
 }

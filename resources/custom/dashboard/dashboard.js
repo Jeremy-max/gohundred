@@ -68,7 +68,7 @@ var KTamChartsStockChartsDemo = function() {
                     "showInSelect": "false",
                     "compared": "false"
                 },{
-                    "title": "Instagram",
+                    "title": "tiktok",
                     "fieldMappings": [{
                         "fromField": "value",
                         "toField": "value"
@@ -101,7 +101,7 @@ var KTamChartsStockChartsDemo = function() {
                     "showInSelect": "false",
                     "compared": "false"
                 }],
-    
+
                 "panels": [{
                     "showCategoryAxis": false,
                     "title": "Value",
@@ -119,11 +119,11 @@ var KTamChartsStockChartsDemo = function() {
                         "periodValueTextRegular": "[[value.close]]"
                     }
                 }],
-    
+
                 "chartScrollbarSettings": {
                     "graph": "g1"
                 },
-    
+
                 "chartCursorSettings": {
                     "valueBalloonsEnabled": true,
                     "fullWidth": true,
@@ -132,7 +132,7 @@ var KTamChartsStockChartsDemo = function() {
                     "valueLineEnabled": true,
                     "valueLineAlpha": 0.5
                 },
-    
+
                 "periodSelector": {
                     "position": "left",
                     "periods": [{
@@ -156,20 +156,20 @@ var KTamChartsStockChartsDemo = function() {
                         "label": "MAX"
                     }]
                 },
-    
+
                 "dataSetSelector": {
                     "position": "left"
                 },
-    
+
                 "export": {
                     "enabled": false
                 }
             });
         });
 
-        
+
     }
-    
+
     return {
         // public functions
         init: function() {
@@ -181,6 +181,7 @@ var KTamChartsStockChartsDemo = function() {
 jQuery(document).ready(function() {
     KTamChartsStockChartsDemo.init();
 });
+
 "use strict";
 
 var KTDatatableJsonRemoteDemo = function () {

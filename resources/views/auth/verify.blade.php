@@ -1,3 +1,8 @@
+@section('css')
+
+<link href="{{ asset('css/dashboard/custom.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
 @extends('layouts.app')
 
 @section('content')

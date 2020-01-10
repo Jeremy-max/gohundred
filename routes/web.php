@@ -17,7 +17,7 @@
 //     return view('case_study');
 // });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', function () {
   return view('welcome');
@@ -91,9 +91,9 @@ Route::middleware('auth')->group(function () {
 
   // Route::get('/twitter', 'HomeController@search_twitter');
 
-   Route::get('/twitch', 'HomeController@search_twitch');
+   Route::get('/facebook', 'HomeController@facebook');
 
-   Route::get('/tiktok', 'HomeController@tiktokApi');
+//   Route::get('/tiktok', 'HomeController@tiktokApi');
 
   // Route::get('/youtube', 'HomeController@search_youtube');
 

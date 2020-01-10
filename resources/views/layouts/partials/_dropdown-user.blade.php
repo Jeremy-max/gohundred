@@ -1,9 +1,12 @@
+@if(isset($namefirstchar))
 <!--begin: Head -->
 <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(/assets/media/misc/bg-1.jpg)">
     <div class="kt-user-card-v2">
         <div class="kt-user-card-v2__pic">
             <div class="kt-badge kt-badge--xl kt-badge--success">
+
                 {{ $namefirstchar }}
+
             </div>
         </div>
     </div>
@@ -67,3 +70,4 @@
     </a>
 </div>
 <!--end: Navigation -->
+@endif
