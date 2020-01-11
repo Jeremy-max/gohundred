@@ -319,8 +319,8 @@ class HomeController extends Controller
             )
         )
     );
-    SearchAPI::dispatch($campaign);
 
+    SearchAPI::dispatch($campaign);
 
     return redirect()->route('dashboard')->withSuccessMessage('Your campaign added to slack successfully!');
 

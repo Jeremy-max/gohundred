@@ -86,7 +86,7 @@
 								</div>
 							{{-- </a> --}}
 								<span class="kt-widget17__subtitle">
-									Twitch
+									Tictok
 								</span>
 								<span class="kt-widget17__desc">
 									10 New Comments
