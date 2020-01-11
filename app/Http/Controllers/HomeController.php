@@ -329,7 +329,8 @@ class HomeController extends Controller
   public function addToSlack(Request $request)
   {
     $campaign_id = $request->get('slack_campaign_id');
-    if($campaign_id == '0')
+
+    if($campaign_id == '0' || $campaign_id == null)
     {
         return redirect()->route('dashboard')->withErrorMessage('Please select campaign to add to slack');
     }

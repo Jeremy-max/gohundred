@@ -43,6 +43,16 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    // public function __construct()
+    // {
+    //     if (Auth::check() && ((!empty(Auth::user()->role->role) == 0)||(!empty(Auth::user()->role->role) == 1)||(!empty(Auth::user()->role->role) == 2))) {
+    //         $this->redirectTo=route('dashboard');
+    //     }else{
+    //          $this->redirectTo='/';
+    //     }
+    //     $this->middleware('guest');
+    // }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -51,7 +61,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -80,7 +90,7 @@ class RegisterController extends Controller
     {
         $location = new Location();
         $position = $location->get($request->ip());
-        
+
         if ($position) {
             $request->merge(['country' => $position->countryName]);
         } else {
