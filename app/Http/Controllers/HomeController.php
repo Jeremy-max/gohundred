@@ -292,7 +292,7 @@ class HomeController extends Controller
     $webhook_json = $response->getBody()->getContents();
 
     $campaign_id = session('campaign_id');
-    if(isset($campaign_id))
+    if(!isset($campaign_id))
     {
         return redirect()->route('dashboard')->withErrorMessage('Can not get campaign to add slack! Please choose correct campaign again.');
     }
@@ -410,7 +410,6 @@ class HomeController extends Controller
   public function getFacebookPage($query)
   {
     $access_token = env('ACCESS_TOKEN_FB');
-    dd($access_token);
 
     $client = new \GuzzleHttp\Client();
     $response = $client->get(
