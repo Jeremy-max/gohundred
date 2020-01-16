@@ -228,31 +228,31 @@
 										<div class="input-group date" >
 											<select class="form-control bfh-languages" data-language="">
 												<option value="">Any language</option>
-												<option vaule="en">English</option>
+												<option value="en">English</option>
                                                 <option disabled>___________________________</option>
-                                                <option valud="ar"> Arabic </option>
-                                                <option valud="eu"> Basque </option>
-                                                <option valud="zh"> Chinese </option>
-                                                <option valud="cs"> Czech </option>
-                                                <option valud="da"> Danish </option>
-                                                <option valud="fi"> Finnish </option>
-                                                <option valud="fr"> French </option>
-                                                <option valud="de"> German </option>
-                                                <option valud="hu"> Hungarian </option>
-                                                <option valud="id"> Indonesian </option>
-                                                <option valud="it"> Italian </option>
-                                                <option valud="ko"> Korean </option>
-                                                <option valud="no"> Norwegian </option>
-                                                <option valud="pl"> Polish </option>
-                                                <option valud="pt"> Portuguese </option>
-                                                <option valud="ro"> Romanian </option>
-                                                <option valud="ru"> Russian </option>
-                                                <option valud="sk"> Slovak </option>
-                                                <option valud="es"> Spanish </option>
-                                                <option valud="sv"> Swedish </option>
-                                                <option valud="th"> Thai </option>
-                                                <option valud="tr"> Turkish </option>
-                                                <option valud="vi"> Vietnames </option>
+                                                <option value="ar"> Arabic </option>
+                                                <option value="eu"> Basque </option>
+                                                <option value="zh"> Chinese </option>
+                                                <option value="cs"> Czech </option>
+                                                <option value="da"> Danish </option>
+                                                <option value="fi"> Finnish </option>
+                                                <option value="fr"> French </option>
+                                                <option value="de"> German </option>
+                                                <option value="hu"> Hungarian </option>
+                                                <option value="id"> Indonesian </option>
+                                                <option value="it"> Italian </option>
+                                                <option value="ko"> Korean </option>
+                                                <option value="no"> Norwegian </option>
+                                                <option value="pl"> Polish </option>
+                                                <option value="pt"> Portuguese </option>
+                                                <option value="ro"> Romanian </option>
+                                                <option value="ru"> Russian </option>
+                                                <option value="sk"> Slovak </option>
+                                                <option value="es"> Spanish </option>
+                                                <option value="sv"> Swedish </option>
+                                                <option value="th"> Thai </option>
+                                                <option value="tr"> Turkish </option>
+                                                <option value="vi"> Vietnames </option>
 											{{-- @foreach ($langs as $ac => $label)
 												<option value="{{ $ac }}">{{ $label }}</option>
 											@endforeach --}}
@@ -317,8 +317,8 @@
                                         <div class="col-sm-6 offset-md-3">
                                             <div class="dropdown">
                                                 <select class="form-control" id="slack_campaign_select">
-                                                    <option disabled selected value="0">Select Campaign</option>
-                                                    <option disabled>___________________________</option>
+                                                    {{-- <option disabled selected value="0">Select Campaign</option>
+                                                    <option disabled>___________________________</option> --}}
                                                     @if (count($campaign_list) > 0)
                                                         @foreach ($campaign_list as $campaign)
                                                             <option value="{{ $campaign['campaign_id'] }}">{{ $campaign['campaign'] }}</option>

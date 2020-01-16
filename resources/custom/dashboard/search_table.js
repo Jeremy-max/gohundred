@@ -177,6 +177,7 @@ var KTDatatableJsonRemoteDemo = function () {
                     datatable.rows('.kt-datatable__row--active').remove();
                     datatable.reload();
                 });
+
                 // $.ajax({
                 //     url: '/deleteRow' + rowId,
                 //     type: 'delete',

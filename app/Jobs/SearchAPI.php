@@ -148,6 +148,113 @@ class SearchAPI implements ShouldQueue
         return $slack_message;
     }
 
+    public function search_facebook($campaign)
+    {
+        $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+
+        $slack_array = [];
+        foreach ($keyword_list as $keyword)
+        {
+            $fb_array = $this->facebookApi($keyword);
+            array_push($slack_array, ['keyword' => $keyword->keyword, 'array' => $fb_array]);
+        }
+        return $slack_array;
+    }
+
+    public function facebookApi($keyword)
+    {
+        $access_token = env('ACCESS_TOKEN_FB');
+        $app_token = env('APP_TOKEN_FB');
+        $app_secret = env('APP_SECRET_FB');
+
+        $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
+        $fb_db = [];
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->get(
+            'https://graph.facebook.com/v5.0/pages/search',
+            array(
+                'query' => array(
+                    'q' => $keyword->keyword,
+                    'fields' => 'id,name,verification_status,location,link,is_unclaimed,is_eligible_for_branded_content',
+                    'access_token' => $app_token,
+                    'appsecret_proof' => $appsecret_proof
+                )
+            )
+        );
+        $fbPageNameArray = json_decode($response->getBody()->getContents(), true);
+
+        $pageCnt = count($fbPageNameArray['data']);
+        $i = 0;
+        while($i < $pageCnt)
+        {
+            $pageName = $this->parseFbPagename($fbPageNameArray['data'][$i]['link']);
+
+            $data = fb_feed()
+            ->setAccessToken($app_token)
+            ->setPage($pageName)
+            ->findKeyword($keyword->keyword)
+            ->fields("id,message,created_time,permalink_url")
+            ->fetch();
+            $res = $this->parseFacebook($data, $keyword->id);
+            if($res){
+                $fb_db = array_merge($fb_db, $res);}
+            $i++;
+        }
+
+        Search::insert($fb_db);
+//    dump("Facebook search result data is added to DB successfully!");
+      return $fb_db;
+    }
+
+  public function parseFbPagename($link)
+  {
+    $pageName = substr($link, 25);
+    $pageName = substr($pageName, 0, -1);
+    return $pageName;
+  }
+  public function parseFacebook($fb_response, $keyword_id) {
+
+    if($fb_response['error'] == true)
+      return false;
+    $cnt = count($fb_response['data']);
+    $i = 0;
+    $table_fb = [];
+    while ($i < $cnt)
+    {
+        $item = $fb_response['data'][$i];
+
+
+        if(count($item) < 4)
+        {
+            $i++;
+            continue;
+        }
+      $title = $item["message"];
+
+      $date_string = substr($item['created_time'], 0, 9);
+
+      if(date_create($date_string) < date_create("2019-11-11"))
+        {
+            $i++;
+            continue;
+        }
+      if(strlen($title) > 100){
+        $title = mb_substr($title, 0, 99);}
+      $value = [
+        'keyword_id' => $keyword_id,
+        'social_type' => 'facebook',
+        'title' => $title,
+        'date' => date($date_string),
+        'url' => $item['permalink_url']
+      ];
+      array_push($table_fb,$value);
+
+      $i++;
+    }
+
+    return $table_fb;
+  }
 
   public function search_twitter($campaign)
   {
