@@ -42,18 +42,21 @@ class SearchAPI implements ShouldQueue
      */
     public function handle()
     {
+        $facebook_array = $this->search_facebook($this->campaign);
         $twitter_array = $this->search_twitter($this->campaign);
         $youtube_array = $this->search_youtube($this->campaign);
         $web_array = $this->search_web($this->campaign);
 
         $slack_list = Slack::where('campaign_id', $this->campaign->id)->get();
 
+        $slack_facebook_array = $this->slack_wrapper($facebook_array, $this->campaign->campaign, "Facebook");
         $slack_twitter_array = $this->slack_wrapper($twitter_array, $this->campaign->campaign, "Twitter");
         $slack_youtube_array = $this->slack_wrapper($youtube_array, $this->campaign->campaign, "Youtube");
         $slack_web_array = $this->slack_wrapper($web_array, $this->campaign->campaign, "Google");
 
         foreach ($slack_list as $slack)
         {
+            $this->send_slack_message($slack_facebook_array, $slack);
           $this->send_slack_message($slack_twitter_array, $slack);
           $this->send_slack_message($slack_youtube_array, $slack);
           $this->send_slack_message($slack_web_array, $slack);
@@ -201,7 +204,7 @@ class SearchAPI implements ShouldQueue
                 $fb_db = array_merge($fb_db, $res);}
             $i++;
         }
-
+        dd($fb_db);
         Search::insert($fb_db);
 //    dump("Facebook search result data is added to DB successfully!");
       return $fb_db;
