@@ -330,10 +330,10 @@ class HomeController extends Controller
   {
     $campaign_id = $request->get('slack_campaign_id');
 
-    if($campaign_id == '0' || $campaign_id == null)
-    {
-        return redirect()->route('dashboard')->withErrorMessage('Please select campaign to add to slack');
-    }
+    // if($campaign_id == '0' || $campaign_id == null)
+    // {
+    //     return redirect()->route('dashboard')->withErrorMessage('Please select campaign to add to slack');
+    // }
     session(['campaign_id'=> $campaign_id]);
 
     $webhook_url = env('SLACK_WEBHOOK_URL');

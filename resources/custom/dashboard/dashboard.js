@@ -252,7 +252,7 @@ var KTDatatableJsonRemoteDemo = function () {
 						var type = {
 							'facebook': 'kt-badge--primary',
 							'twitter': 'kt-badge--info',
-							'instagram': 'kt-badge--warning',
+							'tiktok': 'kt-badge--warning',
 							'youtube': 'kt-badge--danger',
 							'web': 'kt-badge--success',
 						};
@@ -361,6 +361,7 @@ var KTDatatableJsonRemoteDemo = function () {
                     datatable.rows('.kt-datatable__row--active').remove();
                     datatable.reload();
                 });
+
                 // $.ajax({
                 //     url: '/deleteRow' + rowId,
                 //     type: 'delete',
@@ -429,6 +430,7 @@ jQuery(document).ready(function () {
 jQuery(document).ready(function () {
 	$("#slack-modal-button").on("click", function() {
         $("#kt_modal_4").modal("show");
+        $("#slack_campaign_id").val($("#slack_campaign_select option:selected").val());
     });
     $("#slack_campaign_select").on("click", function() {
         var campaign_id = $("#slack_campaign_select option:selected").val();

@@ -320,9 +320,13 @@
                                                     {{-- <option disabled selected value="0">Select Campaign</option>
                                                     <option disabled>___________________________</option> --}}
                                                     @if (count($campaign_list) > 0)
-                                                        @foreach ($campaign_list as $campaign)
-                                                            <option value="{{ $campaign['campaign_id'] }}">{{ $campaign['campaign'] }}</option>
-                                                        @endforeach
+                                                        @for ($i = 0; $i < count($campaign_list); $i++)
+                                                            @if ($i === 0)
+                                                                <option value="{{ $campaign_list[$i]['campaign_id'] }}" selected>{{ $campaign_list[$i]['campaign'] }}</option>
+                                                            @else
+                                                                <option value="{{ $campaign_list[$i]['campaign_id'] }}">{{ $campaign_list[$i]['campaign'] }}</option>
+                                                            @endif
+                                                        @endfor
                                                     @endif
                                                 </select>
                                             </div>

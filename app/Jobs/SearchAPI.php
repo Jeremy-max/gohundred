@@ -204,7 +204,6 @@ class SearchAPI implements ShouldQueue
                 $fb_db = array_merge($fb_db, $res);}
             $i++;
         }
-        dd($fb_db);
         Search::insert($fb_db);
 //    dump("Facebook search result data is added to DB successfully!");
       return $fb_db;
@@ -235,7 +234,7 @@ class SearchAPI implements ShouldQueue
         }
       $title = $item["message"];
 
-      $date_string = substr($item['created_time'], 0, 9);
+      $date_string = substr($item['created_time'], 0, 10);
 
       if(date_create($date_string) < date_create("2019-11-11"))
         {
