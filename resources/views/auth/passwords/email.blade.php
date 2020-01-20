@@ -41,7 +41,7 @@
                         </div>
                         @endif
 
-                        
+
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
                             <h5 class="card-title text-center">{{ __('Forgot Your Password?')}}</h5>

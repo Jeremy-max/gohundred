@@ -16,7 +16,7 @@
 		font-family: 'Varela Round', sans-serif;
 		background-color: #38b6ff;
 	}
-	.modal-confirm {		
+	.modal-confirm {
 		color: #636363;
 	}
 	.modal-confirm .modal-content {
@@ -25,7 +25,7 @@
 		border: none;
 	}
 	.modal-confirm .modal-header {
-		border-bottom: none;   
+		border-bottom: none;
         position: relative;
 	}
 	.modal-confirm h4 {
@@ -35,21 +35,21 @@
 	}
 	.modal-confirm .form-control, .modal-confirm .btn {
 		min-height: 40px;
-		border-radius: 3px; 
+		border-radius: 3px;
 	}
 	.modal-confirm .close {
         position: absolute;
 		top: -5px;
 		right: -5px;
-	}	
+	}
 	.modal-confirm .modal-footer {
 		border: none;
 		text-align: center;
 		border-radius: 5px;
 		font-size: 13px;
-	}	
+	}
 	.modal-confirm .icon-box {
-		color: #fff;		
+		color: #fff;
 		position: absolute;
 		margin: 0 auto;
 		left: 0;
@@ -105,17 +105,17 @@
 			<div class="modal-header">
 				<div class="icon-box">
 					<i class="material-icons">&#xE876;</i>
-				</div>				
-				<h4 class="modal-title">E-mail Verification</h4>	
+				</div>
+				<h4 class="modal-title">E-mail Verification</h4>
 			</div>
 			<div class="modal-body">
-				<p class="text-center">Your email was verified.You can continue using the application.</p>
+				<p class="text-center">Your email was reset.You can continue using the application.</p>
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
 			</div>
 		</div>
 	</div>
-</div>     
+</div>
 </body>
-</html>                                                        
+</html>

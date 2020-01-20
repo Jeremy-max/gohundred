@@ -5,6 +5,7 @@
 <head>
 
   <!-- Font Awesome Icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/css/all.css" rel="stylesheet" type="text/css">
   <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/signup.css" rel="stylesheet" type="text/css">
@@ -55,7 +56,7 @@
                 @enderror
               </div>
               <div class="row kt-login__extra">
-                
+
                     <div class="form-group col mt-2 small">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -64,11 +65,11 @@
                                     {{ __('Remember Me') }}
                                 </label>
                             </div>
-                    </div> 
+                    </div>
                 <div class="col kt-align-right">
                   <a href="{{route('password.request')}}" id="kt_login_forgot" class="kt-link kt-login__link mt-2 small">Forget Password ?</a>
                 </div>
-						  </div>
+				</div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('Log in')}}</button>
               <div class="kt-login__account">
                 <div class="col">

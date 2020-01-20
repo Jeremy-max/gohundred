@@ -29,9 +29,9 @@ Route::get('/redirect/{service}', 'SocialAuthController@redirect');
 Route::get('/callback/{service}', 'SocialAuthController@callback');
 
 
-Route::get('/mailverification', function () {
-  return view('mailverification');
-});
+// Route::get('/mailverification', function () {
+//   return view('mailverification');
+// });
 
 Route::get('/terms-of-service', function () {
   return view('term of service');

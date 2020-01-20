@@ -63,7 +63,7 @@
                             <div class="tab-pane active" id="tab1">
                                 <div class="form">
                                     <div class="text-center">
-                                        <p class="h3 text-center">Choose your type of campaign(You can always add more later)</p>
+                                        <p class="h3 text-center">Choose your type of campaign (You can always add more later)</p>
                                     </div>
                                     <div class="text-center mt-3">
                                         <button href="#" class="btn btn-light campaign-type" type="brand">

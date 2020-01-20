@@ -263,7 +263,6 @@ var KTDatatableJsonRemoteDemo = function () {
 				{
 					field: 'title',
 					title: 'Title',
-					textAlign: 'center',
 					autoHide: true,
 					width: 450
 				}, {
