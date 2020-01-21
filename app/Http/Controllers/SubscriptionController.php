@@ -18,7 +18,7 @@ class SubscriptionController extends Controller
 
         $user->createOrGetStripeCustomer();
         $user->updateDefaultPaymentMethod($paymentMethod);
-        $user
+        $request->user()
             ->newSubscription('main', $plan->stripe_plan)
             ->create($paymentMethod, [
                 'email' => $user->email,

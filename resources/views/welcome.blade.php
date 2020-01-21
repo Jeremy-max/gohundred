@@ -718,7 +718,7 @@
           For general queries
         </p>
         <p>
-          <a href = "mailto: help@gohundred.co" style="text-decoration:underline!important;color:cornflowerblue!important;">help@gohundred.co</a>
+          <a href = "mailto: support@gohundred.co" style="text-decoration:underline!important;color:cornflowerblue!important;">support@gohundred.co</a>
         </p>
         <p>
           <!-- <i class="fas fa-database mr-3"></i>  -->
