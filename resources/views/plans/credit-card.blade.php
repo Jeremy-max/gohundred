@@ -35,7 +35,7 @@
                     </div>
                     <div class="card-footer">
                         <button id="card-button" class="btn btn-primary" type="submit" data-secret="{{ $intent->client_secret }}">Pay</button>
-                        <a href="{{ route('dashboard') }}" class="btn btn-secondary">Pay</a>
+                        <a href="{{ route('dashboard') }}" class="btn btn-secondary">Go to Dashboard</a>
                     </div>
                 </form>
             </div>
