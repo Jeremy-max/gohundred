@@ -133,18 +133,6 @@
 
                                 </div>
                             </div>
-                            <!-- <div class="tab-pane" id="tab3">
-                                <div class="form">
-                                    <div class="input-group text-center">
-                                        <p class="h6 ">Choose your preferred channel to get notifications and information from GoHundred</p>
-                                    </div>
-                                    <div class="text-center">
-                                        <button class="btn btn-success notification-type" type="slack">Slack intergration</button>
-                                        <p>or</p>
-                                        <button class="btn btn-danger notification-type" type="email">Email notifications</button>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </form>
                 </div>

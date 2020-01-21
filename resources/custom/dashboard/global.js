@@ -63,24 +63,4 @@ jQuery(document).ready(function () {
         $("#keyword4").prop('required',false);
     });
 
-    // $(".btn--next").click(function () {
-    //     $("#campaign-keyword").val($("#keyword").val());
-    //     $("#campaign-keyword1").val($("#keyword1").val());
-    //     $("#campaign-keyword2").val($("#keyword2").val());
-    //     $("#campaign-keyword3").val($("#keyword3").val());
-    //     $("#campaign-keyword4").val($("#keyword4").val());
-    // });
-
-    
-
-    // $(".notification-type").click(function (){
-    //     $("#campaign-notification").val($(this).attr('type'))
-    //     if($('#keyword').val() == '')
-    //     {
-    //         $("#link-tab2").click()
-    //         return false;
-    //     }
-        
-    //     console.log($(this).attr('type'));
-    // });
 });

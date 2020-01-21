@@ -80,7 +80,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					field: 'title',
 					title: 'Title',
 					autoHide: true,
-					width: 450
+					width: 400
 				}, {
 					field: 'date',
 					title: 'Date',
