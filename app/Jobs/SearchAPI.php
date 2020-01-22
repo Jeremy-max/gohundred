@@ -242,8 +242,7 @@ class SearchAPI implements ShouldQueue
             continue;
         }
       if(strlen($title) > 100){
-        $title = mb_substr($title, 0, 99);
-        $title += '...';
+        $title = mb_substr($title, 0, 99) + '...';
     }
       $value = [
         'keyword_id' => $keyword_id,
@@ -624,8 +623,7 @@ class SearchAPI implements ShouldQueue
     {
       $title = $response[$i]->title;
       if(strlen($title) > 100){
-        $title = mb_substr($title, 0, 99);
-        $title += '...';
+        $title = mb_substr($title, 0, 99) + '...';
       }
       $value = [
         'keyword_id' => $keywordId,
