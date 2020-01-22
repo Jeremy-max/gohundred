@@ -241,8 +241,8 @@ class SearchAPI implements ShouldQueue
             $i++;
             continue;
         }
-      if(strlen($title) > 100){
-        $title = mb_substr($title, 0, 99) . '...';
+      if(strlen($title) > 90){
+        $title = mb_substr($title, 0, 90) . '...';
     }
       $value = [
         'keyword_id' => $keyword_id,
@@ -335,9 +335,9 @@ class SearchAPI implements ShouldQueue
     {
       $title = $tweets->statuses[$i]->text;
       $date = $this->tweetsDateParse($tweets->statuses[$i]->created_at);
-      if(strlen($title) > 100)
+      if(strlen($title) > 90)
       {
-        $title = mb_substr($title, 0, 99) . '...';
+        $title = mb_substr($title, 0, 90) . '...';
       }
       $value = [
         'keyword_id' => $keyword_id,
@@ -434,8 +434,8 @@ class SearchAPI implements ShouldQueue
     while ($i < $cnt)
     {
       $title = $response[$i]->title;
-      if(strlen($title) > 100){
-        $title = mb_substr($title, 0, 99) . '...';
+      if(strlen($title) > 90){
+        $title = mb_substr($title, 0, 90) . '...';
       }
       $value = [
         'keyword_id' => $keywordId,
@@ -529,8 +529,8 @@ class SearchAPI implements ShouldQueue
     {
       $title = $response->items[$i]->snippet->title;
       $date = substr($response->items[$i]->snippet->publishedAt,0,10);
-      if(strlen($title) > 100){
-        $title = mb_substr($title, 0, 99) . '...';
+      if(strlen($title) > 90){
+        $title = mb_substr($title, 0, 90) . '...';
       }
       $value = [
         'keyword_id' => $keywordId,
@@ -622,8 +622,8 @@ class SearchAPI implements ShouldQueue
     while ($i < $cnt)
     {
       $title = $response[$i]->title;
-      if(strlen($title) > 100){
-        $title = mb_substr($title, 0, 99) . '...';
+      if(strlen($title) > 90){
+        $title = mb_substr($title, 0, 90) . '...';
       }
       $value = [
         'keyword_id' => $keywordId,
