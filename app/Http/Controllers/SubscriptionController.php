@@ -20,10 +20,11 @@ class SubscriptionController extends Controller
         $user->updateDefaultPaymentMethod($paymentMethod);
         $request->user()
             ->newSubscription('main', $plan->stripe_plan)
+            ->trialDays(1)
             ->create($paymentMethod, [
                 'email' => $user->email,
-            ])
-            ->trialDays(1);
+            ]);
+
         // session()->put(['code' => 'success', 'message' => "Your plan subscribed successfully!"]);
         $user->active = 1;
         $user->payment_status = date("Y/m/d H:i:s");
