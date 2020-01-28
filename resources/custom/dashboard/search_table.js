@@ -95,7 +95,6 @@ var KTDatatableJsonRemoteDemo = function () {
 					field: 'url',
 					title: 'URL',
                     type: 'url',
-					textAlign: 'center',
 					template: function(row){
 						return '<a href="'+row.url+'">'+row.url+'</a>';
                     },

@@ -67,7 +67,7 @@
                             </div>
                     </div>
                 <div class="col kt-align-right">
-                  <a href="{{route('password.request')}}" id="kt_login_forgot" class="kt-link kt-login__link mt-2 small">Forget Password ?</a>
+                  <a href="{{route('password.request')}}" id="kt_login_forgot" class="kt-link kt-login__link mt-2 small">Forgot Password ?</a>
                 </div>
 				</div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('Log in')}}</button>

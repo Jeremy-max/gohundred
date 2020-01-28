@@ -340,20 +340,20 @@ class HomeController extends Controller
     return redirect($webhook_url);
   }
 
-//   public function facebook()
-//   {
+  public function facebook()
+  {
 
-//     $access_token = env('ACCESS_TOKEN_FB');
-//     $app_token = env('APP_TOKEN_FB');
-//     $app_secret = env('APP_SECRET_FB');
+    $access_token = env('ACCESS_TOKEN_FB');
+    $app_token = env('APP_TOKEN_FB');
+    $app_secret = env('APP_SECRET_FB');
 
-//     $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
+    $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
 
-//     dump($access_token);
-//     dump('EAAGpzQLPRlEBALXM6RgyWlEZBUBVTWnZCbeZCwHxakTbF0bWETT8nzSvZBR91XYogYC6J2zCaCtyZCwDBc1yBTGc9kuOj3mtwkxTRcHWnZBXnfBf20kHdjYtlq589dcdJkzN2ynpK1P54MtwOrcrT4xebSgvKAHPgV7TbKw3h5Xh2zhrUbPCM5oobLWVZBRlBlZBRxCXJj8QYsO7Se6aOGjUb4zRgZCdVT8XbaZCV0xVIJJgMxDgRWEHKrOSrsMQ32ElsZD');
-//     dump($app_token);
-//     dump($app_secret);
-//     dd($appsecret_proof);
-//   }
+    dump($access_token);
+    dump('EAAGpzQLPRlEBAMIFebLQYePjlJ3wF9Yg0gdAKjPHzWMfDJ0DPOpwQwmFbrLqf91Qa4eZBFsknfuQgvtEPZCI29zGE8dQFW3456ya8aya9bqikwrpFRv4pZBKISZBMS9jNex7OvU5ZBLgSvU2th7iamqdc90eOi3KrzaJPaIdpZCAF8pXbbb9HRmDAvjebvfrMbSbFoGZBZCFpzpahoPaFC0YMaxvMPziF5yIweU9bNAnGUPg5azZC4xIZB');
+    dump($app_token);
+    dump($app_secret);
+    dd($appsecret_proof);
+  }
 
 }

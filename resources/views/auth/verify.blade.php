@@ -12,8 +12,9 @@
             <div class="card">
                 <div class="card-header">{{ __('Verify Your Email Address  ') }}
                     <a href="{{ route('logout') }}" class="kt-notification__item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        &nbsp;&nbsp;&nbsp;{{ __('Logout')}}
+                        &nbsp;&nbsp;&nbsp;{{__ ('Logout') }}
                     </a>
+
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                     </form>
