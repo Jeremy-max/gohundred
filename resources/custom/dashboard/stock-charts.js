@@ -167,7 +167,13 @@ var KTamChartsStockChartsDemo = function() {
             });
         });
 
-
+        $('.amChartsInputField').datepicker({
+            format: 'yyyy-mm-dd',
+            startDate: '2019-11-11',
+            todayBtn: 'linked',
+            todayHighlight: true,
+            clearBtn: true
+        });
     }
 
     return {

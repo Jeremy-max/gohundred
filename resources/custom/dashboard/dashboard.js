@@ -167,7 +167,13 @@ var KTamChartsStockChartsDemo = function() {
             });
         });
 
-
+        $('.amChartsInputField').datepicker({
+            format: 'yyyy-mm-dd',
+            startDate: '2019-11-11',
+            todayBtn: 'linked',
+            todayHighlight: true,
+            clearBtn: true
+        });
     }
 
     return {
@@ -264,7 +270,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					field: 'title',
 					title: 'Title',
 					autoHide: true,
-					width: 450
+					width: 400
 				}, {
 					field: 'date',
 					title: 'Date',
@@ -279,7 +285,6 @@ var KTDatatableJsonRemoteDemo = function () {
 					field: 'url',
 					title: 'URL',
                     type: 'url',
-					textAlign: 'center',
 					template: function(row){
 						return '<a href="'+row.url+'">'+row.url+'</a>';
                     },
