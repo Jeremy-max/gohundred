@@ -32,23 +32,34 @@
              <!-- Background image for card set in CSS! -->
           </div>
           <div class="card-body">
+
             <h5 class="card-title text-center">Password Reset</h5>
             <form role="form" method="POST" action="{{ route('password.request', ['token' => $token]) }}">
-            
+
               @csrf
 
               <div class="form-label-group">
                 <input name="email" type="email" id="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required autocomplete="email" placeholder="Enter your email here">
                 <label for="email">Email address</label>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
               </div>
-              
+
               <hr>
 
               <div class="form-label-group">
                 <input name="password" type="password" id="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password" placeholder="Password">
                 <label for="password">Password</label>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
               </div>
-              
+
               <div class="form-label-group">
                 <input name="password_confirmation" type="password" id="password-confirm" class="form-control" required autocomplete="new-password" placeholder="Confirm Password">
                 <label for="password-confirm">Confirm Password</label>
