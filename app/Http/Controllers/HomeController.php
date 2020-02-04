@@ -290,14 +290,15 @@ class HomeController extends Controller
         )
     );
     $webhook_json = $response->getBody()->getContents();
+    $webhook = json_decode($webhook_json);
 
     $campaign_id = session('campaign_id');
-    if(!isset($campaign_id))
+    if(!isset($campaign_id)|| $webhook->team_name)
     {
         return redirect()->route('dashboard')->withErrorMessage('Can not get campaign to add slack! Please choose correct campaign again.');
     }
 
-    $webhook = json_decode($webhook_json);
+
 
     $slack = Slack::updateOrCreate([
         'campaign_id' => $campaign_id,
@@ -330,6 +331,10 @@ class HomeController extends Controller
   {
     $campaign_id = $request->get('slack_campaign_id');
 
+    if($campaign_id == null)
+    {
+        return redirect()->route('dashboard');
+    }
     // if($campaign_id == '0' || $campaign_id == null)
     // {
     //     return redirect()->route('dashboard')->withErrorMessage('Please select campaign to add to slack');

@@ -145,7 +145,7 @@
 						<i class="la la-gear"></i>
 					</span>
 					<h3 class="kt-portlet__head-title">
-					Multiple Data Sets
+                        This graph shows you when and how many times the keyword is mentioned across all platforms
 					</h3>
 				</div>
 			</div>
@@ -166,7 +166,8 @@
 						<span class="kt-portlet__head-icon">
 							<i class="kt-font-brand flaticon2-line-chart"></i>
 						</span>
-						<h3 class="kt-portlet__head-title">Datatable
+						<h3 class="kt-portlet__head-title">
+                            This section shows you all the mentions on your keywords
 						<!-- <small>initialized from remote json file</small> -->
 						</h3>
 					</div>

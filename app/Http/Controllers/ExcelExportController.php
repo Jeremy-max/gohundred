@@ -17,7 +17,7 @@ class ExcelExportController extends Controller
       $keyword = Keyword::where('id', $keyword_id)->first()->keyword;
       $excelFileName = 'GoHundred - ' . $keyword . '.xlsx';
 
-      return Excel::download(new SearchExcelExport, $excelFileName);
+      return Excel::download(new SearchExcelExport($keyword_id), $excelFileName);
     }
 
     public function adminExport()

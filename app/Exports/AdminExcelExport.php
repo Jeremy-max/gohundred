@@ -13,7 +13,7 @@ class AdminExcelExport implements FromCollection
     */
     public function collection()
     {
-        $users = User::all();
+        // $users = User::all();
 
         // $table = new AdminUserTable;
         return User::all('name', 'email', 'password', 'country','active', 'login_via_google', 'login_via_facebook','payment_status','comment' ,'created_at');
