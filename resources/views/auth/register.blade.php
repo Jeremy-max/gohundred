@@ -10,6 +10,9 @@
   <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/css/signup.css" rel="stylesheet" type="text/css">
 
+  <title>Create a new account in GoHundred</title>
+  <link rel="shortcut icon" href="/assets/media/logos/GoHundred-icon.png" />
+
   <!-- Google Fonts -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet"> -->
   <!-- <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
@@ -56,7 +59,7 @@
                     </span>
                 @enderror
               </div>
-              
+
               <hr>
 
               <div class="form-label-group">
@@ -68,17 +71,17 @@
                     </span>
                 @enderror
               </div>
-              
+
               <div class="form-label-group">
                 <input name="password_confirmation" type="password" id="password-confirm" class="form-control" required autocomplete="new-password" placeholder="Confirm Password">
                 <label for="password-confirm">Confirm Password</label>
               </div>
-              
+
               <div class="form-label-group">
                 <input type="checkbox" name="vehicle1" value="Bike" id='tos' required/>
                 <label for='tos' class="py-0">
                   I have read and accept GoHundred's
-                  <a href="/privacy_policy">Privacy Policy</a> 
+                  <a href="/privacy_policy">Privacy Policy</a>
                   and
                   <a href="/terms-of-service">Terms of Service</a> <br>
                 </label>

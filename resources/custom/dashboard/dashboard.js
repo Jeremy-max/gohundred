@@ -6,7 +6,7 @@ var KTamChartsStockChartsDemo = function() {
     AmCharts.themes.light.AmStockChart.colors = [
         "#007bff",
         "#00aced",
-        "#ffb822",
+        // "#ffb822",
         "#fd397a",
         "#0abb87",
         "#0abb87",
@@ -41,10 +41,6 @@ var KTamChartsStockChartsDemo = function() {
                     "type": "column",
                     "fillColors": 'blue',
                     "lineColor": 'blue'
-                }, {
-                    "type": "column",
-                    "fillColors": 'red',
-                    "lineColor": 'red'
                 }],
                 "dataSets": [{
                     "title": "Facebook",
@@ -68,17 +64,6 @@ var KTamChartsStockChartsDemo = function() {
                     "showInSelect": "false",
                     "compared": "false"
                 },{
-                    "title": "tiktok",
-                    "fieldMappings": [{
-                        "fromField": "value",
-                        "toField": "value"
-                    }],
-                    "dataProvider": response[2],
-                    "categoryField": "date",
-                    "showInCompare": "false",
-                    "showInSelect": "false",
-                    "compared": "false"
-                }, {
                     "title": "Youtube",
                     "fieldMappings": [{
                         "fromField": "value",
@@ -135,6 +120,7 @@ var KTamChartsStockChartsDemo = function() {
 
                 "periodSelector": {
                     "position": "left",
+                    "dateFormat": "YYYY-MM-DD",
                     "periods": [{
                         "period": "DD",
                         "count": 10,

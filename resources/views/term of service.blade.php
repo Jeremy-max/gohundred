@@ -9,10 +9,10 @@
   <meta name="author" content="">
 
   <title>GoHundred-Grow Your Brand</title>
-
+  <link rel="shortcut icon" href="/assets/media/logos/GoHundred-icon.png" />
   <!-- Font Awesome Icons -->
   <link href="/css/all.min.css" rel="stylesheet" type="text/css">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -130,7 +130,7 @@
                 </ol>
                 <h4>H. Data Protection & the GDPR</h4>
                 <ol type="1">
-                  <li>If your use of our Services includes processing Content that contains “personal data” that is subject to the General Data Protection Regulation (EU) 2016/679, you may enter into a Data Processing Addendum (“<strong>DPA</strong>”) with GoHundred. 
+                  <li>If your use of our Services includes processing Content that contains “personal data” that is subject to the General Data Protection Regulation (EU) 2016/679, you may enter into a Data Processing Addendum (“<strong>DPA</strong>”) with GoHundred.
                   By accepting these Terms of Service, you also accept our <strong>Privacy Policy</strong>. Please review our <strong>Privacy Policy</strong> (for more information on how we collect and use data relating to the use and performance of our <strong>Services</strong>.</li>
                 </ol>
                 <h4>I. Confidentiality</h4>
@@ -139,22 +139,22 @@
                 </ol>
                 <h4>J. Intellectual Property</h4>
                 <ol type="1">
-                  <li><strong>Customer Content.</strong><br> 
+                  <li><strong>Customer Content.</strong><br>
                   You retain your rights to any Customer Content you submit, post or display on or through the <strong>Services</strong>. You grant us a non-exclusive, worldwide, perpetual, irrevocable, transferable, sub-licensable, royalty-free license to use, host, run, copy, reproduce, process, adapt, translate, modify, publish, transmit, display and distribute Customer Content for the purposes of providing, supporting, enhancing, and developing our products and  services.</li>
-                  <li><strong>Feedback.</strong><br> 
+                  <li><strong>Feedback.</strong><br>
                   We welcome your suggestions, comments, bug reports, feature requests or other feedback. We do not have to keep Feedback confidential, even if you tell us it is confidential. If you provide Feedback, you grant GoHundred a non-exclusive, worldwide, perpetual, irrevocable, transferable, sub-licensable, royalty-free, fully paid-up license to use the Feedback for any purpose.</li>
-                  <li><strong>Services.</strong><br> 
+                  <li><strong>Services.</strong><br>
                   GoHundred keep all rights and interests in our <strong>Services</strong>. The <strong>Services</strong> contain Content owned or licensed by GoHundred. GoHundred’s Content is protected by copyright, trademark, patent, trade secret and other laws, and, as between you and GoHundred, we own and retains all rights in the <strong>Services</strong> and in any GoHundred Content.</li>
                 </ol>
                 <h4>K. Payment Terms, Trials and Renewal</h4>
                 <ol type="1">
-                  <li><strong>Fees and Trials.</strong><br> 
+                  <li><strong>Fees and Trials.</strong><br>
                   You must pay all fees for the <strong>Services</strong> you purchase, except for <strong>Services</strong> that we expressly offer free of charge. If you sign up for a free trial of a paid <strong>Service</strong>, we may require you to provide a valid credit card or other payment method. We will charge you automatically on the first day after the free trial is over, unless you cancel or downgrade to a charge-free service and uninstall any paid apps before the end of the free-trial period.</li>
-                  <li><strong>Paid Services.</strong><br> 
+                  <li><strong>Paid Services.</strong><br>
                   For paid <strong>Services</strong>, you must provide us with a valid credit card or other form of electronic payment (such as PayPal). We will automatically charge you based on your chosen plan (such as monthly or yearly). We will share your account information with financial institutions and payment processing companies, including your submitted payment information, to process your purchase. Subscription to our plans is for fixed terms, and the associated fees payable are non-refundable. Prices for paid <strong>Services</strong> are subject to change on 30 days’ notice, provided that no price change will apply during your then-current subscription term. Depending on where you live, foreign exchange fees or differences in prices may apply, including because of exchange rates. We do not support all payment methods, currencies or locations for payment. If the payment method you use is no longer valid (such as a credit card that has expired) and you do not edit your payment information or cancel your plan, you authorize us to keep billing you for our <strong>Services</strong> and you remain responsible for uncollected amounts. If you owe us any unpaid fees, we may suspend your access to our Self-Serve Services without prior notice until you pay us in full. Your obligation to pay fees continues through to the end of the period in which you cancel your plan.</li>
-                  <li><strong>Auto-Renewal of Services.</strong><br> 
+                  <li><strong>Auto-Renewal of Services.</strong><br>
                   <strong>Services</strong> plans will <strong>renew automatically</strong> at the end of the term (which may be monthly or annually, depending on the plan you chose when you purchased our Services), and we will automatically bill you on renewal unless you cancel our <strong>Services.</strong></li>
-                  <li><strong>Taxes.</strong><br> 
+                  <li><strong>Taxes.</strong><br>
                   You are responsible for paying all taxes on all fees that you pay to us. Local taxes may differ based on your payment method.</li>
                 </ol>
                 <h4>L. Cancellation and Termination of Services</h4>
@@ -170,7 +170,7 @@
                   <li>No advice or information, whether oral or written, obtained from us or elsewhere will create any warranty or condition not expressly stated in this Agreement.
                   Our prices are set based on limitations of liability and the disclaimers of warranties in this section. You acknowledge that they will survive and apply even if found to have failed their essential purpose.</li>
                   <li>If you are dissatisfied with our Services or believe that you have been harmed by your use of our Services or this Agreement, you may terminate your use of our Services (as set out above). That termination is your sole and exclusive remedy (and our sole and exclusive liability) under this Agreement.</li>
-                </ol>  
+                </ol>
                 <h4>Claims and Disputes</h4>
                 <ol type="1">
                   <li>The laws of Denmark will govern any dispute, cause of action or claim arising out of this Agreement or your use of our <strong>Services</strong>, including against any GoHundred Party (<strong>“Dispute”</strong>), without giving effect to conflict-of-law principles.</li>
@@ -190,7 +190,7 @@
                   <ol type="a">
                     <li>(“<strong>Prohibited Jurisdiction</strong>”) and you will not provide access to our <strong>Services</strong> to any government, entity or individual located in any Prohibited Jurisdiction. You confirm that you are not named on any Danish government list of persons or entities prohibited from transaction with any Danish person; </li>
                     <li>You are not a national of, or a company registered in, any Prohibited Jurisdiction;</li>
-                    <li>You will not allow Authorized Users to access or use our <strong>Services</strong> in violation of any Danish or other export embargoes, prohibitions or restrictions; and</li> 
+                    <li>You will not allow Authorized Users to access or use our <strong>Services</strong> in violation of any Danish or other export embargoes, prohibitions or restrictions; and</li>
                     <li>You will comply with all laws regarding the transmission of data exported from the country in which you (or your Authorized Users) are located to Denmark.</li>
                   </ol>
                   <li><strong>Amendment.</strong><br>We may change any part of this <strong>Agreement</strong> (including any terms or documents incorporated by reference in this <strong>Agreement</strong>) at any time by posting the revised terms on the GoHundred website, and your use of the Services after the effective date of the updated <strong>Agreement</strong> or other terms constitutes your agreement to the updated <strong>Agreement</strong> or other terms, as applicable. It is important for you to review this <strong>Agreement</strong> before using our Services and from time to time. The updated<strong> Agreement</strong> will be effective as of the time of posting, or on such later date as may be specified in the updated <strong>Agreement</strong>, and will apply to your use of the Services from that point forward.</li>
@@ -201,7 +201,7 @@
                   <li><strong>Notices to You.</strong><br>GoHundred may give notice to you by placing a banner notice on the GoHundred platform or GoHundred’s website. We may also contact you or your <strong>Authorized Users</strong> through your GoHundred account or contact information you provide, such as email or telephone or through your account on one or more Social Networks. If you fail to maintain accurate account information, such as contact information, you may not receive critical information about our <strong>Services</strong> or this <strong>Agreement</strong>.</li>
                   <li><strong>Notices to GoHundred.</strong><br>For any notice to GoHundred that you give under or regarding this Agreement, you must notify GoHundred by email to the following email address: <a href = "mailto: hello@gohundred.co">hello@gohundred.co</a> </li>
                   <li><strong>Entire Agreement.</strong><br>This <strong>Agreement</strong>, including the other documents referred to as applicable to the <strong>Services</strong> in this<storng> Agreement</storng>, is the entire <strong>agreement</strong> between you and GoHundred for your use of our <strong>Services</strong>. Any prior understandings, statements or and <strong>agreements</strong> (oral or written) do not apply, including additional terms that you may present (such as terms in a unilateral notice from you to us or printed on a purchase order or any other document generated by you). This <strong>Agreement</strong> is binding on the parties and their permitted successors and assigns.</li>
-                </ol>       
+                </ol>
             </div>
           </div>
         </div>
@@ -210,7 +210,7 @@
   </section>
 
   <!-- Services Section -->
- 
+
 <footer class="page-footer font-small unique-color-dark">
   <!-- Footer Links -->
     <!-- Grid row -->
@@ -226,7 +226,7 @@
           <a href = "mailto: help@gohundred.co">For help</a>
         </p>
         <p>
-          <i class="fas fa-database mr-3"></i> 
+          <i class="fas fa-database mr-3"></i>
           <a href = "mailto: dpo@gohundred.co">For data inquiries</a>
         </p>
         <p>
@@ -240,7 +240,7 @@
           </a>
           <br>
             <small>GoHundred is always looking for new talents, so if you are interested in hearing more about the opportunities working with us, you are welcome to send you CV or LinkedIn profile-link to us at:<a href = "mailto: job@gohundred.co ">Jobs@gohundred.co</a></small>
-        </p>        
+        </p>
       </div>
       <!-- Grid column -->
       <!-- Grid column -->

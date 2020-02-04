@@ -9,7 +9,7 @@
   <meta name="author" content="">
 
   <title>GoHundred-Grow Your Brand</title>
-
+  <link rel="shortcut icon" href="/assets/media/logos/GoHundred-icon.png" />
   <!-- Font Awesome Icons -->
   <link href="/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -22,6 +22,7 @@
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="/css/creative.css" rel="stylesheet">
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

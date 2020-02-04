@@ -10,7 +10,8 @@
     <meta name="keywords" content="AuThemes Templates">
 
     <!-- Title Page-->
-    <title>Gohundred</title>
+    <title>Adding campaign to Gohundred</title>
+    <link rel="shortcut icon" href="/assets/media/logos/GoHundred-icon.png" />
 
     <!-- Icons font CSS-->
     <link href="/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">

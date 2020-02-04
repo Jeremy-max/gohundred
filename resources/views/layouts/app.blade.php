@@ -31,7 +31,7 @@
 		<!--begin::Global Theme Styles(used by all pages) -->
 		<link href="{{ asset('css/theme.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Global Theme Styles -->
-		<link rel="shortcut icon" href="/assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href="/assets/media/logos/GoHundred-icon.png" />
 	</head>
 
 	<!-- end::Head -->
@@ -40,7 +40,7 @@
     <body class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading" >
 		{{-- @include('layouts.partials._layout-page-loader') --}}
 		@include('layouts._layout')
-		
+
 		<!-- begin::Global Config(global config for global JS sciprts) -->
 		<script>
 			var KTAppOptions = {

@@ -74,24 +74,19 @@
 									10 New Comments
 								</span>
 							</div>
-							<div class="kt-widget17__item">
-							{{-- <a href=""> --}}
+							{{-- <div class="kt-widget17__item">
 								<div class="kt-demo-icon">
 									<div class="kt-demo-icon__preview">
 										<i class="fab fa-twitch kt-font-warning"></i>
 									</div>
-									<!-- <div class="kt-demo-icon__class">
-										Reddit
-									</div> -->
 								</div>
-							{{-- </a> --}}
 								<span class="kt-widget17__subtitle">
 									Tictok
 								</span>
 								<span class="kt-widget17__desc">
 									10 New Comments
 								</span>
-							</div>
+							</div> --}}
 							<div class="kt-widget17__item">
 							{{-- <a href=""> --}}
 								<div class="kt-demo-icon">
