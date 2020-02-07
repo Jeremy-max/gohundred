@@ -149,7 +149,20 @@ var KTamChartsStockChartsDemo = function() {
 
                 "export": {
                     "enabled": false
-                }
+                },
+
+                "listeners": [{
+                    "event": "rendered",
+                    "method": function(ev) {
+                        $('.amChartsInputField').datepicker({
+                            format: 'yyyy-mm-dd',
+                            startDate: '2019-11-11',
+                            todayBtn: 'linked',
+                            todayHighlight: true,
+                            clearBtn: true
+                        });
+                    }
+                }]
             });
         });
 

@@ -96,7 +96,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					title: 'URL',
                     type: 'url',
 					template: function(row){
-						return '<a href="'+row.url+'">'+row.url+'</a>';
+						return '<a href="'+row.url+'" class="dashboard-table-url">'+row.url+'</a>';
                     },
                     autoHide: true,
                     width: 'auto'
@@ -191,6 +191,11 @@ var KTDatatableJsonRemoteDemo = function () {
               }
             });
         });
+
+        $("body").on("click", ".dashboard-table-url", function (e) {
+            e.preventDefault();
+            window.open($(e.target).attr("href"), "_blank")
+        })
 
         // $('#kt_datatable_delete_all').on('click', function () {
         //     var ids = datatable.checkbox().getSelectedId();

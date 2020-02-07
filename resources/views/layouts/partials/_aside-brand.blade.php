@@ -2,7 +2,7 @@
 <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
     <div class="kt-aside__brand-logo">
         <a href="">
-            <img alt="Logo" src="/assets/media/logos/GoHundred-icon.png"/>
+            <img alt="Logo" src="/assets/media/logos/GoHundred_logo_light.png" class="brand w-100" />
         </a>
     </div>
     <div class="kt-aside__brand-tools">

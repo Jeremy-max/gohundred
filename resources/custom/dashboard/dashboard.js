@@ -149,7 +149,20 @@ var KTamChartsStockChartsDemo = function() {
 
                 "export": {
                     "enabled": false
-                }
+                },
+
+                "listeners": [{
+                    "event": "rendered",
+                    "method": function(ev) {
+                        $('.amChartsInputField').datepicker({
+                            format: 'yyyy-mm-dd',
+                            startDate: '2019-11-11',
+                            todayBtn: 'linked',
+                            todayHighlight: true,
+                            clearBtn: true
+                        });
+                    }
+                }]
             });
         });
 
@@ -272,7 +285,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					title: 'URL',
                     type: 'url',
 					template: function(row){
-						return '<a href="'+row.url+'">'+row.url+'</a>';
+						return '<a href="'+row.url+'" class="dashboard-table-url">'+row.url+'</a>';
                     },
                     autoHide: true,
                     width: 'auto'
@@ -367,6 +380,11 @@ var KTDatatableJsonRemoteDemo = function () {
               }
             });
         });
+
+        $("body").on("click", ".dashboard-table-url", function (e) {
+            e.preventDefault();
+            window.open($(e.target).attr("href"), "_blank")
+        })
 
         // $('#kt_datatable_delete_all').on('click', function () {
         //     var ids = datatable.checkbox().getSelectedId();
