@@ -12,7 +12,6 @@ class ExcelExportController extends Controller
 {
     public function export(Request $request)
     {
-
       $keyword_id = session('keyword_id');
       $keyword = Keyword::where('id', $keyword_id)->first()->keyword;
       $excelFileName = 'GoHundred - ' . $keyword . '.xlsx';

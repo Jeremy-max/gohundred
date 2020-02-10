@@ -37,16 +37,6 @@ class HomeController extends Controller
 
   public function __construct()
   {
-    // $user = \Auth::user();
-    // dd($user);
-    // if($user)
-    // {
-    //   dd("sdf");
-    //   $keyword_list = Keyword::where('user_id', $user->id)->get();
-
-
-    //   View::share('keyword_list', $keyword_list);
-    // }
     $this->middleware(['auth', 'verified']);
 
 
@@ -64,15 +54,20 @@ class HomeController extends Controller
             if ($keyword_list->count() > 0 && $flag == false)
             {
               $flag = true;
-              $keyword_id = $keyword_list->first()->id;
-              session(['keyword_id'=> $keyword_id]);
-              View::share('keyword_id', $keyword_id);
+              $keyword = $keyword_list->first();
+              $campaign = $keyword->campaign;
+              if (session('keyword_id') == null){
+                session(['keyword_id'=> $keyword->id]);
+              }
+
+              View::share('keyword_id', $keyword->id);
+              View::share('campaign_active_id', $campaign->id);
             }
             array_push($array, [
                 'campaign_id' => $campaign->id,
                 'campaign' => $campaign->campaign,
                 'keyword_list' => $keyword_list
-                ]);
+            ]);
           }
         }
         $firstcharname = strtoupper(substr($user->name, 0, 1));
@@ -183,8 +178,9 @@ class HomeController extends Controller
 
   public function showCampaignPage(Request $request, $keyword_id)
   {
-//    dd($keyword);
     session(['keyword_id'=> $keyword_id]);
+    $campaign = Keyword::where('id', $keyword_id)->first()->campaign;
+    View::share('campaign_active_id', $campaign->id);
     return view('dashboard', ['keyword_id' => $keyword_id]);
   }
 
@@ -268,7 +264,6 @@ class HomeController extends Controller
     $rowId = $request->input('rowId', 0);
     $comment = $request->input('comment', '');
     $user = User::where('id', $rowId)->update(['comment' => $comment]);
-
   }
 
   public function getSlackWebHookURL(Request $request)
