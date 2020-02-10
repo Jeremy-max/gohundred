@@ -586,11 +586,31 @@
             <div class="card-header" id="headingEight">
               <h2 class="mb-0">
                 <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                  Can I delete my account?
+                    How does GoHundred work with Slack?
                 </button>
               </h2>
             </div>
             <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+              <div class="card-body">
+                You can integrate your campaigns into Slack with a paid plan. You will be able to receive the same data from your GoHundred dashboard into any Slack channel that you choose. This way you will always be alerted when people mention you or your brand.<br><br>
+                Follow this guide to install GoHundred into your Slack channel:<br><br>
+                &nbsp;&nbsp;1.&nbsp;&nbsp;    Install Slack by consulting the user menu on the right inside your dashboard (after you have logged in).<br>
+                &nbsp;&nbsp;2.&nbsp;&nbsp;    Choose “Install Slack”.<br>
+                &nbsp;&nbsp;3.&nbsp;&nbsp;    Choose which campaign you wish to add to Slack.<br>
+                &nbsp;&nbsp;4.&nbsp;&nbsp;    Now a window will ask you to choose which Slack channel you wish to receive your campaigns in.<br>
+                &nbsp;&nbsp;5.&nbsp;&nbsp;    To finally enable Slack, click Allow.<br>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingNine">
+              <h2 class="mb-0">
+                <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                  Can I delete my account?
+                </button>
+              </h2>
+            </div>
+            <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
               <div class="card-body">
                 Yes, as GoHundred is GDPR compliant, you have the right to at any time withdraw your consent to being registered as a user on GoHundred. In order to delete your account, simply go to your profile settings and click “Delete my account”. When you have deleted your account, GoHundred will no longer be in possession of any data that you have entered into your profile when you registered.
               </div>
