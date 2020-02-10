@@ -299,7 +299,7 @@ var KTDatatableJsonRemoteDemo = function () {
 					template: function(row) {
                         var url = row.url;
                         return '\
-                        <a href="'+url+'" class="btn btn-hover-warning btn-icon btn-pill" title="Go to page">\
+                        <a href="'+url+'" class="btn btn-hover-warning btn-icon btn-pill dashboard-table-url" title="Go to page">\
 							<i class="fas fa-external-link-alt"></i>\
 						</a>\
                         <button class="btn btn-hover-danger btn-icon btn-pill btn-delete" title="Delete" name='+row.id+'>\
@@ -383,7 +383,7 @@ var KTDatatableJsonRemoteDemo = function () {
 
         $("body").on("click", ".dashboard-table-url", function (e) {
             e.preventDefault();
-            window.open($(e.target).attr("href"), "_blank")
+            window.open($(e.target).attr("href"), "_blank");
         })
 
         // $('#kt_datatable_delete_all').on('click', function () {
