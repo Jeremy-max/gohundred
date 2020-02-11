@@ -48,6 +48,9 @@
             <a class="nav-link js-scroll-trigger" href="#about">Features</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#slack">Slack</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#cases">Use cases</a>
           </li>
           <li class="nav-item">
@@ -115,49 +118,37 @@
             <h3><img class="heart" src="../img/GoHundred(1).png">4. Integrate Slack or email to receive updates</p>
             <h3><img class="heart" src="../img/GoHundred(1).png">5. Export your data to Excel to work with it </p>
         </div>
-      <!-- <div class="row col-lg-10 offset-1 col-10">
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fa-4x fab fa-searchengin text-primary mb-4"></i>
-            <p class="text-muted mb-0">Keep tabs on campaigns</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fa-4x far fa-newspaper text-primary mb-4"></i>
-            <p class="text-muted mb-0">Get real data on what people say about your brand, trending topics or your competitors</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fab fa-4x fa-slack text-primary mb-4"></i>
-            <p class="text-muted mb-0">Slack integration</p>
-          </div>
-        </div>
-      </div>
-      <div class="row col-lg-10 offset-1 col-10 ">
-        <div class="col-lg-6 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fa-4x far fa-file-excel text-primary mb-4"></i>
-            <p class="text-muted mb-0">Excel file export</p>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fa-4x fas fa-sync text-primary mb-4"></i>
-            <p class="text-muted mb-0">12-hour update</p>
-          </div>
-        </div>
-      </div> -->
     </div>
   </section>
 
-  <section class="page-section bg-primary" id = "cases" >
+  <section class="page-section text-white bg-primary" id="slack">
+    <div class="container">
+      <h1 class="text-center mt-0">How does GoHundred work with slack</h2>
+      <hr class="divider light my-4 mt-3">
+        <div class="text-left mt-5">
+            <h3 class="mb-4">
+                You can integrate your campaigns into Slack with a paid plan. <br>
+                You will be able to receive the same data from your GoHundred dashboard into any Slack channel that you choose. <br>
+                This way you will always be alerted when people mention you or your brand.
+            </h3>
+            <h4 class="mb-2">
+                Follow this guide to install GoHundred into your Slack channel:
+            </h4>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Install Slack by consulting the user menu on the right inside your dashboard (after you have logged in).</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Choose "Install Slack" </h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Choose which campaign you wish to add to Slack.</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Now a window will ask you to choose which Slack channel you wish to receive your campaigns in.</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> To finally enable Slack, click Allow.</h5>
+        </div>
+    </div>
+  </section>
+
+  <section class="page-section text-primary" id = "cases" >
     <div class="container">
       <div class="row justify-content-center">
         <div class="text-center w-100">
-          <h1 id="sss" class="text-white mt-0">Use Cases </h2>
-          <hr class="divider light my-4">
+          <h1 id="sss" class="mt-0">Use Cases </h2>
+          <hr class="divider my-4">
           <div class="row background-blue">
             <div class="col">
               <div class="card w-100 mb-3">
@@ -244,10 +235,10 @@
     </div>
   </section>
 
-  <section class="page-section text-primary" id="plans">
+  <section class="page-section text-white bg-primary" id="plans">
     <div class="container">
-      <h1 class="text-center mt-0">Pricing</h1>
-      <hr class="divider my-4 mt-3">
+      <h1 class="text-center  mt-0">Pricing</h1>
+      <hr class="divider light my-4 mt-3">
 
         <div class="text-center">
         <h2 class="mb-4">Pay as you go</h2>
@@ -367,14 +358,14 @@
 
 
   <!-- Section: Testimonials v.3 -->
-<section class="page-section bg-primary text-center">
+<section class="page-section text-primary text-center">
   <div class="container">
 
     <!-- Section heading -->
-    <h1 class="h1-responsive font-weight-bold text-white mb-5">What People Say about GoHundred</h1>
+    <h1 class="h1-responsive font-weight-bold text-primary mb-5">What People Say about GoHundred</h1>
     <!-- Section description -->
     <!--Grid row-->
-      <div class="row text-center text-white mb-4">
+      <div class="row text-center text-primary mb-4">
 
         <!--Grid column-->
         <div class="col-md-4 mb-md-0 mb-5">
@@ -458,7 +449,7 @@
       </div>
     <!--Grid row-->
     <div class="container text-center mt-5">
-          <a class="btn btn-light btn-xl" href="/step">Get me started</a>
+          <a class="btn btn-primary btn-xl" href="/step">Get me started</a>
         </div>
   </div>
 </section>
