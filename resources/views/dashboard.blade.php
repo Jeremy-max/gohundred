@@ -189,7 +189,7 @@
 											<option value="">All</option>
 											<option value="facebook">facebook</option>
 											<option value="twitter">twitter</option>
-											<option value="tiktok">tiktok</option>
+											{{-- <option value="tiktok">tiktok</option> --}}
 											<option value="youtube">youtube</option>
 											<option value="web">web</option>
 										</select>
