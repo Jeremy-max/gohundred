@@ -48,7 +48,7 @@
             <a class="nav-link js-scroll-trigger" href="#about">Features</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#slack">Slack</a>
+            <a class="nav-link js-scroll-trigger" href="#SLACK">SLACK</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#cases">Use cases</a>
@@ -99,7 +99,7 @@
             <div class="col-lg-5 text-left mt-3">
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Start today for free</p>
               <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">We don't spam your inbox</p>
-              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get all information in your Slack channel</p> -->
+              <h4 class="text-white-75"><img class="heart" src="../img/GoHundred(1).png">Get all information in your SLACK channel</p> -->
           <!-- <a class="btn btn-light btn-xl js-scroll-trigger mt-5" href="/step">Get Me Started</a> -->
         </div>
       </div>
@@ -115,30 +115,30 @@
             <h3><img class="heart" src="../img/GoHundred(1).png">1. Sign up</p>
             <h3><img class="heart" src="../img/GoHundred(1).png">2. Choose 5 keywords to monitor your campaign </p>
             <h3><img class="heart" src="../img/GoHundred(1).png">3. Use your Dashboard to monitor campaigns on social media and the web</p>
-            <h3><img class="heart" src="../img/GoHundred(1).png">4. Integrate Slack or email to receive updates</p>
+            <h3><img class="heart" src="../img/GoHundred(1).png">4. Integrate SLACK or email to receive updates</p>
             <h3><img class="heart" src="../img/GoHundred(1).png">5. Export your data to Excel to work with it </p>
         </div>
     </div>
   </section>
 
-  <section class="page-section text-white bg-primary" id="slack">
+  <section class="page-section text-white bg-primary" id="SLACK">
     <div class="container">
-      <h1 class="text-center mt-0">How does GoHundred work with slack</h2>
+      <h1 class="text-center mt-0">How does GoHundred work with SLACK</h2>
       <hr class="divider light my-4 mt-3">
         <div class="text-left mt-5">
             <h3 class="mb-4">
-                You can integrate your campaigns into Slack with a paid plan. <br>
-                You will be able to receive the same data from your GoHundred dashboard into any Slack channel that you choose. <br>
+                You can integrate your campaigns into SLACK with a paid plan. <br>
+                You will be able to receive the same data from your GoHundred dashboard into any SLACK channel that you choose. <br>
                 This way you will always be alerted when people mention you or your brand.
             </h3>
             <h4 class="mb-2">
-                Follow this guide to install GoHundred into your Slack channel:
+                Follow this guide to install GoHundred into your SLACK channel:
             </h4>
-            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Install Slack by consulting the user menu on the right inside your dashboard (after you have logged in).</h5>
-            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Choose "Install Slack" </h5>
-            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Choose which campaign you wish to add to Slack.</h5>
-            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Now a window will ask you to choose which Slack channel you wish to receive your campaigns in.</h5>
-            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> To finally enable Slack, click Allow.</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> Install SLACK by consulting the user menu on the right inside your dashboard (after you have logged in).</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> Choose "Install SLACK" </h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> Choose which campaign you wish to add to SLACK.</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> Now a window will ask you to choose which SLACK channel you wish to receive your campaigns in.</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> To finally enable SLACK, click Allow.</h5>
         </div>
     </div>
   </section>
@@ -245,7 +245,7 @@
         <h3 class="mt-2 mb-5">EUR 8 per campaign (billed monthly)</h3>
           <h4><i class="fab fa-searchengin mr-3"></i>5 keywords per campaign</h4>
           <h4><i class="far fa-newspaper mr-3"></i>Get minimum 1K data per month</h4>
-          <h4><i class="fab fa-slack mr-3"></i>Slack integration</h4>
+          <h4><i class="fab fa-SLACK mr-3"></i>SLACK integration</h4>
           <h4><i class="far fa-file-excel mr-3"></i>Excel file export</h4>
           <h4><i class="fas fa-sync mr-3"></i>12-hour update</h4>
         </div>
@@ -269,7 +269,7 @@
               <li>Keep tabs on <strong>&nbsp;1&nbsp;</strong> campaign <br>(5 keywords)</li>
               <li>Get<strong>&nbsp;1</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
-              <li>Slack integration</li>
+              <li>SLACK integration</li>
               <li>Update every 12 hours</li>
               <li>Excel file export</li>
             </ul>
@@ -293,7 +293,7 @@
               <li>Keep tabs on <strong>&nbsp;5&nbsp;</strong> campaigns <br>(10 keywords per campaign)</li>
               <li>Get<strong>&nbsp;20</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
-              <li>Slack integration</li>
+              <li>SLACK integration</li>
               <li>Update every 12 hours</li>
               <li>Excel file export</li>
             </ul>
@@ -318,7 +318,7 @@
               <li>Keep tabs on <strong>&nbsp;20&nbsp;</strong> campaigns <br>(20 keywords per campaign)</li>
               <li>Get<strong>&nbsp;50</strong>k data every month</li>
               <li>Compare your Brand to competitors</li>
-              <li>Slack integration</li>
+              <li>SLACK integration</li>
               <li>Update every 12 hours</li>
               <li>Excel file export</li>
             </ul>
@@ -342,7 +342,7 @@
               <li>Keep tabs on <strong>&nbsp;unlimited&nbsp;</strong> campaigns <br>(Unlimited keywords)</li>
               <li>Get<strong>&nbsp;1</strong> million data every month</li>
               <li>Compare your Brand to competitors</li>
-              <li>Slack integration</li>
+              <li>SLACK integration</li>
               <li>Update every 12 hours</li>
               <li>Excel file export</li>
             </ul>
@@ -577,19 +577,19 @@
             <div class="card-header" id="headingEight">
               <h2 class="mb-0">
                 <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                    How does GoHundred work with Slack?
+                    How does GoHundred work with SLACK?
                 </button>
               </h2>
             </div>
             <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
               <div class="card-body">
-                You can integrate your campaigns into Slack with a paid plan. You will be able to receive the same data from your GoHundred dashboard into any Slack channel that you choose. This way you will always be alerted when people mention you or your brand.<br><br>
-                Follow this guide to install GoHundred into your Slack channel:<br><br>
-                &nbsp;&nbsp;1.&nbsp;&nbsp;    Install Slack by consulting the user menu on the right inside your dashboard (after you have logged in).<br>
-                &nbsp;&nbsp;2.&nbsp;&nbsp;    Choose “Install Slack”.<br>
-                &nbsp;&nbsp;3.&nbsp;&nbsp;    Choose which campaign you wish to add to Slack.<br>
-                &nbsp;&nbsp;4.&nbsp;&nbsp;    Now a window will ask you to choose which Slack channel you wish to receive your campaigns in.<br>
-                &nbsp;&nbsp;5.&nbsp;&nbsp;    To finally enable Slack, click Allow.<br>
+                You can integrate your campaigns into SLACK with a paid plan. You will be able to receive the same data from your GoHundred dashboard into any SLACK channel that you choose. This way you will always be alerted when people mention you or your brand.<br><br>
+                Follow this guide to install GoHundred into your SLACK channel:<br><br>
+                &nbsp;&nbsp;1.&nbsp;&nbsp;    Install SLACK by consulting the user menu on the right inside your dashboard (after you have logged in).<br>
+                &nbsp;&nbsp;2.&nbsp;&nbsp;    Choose “Install SLACK”.<br>
+                &nbsp;&nbsp;3.&nbsp;&nbsp;    Choose which campaign you wish to add to SLACK.<br>
+                &nbsp;&nbsp;4.&nbsp;&nbsp;    Now a window will ask you to choose which SLACK channel you wish to receive your campaigns in.<br>
+                &nbsp;&nbsp;5.&nbsp;&nbsp;    To finally enable SLACK, click Allow.<br>
               </div>
             </div>
           </div>
