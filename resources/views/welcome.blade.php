@@ -134,11 +134,11 @@
             <h4 class="mb-2">
                 Follow this guide to install GoHundred into your SLACK channel:
             </h4>
-            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> Install SLACK by consulting the user menu on the right inside your dashboard (after you have logged in).</h5>
-            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> Choose "Install SLACK" </h5>
-            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> Choose which campaign you wish to add to SLACK.</h5>
-            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> Now a window will ask you to choose which SLACK channel you wish to receive your campaigns in.</h5>
-            <h5>&nbsp;&nbsp;<i class="fab fa-SLACK"></i> To finally enable SLACK, click Allow.</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Install SLACK by consulting the user menu on the right inside your dashboard (after you have logged in).</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Choose "Install SLACK" </h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Choose which campaign you wish to add to SLACK.</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> Now a window will ask you to choose which SLACK channel you wish to receive your campaigns in.</h5>
+            <h5>&nbsp;&nbsp;<i class="fab fa-slack"></i> To finally enable SLACK, click Allow.</h5>
         </div>
     </div>
   </section>
@@ -245,7 +245,7 @@
         <h3 class="mt-2 mb-5">EUR 8 per campaign (billed monthly)</h3>
           <h4><i class="fab fa-searchengin mr-3"></i>5 keywords per campaign</h4>
           <h4><i class="far fa-newspaper mr-3"></i>Get minimum 1K data per month</h4>
-          <h4><i class="fab fa-SLACK mr-3"></i>SLACK integration</h4>
+          <h4><i class="fab fa-slack mr-3"></i>SLACK integration</h4>
           <h4><i class="far fa-file-excel mr-3"></i>Excel file export</h4>
           <h4><i class="fas fa-sync mr-3"></i>12-hour update</h4>
         </div>
