@@ -383,7 +383,7 @@ var KTDatatableJsonRemoteDemo = function () {
 
         $("body").on("click", ".dashboard-table-url", function (e) {
             e.preventDefault();
-            window.open($(e.target).attr("href"), "_blank");
+            window.open(e.currentTarget.href, "_blank");
         })
 
         // $('#kt_datatable_delete_all').on('click', function () {
