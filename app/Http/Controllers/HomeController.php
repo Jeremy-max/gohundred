@@ -275,7 +275,7 @@ class HomeController extends Controller
 
     $client = new \GuzzleHttp\Client();
     $response = $client->post(
-        'https://slack.com/api/oauth.access',
+        'https://slack.com/api/oauth.v2.access',
         array(
             'form_params' => array(
                 'client_id' => $client_id,
@@ -292,7 +292,7 @@ class HomeController extends Controller
     {
         return redirect()->route('dashboard')->withErrorMessage('Can not get campaign to add slack! Please choose correct campaign again.');
     }
-
+    dd($webhook);
 
 
     $slack = Slack::updateOrCreate([
@@ -349,11 +349,11 @@ class HomeController extends Controller
 
     $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
 
-    dump($access_token);
-    dump('EAAGpzQLPRlEBAMIFebLQYePjlJ3wF9Yg0gdAKjPHzWMfDJ0DPOpwQwmFbrLqf91Qa4eZBFsknfuQgvtEPZCI29zGE8dQFW3456ya8aya9bqikwrpFRv4pZBKISZBMS9jNex7OvU5ZBLgSvU2th7iamqdc90eOi3KrzaJPaIdpZCAF8pXbbb9HRmDAvjebvfrMbSbFoGZBZCFpzpahoPaFC0YMaxvMPziF5yIweU9bNAnGUPg5azZC4xIZB');
-    dump($app_token);
-    dump($app_secret);
-    dd($appsecret_proof);
+    // dump($access_token);
+    // dump('EAAGpzQLPRlEBAMIFebLQYePjlJ3wF9Yg0gdAKjPHzWMfDJ0DPOpwQwmFbrLqf91Qa4eZBFsknfuQgvtEPZCI29zGE8dQFW3456ya8aya9bqikwrpFRv4pZBKISZBMS9jNex7OvU5ZBLgSvU2th7iamqdc90eOi3KrzaJPaIdpZCAF8pXbbb9HRmDAvjebvfrMbSbFoGZBZCFpzpahoPaFC0YMaxvMPziF5yIweU9bNAnGUPg5azZC4xIZB');
+    // dump($app_token);
+    // dump($app_secret);
+    // dd($appsecret_proof);
   }
 
 }

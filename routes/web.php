@@ -12,11 +12,6 @@
 */
 
 
-
-// Route::get('/', function () {
-//     return view('case_study');
-// });
-
 Auth::routes(['verify' => true]);
 
 Route::get('/', function () {
@@ -91,13 +86,15 @@ Route::middleware('auth')->group(function () {
 
   // Route::get('/twitter', 'HomeController@search_twitter');
 
-   Route::get('/facebook', 'HomeController@facebook');
+//    Route::get('/facebook', 'HomeController@facebook');
 
 //   Route::get('/tiktok', 'HomeController@tiktokApi');
 
   // Route::get('/youtube', 'HomeController@search_youtube');
 
   // Route::get('/web', 'HomeController@search_web');
+
+
 
 });
 

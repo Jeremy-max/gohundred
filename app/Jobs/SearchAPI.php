@@ -360,7 +360,7 @@ class SearchAPI implements ShouldQueue
     $maxidstr = substr($tweets->search_metadata->next_results, $startIdx + 7);
     $endIdx = stripos($maxidstr, '&');
     if ($endIdx != -1)
-      $maxidstr = substr($maxidstr,0, $endIdx);
+      $maxidstr = substr($maxidstr, 0, $endIdx);
 
     return (int)$maxidstr;
   }
@@ -406,8 +406,8 @@ class SearchAPI implements ShouldQueue
       // {
       //     $sumCnt += 10;
       //     try{
-            $results = $client.searchHashtags($params);
-            dd($results);
+            // $results = $client.searchHashtags($params);
+            // dd($results);
 //             $tiktok_db = array_merge($tiktok_db, $this->parseTiktok($results, $keyword->id));
 //           } catch(\Exception $e) {
 //  //           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
@@ -577,7 +577,7 @@ class SearchAPI implements ShouldQueue
     $dateY = date('Y');
     $dateM = date('m');
     $dateD = date('d');
-    $limit_cnt = 40;
+    $limit_cnt = 90;
 
 
     $sumCnt = 0;
