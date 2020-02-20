@@ -288,7 +288,7 @@ class HomeController extends Controller
     $webhook = json_decode($webhook_json);
 
     $campaign_id = session('campaign_id');
-    if(!isset($campaign_id)|| $webhook->team->name)
+    if(!isset($campaign_id)|| !isset($webhook->team->name))
     {
         return redirect()->route('dashboard')->withErrorMessage('Can not get campaign to add slack! Please choose correct campaign again.');
     }
