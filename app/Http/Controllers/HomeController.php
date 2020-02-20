@@ -268,14 +268,14 @@ class HomeController extends Controller
 
   public function getSlackWebHookURL(Request $request)
   {
-
+    $oauth_url = env('SLACK_API_OAUTH_URL');
     $client_id = env('SLACK_CLIENT_ID');
     $client_secret = env('SLACK_CLIENT_SECRET');
     $code = $request->get('code');
 
     $client = new \GuzzleHttp\Client();
     $response = $client->post(
-        'https://slack.com/api/oauth.v2.access',
+        $oauth_url,
         array(
             'form_params' => array(
                 'client_id' => $client_id,
@@ -288,16 +288,15 @@ class HomeController extends Controller
     $webhook = json_decode($webhook_json);
 
     $campaign_id = session('campaign_id');
-    if(!isset($campaign_id)|| $webhook->team_name)
+    if(!isset($campaign_id)|| $webhook->team->name)
     {
         return redirect()->route('dashboard')->withErrorMessage('Can not get campaign to add slack! Please choose correct campaign again.');
     }
-    dd($webhook);
 
 
     $slack = Slack::updateOrCreate([
         'campaign_id' => $campaign_id,
-        'team_name' => $webhook->team_name,
+        'team_name' => $webhook->team->name,
         'channel_id' => $webhook->incoming_webhook->channel_id
         ],[
             'channel_name' => $webhook->incoming_webhook->channel,
