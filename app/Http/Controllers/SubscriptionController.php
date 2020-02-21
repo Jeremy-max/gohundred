@@ -19,7 +19,7 @@ class SubscriptionController extends Controller
         $user->createOrGetStripeCustomer();
         $user->updateDefaultPaymentMethod($paymentMethod);
         $request->user()->newSubscription('main', $plan->stripe_plan)
-            ->trialDays(2)
+            ->trialDays(14)
             ->create($paymentMethod, [
                 'email' => $user->email,
             ]);
