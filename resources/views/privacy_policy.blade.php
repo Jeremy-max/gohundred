@@ -12,7 +12,7 @@
 
   <!-- Font Awesome Icons -->
   <link href="/css/all.min.css" rel="stylesheet" type="text/css">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -90,11 +90,11 @@
                   <li>Changes to our privacy policy</li>
                   <li>How to contact us</li>
                   <li>How to contact the appropriate authorities </li>
-                </ul>    
+                </ul>
                 <p><strong>What data do we collect?</strong><br>GoHundred collects the following data:</p>
                 <ul>
                   <li>Personal identification information (Name, email address, phone number, country of residence, language)</li>
-                </ul>    
+                </ul>
                 <p><strong>How do we collect your data?</strong><br>You directly provide GoHundred with most of the data we collect. We collect data and process data when you:</p>
                 <ul>
                   <li>Register online or place an order for any of our services or products.</li>
@@ -105,11 +105,11 @@
                 <ul>
                   <li>Process your order, manage your account</li>
                   <li>Email you with special offers on other products and services we think you might like.
-                  By agreeing to this privacy policy, GoHundred will share your data with our partner companies so that they may offer you their products and services. 
+                  By agreeing to this privacy policy, GoHundred will share your data with our partner companies so that they may offer you their products and services.
                   <i>Currently GoHundred has no partnerships. </i>
                   </li>
                 </ul>
-                <p>GoHundred will keep your data (name, email address, country) for a period of 2 years. Once this time period has expired, we will delete your data from our web application and servers. </p>    
+                <p>GoHundred will keep your data (name, email address, country) for a period of 2 years. Once this time period has expired, we will delete your data from our web application and servers. </p>
                 <p><b>Marketing</b><br>GoHundred would like to send you information about products and services of ours that we think you might like, as well as those of our partner companies. </p>
                 <i>Currently GoHundred has no partnerships. </i>
                 <p>If you have agreed to receive marketing, you may always opt out at a later date.</p>
@@ -139,8 +139,8 @@
                 <p><strong>How to manage cookies</strong><br>You can set your browser to not accept cookies, and the above website tells you how to remove cookies from your browser. However, in a few cases some website features may not function as a result. </p>
                 <p><strong>Privacy policies of other websites</strong><br>The GoHundred website contains links to other websites. Our privacy policy applies only to our website, so if you click on a link to another website, you should read their privacy policy.</p>
                 <p><strong>Changes to our privacy policy</strong><br>GoHundred keeps its privacy policy under regular review and places any updates on this web page. </p>
-                <p><strong>How to contact us</strong><br>If you have any questions about GoHundred’s privacy policy, the data we hold on you or you would like to exercise one of your data protection rights, please do not hesitate to contact us. 
-                  <a href="mailto: dpo@gohundred.co">dpo@gohundred.co</a>   
+                <p><strong>How to contact us</strong><br>If you have any questions about GoHundred’s privacy policy, the data we hold on you or you would like to exercise one of your data protection rights, please do not hesitate to contact us.
+                  <a href="mailto: dpo@gohundred.co">dpo@gohundred.co</a>
                 </p>
             </div>
           </div>
@@ -150,7 +150,7 @@
   </section>
 
   <!-- Services Section -->
- 
+
 <footer class="page-footer font-small unique-color-dark">
   <!-- Footer Links -->
     <!-- Grid row -->
@@ -166,7 +166,7 @@
           <a href = "mailto: help@gohundred.co">For help</a>
         </p>
         <p>
-          <i class="fas fa-database mr-3"></i> 
+          <i class="fas fa-database mr-3"></i>
           <a href = "mailto: dpo@gohundred.co">For data inquiries</a>
         </p>
         <p>
@@ -180,7 +180,7 @@
           </a>
           <br>
             <small>GoHundred is always looking for new talents, so if you are interested in hearing more about the opportunities working with us, you are welcome to send you CV or LinkedIn profile-link to us at:<a href = "mailto: job@gohundred.co ">Jobs@gohundred.co</a></small>
-        </p>        
+        </p>
       </div>
       <!-- Grid column -->
       <!-- Grid column -->
@@ -256,7 +256,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center pb-3">GDPR Compliant Website and Application Copyright © 2019
+  <div class="footer-copyright text-center pb-3">GDPR Compliant Website and Application Copyright © 2020
     <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a> -->
   </div>
   <!-- Copyright -->

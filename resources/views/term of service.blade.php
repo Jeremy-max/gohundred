@@ -316,7 +316,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center pb-3">GDPR Compliant Website and Application Copyright © 2019
+  <div class="footer-copyright text-center pb-3">GDPR Compliant Website and Application Copyright © 2020
     <!-- <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a> -->
   </div>
   <!-- Copyright -->

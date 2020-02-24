@@ -48,6 +48,8 @@
 <script>
     // Custom styling can be passed to options when creating an Element.
     // (Note that this demo uses a wider set of styles than the guide below.)
+
+
     var style = {
         base: {
             color: '#32325d',
@@ -65,13 +67,15 @@
         }
     };
 
-    const stripe = Stripe('pk_test_oTuICjpzLRWVHBvT9iteF9Zy00GsLX1L0c', { locale: 'en' }); // Create a Stripe client.
+    const stripe = Stripe('pk_live_HyeqC9oX05Fbi1cdPYj13uQD00z0vBHXhA', { locale: 'en' }); // Create a Stripe client.
     const elements = stripe.elements(); // Create an instance of Elements.
     const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
     const cardButton = document.getElementById('card-button');
     const clientSecret = cardButton.dataset.secret;
 
     cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
+
+
 
     // Handle real-time validation errors from the card Element.
     cardElement.addEventListener('change', function(event) {
@@ -89,6 +93,9 @@
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
+        if(!$("#card-element").hasClass("StripeElement--complete")){
+            return;
+        }
         stripe
             .handleCardSetup(clientSecret, cardElement, {
                 payment_method_data: {
@@ -96,7 +103,7 @@
                 }
             })
             .then(function(result) {
-                console.log(result);
+                // console.log(result);
                 if (result.error) {
                     // Inform the user if there was an error.
                     var errorElement = document.getElementById('card-errors');
