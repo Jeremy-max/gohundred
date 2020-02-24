@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button id="card-button" class="btn btn-primary" type="submit" data-secret="{{ $intent->client_secret }}">Pay</button>
+                        <button id="card-button" class="btn btn-primary" type="submit" data-secret="{{ $intent->client_secret }}" disabled>Pay</button>
                         <a href="{{ route('dashboard') }}" class="btn btn-secondary">Go to Dashboard</a>
                     </div>
                 </form>
@@ -48,7 +48,6 @@
 <script>
     // Custom styling can be passed to options when creating an Element.
     // (Note that this demo uses a wider set of styles than the guide below.)
-
 
     var style = {
         base: {
@@ -75,7 +74,13 @@
 
     cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
 
-
+    cardElement.on('change', function(event) {
+        if (event.complete) {
+            $("#card-button").removeAttr('disabled');
+        } else if (event.error) {
+            // show validation to customer
+        }
+    });
 
     // Handle real-time validation errors from the card Element.
     cardElement.addEventListener('change', function(event) {
@@ -93,27 +98,28 @@
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        if(!$("#card-element").hasClass("StripeElement--complete")){
-            return;
-        }
         stripe
-            .handleCardSetup(clientSecret, cardElement, {
-                payment_method_data: {
-                    // billing_details: { name: cardHolderName.value }
-                }
-            })
-            .then(function(result) {
-                // console.log(result);
-                if (result.error) {
-                    // Inform the user if there was an error.
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                } else {
-                    console.log(result);
-                    // Send the token to your server.
-                    stripeTokenHandler(result.setupIntent.payment_method);
-                }
-            });
+        .handleCardSetup(clientSecret, cardElement, {
+            payment_method_data: {
+                // billing_details: { name: cardHolderName.value }
+            }
+        })
+        .then(function(result) {
+            // console.log(result);
+            if (result.error) {
+                // Inform the user if there was an error.
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = result.error.message;
+            } else {
+                console.log(result);
+                // Send the token to your server.
+
+                stripeTokenHandler(result.setupIntent.payment_method);
+            }
+        }).catch(function(e) {
+            console.log(e);
+        });
+
     });
 
     // Submit the form with the token ID.
@@ -125,6 +131,7 @@
         hiddenInput.setAttribute('name', 'paymentMethod');
         hiddenInput.setAttribute('value', paymentMethod);
         form.appendChild(hiddenInput);
+
 
         // Submit the form
         form.submit();
