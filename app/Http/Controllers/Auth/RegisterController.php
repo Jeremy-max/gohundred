@@ -82,8 +82,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'country' =>$data['country'],
-            'trial_ends_at' => now()->addDays(1),
+            'country' =>$data['country']
         ]);
     }
 
