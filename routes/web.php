@@ -36,6 +36,8 @@ Route::get('/privacy_policy', function () {
   return view('privacy_policy');
 });
 
+Route::post('stripe/notify', 'StripeController@notify')->name('stripe.notify');
+
 Route::middleware('auth')->group(function () {
 
   Route::get('/step', 'HomeController@step')->name('step');
@@ -70,7 +72,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/plan', 'PlanController@show')->name('plans.show');
   Route::get('/plan/{plan}', 'PlanController@creditCardPay')->name('plans.creditCard');
   Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
-  Route::get('/stripeNotify', 'StripeController@notify')->name('stripe.notify');
+
   Route::get('/trial', 'SubscriptionController@trial')->name('trial');
 
   Route::get('transactions', 'TransactionController@index')->name('transactions');
