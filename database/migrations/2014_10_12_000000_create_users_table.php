@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->boolean('active')->default(true);
             $table->boolean('login_via_facebook')->default(false);
             $table->boolean('login_via_google')->default(false);
-            $table->timestamp('payment_status')->nullable();
+            $table->string('payment_status')->nullable();
             $table->text('comment')->nullable();
             $table->rememberToken();
             $table->timestamps();

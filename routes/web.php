@@ -70,6 +70,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/plan', 'PlanController@show')->name('plans.show');
   Route::get('/plan/{plan}', 'PlanController@creditCardPay')->name('plans.creditCard');
   Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
+  Route::get('/stripeNotify', 'StripeController@notify')->name('stripe.notify');
+  Route::get('/trial', 'SubscriptionController@trial')->name('trial');
 
   Route::get('transactions', 'TransactionController@index')->name('transactions');
 

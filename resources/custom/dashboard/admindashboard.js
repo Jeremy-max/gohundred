@@ -118,7 +118,7 @@ var KTDatatableJsonRemoteDemo = function () {
                         if(!row.payment_status)
                             return 'Not paid';
                         else
-                            return 'Paid: ' + row.payment_status;
+                            return row.payment_status;
                     }
                 },{
                     field: "number_campaigns",

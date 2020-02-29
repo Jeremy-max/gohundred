@@ -19,17 +19,25 @@ class SubscriptionController extends Controller
         $user->createOrGetStripeCustomer();
         $user->updateDefaultPaymentMethod($paymentMethod);
         $request->user()->newSubscription('main', $plan->stripe_plan)
-            ->trialDays(14)
             ->create($paymentMethod, [
                 'email' => $user->email,
             ]);
 
         // session()->put(['code' => 'success', 'message' => "Your plan subscribed successfully!"]);
-        $user->active = 1;
-        $user->payment_status = date("Y/m/d H:i:s");
+        // $user->active = 1;
+        $user->payment_status = "Linked with Stripe";
         $user->save();
 
 
-        return redirect()->route('dashboard')->withSuccessMessage('Your plan subscribed successfully!');
+        // return redirect()->route('dashboard')->withSuccessMessage('Your plan subscribed successfully!');
+        return redirect()->route('trial');
+    }
+
+    public function trial(Request $request)
+    {
+        if($request->user()->active == 0){
+            return view('plans.wait');
+        }
+        return redirect()->route('dashboard');
     }
 }
