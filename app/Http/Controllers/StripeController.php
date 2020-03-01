@@ -34,7 +34,7 @@ class StripeController extends CashierController
             $transaction->save();
 
             $user = User::find($transaction->user_id);
-            $user->status = 1;
+            $user->active = 1;
 
             $user->payment_status = "Paid: " . date("Y/m/d H:i:s");
             $user->save();
@@ -47,7 +47,7 @@ class StripeController extends CashierController
             $transaction->save();
 
             $user = User::find($transaction->user_id);
-            $user->status = 0;
+            $user->active = 0;
             $user->save();
         };
 
@@ -57,7 +57,7 @@ class StripeController extends CashierController
             $subscription->save();
 
             $user = User::find($subscription->user_id);
-            $user->status = 0;
+            $user->active = 0;
             $user->save();
         }
 
