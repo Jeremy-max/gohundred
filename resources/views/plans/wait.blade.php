@@ -106,13 +106,13 @@
 				<div class="icon-box">
 					<i class="material-icons">&#xE876;</i>
 				</div>
-				<h4 class="modal-title">Happy you are back</h4>
+				<h4 class="modal-title">Happy you are back!</h4>
 			</div>
 			<div class="modal-body">
 				<p class="text-center">We'll be coming soon.</p>
 			</div>
 			<div class="modal-footer">
-				<a href="#" class="btn btn-success btn-block" >OK</a>
+				<a href="#" class="btn btn-success btn-block" >Refresh</a>
 			</div>
 		</div>
 	</div>

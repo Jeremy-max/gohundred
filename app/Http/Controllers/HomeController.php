@@ -92,20 +92,28 @@ class HomeController extends Controller
     return view('home');
   }
 
-  public function step(Request $request)
+  public function checkPayment(Request $request)
   {
     $user = $request->user();
     if($user->id < 2){
       return redirect()->route('adminboard');
     }
-
     if ($user->trial_ends_at <= date("Y-m-d H:i:s")){
         if(!$user->subscribed('main')){
+
             $user->active = 0;
             $user->save();
             return redirect()->route('plans.show')->withErrorMessage('Please upgrade your account!');
         }
     }
+    if ($user->active == 0){
+        return redirect()->route('trial');
+    }
+  }
+
+  public function step(Request $request)
+  {
+    $this->checkPayment($request);
 
     return view('step');
   }
@@ -115,21 +123,9 @@ class HomeController extends Controller
   */
   public function dashboard(Request $request)
   {
-      $user = $request->user();
-    if($user->id < 2){
-      return redirect()->route('adminboard');
-    }
+    $this->checkPayment($request);
 
-    if ($user->trial_ends_at <= date("Y-m-d H:i:s")){
-        if(!$user->subscribed('main')){
-
-            $user->active = 0;
-            $user->save();
-            return redirect()->route('plans.show')->withErrorMessage('Please upgrade your account!');
-        }
-    }
-
-    $campaign_cnt = Campaign::where('user_id',$user->id)->selectRaw('count(id) AS cnt')->first()->cnt;
+    $campaign_cnt = Campaign::where('user_id',$request->user()->id)->selectRaw('count(id) AS cnt')->first()->cnt;
     if ($campaign_cnt == 0){
         return redirect()->route('step');
     }
