@@ -35,9 +35,8 @@ class SubscriptionController extends Controller
 
     public function trial(Request $request)
     {
-        $request->users()->payment_status = "Paid: " . date("Y/m/d H:i:s");
-        dd($request->users());
-        if($request->user()->active == 0){
+        dd(\Auth::user());
+        if(\Auth::user()->active == 0){
             return view('plans.wait');
         }
         return redirect()->route('dashboard');
