@@ -35,7 +35,6 @@ class SubscriptionController extends Controller
 
     public function trial(Request $request)
     {
-        dd(\Auth::user());
         if(\Auth::user()->active == 0){
             return view('plans.wait');
         }
