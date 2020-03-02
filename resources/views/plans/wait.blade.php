@@ -112,7 +112,7 @@
 				<p class="text-center">We'll be coming soon.</p>
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+				<a href="#" class="btn btn-success btn-block" >OK</a>
 			</div>
 		</div>
 	</div>
