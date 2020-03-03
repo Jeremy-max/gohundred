@@ -106,13 +106,23 @@
 				<div class="icon-box">
 					<i class="material-icons">&#xE876;</i>
 				</div>
-				<h4 class="modal-title">Happy you are back!</h4>
+				<h4 class="modal-title">Happy to pay GoHundred!</h4>
 			</div>
 			<div class="modal-body">
-				<p class="text-center">We'll be coming soon.</p>
+				<p class="text-center">
+                    @if ($result == "fail")
+                        Your payment request is being processed. We'll be coming soon.
+                    @else
+                        Your payment was succesful!
+                    @endif
+                </p>
 			</div>
 			<div class="modal-footer">
-				<a href="#" class="btn btn-success btn-block" >Refresh</a>
+                @if ($result == "fail")
+                    <a href="/trial" class="btn btn-success btn-block" >Refresh</a>
+                @else
+                    <a href="/dashboard" class="btn btn-success btn-block" >Go to dashboard</a>
+                @endif
 			</div>
 		</div>
 	</div>

@@ -4,6 +4,7 @@
 <link href="{{ asset('css/dashboard/custom.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 @section('header')
+<title>GoHundred</title>
 <div class="text-center m-auto">
     <h2>Payment</h2>
 </div>

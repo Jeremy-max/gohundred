@@ -36,8 +36,8 @@ class SubscriptionController extends Controller
     public function trial(Request $request)
     {
         if(\Auth::user()->active == 0){
-            return view('plans.wait');
+            return view('plans.wait', ["result" => "fail"]);
         }
-        return redirect()->route('dashboard');
+        return view('plans.wait', ["result" => "success"]);
     }
 }

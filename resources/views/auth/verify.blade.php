@@ -1,9 +1,12 @@
+@extends('layouts.app')
 @section('css')
 
 <link href="{{ asset('css/dashboard/custom.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
-@extends('layouts.app')
+@section('header')
+<title>GoHundred</title>
+@endsection
 
 @section('content')
 <div class="container">
