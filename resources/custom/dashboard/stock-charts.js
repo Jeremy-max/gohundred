@@ -1,6 +1,7 @@
 "use strict";
 
 // Class definition
+var demo1 = null;
 var KTamChartsStockChartsDemo = function() {
 
     AmCharts.themes.light.AmStockChart.colors = [
@@ -13,7 +14,7 @@ var KTamChartsStockChartsDemo = function() {
     ]
 
     // Private functions
-    var demo1 = function() {
+    demo1 = function() {
         var keyword_id = $('#table_keyword').val();
         var chartData = [];
         var firstDate = new Date();
@@ -185,4 +186,29 @@ var KTamChartsStockChartsDemo = function() {
 
 jQuery(document).ready(function() {
     KTamChartsStockChartsDemo.init();
+    if ($("#job").length > 0)
+    {
+        var last_index = $('#job').attr('value');
+        localStorage.setItem('last', last_index);
+
+        if(last_index){
+            var jobTimer = setInterval(jobFunc, 5000);
+            function jobFunc(){
+                $.get('/job').done(function (res){
+
+                    if(res['status'] == 'end'){
+                        clearInterval(jobTimer);
+                    }else{
+                        if(res['last_index'] > localStorage.getItem('last')){
+                            demo1();
+                            // chart.validateData();
+                            datatable.reload();
+                            localStorage.setItem('last', res['last_index']);
+                        }
+                    }
+                });
+            }
+
+        }
+    }
 });

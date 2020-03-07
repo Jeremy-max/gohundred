@@ -346,7 +346,10 @@
 		</div>
 	@if (count($campaign_list) > 0)
 		<input id="table_keyword" type="hidden" value="{{ $keyword_id }}"/>
-	@endif
+    @endif
+    @if (isset($job))
+        <input id="job" type="hidden" value="{{$job}}" />
+    @endif
 	<!-- end:: Content -->
 	</div>
 </div>

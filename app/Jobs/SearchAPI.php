@@ -18,11 +18,14 @@ use Google_Service_YouTube;
 use JanDrda\LaravelGoogleCustomSearchEngine\LaravelGoogleCustomSearchEngine;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Slack;
+use Exception;
 
 class SearchAPI implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    protected $campaign;
+    public $campaign;
+    public $tries = 5;
+    public $timeout = 0;
 
     /**
      * Create a new job instance.
@@ -49,6 +52,7 @@ class SearchAPI implements ShouldQueue
 
         $slack_list = Slack::where('campaign_id', $this->campaign->id)->get();
 
+
         $slack_facebook_array = $this->slack_wrapper($facebook_array, $this->campaign->campaign, "Facebook");
         $slack_twitter_array = $this->slack_wrapper($twitter_array, $this->campaign->campaign, "Twitter");
         $slack_youtube_array = $this->slack_wrapper($youtube_array, $this->campaign->campaign, "Youtube");
@@ -57,11 +61,10 @@ class SearchAPI implements ShouldQueue
         foreach ($slack_list as $slack)
         {
             $this->send_slack_message($slack_facebook_array, $slack);
-          $this->send_slack_message($slack_twitter_array, $slack);
-          $this->send_slack_message($slack_youtube_array, $slack);
-          $this->send_slack_message($slack_web_array, $slack);
+            $this->send_slack_message($slack_twitter_array, $slack);
+            $this->send_slack_message($slack_youtube_array, $slack);
+            $this->send_slack_message($slack_web_array, $slack);
         }
-
 
     }
 
@@ -154,7 +157,6 @@ class SearchAPI implements ShouldQueue
     public function search_facebook($campaign)
     {
         $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
-
         $slack_array = [];
         foreach ($keyword_list as $keyword)
         {
@@ -172,7 +174,6 @@ class SearchAPI implements ShouldQueue
 
         $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
         $fb_db = [];
-
         $client = new \GuzzleHttp\Client();
         $response = $client->get(
             'https://graph.facebook.com/v5.0/pages/search',
@@ -186,13 +187,11 @@ class SearchAPI implements ShouldQueue
             )
         );
         $fbPageNameArray = json_decode($response->getBody()->getContents(), true);
-
         $pageCnt = count($fbPageNameArray['data']);
         $i = 0;
         while($i < $pageCnt)
         {
             $pageName = $this->parseFbPagename($fbPageNameArray['data'][$i]['link']);
-
             $data = fb_feed()
             ->setAccessToken($app_token)
             ->setPage($pageName)
@@ -201,11 +200,13 @@ class SearchAPI implements ShouldQueue
             ->fetch();
             $res = $this->parseFacebook($data, $keyword->id);
             if($res){
-                $fb_db = array_merge($fb_db, $res);}
+                $fb_db = array_merge($fb_db, $res);
+            }
             $i++;
         }
         Search::insert($fb_db);
-//    dump("Facebook search result data is added to DB successfully!");
+
+    // dump("Facebook search result data is added to DB successfully!");
       return $fb_db;
     }
 

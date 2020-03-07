@@ -6,6 +6,7 @@ use App\User;
 use App\Search;
 use App\Keyword;
 use App\Campaign;
+use App\Job;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -140,7 +141,11 @@ class HomeController extends Controller
     if ($campaign_cnt == 0){
         return redirect()->route('step');
     }
-
+    $job = $this->getJobStatus();
+    if ($job['status'] == 'pending'){
+        $search_last = Search::all()->last()->id;
+        return view('dashboard', ['job' => $search_last]);
+    }
     return view('dashboard');
   }
 
@@ -197,9 +202,9 @@ class HomeController extends Controller
       $index++;
     }
 
-
+    $search_last = Search::all()->last()->id;
     SearchAPI::dispatch($campaign);
-    return redirect()->route('campaignPage', ['keyword_id' => $keyword_id]);
+    return redirect()->route('campaignPage', ['keyword_id' => $keyword_id, 'job' => $search_last]);
   }
 
   public function showCampaignPage(Request $request, $keyword_id)
@@ -207,6 +212,13 @@ class HomeController extends Controller
     session(['keyword_id'=> $keyword_id]);
     $campaign = Keyword::where('id', $keyword_id)->first()->campaign;
     View::share('campaign_active_id', $campaign->id);
+
+    $job = $this->getJobStatus();
+    if ($job['status'] == 'pending'){
+        $search_last = Search::all()->last()->id;
+        return view('dashboard', ['keyword_id' => $keyword_id, 'job' => $search_last]);
+    }
+
     return view('dashboard', ['keyword_id' => $keyword_id]);
   }
 
@@ -345,7 +357,8 @@ class HomeController extends Controller
 
     SearchAPI::dispatch($campaign);
 
-    return redirect()->route('dashboard')->withSuccessMessage('Your campaign added to slack successfully!');
+    $search_last = Search::all()->last()->id;
+    return redirect()->route('dashboard', ['job' => $search_last])->withSuccessMessage('Your campaign added to slack successfully!');
 
     }
 
@@ -364,12 +377,13 @@ class HomeController extends Controller
     session(['campaign_id'=> $campaign_id]);
 
     $webhook_url = env('SLACK_WEBHOOK_URL');
+
     return redirect($webhook_url);
   }
 
   public function facebook()
   {
-
+    // dd(User::all()->last());
     $access_token = env('ACCESS_TOKEN_FB');
     $app_token = env('APP_TOKEN_FB');
     $app_secret = env('APP_SECRET_FB');
@@ -383,4 +397,17 @@ class HomeController extends Controller
     // dd($appsecret_proof);
   }
 
+  public function getJobStatus()
+  {
+    $job_table = Job::all();
+    foreach ($job_table as $job){
+      $jsonpayload = json_decode($job->payload);
+      $data = unserialize($jsonpayload->data->command);
+      if($data->campaign->user_id == auth()->user()->id){
+          $search_last = Search::all()->last()->id;
+          return ['status' => 'pending', 'last_index' => $search_last];
+      }
+    }
+    return ['status' => 'end'];
+  }
 }

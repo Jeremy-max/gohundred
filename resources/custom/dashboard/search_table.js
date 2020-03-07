@@ -1,5 +1,6 @@
 "use strict";
 
+var datatable = null;
 var KTDatatableJsonRemoteDemo = function () {
 	// Private functions
 
@@ -7,7 +8,7 @@ var KTDatatableJsonRemoteDemo = function () {
 	var demo = function () {
 		var keyword_id = $('#table_keyword').val();
 
-		var datatable = $('.kt-datatable').KTDatatable({
+		datatable = $('.kt-datatable').KTDatatable({
 			// datasource definition
 			data: {
 				type: 'remote',
