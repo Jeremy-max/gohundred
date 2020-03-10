@@ -24,8 +24,6 @@ class SearchAPI implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public $campaign;
-    public $tries = 5;
-    public $timeout = 0;
 
     /**
      * Create a new job instance.

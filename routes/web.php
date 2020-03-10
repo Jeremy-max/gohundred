@@ -92,7 +92,7 @@ Route::middleware('auth')->group(function () {
 
   // Route::get('/twitter', 'HomeController@search_twitter');
 
-//    Route::get('/facebook', 'HomeController@facebook');
+  Route::get('/facebook', 'HomeController@facebook');
 
 //   Route::get('/tiktok', 'HomeController@tiktokApi');
 

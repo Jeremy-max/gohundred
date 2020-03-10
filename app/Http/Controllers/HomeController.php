@@ -383,11 +383,11 @@ class HomeController extends Controller
 
   public function facebook()
   {
-    // dd(User::all()->last());
+
     $access_token = env('ACCESS_TOKEN_FB');
     $app_token = env('APP_TOKEN_FB');
     $app_secret = env('APP_SECRET_FB');
-
+    // dd($access_token);
     $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
 
     // dump($access_token);

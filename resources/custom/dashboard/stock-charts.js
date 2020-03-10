@@ -197,11 +197,12 @@ jQuery(document).ready(function() {
                 $.get('/job').done(function (res){
 
                     if(res['status'] == 'end'){
+                        demo1();
+                        datatable.reload();
                         clearInterval(jobTimer);
                     }else{
                         if(res['last_index'] > localStorage.getItem('last')){
                             demo1();
-                            // chart.validateData();
                             datatable.reload();
                             localStorage.setItem('last', res['last_index']);
                         }
