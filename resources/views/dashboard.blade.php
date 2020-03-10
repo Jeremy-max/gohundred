@@ -34,7 +34,8 @@
 									Total
 								</span>
 								<span class="kt-widget17__desc">
-									70 New Comments
+                                    <span class="total_cnt">0</span>
+                                    New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
@@ -53,7 +54,8 @@
 									</span>
 
 								<span class="kt-widget17__desc">
-									10 New Comments
+                                    <span class="fb_cnt" >0</span>
+                                    New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
@@ -71,7 +73,8 @@
 									Twitter
 								</span>
 								<span class="kt-widget17__desc">
-									10 New Comments
+                                    <span class="tw_cnt" >0</span>
+                                    New Comments
 								</span>
 							</div>
 							{{-- <div class="kt-widget17__item">
@@ -102,7 +105,8 @@
 									YouTube
 								</span>
 								<span class="kt-widget17__desc">
-									10 New Comments
+                                    <span class="yt_cnt" >0</span>
+                                    New Comments
 								</span>
 							</div>
 							<div class="kt-widget17__item">
@@ -120,7 +124,8 @@
 									Web
 								</span>
 								<span class="kt-widget17__desc">
-									10 New Comments
+                                    <span class="web_cnt" >0</span>
+                                    New Comments
 								</span>
 							</div>
 						</div>
@@ -267,7 +272,7 @@
 								<div class="kt-form__group kt-form__group--inline">
 									<div class="kt-form__label kt-form__label-no-wrap">
 										<label class="kt-font-bold kt-font-danger-">Selected
-											<span id="kt_datatable_selected_number">0</span> records:</label>
+											<span id="kt_datatable_selected_number"></span> records:</label>
 									</div>
 									<div class="kt-form__control">
 										<div class="btn-toolbar">
@@ -348,7 +353,11 @@
 		<input id="table_keyword" type="hidden" value="{{ $keyword_id }}"/>
     @endif
     @if (isset($job))
-        <input id="job" type="hidden" value="{{$job}}" />
+        <input id="job" type="hidden" value="{{$job}}"
+            data-fb="{{$fb_cnt}}"
+            data-tw="{{$tw_cnt}}"
+            data-yt="{{$yt_cnt}}"
+            data-web="{{$web_cnt}}"/>
     @endif
 	<!-- end:: Content -->
 	</div>

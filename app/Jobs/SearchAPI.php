@@ -19,11 +19,13 @@ use JanDrda\LaravelGoogleCustomSearchEngine\LaravelGoogleCustomSearchEngine;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Slack;
 use Exception;
+use PhpParser\Node\Stmt\TryCatch;
 
 class SearchAPI implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public $campaign;
+    public $tries = 3;
 
     /**
      * Create a new job instance.
@@ -43,11 +45,12 @@ class SearchAPI implements ShouldQueue
      */
     public function handle()
     {
+        dump('start');
         $facebook_array = $this->search_facebook($this->campaign);
         $twitter_array = $this->search_twitter($this->campaign);
         $youtube_array = $this->search_youtube($this->campaign);
         $web_array = $this->search_web($this->campaign);
-
+        dump('end');
         $slack_list = Slack::where('campaign_id', $this->campaign->id)->get();
 
 
@@ -169,7 +172,6 @@ class SearchAPI implements ShouldQueue
         $access_token = env('ACCESS_TOKEN_FB');
         $app_token = env('APP_TOKEN_FB');
         $app_secret = env('APP_SECRET_FB');
-
         $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
         $fb_db = [];
         $client = new \GuzzleHttp\Client();
@@ -184,6 +186,7 @@ class SearchAPI implements ShouldQueue
                 )
             )
         );
+
         $fbPageNameArray = json_decode($response->getBody()->getContents(), true);
         $pageCnt = count($fbPageNameArray['data']);
         $i = 0;
@@ -203,7 +206,6 @@ class SearchAPI implements ShouldQueue
             $i++;
         }
         Search::insert($fb_db);
-
     // dump("Facebook search result data is added to DB successfully!");
       return $fb_db;
     }
@@ -541,7 +543,6 @@ class SearchAPI implements ShouldQueue
       array_push($tYoutube,$value);
 //      dump($value);
       $i++;
-      break;
     }
 
     return $tYoutube;
@@ -585,30 +586,28 @@ class SearchAPI implements ShouldQueue
       'start' => 1,
       'dateRestrict' => 'y[$dateY],m[$dateM],d[$dateD]'
     ];
-
-      $web_db = [];
-      while(1)
-      {
-          $sumCnt += 10;
-          try{
+    $web_db = [];
+    while(1)
+    {
+        try{
             $results = $fulltext->getResults($keyword->keyword, $params);
             $web_db = array_merge($web_db, $this->parseWeb($results, $keyword->id));
-          } catch(\Exception $e) {
- //           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
+        } catch(\Exception $e) {
+           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
             break;
-          }
+        }
 
 
-          // if(count($results) < $limit_cnt)
-          //   break;
-           if($sumCnt > $limit_cnt)
-             break;
+        // if(count($results) < $limit_cnt)
+        //   break;
+        if($sumCnt >= $limit_cnt)
+            break;
 
-          $params['start'] = $params['start'] + 10;
-      }
- //     dump($web_db);
+        $params['start'] = $params['start'] + 10;
+        $sumCnt += 10;
+    }
     Search::insert($web_db);
- //   dump("Google data is added to DB successfully!");
+    // dump("Google data is added to DB successfully!");
 
       return $web_db;
   }

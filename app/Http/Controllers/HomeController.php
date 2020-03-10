@@ -144,7 +144,17 @@ class HomeController extends Controller
     $job = $this->getJobStatus();
     if ($job['status'] == 'pending'){
         $search_last = Search::all()->last()->id;
-        return view('dashboard', ['job' => $search_last]);
+        $fb_cnt = Search::where('social_type', 'facebook')->count();
+        $tw_cnt = Search::where('social_type', 'twitter')->count();
+        $yt_cnt = Search::where('social_type', 'youtube')->count();
+        $web_cnt = Search::where('social_type', 'web')->count();
+        return view('dashboard', [
+            'job' => $search_last,
+            'fb_cnt' => $fb_cnt,
+            'tw_cnt' => $tw_cnt,
+            'yt_cnt' => $yt_cnt,
+            'web_cnt' => $web_cnt
+        ]);
     }
     return view('dashboard');
   }
@@ -204,7 +214,18 @@ class HomeController extends Controller
 
     $search_last = Search::all()->last()->id;
     SearchAPI::dispatch($campaign);
-    return redirect()->route('campaignPage', ['keyword_id' => $keyword_id, 'job' => $search_last]);
+    $fb_cnt = Search::where('social_type', 'facebook')->count();
+    $tw_cnt = Search::where('social_type', 'twitter')->count();
+    $yt_cnt = Search::where('social_type', 'youtube')->count();
+    $web_cnt = Search::where('social_type', 'web')->count();
+    return redirect()->route('dashboard', [
+        'job' => $search_last,
+        'fb_cnt' => $fb_cnt,
+        'tw_cnt' => $tw_cnt,
+        'yt_cnt' => $yt_cnt,
+        'web_cnt' => $web_cnt
+    ]);
+    // return redirect()->route('campaignPage', ['keyword_id' => $keyword_id, 'job' => $search_last]);
   }
 
   public function showCampaignPage(Request $request, $keyword_id)
@@ -216,7 +237,17 @@ class HomeController extends Controller
     $job = $this->getJobStatus();
     if ($job['status'] == 'pending'){
         $search_last = Search::all()->last()->id;
-        return view('dashboard', ['keyword_id' => $keyword_id, 'job' => $search_last]);
+        $fb_cnt = Search::where('social_type', 'facebook')->count();
+        $tw_cnt = Search::where('social_type', 'twitter')->count();
+        $yt_cnt = Search::where('social_type', 'youtube')->count();
+        $web_cnt = Search::where('social_type', 'web')->count();
+        return view('dashboard', [
+            'job' => $search_last,
+            'fb_cnt' => $fb_cnt,
+            'tw_cnt' => $tw_cnt,
+            'yt_cnt' => $yt_cnt,
+            'web_cnt' => $web_cnt
+        ]);
     }
 
     return view('dashboard', ['keyword_id' => $keyword_id]);
@@ -358,7 +389,18 @@ class HomeController extends Controller
     SearchAPI::dispatch($campaign);
 
     $search_last = Search::all()->last()->id;
-    return redirect()->route('dashboard', ['job' => $search_last])->withSuccessMessage('Your campaign added to slack successfully!');
+    $fb_cnt = Search::where('social_type', 'facebook')->count();
+    $tw_cnt = Search::where('social_type', 'twitter')->count();
+    $yt_cnt = Search::where('social_type', 'youtube')->count();
+    $web_cnt = Search::where('social_type', 'web')->count();
+    return redirect()->route('dashboard', [
+        'job' => $search_last,
+        'fb_cnt' => $fb_cnt,
+        'tw_cnt' => $tw_cnt,
+        'yt_cnt' => $yt_cnt,
+        'web_cnt' => $web_cnt
+    ]);
+    // return redirect()->route('dashboard', ['job' => $search_last])->withSuccessMessage('Your campaign added to slack successfully!');
 
     }
 
@@ -387,7 +429,7 @@ class HomeController extends Controller
     $access_token = env('ACCESS_TOKEN_FB');
     $app_token = env('APP_TOKEN_FB');
     $app_secret = env('APP_SECRET_FB');
-    // dd($access_token);
+    //   dd($app_token);
     $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
 
     // dump($access_token);
@@ -401,12 +443,23 @@ class HomeController extends Controller
   {
     $job_table = Job::all();
     foreach ($job_table as $job){
-      $jsonpayload = json_decode($job->payload);
-      $data = unserialize($jsonpayload->data->command);
-      if($data->campaign->user_id == auth()->user()->id){
-          $search_last = Search::all()->last()->id;
-          return ['status' => 'pending', 'last_index' => $search_last];
-      }
+        $jsonpayload = json_decode($job->payload);
+        $data = unserialize($jsonpayload->data->command);
+        if($data->campaign->user_id == auth()->user()->id){
+            $search_last = Search::all()->last()->id;
+            $fb_cnt = Search::where('social_type', 'facebook')->count();
+            $tw_cnt = Search::where('social_type', 'twitter')->count();
+            $yt_cnt = Search::where('social_type', 'youtube')->count();
+            $web_cnt = Search::where('social_type', 'web')->count();
+            return [
+                'status' => 'pending',
+                'last_index' => $search_last,
+                'fb_cnt' => $fb_cnt,
+                'tw_cnt' => $tw_cnt,
+                'yt_cnt' => $yt_cnt,
+                'web_cnt' => $web_cnt
+            ];
+        }
     }
     return ['status' => 'end'];
   }

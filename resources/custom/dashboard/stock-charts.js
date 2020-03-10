@@ -189,7 +189,11 @@ jQuery(document).ready(function() {
     if ($("#job").length > 0)
     {
         var last_index = $('#job').attr('value');
-        localStorage.setItem('last', last_index);
+        localStorage.setItem('last_index', $('#job').attr('value'));
+        localStorage.setItem('last_fb', $('#job').data('fb'));
+        localStorage.setItem('last_tw', $('#job').data('tw'));
+        localStorage.setItem('last_yt', $('#job').data('yt'));
+        localStorage.setItem('last_web', $('#job').data('web'));
 
         if(last_index){
             var jobTimer = setInterval(jobFunc, 5000);
@@ -201,10 +205,15 @@ jQuery(document).ready(function() {
                         datatable.reload();
                         clearInterval(jobTimer);
                     }else{
-                        if(res['last_index'] > localStorage.getItem('last')){
+                        if(res['last_index'] > localStorage.getItem('last_index')){
                             demo1();
                             datatable.reload();
                             localStorage.setItem('last', res['last_index']);
+                            $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
+                            $('.fb_cnt').text(Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb')));
+                            $('.tw_cnt').text(Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw')));
+                            $('.yt_cnt').text(Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt')));
+                            $('.web_cnt').text(Number(res['web_cnt'])-Number(localStorage.getItem('last_web')));
                         }
                     }
                 });
