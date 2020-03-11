@@ -198,22 +198,19 @@ jQuery(document).ready(function() {
         if(last_index){
             var jobTimer = setInterval(jobFunc, 5000);
             function jobFunc(){
-                $.get('/job').done(function (res){
-
+                $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                  });
+                $.post('/job').done(function (res){
                     if(res['status'] == 'end'){
-                        demo1();
-                        datatable.reload();
+                        updateDashboard();
                         clearInterval(jobTimer);
                     }else{
                         if(res['last_index'] > localStorage.getItem('last_index')){
-                            demo1();
-                            datatable.reload();
+                            updateDashboard();
                             localStorage.setItem('last', res['last_index']);
-                            $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
-                            $('.fb_cnt').text(Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb')));
-                            $('.tw_cnt').text(Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw')));
-                            $('.yt_cnt').text(Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt')));
-                            $('.web_cnt').text(Number(res['web_cnt'])-Number(localStorage.getItem('last_web')));
                         }
                     }
                 });
@@ -222,3 +219,13 @@ jQuery(document).ready(function() {
         }
     }
 });
+
+function updateDashboard(){
+    demo1();
+    datatable.reload();
+    $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
+    $('.fb_cnt').text(Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb')));
+    $('.tw_cnt').text(Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw')));
+    $('.yt_cnt').text(Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt')));
+    $('.web_cnt').text(Number(res['web_cnt'])-Number(localStorage.getItem('last_web')));
+}

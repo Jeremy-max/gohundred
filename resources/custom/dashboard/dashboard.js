@@ -1,6 +1,7 @@
 "use strict";
 
 // Class definition
+var demo1 = null;
 var KTamChartsStockChartsDemo = function() {
 
     AmCharts.themes.light.AmStockChart.colors = [
@@ -13,7 +14,7 @@ var KTamChartsStockChartsDemo = function() {
     ]
 
     // Private functions
-    var demo1 = function() {
+    demo1 = function() {
         var keyword_id = $('#table_keyword').val();
         var chartData = [];
         var firstDate = new Date();
@@ -185,10 +186,50 @@ var KTamChartsStockChartsDemo = function() {
 
 jQuery(document).ready(function() {
     KTamChartsStockChartsDemo.init();
+    if ($("#job").length > 0)
+    {
+        var last_index = $('#job').attr('value');
+        localStorage.setItem('last_index', $('#job').attr('value'));
+        localStorage.setItem('last_fb', $('#job').data('fb'));
+        localStorage.setItem('last_tw', $('#job').data('tw'));
+        localStorage.setItem('last_yt', $('#job').data('yt'));
+        localStorage.setItem('last_web', $('#job').data('web'));
+
+        if(last_index){
+            var jobTimer = setInterval(jobFunc, 5000);
+            function jobFunc(){
+                $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                  });
+                $.post('/job').done(function (res){
+                    if(res['status'] == 'end'){
+                        demo1();
+                        datatable.reload();
+                        clearInterval(jobTimer);
+                    }else{
+                        if(res['last_index'] > localStorage.getItem('last_index')){
+                            demo1();
+                            datatable.reload();
+                            localStorage.setItem('last', res['last_index']);
+                            $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
+                            $('.fb_cnt').text(Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb')));
+                            $('.tw_cnt').text(Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw')));
+                            $('.yt_cnt').text(Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt')));
+                            $('.web_cnt').text(Number(res['web_cnt'])-Number(localStorage.getItem('last_web')));
+                        }
+                    }
+                });
+            }
+
+        }
+    }
 });
 
 "use strict";
 
+var datatable = null;
 var KTDatatableJsonRemoteDemo = function () {
 	// Private functions
 
@@ -196,7 +237,7 @@ var KTDatatableJsonRemoteDemo = function () {
 	var demo = function () {
 		var keyword_id = $('#table_keyword').val();
 
-		var datatable = $('.kt-datatable').KTDatatable({
+		datatable = $('.kt-datatable').KTDatatable({
 			// datasource definition
 			data: {
 				type: 'remote',

@@ -218,7 +218,8 @@ class HomeController extends Controller
     $tw_cnt = Search::where('social_type', 'twitter')->count();
     $yt_cnt = Search::where('social_type', 'youtube')->count();
     $web_cnt = Search::where('social_type', 'web')->count();
-    return redirect()->route('dashboard', [
+    return redirect()->route('campaignPage', [
+        'keyword_id' => $keyword_id,
         'job' => $search_last,
         'fb_cnt' => $fb_cnt,
         'tw_cnt' => $tw_cnt,
@@ -242,6 +243,7 @@ class HomeController extends Controller
         $yt_cnt = Search::where('social_type', 'youtube')->count();
         $web_cnt = Search::where('social_type', 'web')->count();
         return view('dashboard', [
+            'keyword_id' => $keyword_id,
             'job' => $search_last,
             'fb_cnt' => $fb_cnt,
             'tw_cnt' => $tw_cnt,
@@ -442,15 +444,16 @@ class HomeController extends Controller
   public function getJobStatus()
   {
     $job_table = Job::all();
+    $search_last = Search::all()->last()->id;
+    $fb_cnt = Search::where('social_type', 'facebook')->count();
+    $tw_cnt = Search::where('social_type', 'twitter')->count();
+    $yt_cnt = Search::where('social_type', 'youtube')->count();
+    $web_cnt = Search::where('social_type', 'web')->count();
     foreach ($job_table as $job){
         $jsonpayload = json_decode($job->payload);
         $data = unserialize($jsonpayload->data->command);
         if($data->campaign->user_id == auth()->user()->id){
-            $search_last = Search::all()->last()->id;
-            $fb_cnt = Search::where('social_type', 'facebook')->count();
-            $tw_cnt = Search::where('social_type', 'twitter')->count();
-            $yt_cnt = Search::where('social_type', 'youtube')->count();
-            $web_cnt = Search::where('social_type', 'web')->count();
+
             return [
                 'status' => 'pending',
                 'last_index' => $search_last,
@@ -461,6 +464,12 @@ class HomeController extends Controller
             ];
         }
     }
-    return ['status' => 'end'];
+    return ['status' => 'end',
+        'last_index' => $search_last,
+        'fb_cnt' => $fb_cnt,
+        'tw_cnt' => $tw_cnt,
+        'yt_cnt' => $yt_cnt,
+        'web_cnt' => $web_cnt
+    ];
   }
 }

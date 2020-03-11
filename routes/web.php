@@ -68,7 +68,7 @@ Route::middleware('auth')->group(function () {
 
   Route::post('/saveAdminComment', 'HomeController@saveAdminCommentChanges')->name('saveAdminComment');
 
-  Route::get('/job', 'HomeController@getJobStatus')->name('jobStatus');
+  Route::post('/job', 'HomeController@getJobStatus')->name('jobStatus');
 
 
   Route::get('/plan', 'PlanController@show')->name('plans.show');
