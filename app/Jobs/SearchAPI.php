@@ -577,7 +577,7 @@ class SearchAPI implements ShouldQueue
     $dateY = date('Y');
     $dateM = date('m');
     $dateD = date('d');
-    $limit_cnt = 90;
+    $limit_cnt = 50;
 
 
     $sumCnt = 0;

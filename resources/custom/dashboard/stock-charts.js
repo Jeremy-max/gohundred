@@ -205,27 +205,30 @@ jQuery(document).ready(function() {
                   });
                 $.post('/job').done(function (res){
                     if(res['status'] == 'end'){
-                        updateDashboard();
+                        demo1();
+                        datatable.reload();
+                        $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
+                        $('.fb_cnt').text(Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb')));
+                        $('.tw_cnt').text(Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw')));
+                        $('.yt_cnt').text(Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt')));
+                        $('.web_cnt').text(Number(res['web_cnt'])-Number(localStorage.getItem('last_web')));
                         clearInterval(jobTimer);
                     }else{
                         if(res['last_index'] > localStorage.getItem('last_index')){
-                            updateDashboard();
+                            demo1();
+                            datatable.reload();
+                            $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
+                            $('.fb_cnt').text(Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb')));
+                            $('.tw_cnt').text(Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw')));
+                            $('.yt_cnt').text(Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt')));
+                            $('.web_cnt').text(Number(res['web_cnt'])-Number(localStorage.getItem('last_web')));
                             localStorage.setItem('last', res['last_index']);
                         }
                     }
+
                 });
             }
 
         }
     }
 });
-
-function updateDashboard(){
-    demo1();
-    datatable.reload();
-    $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
-    $('.fb_cnt').text(Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb')));
-    $('.tw_cnt').text(Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw')));
-    $('.yt_cnt').text(Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt')));
-    $('.web_cnt').text(Number(res['web_cnt'])-Number(localStorage.getItem('last_web')));
-}
