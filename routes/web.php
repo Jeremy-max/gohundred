@@ -52,9 +52,9 @@ Route::middleware('auth')->group(function () {
 
   Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
-  Route::post('/addKeyword', 'HomeController@addKeyword')->name('stepResult');
+  Route::post('/dashboard', 'HomeController@addKeyword')->name('stepResult');
 
-  Route::post('/dashboard', 'HomeController@showCampaignPage')->name('campaignPage');
+  Route::get('/dashboard/{keyword_id}', 'HomeController@showCampaignPage')->name('campaignPage');
 
   Route::get('/tdata', 'HomeController@getTableData')->name('searchTableData');
 
