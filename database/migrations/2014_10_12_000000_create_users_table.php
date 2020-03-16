@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('country');
             $table->string('password');
-            $table->boolean('active')->default(true);
+            $table->boolean('active')->default(false);
             $table->boolean('login_via_facebook')->default(false);
             $table->boolean('login_via_google')->default(false);
             $table->string('payment_status')->nullable();

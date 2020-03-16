@@ -1,0 +1,34 @@
+[2020-03-13 01:41:52][3] Processing: App\Jobs\SearchAPI
+"start"
+"end"
+[2020-03-13 01:44:29][3] Processed:  App\Jobs\SearchAPI
+[2020-03-13 01:46:14][4] Processing: App\Jobs\SearchAPI
+"start"
+[2020-03-13 01:47:44][4] Processing: App\Jobs\SearchAPI
+"start"
+"end"
+[2020-03-13 01:48:34][4] Processed:  App\Jobs\SearchAPI
+"end"
+[2020-03-13 01:49:26][4] Processed:  App\Jobs\SearchAPI
+[2020-03-13 12:15:16][1] Processing: App\Jobs\SearchAPI
+"start"
+[2020-03-13 12:16:46][1] Processing: App\Jobs\SearchAPI
+"start"
+"end"
+[2020-03-13 12:17:00][1] Processed:  App\Jobs\SearchAPI
+"end"
+[2020-03-13 12:18:35][1] Processed:  App\Jobs\SearchAPI
+[2020-03-16 15:16:25][2] Processing: App\Jobs\SearchAPI
+"start"
+[2020-03-16 15:17:55][2] Processing: App\Jobs\SearchAPI
+"start"
+"end"
+[2020-03-16 15:18:30][2] Processed:  App\Jobs\SearchAPI
+"end"
+[2020-03-16 15:19:46][2] Processed:  App\Jobs\SearchAPI
+[2020-03-16 15:23:18][3] Processing: App\Jobs\SearchAPI
+"start"
+[2020-03-16 15:24:49][3] Processing: App\Jobs\SearchAPI
+"start"
+"end"
+[2020-03-16 15:24:56][3] Processed:  App\Jobs\SearchAPI

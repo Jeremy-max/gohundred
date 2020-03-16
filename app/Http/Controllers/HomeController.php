@@ -50,18 +50,22 @@ class HomeController extends Controller
           $flag = false;
           foreach ($campaign_list as $campaign)
           {
-            $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
-            if ($keyword_list->count() > 0 && $flag == false)
-            {
-              $flag = true;
-              $keyword = $keyword_list->first();
-              $campaign = $keyword->campaign;
-              if (session('keyword_id') == null){
-                session(['keyword_id'=> $keyword->id]);
-              }
+                $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+                if ($keyword_list->count() > 0 && $flag == false)
+                {
+                $flag = true;
+                $keyword = $keyword_list->first();
+                $campaign = $keyword->campaign;
+                if (session('keyword_id') == null){
+                    session(['keyword_id'=> $keyword->id]);
+                }
 
-              View::share('keyword_id', $keyword->id);
-              View::share('campaign_active_id', $campaign->id);
+                View::share('keyword_id', $keyword->id);
+                View::share('campaign_active_id', $campaign->id);
+                View::share('fb_new', $keyword->fb_new);
+                View::share('tw_new', $keyword->tw_new);
+                View::share('yt_new', $keyword->yt_new);
+                View::share('web_new', $keyword->web_new);
             }
             array_push($array, [
                 'campaign_id' => $campaign->id,
@@ -73,6 +77,7 @@ class HomeController extends Controller
         $firstcharname = strtoupper(substr($user->name, 0, 1));
         View::share('namefirstchar', $firstcharname);
         View::share('campaign_list', $array);
+
       }
 
       return $next($request);
@@ -153,7 +158,7 @@ class HomeController extends Controller
             'fb_cnt' => $fb_cnt,
             'tw_cnt' => $tw_cnt,
             'yt_cnt' => $yt_cnt,
-            'web_cnt' => $web_cnt
+            'web_cnt' => $web_cnt,
         ]);
     }
     return view('dashboard');
@@ -212,19 +217,10 @@ class HomeController extends Controller
       $index++;
     }
 
-    $search_last = Search::all()->last()->id;
     SearchAPI::dispatch($campaign);
-    $fb_cnt = Search::where('social_type', 'facebook')->count();
-    $tw_cnt = Search::where('social_type', 'twitter')->count();
-    $yt_cnt = Search::where('social_type', 'youtube')->count();
-    $web_cnt = Search::where('social_type', 'web')->count();
+
     return redirect()->route('campaignPage', [
-        'keyword_id' => $keyword_id,
-        'job' => $search_last,
-        'fb_cnt' => $fb_cnt,
-        'tw_cnt' => $tw_cnt,
-        'yt_cnt' => $yt_cnt,
-        'web_cnt' => $web_cnt
+        'keyword_id' => $keyword_id
     ]);
     // return redirect()->route('campaignPage', ['keyword_id' => $keyword_id, 'job' => $search_last]);
   }
@@ -232,7 +228,8 @@ class HomeController extends Controller
   public function showCampaignPage(Request $request, $keyword_id)
   {
     session(['keyword_id'=> $keyword_id]);
-    $campaign = Keyword::where('id', $keyword_id)->first()->campaign;
+    $keyword = Keyword::where('id', $keyword_id)->first();
+    $campaign = $keyword->campaign;
     View::share('campaign_active_id', $campaign->id);
 
     $job = $this->getJobStatus();
@@ -248,11 +245,21 @@ class HomeController extends Controller
             'fb_cnt' => $fb_cnt,
             'tw_cnt' => $tw_cnt,
             'yt_cnt' => $yt_cnt,
-            'web_cnt' => $web_cnt
+            'web_cnt' => $web_cnt,
+            'fb_new' => $keyword->fb_new,
+            'tw_new' => $keyword->tw_new,
+            'yt_new' => $keyword->yt_new,
+            'web_new' => $keyword->web_new
         ]);
     }
 
-    return view('dashboard', ['keyword_id' => $keyword_id]);
+    return view('dashboard', [
+        'keyword_id' => $keyword_id,
+        'fb_new' => $keyword->fb_new,
+        'tw_new' => $keyword->tw_new,
+        'yt_new' => $keyword->yt_new,
+        'web_new' => $keyword->web_new
+    ]);
   }
 
   public function getTableData(Request $request)
@@ -438,7 +445,7 @@ class HomeController extends Controller
     // dump('EAAGpzQLPRlEBAMIFebLQYePjlJ3wF9Yg0gdAKjPHzWMfDJ0DPOpwQwmFbrLqf91Qa4eZBFsknfuQgvtEPZCI29zGE8dQFW3456ya8aya9bqikwrpFRv4pZBKISZBMS9jNex7OvU5ZBLgSvU2th7iamqdc90eOi3KrzaJPaIdpZCAF8pXbbb9HRmDAvjebvfrMbSbFoGZBZCFpzpahoPaFC0YMaxvMPziF5yIweU9bNAnGUPg5azZC4xIZB');
     // dump($app_token);
     // dump($app_secret);
-    // dd($appsecret_proof);
+     dd($appsecret_proof);
   }
 
   public function getJobStatus()
@@ -471,5 +478,15 @@ class HomeController extends Controller
         'yt_cnt' => $yt_cnt,
         'web_cnt' => $web_cnt
     ];
+  }
+
+  public function saveNewcomments(Request $request)
+  {
+    $keyword_id = $request->input('keyword_id');
+    $fb = $request->input('fb');
+    $tw = $request->input('tw');
+    $yt = $request->input('yt');
+    $web = $request->input('web');
+    Keyword::where('id', $keyword_id)->update(['fb_new' => $fb, 'tw_new' => $tw, 'yt_new' => $yt, 'web_new'=> $web]);
   }
 }

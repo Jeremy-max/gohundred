@@ -34,7 +34,7 @@
 									Total
 								</span>
 								<span class="kt-widget17__desc">
-                                    <span class="total_cnt">0</span>
+                                <span class="total_cnt">{{ $fb_new+$tw_new+$yt_new+$web_new }}</span>
                                     New Comments
 								</span>
 							</div>
@@ -54,7 +54,7 @@
 									</span>
 
 								<span class="kt-widget17__desc">
-                                    <span class="fb_cnt" >0</span>
+                                    <span class="fb_cnt" >{{ $fb_new }}</span>
                                     New Comments
 								</span>
 							</div>
@@ -73,7 +73,7 @@
 									Twitter
 								</span>
 								<span class="kt-widget17__desc">
-                                    <span class="tw_cnt" >0</span>
+                                <span class="tw_cnt" >{{ $tw_new}}</span>
                                     New Comments
 								</span>
 							</div>
@@ -105,7 +105,7 @@
 									YouTube
 								</span>
 								<span class="kt-widget17__desc">
-                                    <span class="yt_cnt" >0</span>
+                                <span class="yt_cnt" >{{ $yt_new }}</span>
                                     New Comments
 								</span>
 							</div>
@@ -124,7 +124,7 @@
 									Web
 								</span>
 								<span class="kt-widget17__desc">
-                                    <span class="web_cnt" >0</span>
+                                <span class="web_cnt" >{{ $web_new }}</span>
                                     New Comments
 								</span>
 							</div>
