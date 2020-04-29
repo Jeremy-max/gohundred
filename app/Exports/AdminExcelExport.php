@@ -3,10 +3,10 @@
 namespace App\Exports;
 
 use App\User;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Rap2hpoutre\FastExcel\FastExcel;
 use App\Http\Repository\AdminUserTable;
 
-class AdminExcelExport implements FromCollection
+class AdminExcelExport
 {
     /**
     * @return \Illuminate\Support\Collection

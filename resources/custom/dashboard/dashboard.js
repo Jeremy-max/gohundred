@@ -188,7 +188,8 @@ jQuery(document).ready(function() {
     KTamChartsStockChartsDemo.init();
     if ($("#job").length > 0)
     {
-        var last_index = $('#job').attr('value');
+        let last_index = $('#job').attr('value');
+        let keyword_id = $('#table_keyword').attr('value');
         localStorage.setItem('last_index', $('#job').attr('value'));
         localStorage.setItem('last_fb', $('#job').data('fb'));
         localStorage.setItem('last_tw', $('#job').data('tw'));
@@ -207,19 +208,42 @@ jQuery(document).ready(function() {
                     if(res['status'] == 'end'){
                         demo1();
                         datatable.reload();
+                        $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
+                        var fb = Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb'));
+                        var tw = Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw'));
+                        var yt = Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt'));
+                        var web = Number(res['web_cnt'])-Number(localStorage.getItem('last_web'));
+                        $('.fb_cnt').text(fb);
+                        $('.tw_cnt').text(tw);
+                        $('.yt_cnt').text(yt);
+                        $('.web_cnt').text(web);
+                        $.post('/saveNewcomments', {keyword_id: keyword_id, fb: fb, tw: tw, yt: yt, web: web},
+                            function(returnedData){
+                                console.log(returnedData);
+                        });
                         clearInterval(jobTimer);
                     }else{
                         if(res['last_index'] > localStorage.getItem('last_index')){
                             demo1();
                             datatable.reload();
-                            localStorage.setItem('last', res['last_index']);
                             $('.total_cnt').text(Number(res['last_index'])-Number(localStorage.getItem('last_index')));
-                            $('.fb_cnt').text(Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb')));
-                            $('.tw_cnt').text(Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw')));
-                            $('.yt_cnt').text(Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt')));
-                            $('.web_cnt').text(Number(res['web_cnt'])-Number(localStorage.getItem('last_web')));
+                            var fb = Number(res['fb_cnt'])-Number(localStorage.getItem('last_fb'));
+                            var tw = Number(res['tw_cnt'])-Number(localStorage.getItem('last_tw'));
+                            var yt = Number(res['yt_cnt'])-Number(localStorage.getItem('last_yt'));
+                            var web = Number(res['web_cnt'])-Number(localStorage.getItem('last_web'));
+                            $('.fb_cnt').text(fb);
+                            $('.tw_cnt').text(tw);
+                            $('.yt_cnt').text(yt);
+                            $('.web_cnt').text(web);
+                            $.post('/saveNewcomments', {keyword_id: keyword_id, fb: fb, tw: tw, yt: yt, web: web},
+                                function(returnedData){
+                                    console.log(returnedData);
+                            });
+                            localStorage.setItem('last', res['last_index']);
+
                         }
                     }
+
                 });
             }
 
@@ -322,13 +346,20 @@ var KTDatatableJsonRemoteDemo = function () {
                     width: 100
 				},
 				{
-					field: 'url',
-					title: 'URL',
-                    type: 'url',
-					template: function(row){
-						return '<a href="'+row.url+'" class="dashboard-table-url">'+row.url+'</a>';
+					field: 'sentiment',
+                    title: 'Sentiment',
+                    textAlign:'center',
+					template: function(row) {
+						var type = {
+							'POSITIVE': "<i class='fa fa-thumbs-up fa-3x' style='color:green'></i>",
+							'NEGATIVE': "<i class='fa fa-thumbs-down fa-3x' style='color:red'></i>",
+							'NEUTRAL': "<span style='font-size:35px;'>&#128528;</span>",
+                            'MIXED':  "<span style='font-size:35px;'>&#128552;</span>",
+                            'INVALID': "<span style='font-size:35px;'>&#128528;</span>"
+                        };
+						return type[row.sentiment];
                     },
-                    autoHide: true,
+                    autoHide: false,
                     width: 'auto'
 				},	{
 					field: 'Actions',

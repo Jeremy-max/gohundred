@@ -20,9 +20,10 @@ use App\Subscription;
 use DateTime;
 use DatePeriod;
 use DateInterval;
+use Exception;
 use Illuminate\Contracts\Session\Session;
+use PhpParser\Node\Stmt\TryCatch;
 use Stevebauman\Location\Location;
-
 
 
 class HomeController extends Controller
@@ -480,13 +481,35 @@ class HomeController extends Controller
     ];
   }
 
-  public function saveNewcomments(Request $request)
-  {
-    $keyword_id = $request->input('keyword_id');
-    $fb = $request->input('fb');
-    $tw = $request->input('tw');
-    $yt = $request->input('yt');
-    $web = $request->input('web');
-    Keyword::where('id', $keyword_id)->update(['fb_new' => $fb, 'tw_new' => $tw, 'yt_new' => $yt, 'web_new'=> $web]);
-  }
+    public function saveNewcomments(Request $request)
+    {
+        $keyword_id = $request->input('keyword_id');
+        $fb = $request->input('fb');
+        $tw = $request->input('tw');
+        $yt = $request->input('yt');
+        $web = $request->input('web');
+        Keyword::where('id', $keyword_id)->update(['fb_new' => $fb, 'tw_new' => $tw, 'yt_new' => $yt, 'web_new'=> $web]);
+    }
+
+    public function sentimentAnalysis($comments) {
+        $config = [
+            'LanguageCode' => 'en',
+            'Text' => $comments,
+        ];
+        try {
+            $jobSentiment = \Comprehend::detectSentiment($config);
+            dump($jobSentiment['Sentiment']);
+            return $jobSentiment['Sentiment'];
+        } catch (\Exception $e) {
+            return 'INVALID';
+        }
+    }
+
+    public function phpinfo()
+    {
+        $comments = "I love you";
+
+        // $this->twitterApi();
+        dd($this->sentimentAnalysis($comments));
+    }
 }

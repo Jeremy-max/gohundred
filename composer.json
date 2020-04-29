@@ -24,8 +24,8 @@
         "laravel/slack-notification-channel": "^2.0",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
-        "maatwebsite/excel": "^3.1",
-        "phpoffice/phpspreadsheet": "^1.10",
+        "michaeljwright/aws-comprehend": "^1.1",
+        "rap2hpoutre/fast-excel": "^1.7",
         "realrashid/sweet-alert": "^3.0",
         "serpapi/google-search-results-php": "^1.2",
         "stevebauman/location": "^5.0",
@@ -37,7 +37,6 @@
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^7.5"
     },
     "config": {

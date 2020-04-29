@@ -13,6 +13,7 @@ class CreateSubscriptionsTable extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('subscriptions')){
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
@@ -27,6 +28,7 @@ class CreateSubscriptionsTable extends Migration
 
             $table->index(['user_id', 'stripe_status']);
         });
+    }
     }
 
     /**

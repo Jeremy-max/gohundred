@@ -100,7 +100,7 @@ Route::middleware('auth')->group(function () {
 
   // Route::get('/web', 'HomeController@search_web');
 
-
+  Route::get('/phpinfo', 'HomeController@phpinfo');
 
 });
 

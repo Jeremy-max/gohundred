@@ -46,7 +46,7 @@ class SearchAPI implements ShouldQueue
     public function handle()
     {
         dump('start');
-        $facebook_array = $this->search_facebook($this->campaign);
+        // $facebook_array = $this->search_facebook($this->campaign);
         $twitter_array = $this->search_twitter($this->campaign);
         $youtube_array = $this->search_youtube($this->campaign);
         $web_array = $this->search_web($this->campaign);
@@ -54,14 +54,14 @@ class SearchAPI implements ShouldQueue
         $slack_list = Slack::where('campaign_id', $this->campaign->id)->get();
 
 
-        $slack_facebook_array = $this->slack_wrapper($facebook_array, $this->campaign->campaign, "Facebook");
+        // $slack_facebook_array = $this->slack_wrapper($facebook_array, $this->campaign->campaign, "Facebook");
         $slack_twitter_array = $this->slack_wrapper($twitter_array, $this->campaign->campaign, "Twitter");
         $slack_youtube_array = $this->slack_wrapper($youtube_array, $this->campaign->campaign, "Youtube");
         $slack_web_array = $this->slack_wrapper($web_array, $this->campaign->campaign, "Google");
 
         foreach ($slack_list as $slack)
         {
-            $this->send_slack_message($slack_facebook_array, $slack);
+            // $this->send_slack_message($slack_facebook_array, $slack);
             $this->send_slack_message($slack_twitter_array, $slack);
             $this->send_slack_message($slack_youtube_array, $slack);
             $this->send_slack_message($slack_web_array, $slack);
@@ -175,47 +175,49 @@ class SearchAPI implements ShouldQueue
         $appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
         $fb_db = [];
         $client = new \GuzzleHttp\Client();
-        $response = $client->get(
-            'https://graph.facebook.com/v5.0/pages/search',
-            array(
-                'query' => array(
-                    'q' => $keyword->keyword,
-                    'fields' => 'id,name,verification_status,location,link,is_unclaimed,is_eligible_for_branded_content',
-                    'access_token' => $app_token,
-                    'appsecret_proof' => $appsecret_proof
+        try {
+            $response = $client->get(
+                'https://graph.facebook.com/v5.0/pages/search',
+                array(
+                    'query' => array(
+                        'q' => $keyword->keyword,
+                        'fields' => 'id,name,verification_status,location,link,is_unclaimed,is_eligible_for_branded_content',
+                        'access_token' => $app_token,
+                        'appsecret_proof' => $appsecret_proof
+                    )
                 )
-            )
-        );
+            );
 
-        $fbPageNameArray = json_decode($response->getBody()->getContents(), true);
-        $pageCnt = count($fbPageNameArray['data']);
-        $i = 0;
-        while($i < $pageCnt)
-        {
-            $pageName = $this->parseFbPagename($fbPageNameArray['data'][$i]['link']);
-            $data = fb_feed()
-            ->setAccessToken($app_token)
-            ->setPage($pageName)
-            ->findKeyword($keyword->keyword)
-            ->fields("id,message,created_time,permalink_url")
-            ->fetch();
-            $res = $this->parseFacebook($data, $keyword->id);
-            if($res){
-                $fb_db = array_merge($fb_db, $res);
+            $fbPageNameArray = json_decode($response->getBody()->getContents(), true);
+            $pageCnt = count($fbPageNameArray['data']);
+            $i = 0;
+            while($i < $pageCnt)
+            {
+                $pageName = $fbPageNameArray['data'][$i]['id'];
+                try {
+                    $data = fb_feed()
+                    ->setAccessToken($app_token)
+                    ->setPage($pageName)
+                    ->findKeyword($keyword->keyword)
+                    ->fields("id,message,created_time,permalink_url")
+                    ->fetch();
+                    $res = $this->parseFacebook($data, $keyword->id);
+                    if($res){
+                        $fb_db = array_merge($fb_db, $res);
+                    }
+                } catch (\Exception $th) {
+                    dump($th);
+                }
+                $i++;
             }
-            $i++;
+            Search::insert($fb_db);
+        } catch (\Exception $th) {
+            dump($th);
         }
-        Search::insert($fb_db);
     // dump("Facebook search result data is added to DB successfully!");
       return $fb_db;
     }
 
-  public function parseFbPagename($link)
-  {
-    $pageName = substr($link, 25);
-    $pageName = substr($pageName, 0, -1);
-    return $pageName;
-  }
   public function parseFacebook($fb_response, $keyword_id) {
 
     if($fb_response['error'] == true)
@@ -227,30 +229,30 @@ class SearchAPI implements ShouldQueue
     {
         $item = $fb_response['data'][$i];
 
-
         if(count($item) < 4)
         {
             $i++;
             continue;
         }
-      $title = $item["message"];
+        $title = $item["message"];
 
-      $date_string = substr($item['created_time'], 0, 10);
+        $date_string = substr($item['created_time'], 0, 10);
 
-      if(date_create($date_string) < date_create("2019-11-11"))
-        {
-            $i++;
-            continue;
-        }
-      if(strlen($title) > 90){
-        $title = mb_substr($title, 0, 90) . '...';
+        if(date_create($date_string) < date_create("2019-11-11"))
+            {
+                $i++;
+                continue;
+            }
+        if(strlen($title) > 90){
+            $title = mb_substr($title, 0, 90) . '...';
     }
       $value = [
         'keyword_id' => $keyword_id,
         'social_type' => 'facebook',
         'title' => $title,
         'date' => date($date_string),
-        'url' => $item['permalink_url']
+        'url' => $item['permalink_url'],
+        'sentiment' => $this->sentimentAnalysis($item["message"])
       ];
       array_push($table_fb,$value);
 
@@ -345,7 +347,8 @@ class SearchAPI implements ShouldQueue
         'social_type' => 'twitter',
         'title' => $title,
         'date' => date($date),
-        'url' => 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str
+        'url' => 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str,
+        'sentiment' => $this->sentimentAnalysis($tweets->statuses[$i]->text)
       ];
       array_push($table_tweets,$value);
 
@@ -374,83 +377,83 @@ class SearchAPI implements ShouldQueue
   }
 
 
-  public function search_tiktok()
-  {
-//    dd('Hello, tiktok!!');
-    $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
-    foreach ($keyword_list as $keyword)
-    {
-      $this->tiktokApi($keyword);
-    }
-  }
+//   public function search_tiktok()
+//   {
+// //    dd('Hello, tiktok!!');
+//     $keyword_list = Keyword::where('campaign_id', $campaign->id)->get();
+//     foreach ($keyword_list as $keyword)
+//     {
+//       $this->tiktokApi($keyword);
+//     }
+//   }
 
-  public function tiktokApi()
-  {
-    // dd('Hello, web!!');
-
-
-    $client = new \App\sabri\tiktok\TiktokApi([
-        'device_id' => env('DEVICE_ID'),
-        'iid' => env('IID'),
-        'openudid' => env('OPENUDID')
-    ]);
-
-    $sumCnt = 0;
-    $params = [
-      'keyword' => "keyword",
-      'count' => 10,
-      'start' => 0,
-    ];
-
-      $tiktok_db = [];
-      // while(1)
-      // {
-      //     $sumCnt += 10;
-      //     try{
-            // $results = $client.searchHashtags($params);
-            // dd($results);
-//             $tiktok_db = array_merge($tiktok_db, $this->parseTiktok($results, $keyword->id));
-//           } catch(\Exception $e) {
-//  //           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
-//             break;
-//           }
+//   public function tiktokApi()
+//   {
+//     // dd('Hello, web!!');
 
 
-//           // if(count($results) < $limit_cnt)
-//           //   break;
-//            if($sumCnt > $limit_cnt)
-//              break;
+//     $client = new \App\sabri\tiktok\TiktokApi([
+//         'device_id' => env('DEVICE_ID'),
+//         'iid' => env('IID'),
+//         'openudid' => env('OPENUDID')
+//     ]);
 
-//           $params['cursor'] = $params['cursor'] + 10;
+//     $sumCnt = 0;
+//     $params = [
+//       'keyword' => "keyword",
+//       'count' => 10,
+//       'start' => 0,
+//     ];
+
+//       $tiktok_db = [];
+//       // while(1)
+//       // {
+//       //     $sumCnt += 10;
+//       //     try{
+//             // $results = $client.searchHashtags($params);
+//             // dd($results);
+// //             $tiktok_db = array_merge($tiktok_db, $this->parseTiktok($results, $keyword->id));
+// //           } catch(\Exception $e) {
+// //  //           dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
+// //             break;
+// //           }
+
+
+// //           // if(count($results) < $limit_cnt)
+// //           //   break;
+// //            if($sumCnt > $limit_cnt)
+// //              break;
+
+// //           $params['cursor'] = $params['cursor'] + 10;
+// //       }
+// //       dump($tiktok_db);
+//  //   Search::insert($tiktok_db);
+//   }
+
+//   public function parseTiktok($response, $keywordId)
+//   {
+//     $cnt = count($response);
+//     $i = 0;
+//     $tWeb = [];
+//     while ($i < $cnt)
+//     {
+//       $title = $response[$i]->title;
+//       if(strlen($title) > 90){
+//         $title = mb_substr($title, 0, 90) . '...';
 //       }
-//       dump($tiktok_db);
- //   Search::insert($tiktok_db);
-  }
-
-  public function parseTiktok($response, $keywordId)
-  {
-    $cnt = count($response);
-    $i = 0;
-    $tWeb = [];
-    while ($i < $cnt)
-    {
-      $title = $response[$i]->title;
-      if(strlen($title) > 90){
-        $title = mb_substr($title, 0, 90) . '...';
-      }
-      $value = [
-        'keyword_id' => $keywordId,
-        'social_type' => 'tiktok',
-        'title' => $title,
-        'date' => date('Y-m-d'),
-        'url' => $response[$i]->link
-      ];
-      array_push($tWeb,$value);
-//      dump($value);
-      $i++;
-    }
-    return $tWeb;
-  }
+//       $value = [
+//         'keyword_id' => $keywordId,
+//         'social_type' => 'tiktok',
+//         'title' => $title,
+//         'date' => date('Y-m-d'),
+//         'url' => $response[$i]->link
+//       ];
+//       array_push($tWeb,$value);
+// //      dump($value);
+//       $i++;
+//     }
+//     return $tWeb;
+//   }
 
 
   public function search_youtube($campaign)
@@ -538,7 +541,8 @@ class SearchAPI implements ShouldQueue
         'social_type' => 'youtube',
         'title' =>  $title,
         'date' => date($date),
-        'url' => 'https://youtube.com/watch?v=' . $response->items[$i]->id->videoId
+        'url' => 'https://youtube.com/watch?v=' . $response->items[$i]->id->videoId,
+        'sentiment' => $this->sentimentAnalysis($response->items[$i]->snippet->description)
       ];
       array_push($tYoutube,$value);
 //      dump($value);
@@ -628,12 +632,27 @@ class SearchAPI implements ShouldQueue
         'social_type' => 'web',
         'title' => $title,
         'date' => date('Y-m-d'),
-        'url' => $response[$i]->link
+        'url' => $response[$i]->link,
+        'sentiment' => $this->sentimentAnalysis($response[$i]->snippet)
       ];
       array_push($tWeb,$value);
 //      dump($value);
       $i++;
     }
     return $tWeb;
+  }
+
+  public function sentimentAnalysis($comments) {
+    $config = [
+        'LanguageCode' => 'en',
+        'Text' => $comments,
+    ];
+    try {
+        $jobSentiment = \Comprehend::detectSentiment($config);
+        return $jobSentiment['Sentiment'];
+    } catch (\Exception $e) {
+        // return 'INVALID';
+    }
+    return 'INVALID';
   }
 }

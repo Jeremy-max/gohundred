@@ -4,10 +4,8 @@ namespace App\Exports;
 
 use App\Search;
 use App\Keyword;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class SearchExcelExport implements FromCollection ,WithHeadings
+class SearchExcelExport
 {
     protected $keyword_id;
 

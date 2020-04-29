@@ -93,13 +93,20 @@ var KTDatatableJsonRemoteDemo = function () {
                     width: 100
 				},
 				{
-					field: 'url',
-					title: 'URL',
-                    type: 'url',
-					template: function(row){
-						return '<a href="'+row.url+'" class="dashboard-table-url">'+row.url+'</a>';
+					field: 'sentiment',
+                    title: 'Sentiment',
+                    textAlign:'center',
+					template: function(row) {
+						var type = {
+							'POSITIVE': "<i class='fa fa-thumbs-up fa-2x' style='color:green'></i>",
+							'NEGATIVE': "<i class='fa fa-thumbs-down fa-2x' style='color:red'></i>",
+							'NEUTRAL': "<span style='font-size:25px;'>&#128528;</span>",
+                            'MIXED':  "<span style='font-size:25px;'>&#128552;</span>",
+                            'INVALID': "<span style='font-size:25px;'>&#128528;</span>"
+                        };
+						return type[row.sentiment];
                     },
-                    autoHide: true,
+                    autoHide: false,
                     width: 'auto'
 				},	{
 					field: 'Actions',
