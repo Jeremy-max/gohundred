@@ -200,6 +200,23 @@
 										</select>
 									</div>
 								</div>
+                            </div>
+                            <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+								<div class="kt-form__group kt-form__group--inline">
+									<div class="kt-form__label">
+										<label>Sentiment Filter:</label>
+									</div>
+									<div class="kt-form__control">
+										<select class="form-control bootstrap-select" id="kt_sentiment_filter">
+											<option value="">All</option>
+											<option value="positive">Positive</option>
+											<option value="negative">Negative</option>
+											{{-- <option value="tiktok">tiktok</option> --}}
+											<option value="neutral">Neutral</option>
+											<option value="mixed">Mixed</option>
+										</select>
+									</div>
+								</div>
 							</div>
 							<div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
 								<div class="kt-form__group kt-form__group--inline">
