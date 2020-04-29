@@ -136,6 +136,10 @@ var KTDatatableJsonRemoteDemo = function () {
         	datatable.search($(this).val().toLowerCase(), 'social_type');
         });
 
+        $('#kt_sentiment_filter').on('change', function() {
+        	datatable.search($(this).val().toUpperCase(), 'sentiment');
+        });
+
         $('.datepicker').datepicker({
             format: 'yyyy-mm-dd',
             startDate: '2019-11-11',
@@ -149,7 +153,7 @@ var KTDatatableJsonRemoteDemo = function () {
         });
 
         $('#kt_form_status').selectpicker();
-
+        $('#kt_sentiment_filter').selectpicker();
 
         datatable.on('kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated', function (e) {
             // datatable.checkbox() access to extension methods

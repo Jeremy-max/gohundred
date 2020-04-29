@@ -351,11 +351,11 @@ var KTDatatableJsonRemoteDemo = function () {
                     textAlign:'center',
 					template: function(row) {
 						var type = {
-							'POSITIVE': "<i class='fa fa-thumbs-up fa-3x' style='color:green'></i>",
-							'NEGATIVE': "<i class='fa fa-thumbs-down fa-3x' style='color:red'></i>",
-							'NEUTRAL': "<span style='font-size:35px;'>&#128528;</span>",
-                            'MIXED':  "<span style='font-size:35px;'>&#128552;</span>",
-                            'INVALID': "<span style='font-size:35px;'>&#128528;</span>"
+							'POSITIVE': "<i class='fa fa-thumbs-up fa-2x' style='color:green'></i>",
+							'NEGATIVE': "<i class='fa fa-thumbs-down fa-2x' style='color:red'></i>",
+							'NEUTRAL': "<span style='font-size:25px;'>&#128528;</span>",
+                            'MIXED':  "<span style='font-size:25px;'>&#128552;</span>",
+                            'INVALID': "<span style='font-size:25px;'>&#128528;</span>"
                         };
 						return type[row.sentiment];
                     },
@@ -389,6 +389,10 @@ var KTDatatableJsonRemoteDemo = function () {
         	datatable.search($(this).val().toLowerCase(), 'social_type');
         });
 
+        $('#kt_sentiment_filter').on('change', function() {
+        	datatable.search($(this).val().toUpperCase(), 'sentiment');
+        });
+
         $('.datepicker').datepicker({
             format: 'yyyy-mm-dd',
             startDate: '2019-11-11',
@@ -402,7 +406,7 @@ var KTDatatableJsonRemoteDemo = function () {
         });
 
         $('#kt_form_status').selectpicker();
-
+        $('#kt_sentiment_filter').selectpicker();
 
         datatable.on('kt-datatable--on-check kt-datatable--on-uncheck kt-datatable--on-layout-updated', function (e) {
             // datatable.checkbox() access to extension methods
