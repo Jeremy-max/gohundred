@@ -14,11 +14,12 @@ class ExcelExportController extends Controller
 {
     public function export(Request $request)
     {
-      $keyword_id = session('keyword_id');
+        $keyword_id = session('keyword_id');
+        dd($keyword_id);
       $keyword = Keyword::where('id', $keyword_id)->first()->keyword;
       $excelFileName = 'GoHundred - ' . $keyword . '.xlsx';
 
-      $sheets = Search::select('social_type', 'title', 'date', 'url')->where('keyword_id', $keyword_id)->get();
+      $sheets = Search::select('social_type', 'title', 'date', 'url', 'sentiment')->where('keyword_id', $keyword_id)->get();
       return (new FastExcel($sheets))->download($excelFileName);
     //   return Excel::download(new SearchExcelExport($keyword_id), $excelFileName);
     }

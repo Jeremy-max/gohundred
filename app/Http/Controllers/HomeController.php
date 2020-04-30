@@ -336,7 +336,9 @@ class HomeController extends Controller
       $campaign->delete();
     }
     $subscription = Subscription::where('user_id', $user->id)->first();
-    $subscription->delete();
+    if($subscription){
+        $subscription->delete();
+    }
     $user->delete();
   }
 
