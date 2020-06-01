@@ -243,9 +243,6 @@ class SearchAPI implements ShouldQueue
             $i++;
             continue;
         }
-      //   if(strlen($title) > 90){
-      //       $title = mb_substr($title, 0, 90) . '...';
-      // }
       $value = [
         'keyword_id' => $keyword_id,
         'social_type' => 'facebook',
@@ -338,10 +335,6 @@ class SearchAPI implements ShouldQueue
     {
       $title = $tweets->statuses[$i]->text;
       $date = $this->tweetsDateParse($tweets->statuses[$i]->created_at);
-      // if(strlen($title) > 90)
-      // {
-      //   $title = mb_substr($title, 0, 90) . '...';
-      // }
       $value = [
         'keyword_id' => $keyword_id,
         'social_type' => 'twitter',
@@ -438,9 +431,6 @@ class SearchAPI implements ShouldQueue
 //     while ($i < $cnt)
 //     {
 //       $title = $response[$i]->title;
-//       if(strlen($title) > 90){
-//         $title = mb_substr($title, 0, 90) . '...';
-//       }
 //       $value = [
 //         'keyword_id' => $keywordId,
 //         'social_type' => 'tiktok',
@@ -533,9 +523,6 @@ class SearchAPI implements ShouldQueue
     {
       $title = $response->items[$i]->snippet->title;
       $date = substr($response->items[$i]->snippet->publishedAt,0,10);
-      // if(strlen($title) > 90){
-      //   $title = mb_substr($title, 0, 90) . '...';
-      // }
       $value = [
         'keyword_id' => $keywordId,
         'social_type' => 'youtube',
@@ -624,9 +611,6 @@ class SearchAPI implements ShouldQueue
     while ($i < $cnt)
     {
       $title = $response[$i]->title;
-      // if(strlen($title) > 90){
-      //   $title = mb_substr($title, 0, 90) . '...';
-      // }
       $value = [
         'keyword_id' => $keywordId,
         'social_type' => 'web',

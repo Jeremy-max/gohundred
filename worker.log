@@ -5654,3 +5654,10 @@ GuzzleHttp\Exception\ConnectException {#769
 [2020-06-01 15:42:23][13] Processed:  App\Jobs\SearchAPI
 "end"
 [2020-06-01 15:44:10][14] Processed:  App\Jobs\SearchAPI
+[2020-06-01 15:47:16][14] Failed:     App\Jobs\SearchAPI
+"Facebook search result data is added to DB successfully!"
+"Error occurred for:\r\nSearching 10 items exceeded free trial version limitation"
+"Tweets search result data is added to DB successfully!"
+"Youtube data is added to DB successfully!"
+"end"
+[2020-06-01 15:51:22][14] Processed:  App\Jobs\SearchAPI
