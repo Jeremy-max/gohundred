@@ -214,7 +214,7 @@ class SearchAPI implements ShouldQueue
         } catch (\Exception $th) {
             dump($th);
         }
-    // dump("Facebook search result data is added to DB successfully!");
+     dump("Facebook search result data is added to DB successfully!");
       return $fb_db;
     }
 
@@ -239,17 +239,17 @@ class SearchAPI implements ShouldQueue
         $date_string = substr($item['created_time'], 0, 10);
 
         if(date_create($date_string) < date_create("2019-11-11"))
-            {
-                $i++;
-                continue;
-            }
-        if(strlen($title) > 90){
-            $title = mb_substr($title, 0, 90) . '...';
-    }
+        {
+            $i++;
+            continue;
+        }
+      //   if(strlen($title) > 90){
+      //       $title = mb_substr($title, 0, 90) . '...';
+      // }
       $value = [
         'keyword_id' => $keyword_id,
         'social_type' => 'facebook',
-        'title' => $title,
+        'title' => $this->parseTitle($title),
         'date' => date($date_string),
         'url' => $item['permalink_url'],
         'sentiment' => $this->sentimentAnalysis($item["message"])
@@ -324,7 +324,7 @@ class SearchAPI implements ShouldQueue
         $sum += $limit_cnt;
       }
       Search::insert($tweets_db);
-//    dump("Tweets search result data is added to DB successfully!");
+    dump("Tweets search result data is added to DB successfully!");
       return $tweets_db;
   }
 
@@ -338,14 +338,14 @@ class SearchAPI implements ShouldQueue
     {
       $title = $tweets->statuses[$i]->text;
       $date = $this->tweetsDateParse($tweets->statuses[$i]->created_at);
-      if(strlen($title) > 90)
-      {
-        $title = mb_substr($title, 0, 90) . '...';
-      }
+      // if(strlen($title) > 90)
+      // {
+      //   $title = mb_substr($title, 0, 90) . '...';
+      // }
       $value = [
         'keyword_id' => $keyword_id,
         'social_type' => 'twitter',
-        'title' => $title,
+        'title' => $this->parseTitle($title),
         'date' => date($date),
         'url' => 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str,
         'sentiment' => $this->sentimentAnalysis($tweets->statuses[$i]->text)
@@ -444,7 +444,7 @@ class SearchAPI implements ShouldQueue
 //       $value = [
 //         'keyword_id' => $keywordId,
 //         'social_type' => 'tiktok',
-//         'title' => $title,
+//         'title' => $this->parseTitle($title),
 //         'date' => date('Y-m-d'),
 //         'url' => $response[$i]->link
 //       ];
@@ -519,7 +519,7 @@ class SearchAPI implements ShouldQueue
      }
  //     dump($youtube_db);
       Search::insert($youtube_db);
-
+     dump("Youtube data is added to DB successfully!");
      return $youtube_db;
   }
 
@@ -533,13 +533,13 @@ class SearchAPI implements ShouldQueue
     {
       $title = $response->items[$i]->snippet->title;
       $date = substr($response->items[$i]->snippet->publishedAt,0,10);
-      if(strlen($title) > 90){
-        $title = mb_substr($title, 0, 90) . '...';
-      }
+      // if(strlen($title) > 90){
+      //   $title = mb_substr($title, 0, 90) . '...';
+      // }
       $value = [
         'keyword_id' => $keywordId,
         'social_type' => 'youtube',
-        'title' =>  $title,
+        'title' => $this->parseTitle($title),
         'date' => date($date),
         'url' => 'https://youtube.com/watch?v=' . $response->items[$i]->id->videoId,
         'sentiment' => $this->sentimentAnalysis($response->items[$i]->snippet->description)
@@ -624,13 +624,13 @@ class SearchAPI implements ShouldQueue
     while ($i < $cnt)
     {
       $title = $response[$i]->title;
-      if(strlen($title) > 90){
-        $title = mb_substr($title, 0, 90) . '...';
-      }
+      // if(strlen($title) > 90){
+      //   $title = mb_substr($title, 0, 90) . '...';
+      // }
       $value = [
         'keyword_id' => $keywordId,
         'social_type' => 'web',
-        'title' => $title,
+        'title' => $this->parseTitle($title),
         'date' => date('Y-m-d'),
         'url' => $response[$i]->link,
         'sentiment' => $this->sentimentAnalysis($response[$i]->snippet)
@@ -640,6 +640,20 @@ class SearchAPI implements ShouldQueue
       $i++;
     }
     return $tWeb;
+  }
+
+  public function parseTitle($title)
+  {
+    if(strlen($title) > 90){
+        $it = explode("\n", $title);
+        $i = 0;
+        while($it[$i] == ""){
+            $i++;
+        }
+        $title = $it[$i];
+        // $title = mb_substr($title, 0, $index);
+    }
+    return $title;
   }
 
   public function sentimentAnalysis($comments) {
