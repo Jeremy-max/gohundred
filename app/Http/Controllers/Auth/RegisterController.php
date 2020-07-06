@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/trial';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -83,7 +83,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'country' =>$data['country'],
-            'trial_ends_at' => now()->addDays(14),
+            'trial_ends_at' => now()->addDays(14)
         ]);
     }
 
@@ -102,6 +102,8 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
+        $user->active = 1;
+        $user->save();
         $this->guard()->login($user);
 
         return $this->registered($request, $user) ?: redirect($this->redirectPath());

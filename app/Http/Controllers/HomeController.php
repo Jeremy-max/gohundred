@@ -25,6 +25,7 @@ use Exception;
 use Illuminate\Contracts\Session\Session;
 use PhpParser\Node\Stmt\TryCatch;
 use Stevebauman\Location\Location;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 
 class HomeController extends Controller
@@ -150,7 +151,13 @@ class HomeController extends Controller
     }
     $job = $this->getJobStatus();
     if ($job['status'] == 'pending'){
-        $search_last = Search::all()->last()->id;
+        if(Search::all()->last()){
+            $search_last = Search::all()->last()->id;
+        }
+        else {
+
+            $search_last = 0;
+        }
         $fb_cnt = Search::where('social_type', 'facebook')->count();
         $tw_cnt = Search::where('social_type', 'twitter')->count();
         $yt_cnt = Search::where('social_type', 'youtube')->count();
@@ -236,7 +243,13 @@ class HomeController extends Controller
 
     $job = $this->getJobStatus();
     if ($job['status'] == 'pending'){
-        $search_last = Search::all()->last()->id;
+        if(Search::all()->last()){
+            $search_last = Search::all()->last()->id;
+        }
+        else {
+
+            $search_last = 0;
+        }
         $fb_cnt = Search::where('social_type', 'facebook')->count();
         $tw_cnt = Search::where('social_type', 'twitter')->count();
         $yt_cnt = Search::where('social_type', 'youtube')->count();
@@ -401,7 +414,13 @@ class HomeController extends Controller
 
     SearchAPI::dispatch($campaign);
 
-    $search_last = Search::all()->last()->id;
+    if(Search::all()->last()){
+        $search_last = Search::all()->last()->id;
+    }
+    else {
+
+        $search_last = 0;
+    }
     $fb_cnt = Search::where('social_type', 'facebook')->count();
     $tw_cnt = Search::where('social_type', 'twitter')->count();
     $yt_cnt = Search::where('social_type', 'youtube')->count();
@@ -455,7 +474,13 @@ class HomeController extends Controller
   public function getJobStatus()
   {
     $job_table = Job::all();
-    $search_last = Search::all()->last()->id;
+    if(Search::all()->last()){
+        $search_last = Search::all()->last()->id;
+    }
+    else {
+
+        $search_last = 0;
+    }
     $fb_cnt = Search::where('social_type', 'facebook')->count();
     $tw_cnt = Search::where('social_type', 'twitter')->count();
     $yt_cnt = Search::where('social_type', 'youtube')->count();
@@ -511,9 +536,111 @@ class HomeController extends Controller
     public function phpinfo()
     {
         // $comments = "I love you";
+        $tr = new GoogleTranslate();
+        $tr->setTarget('fr');
+        // $tr->setTarget('de');
 
+        dd($tr->translate("I am a freelancer"));
         // dd($this->sentimentAnalysis($comments));
     }
 
+    public function twitterApi()
+  {
+    $consumer_key = env('CONSUMER_KEY');
+    $consumer_secret = env('CONSUMER_SECRET');
+    $access_token_key = env('ACCESS_TOKEN_KEY');
+    $access_token_secret = env('ACCESS_TOKEN_SECRET');
 
+    $connection = new TwitterOAuth(
+      $consumer_key,
+      $consumer_secret,
+      $access_token_key,
+      $access_token_secret
+    );
+
+      $limit_cnt = 10;
+      $params = [
+        'q' => "freelancer",
+        'count' => $limit_cnt,
+        'max_id' => null
+      ];
+      $tweets_db = [];
+      $sum = 0;
+     while(1)
+     {
+
+       try{
+          $tweets = $connection->get('search/tweets', $params);
+          if(isset($tweets->errors))
+          {
+            dump('Error occurred for rate limit exceeded free trial version limitation');
+            break;
+          }
+          else{
+            if($this->parseTweets($tweets,1))
+              $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,1));
+          }
+        } catch(\Exception $e) {
+          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+          break;
+          //return false;
+        }
+        if(count($tweets->statuses) < $limit_cnt || $sum > 30){
+          break;
+        }
+        $params['max_id'] = $this->getMaxId($tweets);
+        $sum += $limit_cnt;
+      }
+      $this->addToDB($tweets_db);
+    dump("Tweets search result data is added to DB successfully!");
+      return $tweets_db;
+  }
+
+  public function parseTweets($tweets, $keyword_id) {
+    if(!isset($tweets->statuses))
+      return false;
+    $cnt = count($tweets->statuses);
+    $i = 0;
+    $table_tweets = [];
+    while ($i < $cnt)
+    {
+        $url = 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str;
+        if(Search::where('url', $url)->first()){
+            continue;
+        }
+      $title = $tweets->statuses[$i]->text;
+      $date = $this->tweetsDateParse($tweets->statuses[$i]->created_at);
+      $value = [
+        'keyword_id' => $keyword_id,
+        'social_type' => 'twitter',
+        'title' => $this->parseTitle($title),
+        'date' => date($date),
+        'url' => $url,
+        'sentiment' => $this->sentimentAnalysis($tweets->statuses[$i]->text)
+      ];
+      array_push($table_tweets,$value);
+
+      $i++;
+    }
+    return $table_tweets;
+
+  }
+
+  public function getMaxId($tweets)
+  {
+    $startIdx = stripos($tweets->search_metadata->next_results, 'max_id=');
+    $maxidstr = substr($tweets->search_metadata->next_results, $startIdx + 7);
+    $endIdx = stripos($maxidstr, '&');
+    if ($endIdx != -1)
+      $maxidstr = substr($maxidstr, 0, $endIdx);
+
+    return (int)$maxidstr;
+  }
+
+  public function tweetsDateParse($str)
+  {
+    $date = date_create_from_format("D M d H:i:s O Y", $str);
+    $new_date = date_format($date,"Y-m-d");
+    return $new_date;
+  }
 }

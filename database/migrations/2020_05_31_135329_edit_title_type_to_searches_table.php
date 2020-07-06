@@ -13,7 +13,7 @@ class EditTitleTypeToSearchesTable extends Migration
      */
     public function up()
     {
-        // DB::connection()->getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
+        DB::connection()->getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
 
         Schema::table('searches', function (Blueprint $table) {
             $table->longText('title')->nullable()->change();

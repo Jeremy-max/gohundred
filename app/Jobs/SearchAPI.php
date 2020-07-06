@@ -229,6 +229,12 @@ class SearchAPI implements ShouldQueue
     {
         $item = $fb_response['data'][$i];
 
+        $url = $item['permalink_url'];
+        if(Search::where('url', $url)->first()){
+            $i++;
+            continue;
+        }
+
         if(count($item) < 4)
         {
             $i++;
@@ -248,7 +254,7 @@ class SearchAPI implements ShouldQueue
         'social_type' => 'facebook',
         'title' => $this->parseTitle($title),
         'date' => date($date_string),
-        'url' => $item['permalink_url'],
+        'url' => $url,
         'sentiment' => $this->sentimentAnalysis($item["message"])
       ];
       array_push($table_fb,$value);
@@ -333,6 +339,11 @@ class SearchAPI implements ShouldQueue
     $table_tweets = [];
     while ($i < $cnt)
     {
+        $url = 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str;
+        if(Search::where('url', $url)->first()){
+            $i++;
+            continue;
+        }
       $title = $tweets->statuses[$i]->text;
       $date = $this->tweetsDateParse($tweets->statuses[$i]->created_at);
       $value = [
@@ -340,7 +351,7 @@ class SearchAPI implements ShouldQueue
         'social_type' => 'twitter',
         'title' => $this->parseTitle($title),
         'date' => date($date),
-        'url' => 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str,
+        'url' => $url,
         'sentiment' => $this->sentimentAnalysis($tweets->statuses[$i]->text)
       ];
       array_push($table_tweets,$value);
@@ -521,6 +532,11 @@ class SearchAPI implements ShouldQueue
     set_time_limit(3000);
     while ($i < $cnt)
     {
+        $url = 'https://youtube.com/watch?v=' . $response->items[$i]->id->videoId;
+        if(Search::where('url', $url)->first()){
+            $i++;
+            continue;
+        }
       $title = $response->items[$i]->snippet->title;
       $date = substr($response->items[$i]->snippet->publishedAt,0,10);
       $value = [
@@ -528,7 +544,7 @@ class SearchAPI implements ShouldQueue
         'social_type' => 'youtube',
         'title' => $this->parseTitle($title),
         'date' => date($date),
-        'url' => 'https://youtube.com/watch?v=' . $response->items[$i]->id->videoId,
+        'url' => $url,
         'sentiment' => $this->sentimentAnalysis($response->items[$i]->snippet->description)
       ];
       array_push($tYoutube,$value);
@@ -610,13 +626,18 @@ class SearchAPI implements ShouldQueue
     $tWeb = [];
     while ($i < $cnt)
     {
+        $url = $response[$i]->link;
+        if(Search::where('url', $url)->first()){
+            $i++;
+            continue;
+        }
       $title = $response[$i]->title;
       $value = [
         'keyword_id' => $keywordId,
         'social_type' => 'web',
         'title' => $this->parseTitle($title),
         'date' => date('Y-m-d'),
-        'url' => $response[$i]->link,
+        'url' => $url,
         'sentiment' => $this->sentimentAnalysis($response[$i]->snippet)
       ];
       array_push($tWeb,$value);

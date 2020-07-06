@@ -5661,3 +5661,1253 @@ GuzzleHttp\Exception\ConnectException {#769
 "Youtube data is added to DB successfully!"
 "end"
 [2020-06-01 15:51:22][14] Processed:  App\Jobs\SearchAPI
+[2020-06-24 19:48:07][1] Processing: App\Jobs\SearchAPI
+"start"
+[2020-06-24 19:49:37][1] Processing: App\Jobs\SearchAPI
+"start"
+[2020-06-24 19:51:07][1] Processing: App\Jobs\SearchAPI
+"start"
+[2020-06-24 19:52:38][1] Processing: App\Jobs\SearchAPI
+[2020-06-24 19:52:38][1] Failed:     App\Jobs\SearchAPI
+"Facebook search result data is added to DB successfully!"
+"Error occurred for:\r\nSearching 10 items exceeded free trial version limitation"
+"Tweets search result data is added to DB successfully!"
+"Youtube data is added to DB successfully!"
+"Facebook search result data is added to DB successfully!"
+"end"
+[2020-06-24 19:54:40][1] Processed:  App\Jobs\SearchAPI
+"Error occurred for:\r\nSearching 10 items exceeded free trial version limitation"
+"Tweets search result data is added to DB successfully!"
+"Youtube data is added to DB successfully!"
+"Facebook search result data is added to DB successfully!"
+"end"
+[2020-06-24 19:57:12][1] Processed:  App\Jobs\SearchAPI
+"Tweets search result data is added to DB successfully!"
+"Youtube data is added to DB successfully!"
+"end"
+[2020-06-24 20:00:24][1] Processed:  App\Jobs\SearchAPI
+[2020-06-29 19:05:35][1] Processing: App\Jobs\SearchAPI
+"start"
+GuzzleHttp\Exception\ClientException {#775
+  -request: GuzzleHttp\Psr7\Request {#764
+    -method: "GET"
+    -requestTarget: null
+    -uri: GuzzleHttp\Psr7\Uri {#761
+      -scheme: "https"
+      -userInfo: ""
+      -host: "graph.facebook.com"
+      -port: null
+      -path: "/v5.0/pages/search"
+      -query: "q=gucci&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce"
+      -fragment: ""
+    }
+    -headers: array:2 [
+      "User-Agent" => array:1 [
+        0 => "GuzzleHttp/6.5.3 curl/7.64.0 PHP/7.4.1"
+      ]
+      "Host" => array:1 [
+        0 => "graph.facebook.com"
+      ]
+    ]
+    -headerNames: array:2 [
+      "user-agent" => "User-Agent"
+      "host" => "Host"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#763
+      -stream: stream resource {@610
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 0
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -response: GuzzleHttp\Psr7\Response {#771
+    -reasonPhrase: "Forbidden"
+    -statusCode: 403
+    -headers: array:17 [
+      "x-app-usage" => array:1 [
+        0 => "{"call_count":63,"total_cputime":0,"total_time":113}"
+      ]
+      "WWW-Authenticate" => array:1 [
+        0 => "OAuth "Facebook Platform" "invalid_request" "(#4) Application request limit reached""
+      ]
+      "Content-Type" => array:1 [
+        0 => "text/javascript; charset=UTF-8"
+      ]
+      "facebook-api-version" => array:1 [
+        0 => "v5.0"
+      ]
+      "Strict-Transport-Security" => array:1 [
+        0 => "max-age=15552000; preload"
+      ]
+      "Pragma" => array:1 [
+        0 => "no-cache"
+      ]
+      "x-fb-rev" => array:1 [
+        0 => "1002306472"
+      ]
+      "Access-Control-Allow-Origin" => array:1 [
+        0 => "*"
+      ]
+      "Cache-Control" => array:1 [
+        0 => "no-store"
+      ]
+      "x-fb-trace-id" => array:1 [
+        0 => "E6QSmM/JOOn"
+      ]
+      "x-fb-request-id" => array:1 [
+        0 => "AkNVaiYXQ53LUTO1yBojEXi"
+      ]
+      "Expires" => array:1 [
+        0 => "Sat, 01 Jan 2000 00:00:00 GMT"
+      ]
+      "X-FB-Debug" => array:1 [
+        0 => "j8+ymUlvNkBzwt+rvHHtrX94fZA8hXz/6xqqAewTGGX43XINEU6ZJWczfQ2zHJxfEXlKfK9mr6zh3fpqGNislg=="
+      ]
+      "Date" => array:1 [
+        0 => "Mon, 29 Jun 2020 19:05:39 GMT"
+      ]
+      "Alt-Svc" => array:1 [
+        0 => "h3-29=":443"; ma=3600,h3-27=":443"; ma=3600"
+      ]
+      "Connection" => array:1 [
+        0 => "keep-alive"
+      ]
+      "Content-Length" => array:1 [
+        0 => "154"
+      ]
+    ]
+    -headerNames: array:17 [
+      "x-app-usage" => "x-app-usage"
+      "www-authenticate" => "WWW-Authenticate"
+      "content-type" => "Content-Type"
+      "facebook-api-version" => "facebook-api-version"
+      "strict-transport-security" => "Strict-Transport-Security"
+      "pragma" => "Pragma"
+      "x-fb-rev" => "x-fb-rev"
+      "access-control-allow-origin" => "Access-Control-Allow-Origin"
+      "cache-control" => "Cache-Control"
+      "x-fb-trace-id" => "x-fb-trace-id"
+      "x-fb-request-id" => "x-fb-request-id"
+      "expires" => "Expires"
+      "x-fb-debug" => "X-FB-Debug"
+      "date" => "Date"
+      "alt-svc" => "Alt-Svc"
+      "connection" => "Connection"
+      "content-length" => "Content-Length"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#769
+      -stream: stream resource {@616
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 154
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -handlerContext: []
+  #message: """
+    Client error: `GET https://graph.facebook.com/v5.0/pages/search?q=gucci&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce` resulted in a `403 Forbidden` response:\n
+    {"error":{"message":"(#4) Application request limit reached","type":"OAuthException","is_transient":true,"code":4,"fbtra (truncated...)\n
+    """
+  #code: 403
+  #file: "/home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php"
+  #line: 113
+  trace: {
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Middleware.php:65 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:203 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:156 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/TaskQueue.php:47 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:246 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:223 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:267 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:225 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:62 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:96 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:186 {
+      App\Jobs\SearchAPI->facebookApi($keyword)
+      ›     'access_token' => $app_token,
+      ›     'appsecret_proof' => $appsecret_proof
+      › )
+    }
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:164 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:49 { …}
+    App\Jobs\SearchAPI->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:94 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:128 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:104 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:98 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:49 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:88 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:337 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:283 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:102 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:86 { …}
+    Illuminate\Queue\Console\WorkCommand->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Command/Command.php:255 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:170 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:1001 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:271 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:147 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Application.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:133 { …}
+    /home/programmer/Downloads/gohundred/artisan:37 { …}
+  }
+}
+"Facebook search result data is added to DB successfully!"
+GuzzleHttp\Exception\ClientException {#1271
+  -request: GuzzleHttp\Psr7\Request {#747
+    -method: "GET"
+    -requestTarget: null
+    -uri: GuzzleHttp\Psr7\Uri {#739
+      -scheme: "https"
+      -userInfo: ""
+      -host: "graph.facebook.com"
+      -port: null
+      -path: "/v5.0/pages/search"
+      -query: "q=workana&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce"
+      -fragment: ""
+    }
+    -headers: array:2 [
+      "User-Agent" => array:1 [
+        0 => "GuzzleHttp/6.5.3 curl/7.64.0 PHP/7.4.1"
+      ]
+      "Host" => array:1 [
+        0 => "graph.facebook.com"
+      ]
+    ]
+    -headerNames: array:2 [
+      "user-agent" => "User-Agent"
+      "host" => "Host"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#720
+      -stream: stream resource {@686
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 0
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -response: GuzzleHttp\Psr7\Response {#770
+    -reasonPhrase: "Forbidden"
+    -statusCode: 403
+    -headers: array:17 [
+      "x-app-usage" => array:1 [
+        0 => "{"call_count":63,"total_cputime":0,"total_time":113}"
+      ]
+      "WWW-Authenticate" => array:1 [
+        0 => "OAuth "Facebook Platform" "invalid_request" "(#4) Application request limit reached""
+      ]
+      "Content-Type" => array:1 [
+        0 => "text/javascript; charset=UTF-8"
+      ]
+      "facebook-api-version" => array:1 [
+        0 => "v5.0"
+      ]
+      "Strict-Transport-Security" => array:1 [
+        0 => "max-age=15552000; preload"
+      ]
+      "Pragma" => array:1 [
+        0 => "no-cache"
+      ]
+      "x-fb-rev" => array:1 [
+        0 => "1002306472"
+      ]
+      "Access-Control-Allow-Origin" => array:1 [
+        0 => "*"
+      ]
+      "Cache-Control" => array:1 [
+        0 => "no-store"
+      ]
+      "x-fb-trace-id" => array:1 [
+        0 => "A631qSJjDUD"
+      ]
+      "x-fb-request-id" => array:1 [
+        0 => "A1Jq3bzcTLO1pChTxf3Pgk7"
+      ]
+      "Expires" => array:1 [
+        0 => "Sat, 01 Jan 2000 00:00:00 GMT"
+      ]
+      "X-FB-Debug" => array:1 [
+        0 => "kDIm8qr01ey4lBGIfze0FVs2kDRct7rCDDZQEyOpbPcpDGBJKuL2zjoDob9yXZh3InK43EQGf7QK2+SnsC/VWw=="
+      ]
+      "Date" => array:1 [
+        0 => "Mon, 29 Jun 2020 19:05:42 GMT"
+      ]
+      "Alt-Svc" => array:1 [
+        0 => "h3-29=":443"; ma=3600,h3-27=":443"; ma=3600"
+      ]
+      "Connection" => array:1 [
+        0 => "keep-alive"
+      ]
+      "Content-Length" => array:1 [
+        0 => "154"
+      ]
+    ]
+    -headerNames: array:17 [
+      "x-app-usage" => "x-app-usage"
+      "www-authenticate" => "WWW-Authenticate"
+      "content-type" => "Content-Type"
+      "facebook-api-version" => "facebook-api-version"
+      "strict-transport-security" => "Strict-Transport-Security"
+      "pragma" => "Pragma"
+      "x-fb-rev" => "x-fb-rev"
+      "access-control-allow-origin" => "Access-Control-Allow-Origin"
+      "cache-control" => "Cache-Control"
+      "x-fb-trace-id" => "x-fb-trace-id"
+      "x-fb-request-id" => "x-fb-request-id"
+      "expires" => "Expires"
+      "x-fb-debug" => "X-FB-Debug"
+      "date" => "Date"
+      "alt-svc" => "Alt-Svc"
+      "connection" => "Connection"
+      "content-length" => "Content-Length"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#776
+      -stream: stream resource {@688
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 154
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -handlerContext: []
+  #message: """
+    Client error: `GET https://graph.facebook.com/v5.0/pages/search?q=workana&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce` resulted in a `403 Forbidden` response:\n
+    {"error":{"message":"(#4) Application request limit reached","type":"OAuthException","is_transient":true,"code":4,"fbtra (truncated...)\n
+    """
+  #code: 403
+  #file: "/home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php"
+  #line: 113
+  trace: {
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Middleware.php:65 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:203 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:156 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/TaskQueue.php:47 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:246 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:223 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:267 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:225 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:62 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:96 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:186 {
+      App\Jobs\SearchAPI->facebookApi($keyword)
+      ›     'access_token' => $app_token,
+      ›     'appsecret_proof' => $appsecret_proof
+      › )
+    }
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:164 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:49 { …}
+    App\Jobs\SearchAPI->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:94 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:128 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:104 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:98 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:49 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:88 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:337 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:283 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:102 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:86 { …}
+    Illuminate\Queue\Console\WorkCommand->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Command/Command.php:255 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:170 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:1001 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:271 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:147 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Application.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:133 { …}
+    /home/programmer/Downloads/gohundred/artisan:37 { …}
+  }
+}
+"Facebook search result data is added to DB successfully!"
+[2020-06-29 19:07:05][1] Processing: App\Jobs\SearchAPI
+"start"
+GuzzleHttp\Exception\ClientException {#775
+  -request: GuzzleHttp\Psr7\Request {#764
+    -method: "GET"
+    -requestTarget: null
+    -uri: GuzzleHttp\Psr7\Uri {#761
+      -scheme: "https"
+      -userInfo: ""
+      -host: "graph.facebook.com"
+      -port: null
+      -path: "/v5.0/pages/search"
+      -query: "q=gucci&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce"
+      -fragment: ""
+    }
+    -headers: array:2 [
+      "User-Agent" => array:1 [
+        0 => "GuzzleHttp/6.5.3 curl/7.64.0 PHP/7.4.1"
+      ]
+      "Host" => array:1 [
+        0 => "graph.facebook.com"
+      ]
+    ]
+    -headerNames: array:2 [
+      "user-agent" => "User-Agent"
+      "host" => "Host"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#763
+      -stream: stream resource {@610
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 0
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -response: GuzzleHttp\Psr7\Response {#771
+    -reasonPhrase: "Forbidden"
+    -statusCode: 403
+    -headers: array:17 [
+      "x-app-usage" => array:1 [
+        0 => "{"call_count":64,"total_cputime":0,"total_time":113}"
+      ]
+      "WWW-Authenticate" => array:1 [
+        0 => "OAuth "Facebook Platform" "invalid_request" "(#4) Application request limit reached""
+      ]
+      "Content-Type" => array:1 [
+        0 => "text/javascript; charset=UTF-8"
+      ]
+      "facebook-api-version" => array:1 [
+        0 => "v5.0"
+      ]
+      "Strict-Transport-Security" => array:1 [
+        0 => "max-age=15552000; preload"
+      ]
+      "Pragma" => array:1 [
+        0 => "no-cache"
+      ]
+      "x-fb-rev" => array:1 [
+        0 => "1002306472"
+      ]
+      "Access-Control-Allow-Origin" => array:1 [
+        0 => "*"
+      ]
+      "Cache-Control" => array:1 [
+        0 => "no-store"
+      ]
+      "x-fb-trace-id" => array:1 [
+        0 => "Eies7X17yPC"
+      ]
+      "x-fb-request-id" => array:1 [
+        0 => "Avlwne62njzhlOOkwPOsCPJ"
+      ]
+      "Expires" => array:1 [
+        0 => "Sat, 01 Jan 2000 00:00:00 GMT"
+      ]
+      "X-FB-Debug" => array:1 [
+        0 => "TZ2XclI464ldmaeUrqudqlS+Cu1VmM07ApfvMd4yJ/wZXwKPgpp5Wpr+A7RDzZaXLwveunIFxs/bNyaN6s9yAQ=="
+      ]
+      "Date" => array:1 [
+        0 => "Mon, 29 Jun 2020 19:07:08 GMT"
+      ]
+      "Alt-Svc" => array:1 [
+        0 => "h3-29=":443"; ma=3600,h3-27=":443"; ma=3600"
+      ]
+      "Connection" => array:1 [
+        0 => "keep-alive"
+      ]
+      "Content-Length" => array:1 [
+        0 => "154"
+      ]
+    ]
+    -headerNames: array:17 [
+      "x-app-usage" => "x-app-usage"
+      "www-authenticate" => "WWW-Authenticate"
+      "content-type" => "Content-Type"
+      "facebook-api-version" => "facebook-api-version"
+      "strict-transport-security" => "Strict-Transport-Security"
+      "pragma" => "Pragma"
+      "x-fb-rev" => "x-fb-rev"
+      "access-control-allow-origin" => "Access-Control-Allow-Origin"
+      "cache-control" => "Cache-Control"
+      "x-fb-trace-id" => "x-fb-trace-id"
+      "x-fb-request-id" => "x-fb-request-id"
+      "expires" => "Expires"
+      "x-fb-debug" => "X-FB-Debug"
+      "date" => "Date"
+      "alt-svc" => "Alt-Svc"
+      "connection" => "Connection"
+      "content-length" => "Content-Length"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#769
+      -stream: stream resource {@616
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 154
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -handlerContext: []
+  #message: """
+    Client error: `GET https://graph.facebook.com/v5.0/pages/search?q=gucci&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce` resulted in a `403 Forbidden` response:\n
+    {"error":{"message":"(#4) Application request limit reached","type":"OAuthException","is_transient":true,"code":4,"fbtra (truncated...)\n
+    """
+  #code: 403
+  #file: "/home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php"
+  #line: 113
+  trace: {
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Middleware.php:65 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:203 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:156 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/TaskQueue.php:47 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:246 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:223 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:267 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:225 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:62 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:96 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:186 {
+      App\Jobs\SearchAPI->facebookApi($keyword)
+      ›     'access_token' => $app_token,
+      ›     'appsecret_proof' => $appsecret_proof
+      › )
+    }
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:164 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:49 { …}
+    App\Jobs\SearchAPI->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:94 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:128 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:104 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:98 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:49 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:88 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:337 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:283 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:102 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:86 { …}
+    Illuminate\Queue\Console\WorkCommand->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Command/Command.php:255 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:170 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:1001 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:271 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:147 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Application.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:133 { …}
+    /home/programmer/Downloads/gohundred/artisan:37 { …}
+  }
+}
+"Facebook search result data is added to DB successfully!"
+GuzzleHttp\Exception\ClientException {#1271
+  -request: GuzzleHttp\Psr7\Request {#747
+    -method: "GET"
+    -requestTarget: null
+    -uri: GuzzleHttp\Psr7\Uri {#739
+      -scheme: "https"
+      -userInfo: ""
+      -host: "graph.facebook.com"
+      -port: null
+      -path: "/v5.0/pages/search"
+      -query: "q=workana&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce"
+      -fragment: ""
+    }
+    -headers: array:2 [
+      "User-Agent" => array:1 [
+        0 => "GuzzleHttp/6.5.3 curl/7.64.0 PHP/7.4.1"
+      ]
+      "Host" => array:1 [
+        0 => "graph.facebook.com"
+      ]
+    ]
+    -headerNames: array:2 [
+      "user-agent" => "User-Agent"
+      "host" => "Host"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#720
+      -stream: stream resource {@686
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 0
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -response: GuzzleHttp\Psr7\Response {#770
+    -reasonPhrase: "Forbidden"
+    -statusCode: 403
+    -headers: array:17 [
+      "x-app-usage" => array:1 [
+        0 => "{"call_count":64,"total_cputime":0,"total_time":114}"
+      ]
+      "WWW-Authenticate" => array:1 [
+        0 => "OAuth "Facebook Platform" "invalid_request" "(#4) Application request limit reached""
+      ]
+      "Content-Type" => array:1 [
+        0 => "text/javascript; charset=UTF-8"
+      ]
+      "facebook-api-version" => array:1 [
+        0 => "v5.0"
+      ]
+      "Strict-Transport-Security" => array:1 [
+        0 => "max-age=15552000; preload"
+      ]
+      "Pragma" => array:1 [
+        0 => "no-cache"
+      ]
+      "x-fb-rev" => array:1 [
+        0 => "1002306472"
+      ]
+      "Access-Control-Allow-Origin" => array:1 [
+        0 => "*"
+      ]
+      "Cache-Control" => array:1 [
+        0 => "no-store"
+      ]
+      "x-fb-trace-id" => array:1 [
+        0 => "EpsobZoxqpD"
+      ]
+      "x-fb-request-id" => array:1 [
+        0 => "A1ar4HRRT05xxcqy4MRO8JT"
+      ]
+      "Expires" => array:1 [
+        0 => "Sat, 01 Jan 2000 00:00:00 GMT"
+      ]
+      "X-FB-Debug" => array:1 [
+        0 => "sTAeVEg3WxQpc6cl3DEqjoyje37agGSsV1d5h3yzFJpElyGUjJbubzzQd6Fyn06Qo2UKZEDe7s9URzac+JNO0g=="
+      ]
+      "Date" => array:1 [
+        0 => "Mon, 29 Jun 2020 19:07:10 GMT"
+      ]
+      "Alt-Svc" => array:1 [
+        0 => "h3-29=":443"; ma=3600,h3-27=":443"; ma=3600"
+      ]
+      "Connection" => array:1 [
+        0 => "keep-alive"
+      ]
+      "Content-Length" => array:1 [
+        0 => "154"
+      ]
+    ]
+    -headerNames: array:17 [
+      "x-app-usage" => "x-app-usage"
+      "www-authenticate" => "WWW-Authenticate"
+      "content-type" => "Content-Type"
+      "facebook-api-version" => "facebook-api-version"
+      "strict-transport-security" => "Strict-Transport-Security"
+      "pragma" => "Pragma"
+      "x-fb-rev" => "x-fb-rev"
+      "access-control-allow-origin" => "Access-Control-Allow-Origin"
+      "cache-control" => "Cache-Control"
+      "x-fb-trace-id" => "x-fb-trace-id"
+      "x-fb-request-id" => "x-fb-request-id"
+      "expires" => "Expires"
+      "x-fb-debug" => "X-FB-Debug"
+      "date" => "Date"
+      "alt-svc" => "Alt-Svc"
+      "connection" => "Connection"
+      "content-length" => "Content-Length"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#776
+      -stream: stream resource {@688
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 154
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -handlerContext: []
+  #message: """
+    Client error: `GET https://graph.facebook.com/v5.0/pages/search?q=workana&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce` resulted in a `403 Forbidden` response:\n
+    {"error":{"message":"(#4) Application request limit reached","type":"OAuthException","is_transient":true,"code":4,"fbtra (truncated...)\n
+    """
+  #code: 403
+  #file: "/home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php"
+  #line: 113
+  trace: {
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Middleware.php:65 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:203 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:156 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/TaskQueue.php:47 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:246 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:223 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:267 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:225 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:62 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:96 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:186 {
+      App\Jobs\SearchAPI->facebookApi($keyword)
+      ›     'access_token' => $app_token,
+      ›     'appsecret_proof' => $appsecret_proof
+      › )
+    }
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:164 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:49 { …}
+    App\Jobs\SearchAPI->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:94 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:128 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:104 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:98 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:49 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:88 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:337 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:283 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:102 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:86 { …}
+    Illuminate\Queue\Console\WorkCommand->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Command/Command.php:255 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:170 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:1001 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:271 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:147 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Application.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:133 { …}
+    /home/programmer/Downloads/gohundred/artisan:37 { …}
+  }
+}
+"Facebook search result data is added to DB successfully!"
+"Tweets search result data is added to DB successfully!"
+[2020-06-29 19:08:35][1] Processing: App\Jobs\SearchAPI
+"start"
+GuzzleHttp\Exception\ClientException {#775
+  -request: GuzzleHttp\Psr7\Request {#764
+    -method: "GET"
+    -requestTarget: null
+    -uri: GuzzleHttp\Psr7\Uri {#761
+      -scheme: "https"
+      -userInfo: ""
+      -host: "graph.facebook.com"
+      -port: null
+      -path: "/v5.0/pages/search"
+      -query: "q=gucci&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce"
+      -fragment: ""
+    }
+    -headers: array:2 [
+      "User-Agent" => array:1 [
+        0 => "GuzzleHttp/6.5.3 curl/7.64.0 PHP/7.4.1"
+      ]
+      "Host" => array:1 [
+        0 => "graph.facebook.com"
+      ]
+    ]
+    -headerNames: array:2 [
+      "user-agent" => "User-Agent"
+      "host" => "Host"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#763
+      -stream: stream resource {@610
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 0
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -response: GuzzleHttp\Psr7\Response {#771
+    -reasonPhrase: "Forbidden"
+    -statusCode: 403
+    -headers: array:17 [
+      "x-app-usage" => array:1 [
+        0 => "{"call_count":65,"total_cputime":0,"total_time":114}"
+      ]
+      "WWW-Authenticate" => array:1 [
+        0 => "OAuth "Facebook Platform" "invalid_request" "(#4) Application request limit reached""
+      ]
+      "Content-Type" => array:1 [
+        0 => "text/javascript; charset=UTF-8"
+      ]
+      "facebook-api-version" => array:1 [
+        0 => "v5.0"
+      ]
+      "Strict-Transport-Security" => array:1 [
+        0 => "max-age=15552000; preload"
+      ]
+      "Pragma" => array:1 [
+        0 => "no-cache"
+      ]
+      "x-fb-rev" => array:1 [
+        0 => "1002306472"
+      ]
+      "Access-Control-Allow-Origin" => array:1 [
+        0 => "*"
+      ]
+      "Cache-Control" => array:1 [
+        0 => "no-store"
+      ]
+      "x-fb-trace-id" => array:1 [
+        0 => "G81Iuh498nw"
+      ]
+      "x-fb-request-id" => array:1 [
+        0 => "Alb4NMqb-ViLTDhwmTHz4Wi"
+      ]
+      "Expires" => array:1 [
+        0 => "Sat, 01 Jan 2000 00:00:00 GMT"
+      ]
+      "X-FB-Debug" => array:1 [
+        0 => "w4IOt7vL7N0pjzLXhGVw3BYhDzu3mcYiUWF/mGNYBAl62MV7eEwKEpr3FYmXNfkuUv3x3N1pgRBBC7pjMrjfFQ=="
+      ]
+      "Date" => array:1 [
+        0 => "Mon, 29 Jun 2020 19:08:38 GMT"
+      ]
+      "Alt-Svc" => array:1 [
+        0 => "h3-29=":443"; ma=3600,h3-27=":443"; ma=3600"
+      ]
+      "Connection" => array:1 [
+        0 => "keep-alive"
+      ]
+      "Content-Length" => array:1 [
+        0 => "154"
+      ]
+    ]
+    -headerNames: array:17 [
+      "x-app-usage" => "x-app-usage"
+      "www-authenticate" => "WWW-Authenticate"
+      "content-type" => "Content-Type"
+      "facebook-api-version" => "facebook-api-version"
+      "strict-transport-security" => "Strict-Transport-Security"
+      "pragma" => "Pragma"
+      "x-fb-rev" => "x-fb-rev"
+      "access-control-allow-origin" => "Access-Control-Allow-Origin"
+      "cache-control" => "Cache-Control"
+      "x-fb-trace-id" => "x-fb-trace-id"
+      "x-fb-request-id" => "x-fb-request-id"
+      "expires" => "Expires"
+      "x-fb-debug" => "X-FB-Debug"
+      "date" => "Date"
+      "alt-svc" => "Alt-Svc"
+      "connection" => "Connection"
+      "content-length" => "Content-Length"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#769
+      -stream: stream resource {@616
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 154
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -handlerContext: []
+  #message: """
+    Client error: `GET https://graph.facebook.com/v5.0/pages/search?q=gucci&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce` resulted in a `403 Forbidden` response:\n
+    {"error":{"message":"(#4) Application request limit reached","type":"OAuthException","is_transient":true,"code":4,"fbtra (truncated...)\n
+    """
+  #code: 403
+  #file: "/home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php"
+  #line: 113
+  trace: {
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Middleware.php:65 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:203 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:156 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/TaskQueue.php:47 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:246 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:223 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:267 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:225 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:62 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:96 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:186 {
+      App\Jobs\SearchAPI->facebookApi($keyword)
+      ›     'access_token' => $app_token,
+      ›     'appsecret_proof' => $appsecret_proof
+      › )
+    }
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:164 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:49 { …}
+    App\Jobs\SearchAPI->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:94 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:128 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:104 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:98 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:49 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:88 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:337 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:283 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:102 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:86 { …}
+    Illuminate\Queue\Console\WorkCommand->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Command/Command.php:255 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:170 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:1001 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:271 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:147 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Application.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:133 { …}
+    /home/programmer/Downloads/gohundred/artisan:37 { …}
+  }
+}
+"Facebook search result data is added to DB successfully!"
+"Tweets search result data is added to DB successfully!"
+GuzzleHttp\Exception\ClientException {#1271
+  -request: GuzzleHttp\Psr7\Request {#747
+    -method: "GET"
+    -requestTarget: null
+    -uri: GuzzleHttp\Psr7\Uri {#739
+      -scheme: "https"
+      -userInfo: ""
+      -host: "graph.facebook.com"
+      -port: null
+      -path: "/v5.0/pages/search"
+      -query: "q=workana&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce"
+      -fragment: ""
+    }
+    -headers: array:2 [
+      "User-Agent" => array:1 [
+        0 => "GuzzleHttp/6.5.3 curl/7.64.0 PHP/7.4.1"
+      ]
+      "Host" => array:1 [
+        0 => "graph.facebook.com"
+      ]
+    ]
+    -headerNames: array:2 [
+      "user-agent" => "User-Agent"
+      "host" => "Host"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#720
+      -stream: stream resource {@686
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 0
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -response: GuzzleHttp\Psr7\Response {#770
+    -reasonPhrase: "Forbidden"
+    -statusCode: 403
+    -headers: array:17 [
+      "x-app-usage" => array:1 [
+        0 => "{"call_count":65,"total_cputime":0,"total_time":114}"
+      ]
+      "WWW-Authenticate" => array:1 [
+        0 => "OAuth "Facebook Platform" "invalid_request" "(#4) Application request limit reached""
+      ]
+      "Content-Type" => array:1 [
+        0 => "text/javascript; charset=UTF-8"
+      ]
+      "facebook-api-version" => array:1 [
+        0 => "v5.0"
+      ]
+      "Strict-Transport-Security" => array:1 [
+        0 => "max-age=15552000; preload"
+      ]
+      "Pragma" => array:1 [
+        0 => "no-cache"
+      ]
+      "x-fb-rev" => array:1 [
+        0 => "1002306472"
+      ]
+      "Access-Control-Allow-Origin" => array:1 [
+        0 => "*"
+      ]
+      "Cache-Control" => array:1 [
+        0 => "no-store"
+      ]
+      "x-fb-trace-id" => array:1 [
+        0 => "D6gDSVM9lMA"
+      ]
+      "x-fb-request-id" => array:1 [
+        0 => "A6GBYH5pCnhDOd2VJ_UFRAi"
+      ]
+      "Expires" => array:1 [
+        0 => "Sat, 01 Jan 2000 00:00:00 GMT"
+      ]
+      "X-FB-Debug" => array:1 [
+        0 => "VdJ0OVr6mqRnL2dC+FUdHEGchXz5LVpts07hMCtKjJdjZG/N8nMlg4CAjtSUG26mUbAmtj2yK1zYUMwqINCdMA=="
+      ]
+      "Date" => array:1 [
+        0 => "Mon, 29 Jun 2020 19:08:40 GMT"
+      ]
+      "Alt-Svc" => array:1 [
+        0 => "h3-29=":443"; ma=3600,h3-27=":443"; ma=3600"
+      ]
+      "Connection" => array:1 [
+        0 => "keep-alive"
+      ]
+      "Content-Length" => array:1 [
+        0 => "154"
+      ]
+    ]
+    -headerNames: array:17 [
+      "x-app-usage" => "x-app-usage"
+      "www-authenticate" => "WWW-Authenticate"
+      "content-type" => "Content-Type"
+      "facebook-api-version" => "facebook-api-version"
+      "strict-transport-security" => "Strict-Transport-Security"
+      "pragma" => "Pragma"
+      "x-fb-rev" => "x-fb-rev"
+      "access-control-allow-origin" => "Access-Control-Allow-Origin"
+      "cache-control" => "Cache-Control"
+      "x-fb-trace-id" => "x-fb-trace-id"
+      "x-fb-request-id" => "x-fb-request-id"
+      "expires" => "Expires"
+      "x-fb-debug" => "X-FB-Debug"
+      "date" => "Date"
+      "alt-svc" => "Alt-Svc"
+      "connection" => "Connection"
+      "content-length" => "Content-Length"
+    ]
+    -protocol: "1.1"
+    -stream: GuzzleHttp\Psr7\Stream {#776
+      -stream: stream resource {@688
+        wrapper_type: "PHP"
+        stream_type: "TEMP"
+        mode: "w+b"
+        unread_bytes: 0
+        seekable: true
+        uri: "php://temp"
+        options: []
+      }
+      -size: 154
+      -seekable: true
+      -readable: true
+      -writable: true
+      -uri: "php://temp"
+      -customMetadata: []
+    }
+  }
+  -handlerContext: []
+  #message: """
+    Client error: `GET https://graph.facebook.com/v5.0/pages/search?q=workana&fields=id%2Cname%2Cverification_status%2Clocation%2Clink%2Cis_unclaimed%2Cis_eligible_for_branded_content&access_token=468172957238865%7CvjIasdxvpNwVSohQYCEwyUYNUEs&appsecret_proof=55311efcdcac1ca311ebe32b56761391abe01aa543a6de0916a5c538d69c8cce` resulted in a `403 Forbidden` response:\n
+    {"error":{"message":"(#4) Application request limit reached","type":"OAuthException","is_transient":true,"code":4,"fbtra (truncated...)\n
+    """
+  #code: 403
+  #file: "/home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php"
+  #line: 113
+  trace: {
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Middleware.php:65 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:203 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:156 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/TaskQueue.php:47 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:246 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:223 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:267 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:225 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/promises/src/Promise.php:62 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/guzzlehttp/guzzle/src/Client.php:96 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:186 {
+      App\Jobs\SearchAPI->facebookApi($keyword)
+      ›     'access_token' => $app_token,
+      ›     'appsecret_proof' => $appsecret_proof
+      › )
+    }
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:164 { …}
+    /home/programmer/Downloads/gohundred/app/Jobs/SearchAPI.php:49 { …}
+    App\Jobs\SearchAPI->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:94 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:128 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:104 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Bus/Dispatcher.php:98 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:49 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:88 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:337 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:283 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:102 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:86 { …}
+    Illuminate\Queue\Console\WorkCommand->handle() {}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:32 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:34 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Container/Container.php:576 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:183 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Command/Command.php:255 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Command.php:170 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:1001 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:271 { …}
+    /home/programmer/Downloads/gohundred/vendor/symfony/console/Application.php:147 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Console/Application.php:90 { …}
+    /home/programmer/Downloads/gohundred/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:133 { …}
+    /home/programmer/Downloads/gohundred/artisan:37 { …}
+  }
+}
+"Facebook search result data is added to DB successfully!"
+"Youtube data is added to DB successfully!"
+"Youtube data is added to DB successfully!"
+"Error occurred for:\r\nSearching 10 items exceeded free trial version limitation"
+"Tweets search result data is added to DB successfully!"
+"Error occurred for:\r\nSearching 10 items exceeded free trial version limitation"
+"Tweets search result data is added to DB successfully!"
+[2020-06-29 19:10:06][1] Processing: App\Jobs\SearchAPI
+[2020-06-29 19:10:06][1] Failed:     App\Jobs\SearchAPI
+[2020-06-29 19:18:35][1] Failed:     App\Jobs\SearchAPI
+"Youtube data is added to DB successfully!"
+PHP Fatal error:  Maximum execution time of 3000 seconds exceeded in /home/programmer/Downloads/gohundred/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOStatement.php on line 45
+
+In PDOStatement.php line 45:
+                                                   
+  Maximum execution time of 3000 seconds exceeded  
+                                                   
+
