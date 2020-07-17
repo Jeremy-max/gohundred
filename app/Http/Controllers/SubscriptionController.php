@@ -28,8 +28,9 @@ class SubscriptionController extends Controller
         $user->payment_status = "Linked with Stripe";
         $user->save();
 
-
-        // return redirect()->route('dashboard')->withSuccessMessage('Your plan subscribed successfully!');
+        if ($user->active == 1 ) {
+            return redirect()->route('dashboard')->withSuccessMessage('Your plan subscribed successfully!');
+        }
         return redirect()->route('trial');
     }
 

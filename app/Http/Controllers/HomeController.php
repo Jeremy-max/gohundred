@@ -13,17 +13,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Jobs\SearchAPI;
-use App\Notifications\NewCampaignAddedNotification;
 use App\Slack;
-use GuzzleHttp\Client;
 use App\Http\Repository\AdminUserTable;
 use App\Subscription;
 use DateTime;
 use DatePeriod;
 use DateInterval;
-use Exception;
-use Illuminate\Contracts\Session\Session;
-use PhpParser\Node\Stmt\TryCatch;
+use MichaelJWright\Comprehend\Comprehend;
 use Stevebauman\Location\Location;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
@@ -226,7 +222,7 @@ class HomeController extends Controller
       $index++;
     }
 
-    SearchAPI::dispatch($campaign);
+    SearchAPI::dispatch($campaign->id);
 
     return redirect()->route('campaignPage', [
         'keyword_id' => $keyword_id
@@ -280,8 +276,16 @@ class HomeController extends Controller
   public function getTableData(Request $request)
   {
     $keyword_id = $request->input('keyword_id');
-  //  $user_id = $request->user()->id;
+    // $lang = $request->input('language', null);
     $search_list = Keyword::where('id', $keyword_id)->first()->searches;
+    // if($lang){
+    //     $tr = new GoogleTranslate();
+    //     $tr->setTarget($lang);
+
+    //     foreach ($search_list as $item) {
+    //         $item->title = $tr->translate($item->title);
+    //     }
+    // }
     return $search_list->toJson();
   }
 
@@ -412,7 +416,7 @@ class HomeController extends Controller
         )
     );
 
-    SearchAPI::dispatch($campaign);
+    SearchAPI::dispatch($campaign_id);
 
     if(Search::all()->last()){
         $search_last = Search::all()->last()->id;
@@ -488,7 +492,7 @@ class HomeController extends Controller
     foreach ($job_table as $job){
         $jsonpayload = json_decode($job->payload);
         $data = unserialize($jsonpayload->data->command);
-        if($data->campaign->user_id == auth()->user()->id){
+        if(Campaign::find($data->campaign_id)->user_id == auth()->user()->id){
 
             return [
                 'status' => 'pending',
@@ -525,7 +529,7 @@ class HomeController extends Controller
             'Text' => $comments,
         ];
         try {
-            $jobSentiment = \Comprehend::detectSentiment($config);
+            $jobSentiment = Comprehend::detectSentiment($config);
             // dump($jobSentiment['Sentiment']);
             return $jobSentiment['Sentiment'];
         } catch (\Exception $e) {
@@ -535,112 +539,15 @@ class HomeController extends Controller
 
     public function phpinfo()
     {
-        // $comments = "I love you";
+        $comments = "O que é a TOPTAL e o que ela não é | André Hil Ep. 22";
         $tr = new GoogleTranslate();
-        $tr->setTarget('fr');
-        // $tr->setTarget('de');
-
-        dd($tr->translate("I am a freelancer"));
-        // dd($this->sentimentAnalysis($comments));
+        $tr->setTarget('en');
+        try {
+          dd($tr->translate($comments));
+        } catch (\Exception $th) {
+          dd($th->getMessage());
+        }
     }
 
-    public function twitterApi()
-  {
-    $consumer_key = env('CONSUMER_KEY');
-    $consumer_secret = env('CONSUMER_SECRET');
-    $access_token_key = env('ACCESS_TOKEN_KEY');
-    $access_token_secret = env('ACCESS_TOKEN_SECRET');
 
-    $connection = new TwitterOAuth(
-      $consumer_key,
-      $consumer_secret,
-      $access_token_key,
-      $access_token_secret
-    );
-
-      $limit_cnt = 10;
-      $params = [
-        'q' => "freelancer",
-        'count' => $limit_cnt,
-        'max_id' => null
-      ];
-      $tweets_db = [];
-      $sum = 0;
-     while(1)
-     {
-
-       try{
-          $tweets = $connection->get('search/tweets', $params);
-          if(isset($tweets->errors))
-          {
-            dump('Error occurred for rate limit exceeded free trial version limitation');
-            break;
-          }
-          else{
-            if($this->parseTweets($tweets,1))
-              $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,1));
-          }
-        } catch(\Exception $e) {
-          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
-          break;
-          //return false;
-        }
-        if(count($tweets->statuses) < $limit_cnt || $sum > 30){
-          break;
-        }
-        $params['max_id'] = $this->getMaxId($tweets);
-        $sum += $limit_cnt;
-      }
-      $this->addToDB($tweets_db);
-    dump("Tweets search result data is added to DB successfully!");
-      return $tweets_db;
-  }
-
-  public function parseTweets($tweets, $keyword_id) {
-    if(!isset($tweets->statuses))
-      return false;
-    $cnt = count($tweets->statuses);
-    $i = 0;
-    $table_tweets = [];
-    while ($i < $cnt)
-    {
-        $url = 'https://twitter.com/' . $tweets->statuses[$i]->user->screen_name . '/status/' . $tweets->statuses[$i]->id_str;
-        if(Search::where('url', $url)->first()){
-            continue;
-        }
-      $title = $tweets->statuses[$i]->text;
-      $date = $this->tweetsDateParse($tweets->statuses[$i]->created_at);
-      $value = [
-        'keyword_id' => $keyword_id,
-        'social_type' => 'twitter',
-        'title' => $this->parseTitle($title),
-        'date' => date($date),
-        'url' => $url,
-        'sentiment' => $this->sentimentAnalysis($tweets->statuses[$i]->text)
-      ];
-      array_push($table_tweets,$value);
-
-      $i++;
-    }
-    return $table_tweets;
-
-  }
-
-  public function getMaxId($tweets)
-  {
-    $startIdx = stripos($tweets->search_metadata->next_results, 'max_id=');
-    $maxidstr = substr($tweets->search_metadata->next_results, $startIdx + 7);
-    $endIdx = stripos($maxidstr, '&');
-    if ($endIdx != -1)
-      $maxidstr = substr($maxidstr, 0, $endIdx);
-
-    return (int)$maxidstr;
-  }
-
-  public function tweetsDateParse($str)
-  {
-    $date = date_create_from_format("D M d H:i:s O Y", $str);
-    $new_date = date_format($date,"Y-m-d");
-    return $new_date;
-  }
 }
