@@ -393,6 +393,10 @@ var KTDatatableJsonRemoteDemo = function () {
         	datatable.search($(this).val().toUpperCase(), 'sentiment');
         });
 
+        $('#kt_title_language').on('change', function() {
+        	datatable.search($(this).val().toLowerCase(), 'lang_type');
+        });
+
         $('.datepicker').datepicker({
             format: 'yyyy-mm-dd',
             startDate: '2019-11-11',

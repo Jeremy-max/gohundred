@@ -250,7 +250,7 @@
                                                 <option disabled>___________________________</option>
                                                 <option value="ar"> Arabic </option>
                                                 <option value="eu"> Basque </option>
-                                                <option value="zh"> Chinese </option>
+                                                <option value="zh-Hans"> Chinese </option>
                                                 <option value="cs"> Czech </option>
                                                 <option value="da"> Danish </option>
                                                 <option value="fi"> Finnish </option>
@@ -259,10 +259,10 @@
                                                 <option value="hu"> Hungarian </option>
                                                 <option value="id"> Indonesian </option>
                                                 <option value="it"> Italian </option>
+                                                <option value="ja"> Japanese </option>
                                                 <option value="ko"> Korean </option>
-                                                <option value="no"> Norwegian </option>
                                                 <option value="pl"> Polish </option>
-                                                <option value="pt"> Portuguese </option>
+                                                <option value="pt-PT"> Portuguese </option>
                                                 <option value="ro"> Romanian </option>
                                                 <option value="ru"> Russian </option>
                                                 <option value="sk"> Slovak </option>
