@@ -48,6 +48,7 @@ class YoutubeSearch extends Command
      */
     public function handle()
     {
+        dump("youtube start");
         $id = $this->argument('campaign_id');
         $campaign = Campaign::find($id);
         $youtube_array = $this->search_youtube($id);
@@ -59,6 +60,7 @@ class YoutubeSearch extends Command
                 $this->slack_repo->send_slack_message($slack_youtube_array, $slack);
             }
         }
+        dump("youtube end");
     }
 
     public function search_youtube($campaign_id)
@@ -76,10 +78,7 @@ class YoutubeSearch extends Command
   }
   public function youtubeApi($keyword)
   {
-//    dd('Hello, youtube!!');
-
     $DEVELOPER_KEY = env('API_KEY_YOUTUBE');
-  //  dd($DEVELOPER_KEY);
     $client = new Google_Client();
     $client->setDeveloperKey($DEVELOPER_KEY);
     // Define an object that will be used to make all API requests.
@@ -104,20 +103,18 @@ class YoutubeSearch extends Command
     $youtube_db = [];
      while(1)
      {
-
-
         try{
-
           $searchResponse = $youtube->search->listSearch('id,snippet', $params);
           $youtube_db = array_merge($youtube_db, $this->parseYoutube($searchResponse, $keyword->id));
-
         } catch(\Exception $e) {
-//          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+          dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+          dump($e->getMessage());
           break;
         }
 
-       if(count($searchResponse->items) < $limit_cnt || $sum > 10)
-         break;
+        if(count($searchResponse->items) < $limit_cnt || $sum > 10){
+          break;
+        }
 
         $params['pageToken'] = $searchResponse->nextPageToken;
         $sum += $limit_cnt;
@@ -149,13 +146,13 @@ class YoutubeSearch extends Command
             'title' => $title,
             'date' => date($date),
             'url' => $url,
-            'sentiment' => $this->search_repo->sentimentAnalysis($title)
+            'sentiment' => $this->search_repo->sentimentAnalysis($title),
+            'lang_type' => $this->search_repo->getLanguageType($title)
         ];
         array_push($tYoutube,$value);
     //      dump($value);
         $i++;
     }
-
     return $tYoutube;
   }
 }

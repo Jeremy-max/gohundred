@@ -6,6 +6,7 @@ use App\Campaign;
 use App\Http\Repository\SearchOptions;
 use App\Http\Repository\SlackNotify;
 use App\Keyword;
+use App\Queue;
 use App\Search;
 use App\Slack;
 use Illuminate\Console\Command;
@@ -47,10 +48,11 @@ class WebSearch extends Command
      */
     public function handle()
     {
+        
         $id = $this->argument('campaign_id');
         $campaign = Campaign::find($id);
         $web_array = $this->search_web($id);
-
+        
         $slack_list = Slack::where('campaign_id', $id)->get();
         if (Count($slack_list)) {
             $slack_web_array = $this->slack_repo->slack_wrapper($web_array, $campaign, "Google");
@@ -58,6 +60,7 @@ class WebSearch extends Command
                 $this->slack_repo->send_slack_message($slack_web_array, $slack);
             }
         }
+        $res = Queue::where('campaign_id', $id)->first()->delete();
     }
 
     public function search_web($campaign_id)
@@ -74,7 +77,6 @@ class WebSearch extends Command
     }
     public function webApi($keyword)
     {
-        // dd('Hello, web!!');
         $engineId = env('SEARCH_ENGINE_ID');
         $apiKey = env('API_KEY_WEB');
 
@@ -96,13 +98,15 @@ class WebSearch extends Command
         'dateRestrict' => 'y[$dateY],m[$dateM],d[$dateD]'
         ];
         $web_db = [];
+        dump("start google search");
         while(1)
         {
             try{
                 $results = $fulltext->getResults($keyword->keyword, $params);
                 $web_db = array_merge($web_db, $this->parseWeb($results, $keyword->id));
             } catch(\Exception $e) {
-            dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
+                dump('Error occurred for:\r\nSearching ' . $sumCnt . ' items exceeded free trial version limitation');
+                dump($e->getMessage());
                 break;
             }
 
@@ -110,13 +114,15 @@ class WebSearch extends Command
             // if(count($results) < $limit_cnt)
             //   break;
             if($sumCnt >= $limit_cnt)
+            {
                 break;
+            }
 
             $params['start'] = $params['start'] + 10;
             $sumCnt += 10;
         }
         Search::insert($web_db);
-        // dump("Google data is added to DB successfully!");
+        dump("Google data is added to DB successfully!");
 
         return $web_db;
     }
@@ -133,18 +139,20 @@ class WebSearch extends Command
                 $i++;
                 continue;
             }
-        $title = $this->search_repo->parseTitle($response[$i]->title);
-        $value = [
-            'keyword_id' => $keywordId,
-            'social_type' => 'web',
-            'title' => $title,
-            'date' => date('Y-m-d'),
-            'url' => $url,
-            'sentiment' => $this->search_repo->sentimentAnalysis($title)
-        ];
-        array_push($tWeb,$value);
-    //      dump($value);
-        $i++;
+            // $title = $this->search_repo->parseTitle($response[$i]->title);
+            $title = $response[$i]->title;
+            $value = [
+                'keyword_id' => $keywordId,
+                'social_type' => 'web',
+                'title' => $title,
+                'date' => date('Y-m-d'),
+                'url' => $url,
+                'sentiment' => $this->search_repo->sentimentAnalysis($title),
+                'lang_type' => $this->search_repo->getLanguageType($title)
+            ];
+            array_push($tWeb,$value);
+        //      dump($value);
+            $i++;
         }
         return $tWeb;
     }

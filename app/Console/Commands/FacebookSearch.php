@@ -46,6 +46,7 @@ class FacebookSearch extends Command
      */
     public function handle()
     {
+        dump("facebook start");
         $id = $this->argument('campaign_id');
         $campaign = Campaign::find($id);
         $facebook_array = $this->search_facebook($id);
@@ -57,6 +58,7 @@ class FacebookSearch extends Command
                 $this->slack_repo->send_slack_message($slack_facebook_array, $slack);
             }
         }
+        dump("facebook end");
     }
 
     public function search_facebook($campaign_id)
@@ -110,13 +112,13 @@ class FacebookSearch extends Command
                         $fb_db = array_merge($fb_db, $res);
                     }
                 } catch (\Exception $th) {
-                    dump($th);
+                    dump($th->getMessage());
                 }
                 $i++;
             }
             Search::insert($fb_db);
         } catch (\Exception $th) {
-            dump($th);
+            dump($th->getMessage());
         }
      dump("Facebook search result data is added to DB successfully!");
       return $fb_db;
@@ -159,7 +161,8 @@ class FacebookSearch extends Command
             'title' => $title,
             'date' => date($date_string),
             'url' => $url,
-            'sentiment' => $this->search_repo->sentimentAnalysis($title)
+            'sentiment' => $this->search_repo->sentimentAnalysis($title),
+            'lang_type' => $this->search_repo->getLanguageType($title)
         ];
         array_push($table_fb,$value);
 

@@ -15,13 +15,14 @@ use App\Http\Controllers\Controller;
 use App\Jobs\SearchAPI;
 use App\Slack;
 use App\Http\Repository\AdminUserTable;
+use App\Queue;
 use App\Subscription;
 use DateTime;
 use DatePeriod;
 use DateInterval;
+use LanguageDetection\Language;
 use MichaelJWright\Comprehend\Comprehend;
 use Stevebauman\Location\Location;
-use Stichoza\GoogleTranslate\GoogleTranslate;
 
 
 class HomeController extends Controller
@@ -222,8 +223,11 @@ class HomeController extends Controller
       $index++;
     }
 
+    $queue = new Queue();
+    $queue->campaign_id = $campaign->id;
+    $queue->save();
     SearchAPI::dispatch($campaign->id);
-
+    
     return redirect()->route('campaignPage', [
         'keyword_id' => $keyword_id
     ]);
@@ -416,6 +420,9 @@ class HomeController extends Controller
         )
     );
 
+    $queue = new Queue();
+    $queue->campaign_id = $campaign_id;
+    $queue->save();
     SearchAPI::dispatch($campaign_id);
 
     if(Search::all()->last()){
@@ -477,12 +484,11 @@ class HomeController extends Controller
 
   public function getJobStatus()
   {
-    $job_table = Job::all();
+    $job_table = Queue::all();
     if(Search::all()->last()){
         $search_last = Search::all()->last()->id;
     }
     else {
-
         $search_last = 0;
     }
     $fb_cnt = Search::where('social_type', 'facebook')->count();
@@ -490,9 +496,9 @@ class HomeController extends Controller
     $yt_cnt = Search::where('social_type', 'youtube')->count();
     $web_cnt = Search::where('social_type', 'web')->count();
     foreach ($job_table as $job){
-        $jsonpayload = json_decode($job->payload);
-        $data = unserialize($jsonpayload->data->command);
-        if(Campaign::find($data->campaign_id)->user_id == auth()->user()->id){
+        // $jsonpayload = json_decode($job->payload);
+        // $data = unserialize($jsonpayload->data->command);
+        if(Campaign::find($job->campaign_id)->user_id == auth()->user()->id){
 
             return [
                 'status' => 'pending',
@@ -539,14 +545,14 @@ class HomeController extends Controller
 
     public function phpinfo()
     {
-        $comments = "O que é a TOPTAL e o que ela não é | André Hil Ep. 22";
-        $tr = new GoogleTranslate();
-        $tr->setTarget('en');
-        try {
-          dd($tr->translate($comments));
-        } catch (\Exception $th) {
-          dd($th->getMessage());
-        }
+        $text = "";
+        // $detector = new \LanguageDetector\LanguageDetector();
+
+        // dd($detector->evaluate($text));
+ 
+        $ld = new Language;
+        
+        dd($ld->detect($text));
     }
 
 

@@ -237,7 +237,7 @@
 									</div>
 								</div>
 							</div>
-							{{-- <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+							<div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
 								<div class="kt-form__group kt-form__group--inline">
 									<div class="kt-form__label">
 										<label>Language:</label>
@@ -271,14 +271,14 @@
                                                 <option value="th"> Thai </option>
                                                 <option value="tr"> Turkish </option>
                                                 <option value="vi"> Vietnames </option>
-											@foreach ($langs as $ac => $label)
+											{{-- @foreach ($langs as $ac => $label)
 												<option value="{{ $ac }}">{{ $label }}</option>
-											@endforeach
+											@endforeach --}}
 											</select>
 										</div>
 									</div>
 								</div>
-							</div> --}}
+							</div>
 						</div>
 					</div>
 					<!--end: Search Form-->

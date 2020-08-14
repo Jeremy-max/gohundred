@@ -47,11 +47,30 @@ class SearchAPI implements ShouldQueue
     {
         dump('start');
 
-        Artisan::call('search:facebook', ['campaign_id' => $this->campaign_id]);
-        Artisan::call('search:twitter', ['campaign_id' => $this->campaign_id]);
-        Artisan::call('search:youtube', ['campaign_id' => $this->campaign_id]);
-        Artisan::call('search:google', ['campaign_id' => $this->campaign_id]);
-
+        try {
+            Artisan::call('search:facebook', ['campaign_id' => $this->campaign_id]);
+        } catch (\Exception $e) {
+            dump($e->getMessage());
+        }
+        dump(' end facebook job ');
+        try {
+            Artisan::call('search:twitter', ['campaign_id' => $this->campaign_id]);
+        } catch (\Exception $e) {
+            dump($e->getMessage());
+        }
+        dump(' end twitter job ');
+        try {
+            Artisan::call('search:youtube', ['campaign_id' => $this->campaign_id]);
+        } catch (\Exception $e) {
+            dump($e->getMessage());
+        }
+        dump(' end youtube job ');
+        try {
+            Artisan::call('search:google', ['campaign_id' => $this->campaign_id]);
+        } catch (\Exception $e) {
+            dump($e->getMessage());
+        }
+        dump(' end google job ');
         dump('end');
 
         // $slack_facebook_array = $this->slack_wrapper($facebook_array, $this->campaign->campaign, "Facebook");

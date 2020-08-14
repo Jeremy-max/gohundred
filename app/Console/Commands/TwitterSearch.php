@@ -94,30 +94,31 @@ class TwitterSearch extends Command
             'max_id' => null
         ];
     //    $tweets = $connection->get('search/tweets', $params);
-    //    dd($tweets);
         $tweets_db = [];
         $sum = 0;
         while(1)
         {
 
-        try{
-            $tweets = $connection->get('search/tweets', $params);
-            if(isset($tweets->errors))
-            {
-                dump('Error occurred for rate limit exceeded free trial version limitation');
-                break;
-            }
-            else{
-                if($this->parseTweets($tweets,$keyword->id))
-                $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
-            }
+            try{
+                $tweets = $connection->get('search/tweets', $params);
+                if(isset($tweets->errors))
+                {
+                    dump('Error occurred for rate limit exceeded free trial version limitation');
+                    break;
+                }
+                else{
+                    if($this->parseTweets($tweets,$keyword->id)){
+                        $tweets_db = array_merge($tweets_db, $this->parseTweets($tweets,$keyword->id));
+                    }
+                }
             } catch(\Exception $e) {
-            dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
-            break;
-            //return false;
+                dump('Error occurred for:\r\nSearching ' . $limit_cnt . ' items exceeded free trial version limitation');
+                dump($e->getMessage());
+                break;
+                //return false;
             }
             if(count($tweets->statuses) < $limit_cnt || $sum > 30){
-            break;
+                break;
             }
             $params['max_id'] = $this->getMaxId($tweets);
             $sum += $limit_cnt;
@@ -148,7 +149,8 @@ class TwitterSearch extends Command
             'title' => $title,
             'date' => date($date),
             'url' => $url,
-            'sentiment' => $this->search_repo->sentimentAnalysis($title)
+            'sentiment' => $this->search_repo->sentimentAnalysis($title),
+            'lang_type' => $this->search_repo->getLanguageType($title)
         ];
         array_push($table_tweets,$value);
 
